@@ -45,7 +45,7 @@
             labelDescripcionSubtarea = new Label();
             comboBoxUsuariosSubTarea = new ComboBox();
             labelUsuariosSubtareas = new Label();
-            dateTimePicker1 = new DateTimePicker();
+            dateTimePickerSubTareaEntrega = new DateTimePicker();
             labelFechaFin = new Label();
             dateTimePickerFechaInicioSubtarea = new DateTimePicker();
             labelFechaInicioSubTarea = new Label();
@@ -226,7 +226,7 @@
             groupBoxSubtareas.Controls.Add(labelDescripcionSubtarea);
             groupBoxSubtareas.Controls.Add(comboBoxUsuariosSubTarea);
             groupBoxSubtareas.Controls.Add(labelUsuariosSubtareas);
-            groupBoxSubtareas.Controls.Add(dateTimePicker1);
+            groupBoxSubtareas.Controls.Add(dateTimePickerSubTareaEntrega);
             groupBoxSubtareas.Controls.Add(labelFechaFin);
             groupBoxSubtareas.Controls.Add(dateTimePickerFechaInicioSubtarea);
             groupBoxSubtareas.Controls.Add(labelFechaInicioSubTarea);
@@ -276,13 +276,13 @@
             labelUsuariosSubtareas.TabIndex = 21;
             labelUsuariosSubtareas.Text = "Usuarios";
             // 
-            // dateTimePicker1
+            // dateTimePickerSubTareaEntrega
             // 
-            dateTimePicker1.Location = new Point(176, 192);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(236, 23);
-            dateTimePicker1.TabIndex = 20;
-            dateTimePicker1.Value = new DateTime(2025, 10, 16, 16, 42, 9, 0);
+            dateTimePickerSubTareaEntrega.Location = new Point(176, 192);
+            dateTimePickerSubTareaEntrega.Name = "dateTimePickerSubTareaEntrega";
+            dateTimePickerSubTareaEntrega.Size = new Size(236, 23);
+            dateTimePickerSubTareaEntrega.TabIndex = 20;
+            dateTimePickerSubTareaEntrega.Value = new DateTime(2025, 10, 16, 16, 42, 9, 0);
             // 
             // labelFechaFin
             // 
@@ -402,6 +402,7 @@
             buttonSubTarea.TabIndex = 10;
             buttonSubTarea.Text = "Nueva Tarea";
             buttonSubTarea.UseVisualStyleBackColor = false;
+            buttonSubTarea.Click += buttonSubTarea_Click;
             // 
             // comboBoxSubTareas
             // 
@@ -410,6 +411,7 @@
             comboBoxSubTareas.Name = "comboBoxSubTareas";
             comboBoxSubTareas.Size = new Size(209, 23);
             comboBoxSubTareas.TabIndex = 9;
+            comboBoxSubTareas.SelectedIndexChanged += comboBoxSubTareas_SelectedIndexChanged;
             // 
             // labelEstado
             // 
@@ -583,7 +585,7 @@
         private RadioButton radioButtonEnProceso;
         private RadioButton radioButtonPendiente;
         private Label labelFechaInicioSubTarea;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker dateTimePickerSubTareaEntrega;
         private Label labelFechaFin;
         private DateTimePicker dateTimePickerFechaInicioSubtarea;
         private Label labelUsuariosSubtareas;
