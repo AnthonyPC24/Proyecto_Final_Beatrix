@@ -32,28 +32,28 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panel1 = new Panel();
-            pictureBox1 = new PictureBox();
             btnReunion = new Button();
             btnTareas = new Button();
             btnInicio = new Button();
             btnProyectos = new Button();
-            button1 = new Button();
-            textBox1 = new TextBox();
-            label1 = new Label();
+            btnBuscar = new Button();
+            txtBuscarProyecto = new TextBox();
             button2 = new Button();
             dataGridViewTarea = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
             ColumnUsuario = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
+            btnEliminar = new Button();
+            button4 = new Button();
+            labelBeatrix = new Label();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewTarea).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(41, 191, 205);
-            panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(labelBeatrix);
             panel1.Controls.Add(btnReunion);
             panel1.Controls.Add(btnTareas);
             panel1.Controls.Add(btnInicio);
@@ -64,17 +64,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(219, 681);
             panel1.TabIndex = 7;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
-            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox1.Location = new Point(23, 93);
-            pictureBox1.Margin = new Padding(3, 2, 3, 2);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(170, 156);
-            pictureBox1.TabIndex = 5;
-            pictureBox1.TabStop = false;
             // 
             // btnReunion
             // 
@@ -118,48 +107,37 @@
             // 
             // btnProyectos
             // 
+            btnProyectos.BackColor = Color.FromArgb(41, 191, 205);
             btnProyectos.Font = new Font("Montserrat SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnProyectos.ForeColor = Color.FromArgb(41, 191, 205);
+            btnProyectos.ForeColor = Color.White;
             btnProyectos.Location = new Point(12, 323);
             btnProyectos.Margin = new Padding(3, 2, 3, 2);
             btnProyectos.Name = "btnProyectos";
             btnProyectos.Size = new Size(186, 53);
             btnProyectos.TabIndex = 2;
             btnProyectos.Text = "Proyectos";
-            btnProyectos.UseVisualStyleBackColor = true;
+            btnProyectos.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // btnBuscar
             // 
-            button1.BackColor = Color.FromArgb(41, 191, 205);
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(457, 21);
-            button1.Margin = new Padding(3, 2, 3, 2);
-            button1.Name = "button1";
-            button1.Size = new Size(92, 31);
-            button1.TabIndex = 8;
-            button1.Text = "Buscar";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            btnBuscar.BackColor = Color.FromArgb(41, 191, 205);
+            btnBuscar.ForeColor = Color.White;
+            btnBuscar.Location = new Point(457, 21);
+            btnBuscar.Margin = new Padding(3, 2, 3, 2);
+            btnBuscar.Name = "btnBuscar";
+            btnBuscar.Size = new Size(92, 31);
+            btnBuscar.TabIndex = 8;
+            btnBuscar.Text = "Buscar";
+            btnBuscar.UseVisualStyleBackColor = false;
+            btnBuscar.Click += button1_Click;
             // 
-            // textBox1
+            // txtBuscarProyecto
             // 
-            textBox1.BackColor = Color.FromArgb(224, 224, 224);
-            textBox1.Location = new Point(266, 26);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(185, 23);
-            textBox1.TabIndex = 9;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.FromArgb(41, 191, 205);
-            label1.Location = new Point(266, 93);
-            label1.Name = "label1";
-            label1.Size = new Size(103, 18);
-            label1.TabIndex = 11;
-            label1.Text = "+ Crear Proyeto";
-            label1.Click += label1_Click;
+            txtBuscarProyecto.BackColor = Color.FromArgb(224, 224, 224);
+            txtBuscarProyecto.Location = new Point(266, 26);
+            txtBuscarProyecto.Name = "txtBuscarProyecto";
+            txtBuscarProyecto.Size = new Size(185, 23);
+            txtBuscarProyecto.TabIndex = 9;
             // 
             // button2
             // 
@@ -194,9 +172,10 @@
             dataGridViewTarea.RowHeadersWidth = 51;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewTarea.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            dataGridViewTarea.Size = new Size(973, 413);
+            dataGridViewTarea.Size = new Size(973, 345);
             dataGridViewTarea.TabIndex = 18;
             dataGridViewTarea.CellContentClick += dataGridViewTarea_CellContentClick;
+            dataGridViewTarea.SelectionChanged += dataGridViewTarea_SelectionChanged;
             // 
             // Column1
             // 
@@ -217,23 +196,64 @@
             Column2.Name = "Column2";
             Column2.ReadOnly = true;
             // 
+            // btnEliminar
+            // 
+            btnEliminar.BackColor = Color.FromArgb(192, 0, 0);
+            btnEliminar.Enabled = false;
+            btnEliminar.Font = new Font("Montserrat SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEliminar.ForeColor = Color.White;
+            btnEliminar.Location = new Point(457, 97);
+            btnEliminar.Margin = new Padding(3, 2, 3, 2);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(128, 32);
+            btnEliminar.TabIndex = 6;
+            btnEliminar.Text = "Eliminar";
+            btnEliminar.UseVisualStyleBackColor = false;
+            btnEliminar.Click += btnEliminar_Click;
+            // 
+            // button4
+            // 
+            button4.BackColor = Color.FromArgb(41, 191, 205);
+            button4.Font = new Font("Montserrat SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button4.ForeColor = Color.White;
+            button4.Location = new Point(266, 97);
+            button4.Margin = new Padding(3, 2, 3, 2);
+            button4.Name = "button4";
+            button4.Size = new Size(172, 32);
+            button4.TabIndex = 19;
+            button4.Text = "+ Crear Proyecto";
+            button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click_1;
+            // 
+            // labelBeatrix
+            // 
+            labelBeatrix.AutoSize = true;
+            labelBeatrix.Font = new Font("Montserrat Black", 17.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelBeatrix.ForeColor = Color.Transparent;
+            labelBeatrix.Location = new Point(12, 26);
+            labelBeatrix.Name = "labelBeatrix";
+            labelBeatrix.Size = new Size(112, 38);
+            labelBeatrix.TabIndex = 5;
+            labelBeatrix.Text = "Beatrix";
+            // 
             // FormProyectosGerard1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1264, 681);
+            Controls.Add(button4);
+            Controls.Add(btnEliminar);
             Controls.Add(dataGridViewTarea);
             Controls.Add(button2);
-            Controls.Add(label1);
-            Controls.Add(textBox1);
-            Controls.Add(button1);
+            Controls.Add(txtBuscarProyecto);
+            Controls.Add(btnBuscar);
             Controls.Add(panel1);
             Name = "FormProyectosGerard1";
             Text = "FormProyectosGerard1";
             Load += FormProyectosGerard1_Load_1;
             panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewTarea).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -246,14 +266,15 @@
         private Button btnTareas;
         private Button btnInicio;
         private Button btnProyectos;
-        private Button button1;
-        private TextBox textBox1;
-        private Label label1;
+        private Button btnBuscar;
+        private TextBox txtBuscarProyecto;
         private Button button2;
         private DataGridView dataGridViewTarea;
-        private PictureBox pictureBox1;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn ColumnUsuario;
         private DataGridViewTextBoxColumn Column2;
+        private Button btnEliminar;
+        private Button button4;
+        private Label labelBeatrix;
     }
 }
