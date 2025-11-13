@@ -13,10 +13,16 @@
     <Compile Update="FormProyectosGerard2.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="FormProyectosGerard3.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="FormReunionesDy1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FormReunionesDy2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormSubTareasTho.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FormTareasTho1.cs">

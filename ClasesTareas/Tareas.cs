@@ -15,5 +15,6 @@ namespace Beatrix_Formulario.ClasesTareas
         public string estado { get; set; }
 
         public List<Usuarios> usuariosAsignados { get; set; } = new List<Usuarios>();
+        public List<SubTareas> SubTareas { get; set; } = new List<SubTareas>();
     }
 }
