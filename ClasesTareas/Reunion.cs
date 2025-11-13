@@ -12,5 +12,7 @@ namespace Beatrix_Formulario.ClasesTareas
         public DateTime fechaHora { get; set; }
         public List<string> usuariosReuniones { get; set; }
         public string descripcion { get; set; }
+
+        public bool completado { get; set; }
     }
 }
