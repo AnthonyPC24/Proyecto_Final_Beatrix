@@ -32,6 +32,7 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panel1 = new Panel();
+            labelBeatrix = new Label();
             btnReunion = new Button();
             btnTareas = new Button();
             btnInicio = new Button();
@@ -45,7 +46,6 @@
             Column2 = new DataGridViewTextBoxColumn();
             btnEliminar = new Button();
             button4 = new Button();
-            labelBeatrix = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewTarea).BeginInit();
             SuspendLayout();
@@ -64,6 +64,17 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(219, 681);
             panel1.TabIndex = 7;
+            // 
+            // labelBeatrix
+            // 
+            labelBeatrix.AutoSize = true;
+            labelBeatrix.Font = new Font("Montserrat Black", 17.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelBeatrix.ForeColor = Color.Transparent;
+            labelBeatrix.Location = new Point(12, 26);
+            labelBeatrix.Name = "labelBeatrix";
+            labelBeatrix.Size = new Size(112, 38);
+            labelBeatrix.TabIndex = 5;
+            labelBeatrix.Text = "Beatrix";
             // 
             // btnReunion
             // 
@@ -175,6 +186,7 @@
             dataGridViewTarea.Size = new Size(973, 345);
             dataGridViewTarea.TabIndex = 18;
             dataGridViewTarea.CellContentClick += dataGridViewTarea_CellContentClick;
+            dataGridViewTarea.CellDoubleClick += dataGridViewTarea_CellDoubleClick;
             dataGridViewTarea.SelectionChanged += dataGridViewTarea_SelectionChanged;
             // 
             // Column1
@@ -224,17 +236,6 @@
             button4.Text = "+ Crear Proyecto";
             button4.UseVisualStyleBackColor = false;
             button4.Click += button4_Click_1;
-            // 
-            // labelBeatrix
-            // 
-            labelBeatrix.AutoSize = true;
-            labelBeatrix.Font = new Font("Montserrat Black", 17.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelBeatrix.ForeColor = Color.Transparent;
-            labelBeatrix.Location = new Point(12, 26);
-            labelBeatrix.Name = "labelBeatrix";
-            labelBeatrix.Size = new Size(112, 38);
-            labelBeatrix.TabIndex = 5;
-            labelBeatrix.Text = "Beatrix";
             // 
             // FormProyectosGerard1
             // 

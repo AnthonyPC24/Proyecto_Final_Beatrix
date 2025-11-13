@@ -81,16 +81,45 @@ namespace Beatrix_Formulario
         private void AgregarFilaAGrid(Proyectos proyecto)
         {
             string usuariosStr = "N/A";
+            DateTime fechaEntregaFinal = DateTime.MinValue; // Un valor inicial bajo
 
-            if (proyecto.UsuariosAsignados != null && proyecto.UsuariosAsignados.Any())
+            // --- 1. Procesar Usuarios Agregados ---
+            // Comprobamos que el proyecto tenga tareas
+            if (proyecto.Tareas != null && proyecto.Tareas.Any())
             {
-                usuariosStr = string.Join(", ", proyecto.UsuariosAsignados.Select(u => u.nombreUsuario));
+                // Usamos SelectMany para "aplanar" todas las listas de usuarios de todas las tareas
+                // en una sola gran lista.
+                // Luego seleccionamos el nombreUsuario.
+                // Usamos Distinct() para evitar nombres repetidos.
+                var todosLosUsuarios = proyecto.Tareas
+                    .SelectMany(tarea => tarea.usuariosAsignados ?? new List<Usuarios>()) // Aplanamos y evitamos nulls
+                    .Select(usuario => usuario.nombreUsuario)
+                    .Distinct();
+
+                if (todosLosUsuarios.Any())
+                {
+                    usuariosStr = string.Join(", ", todosLosUsuarios);
+                }
             }
 
+            // --- 2. Procesar Fecha de Entrega ---
+            // Buscamos la fecha de entrega más lejana (Max) de todas las tareas
+            if (proyecto.Tareas != null && proyecto.Tareas.Any())
+            {
+                // Nos aseguramos de que haya tareas con fechas válidas antes de buscar el Max
+                var fechasValidas = proyecto.Tareas.Select(t => t.fechaEntrega).Where(d => d > DateTime.MinValue);
+                if (fechasValidas.Any())
+                {
+                    fechaEntregaFinal = fechasValidas.Max();
+                }
+            }
+
+            // --- 3. Agregar la fila con los datos procesados ---
             dataGridViewTarea.Rows.Add(
                 proyecto.NombreProyecto,
                 usuariosStr,
-                proyecto.fechaEntrega.ToShortDateString()
+                // Mostramos la fecha final solo si encontramos una válida
+                fechaEntregaFinal > DateTime.MinValue ? fechaEntregaFinal.ToShortDateString() : "N/A"
             );
         }
 
@@ -246,6 +275,27 @@ namespace Beatrix_Formulario
             catch (Exception ex)
             {
                 MessageBox.Show($"Error al guardar los cambios en JSON: {ex.Message}");
+            }
+        }
+
+        private void dataGridViewTarea_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return; // Ignorar cabecera
+
+            try
+            {
+                // 1. Obtener el nombre (string)
+                string nombreProyecto = dataGridViewTarea.Rows[e.RowIndex].Cells[0].Value.ToString();
+
+                // 2. Abrir Form3 pasándole el nombre
+                using (FormProyectosGerard3 formDetalle = new FormProyectosGerard3(nombreProyecto))
+                {
+                    formDetalle.ShowDialog();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al abrir el detalle del proyecto: {ex.Message}");
             }
         }
     }
