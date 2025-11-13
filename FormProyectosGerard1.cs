@@ -176,7 +176,12 @@ namespace Beatrix_Formulario
             }
         }
         private void btnReunion_Click(object sender, EventArgs e) { }
-        private void btnTareas_Click(object sender, EventArgs e) { }
+        private void btnTareas_Click(object sender, EventArgs e)
+        {
+            FormTareasTho1 formTareasTho1 = new FormTareasTho1();
+            formTareasTho1.ShowDialog();
+            this.Hide();
+        }
         private void button4_Click(object sender, EventArgs e) { }
         private void dataGridViewTarea_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
 
@@ -297,6 +302,20 @@ namespace Beatrix_Formulario
             {
                 MessageBox.Show($"Error al abrir el detalle del proyecto: {ex.Message}");
             }
+        }
+
+        private void btnInicio_Click(object sender, EventArgs e)
+        {
+            Inicio inicio = new Inicio();
+            inicio.Show();
+            this.Hide();
+        }
+
+        private void btnReunion_Click_1(object sender, EventArgs e)
+        {
+            FormReunionesDy1 formReunionesDy1 = new FormReunionesDy1();
+            formReunionesDy1.Show();
+            this.Hide();
         }
     }
 }

@@ -88,6 +88,7 @@
             btnReunion.TabIndex = 4;
             btnReunion.Text = "Reuniones";
             btnReunion.UseVisualStyleBackColor = false;
+            btnReunion.Click += btnReunion_Click_1;
             // 
             // btnTareas
             // 
@@ -115,6 +116,7 @@
             btnInicio.TabIndex = 1;
             btnInicio.Text = "Inicio";
             btnInicio.UseVisualStyleBackColor = false;
+            btnInicio.Click += btnInicio_Click;
             // 
             // btnProyectos
             // 
