@@ -163,7 +163,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Montserrat ExtraBold", 20.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.Black;
+            label1.ForeColor = Color.Transparent;
             label1.Location = new Point(294, 9);
             label1.Name = "label1";
             label1.Size = new Size(203, 42);
@@ -182,7 +182,7 @@
             // 
             // buttonCrearNuevaTarea
             // 
-            buttonCrearNuevaTarea.BackColor = Color.White;
+            buttonCrearNuevaTarea.BackColor = Color.FromArgb(41, 195, 205);
             buttonCrearNuevaTarea.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold);
             buttonCrearNuevaTarea.Location = new Point(713, 415);
             buttonCrearNuevaTarea.Name = "buttonCrearNuevaTarea";
@@ -194,7 +194,7 @@
             // 
             // buttonCancelarTarea
             // 
-            buttonCancelarTarea.BackColor = Color.White;
+            buttonCancelarTarea.BackColor = Color.FromArgb(245, 168, 125);
             buttonCancelarTarea.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold);
             buttonCancelarTarea.Location = new Point(632, 415);
             buttonCancelarTarea.Name = "buttonCancelarTarea";

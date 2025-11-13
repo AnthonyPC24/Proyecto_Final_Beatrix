@@ -160,7 +160,7 @@ namespace Beatrix_Formulario
                 string proyectosActualizadosJson = JsonSerializer.Serialize(listaProyectos, new JsonSerializerOptions { WriteIndented = true });
                 File.WriteAllText(rutaArchivoProyecto, proyectosActualizadosJson);
 
-                MessageBox.Show("Subtarea creada correctamente y guardada en el JSON.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Subtarea creada correctamente y guardada.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }

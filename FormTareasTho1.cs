@@ -234,10 +234,123 @@ namespace Beatrix_Formulario
             inicio.Show();
             this.Hide();
         }
-
+        private void buttonProyetos1Tareas_Click(object sender, EventArgs e)
+        {
+            FormProyectosGerard1 proyectosForm = new FormProyectosGerard1();
+            proyectosForm.Show();
+            this.Hide();
+        }
+        private void buttonReuniones1Tareas_Click(object sender, EventArgs e)
+        {
+            FormReunionesDy1 reunionesForm = new FormReunionesDy1();
+            reunionesForm.Show();
+            this.Hide();
+        }
         private void buttonBuscarNombreProyecto_Click(object sender, EventArgs e)
         {
+            string textoBusqueda = textBoxBuscarNombreProyecto.Text.Trim();
 
+            if (string.IsNullOrWhiteSpace(textoBusqueda))
+            {
+                MessageBox.Show("Introduce un nombre de proyecto para buscar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            // Buscar el proyecto en la lista
+            Proyectos proyectoEncontrado = listaProyectos
+                .FirstOrDefault(p => p.NombreProyecto.IndexOf(textoBusqueda, StringComparison.OrdinalIgnoreCase) >= 0);
+
+            if (proyectoEncontrado != null)
+            {
+                // Asegurarse de que el comboBox no es null y contiene el proyecto
+                if (comboBoxProyectos != null && comboBoxProyectos.Items.Count > 0)
+                {
+                    int index = comboBoxProyectos.Items.IndexOf(proyectoEncontrado.NombreProyecto);
+                    if (index >= 0)
+                    {
+                        comboBoxProyectos.SelectedIndex = index;
+                    }
+                }
+
+                // Actualizar el comboBoxTareas para que muestre solo las tareas del proyecto encontrado
+                comboBoxTareas.Items.Clear();
+                comboBoxSubTareas.Items.Clear(); // Limpiamos subtareas también
+                if (proyectoEncontrado.Tareas != null && proyectoEncontrado.Tareas.Count > 0)
+                {
+                    foreach (var tarea in proyectoEncontrado.Tareas)
+                        comboBoxTareas.Items.Add(tarea.nombreTarea);
+                }
+
+                // seleccionar la primera tarea si existe
+                if (comboBoxTareas.Items.Count > 0)
+                    comboBoxTareas.SelectedIndex = 0;
+            }
+            else
+            {
+                MessageBox.Show($"No se encontró ningún proyecto que contenga '{textoBusqueda}'.", "No encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Limpiar los comboBox si no hay coincidencias
+                comboBoxProyectos.SelectedIndex = -1;
+                comboBoxTareas.Items.Clear();
+                comboBoxSubTareas.Items.Clear();
+            }
+
+        }
+
+        private void comboBoxEstadosTarea_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            string nombreProyecto = comboBoxProyectos.SelectedItem?.ToString();
+            string nombreTarea = comboBoxTareas.SelectedItem?.ToString();
+
+            if (string.IsNullOrEmpty(nombreProyecto) || string.IsNullOrEmpty(nombreTarea))
+                return;
+
+            try
+            {
+                // Ruta del JSON
+                string rutaArchivoProyecto = Path.GetFullPath(
+                    Path.Combine(Application.StartupPath, @"..\..\..\JSON\Proyectos.json")
+                );
+
+                if (!File.Exists(rutaArchivoProyecto))
+                {
+                    MessageBox.Show("No se encontró el archivo JSON de proyectos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Leer JSON completo
+                string jsonProyectos = File.ReadAllText(rutaArchivoProyecto);
+                var listaProyectos = JsonSerializer.Deserialize<List<Proyectos>>(jsonProyectos, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+
+                if (listaProyectos == null)
+                {
+                    MessageBox.Show("No se pudieron cargar los proyectos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Buscar proyecto y tarea
+                var proyectoSeleccionado = listaProyectos.FirstOrDefault(p => p.NombreProyecto == nombreProyecto);
+                if (proyectoSeleccionado == null) return;
+
+                var tareaSeleccionada = proyectoSeleccionado.Tareas.FirstOrDefault(t => t.nombreTarea == nombreTarea);
+                if (tareaSeleccionada == null) return;
+
+                // Actualizar estado
+                string nuevoEstado = comboBoxEstadosTarea.SelectedItem?.ToString();
+                if (string.IsNullOrEmpty(nuevoEstado)) return;
+
+                tareaSeleccionada.estado = nuevoEstado;
+
+                // Guardar JSON actualizado
+                string proyectosActualizadosJson = JsonSerializer.Serialize(listaProyectos, new JsonSerializerOptions { WriteIndented = true });
+                File.WriteAllText(rutaArchivoProyecto, proyectosActualizadosJson);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al actualizar el estado de la tarea: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

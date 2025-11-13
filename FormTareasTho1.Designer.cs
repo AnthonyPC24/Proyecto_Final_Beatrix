@@ -101,6 +101,7 @@
             buttonProyetos1Tareas.TabIndex = 1;
             buttonProyetos1Tareas.Text = "Proyectos";
             buttonProyetos1Tareas.UseVisualStyleBackColor = false;
+            buttonProyetos1Tareas.Click += buttonProyetos1Tareas_Click;
             // 
             // panelBarraOpciones
             // 
@@ -138,6 +139,7 @@
             buttonReuniones1Tareas.TabIndex = 3;
             buttonReuniones1Tareas.Text = "Reuniones";
             buttonReuniones1Tareas.UseVisualStyleBackColor = false;
+            buttonReuniones1Tareas.Click += buttonReuniones1Tareas_Click;
             // 
             // buttonTareas1Tareas
             // 
@@ -473,10 +475,12 @@
             // comboBoxEstadosTarea
             // 
             comboBoxEstadosTarea.FormattingEnabled = true;
+            comboBoxEstadosTarea.Items.AddRange(new object[] { "Pendiente", "En proceso", "En espera", "Revisión", "Completada", "Cancelada" });
             comboBoxEstadosTarea.Location = new Point(252, 161);
             comboBoxEstadosTarea.Name = "comboBoxEstadosTarea";
             comboBoxEstadosTarea.Size = new Size(236, 23);
             comboBoxEstadosTarea.TabIndex = 7;
+            comboBoxEstadosTarea.SelectedIndexChanged += comboBoxEstadosTarea_SelectedIndexChanged;
             // 
             // dateTimePickerFechaEntrega
             // 
