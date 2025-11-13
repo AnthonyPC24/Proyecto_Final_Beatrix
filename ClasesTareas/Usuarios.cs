@@ -10,7 +10,7 @@ namespace Beatrix_Formulario.ClasesTareas
     {
         public string nombreApellidos { get; set; }
         public string nombreUsuario { get; set; }
-        public string contraseña { get; set; }
+        public string contrasena { get; set; }
 
         public string email { get; set; }
 
