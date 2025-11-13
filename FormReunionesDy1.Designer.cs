@@ -40,6 +40,8 @@
             buttonInicioForm1Tareas = new Button();
             monthCalendarReuniones = new MonthCalendar();
             panelParaHoy = new Panel();
+            labelDesmarcar = new Label();
+            labelMarcarCompletada = new Label();
             labelVerTodasLasReuniones = new Label();
             labelReuniones = new Label();
             dataGridViewTarea = new DataGridView();
@@ -71,6 +73,7 @@
             españolToolStripMenuItem = new ToolStripMenuItem();
             englishToolStripMenuItem = new ToolStripMenuItem();
             catalàToolStripMenuItem = new ToolStripMenuItem();
+            labelReunionesTitulo = new Label();
             panelBarraOpciones.SuspendLayout();
             panelParaHoy.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewTarea).BeginInit();
@@ -173,7 +176,7 @@
             // monthCalendarReuniones
             // 
             monthCalendarReuniones.Font = new Font("Montserrat", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            monthCalendarReuniones.Location = new Point(326, 56);
+            monthCalendarReuniones.Location = new Point(248, 128);
             monthCalendarReuniones.Name = "monthCalendarReuniones";
             monthCalendarReuniones.TabIndex = 4;
             monthCalendarReuniones.DateChanged += monthCalendar1_DateChanged;
@@ -181,6 +184,8 @@
             // panelParaHoy
             // 
             panelParaHoy.BorderStyle = BorderStyle.FixedSingle;
+            panelParaHoy.Controls.Add(labelDesmarcar);
+            panelParaHoy.Controls.Add(labelMarcarCompletada);
             panelParaHoy.Controls.Add(labelVerTodasLasReuniones);
             panelParaHoy.Controls.Add(labelReuniones);
             panelParaHoy.Controls.Add(dataGridViewTarea);
@@ -189,6 +194,32 @@
             panelParaHoy.Size = new Size(598, 317);
             panelParaHoy.TabIndex = 6;
             panelParaHoy.Paint += panelParaHoy_Paint;
+            // 
+            // labelDesmarcar
+            // 
+            labelDesmarcar.AutoSize = true;
+            labelDesmarcar.Cursor = Cursors.Hand;
+            labelDesmarcar.Font = new Font("Montserrat", 9.749999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelDesmarcar.ForeColor = Color.FromArgb(245, 168, 125);
+            labelDesmarcar.Location = new Point(13, 279);
+            labelDesmarcar.Name = "labelDesmarcar";
+            labelDesmarcar.Size = new Size(206, 20);
+            labelDesmarcar.TabIndex = 19;
+            labelDesmarcar.Text = "Desmarcar como completada";
+            labelDesmarcar.Click += labelDesmarcar_Click;
+            // 
+            // labelMarcarCompletada
+            // 
+            labelMarcarCompletada.AutoSize = true;
+            labelMarcarCompletada.Cursor = Cursors.Hand;
+            labelMarcarCompletada.Font = new Font("Montserrat", 9.749999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelMarcarCompletada.ForeColor = Color.FromArgb(127, 191, 159);
+            labelMarcarCompletada.Location = new Point(403, 279);
+            labelMarcarCompletada.Name = "labelMarcarCompletada";
+            labelMarcarCompletada.Size = new Size(180, 20);
+            labelMarcarCompletada.TabIndex = 18;
+            labelMarcarCompletada.Text = "Marcar como completada";
+            labelMarcarCompletada.Click += labelMarcarCompletada_Click;
             // 
             // labelVerTodasLasReuniones
             // 
@@ -235,8 +266,9 @@
             dataGridViewTarea.RowHeadersWidth = 51;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewTarea.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            dataGridViewTarea.Size = new Size(570, 255);
+            dataGridViewTarea.Size = new Size(570, 214);
             dataGridViewTarea.TabIndex = 11;
+            dataGridViewTarea.CellFormatting += dataGridViewTarea_CellFormatting;
             // 
             // labelReunionesProximas
             // 
@@ -500,12 +532,12 @@
             // 
             // buttonIdioma
             // 
+            buttonIdioma.BackgroundImage = Properties.Resources.mini_espana;
             buttonIdioma.BackgroundImageLayout = ImageLayout.Zoom;
             buttonIdioma.ContextMenuStrip = contextMenuStripMenuIdiomas;
             buttonIdioma.Cursor = Cursors.Hand;
             buttonIdioma.FlatAppearance.BorderSize = 0;
             buttonIdioma.FlatStyle = FlatStyle.Flat;
-            buttonIdioma.Image = Properties.Resources.mini_espana;
             buttonIdioma.Location = new Point(1217, 12);
             buttonIdioma.Name = "buttonIdioma";
             buttonIdioma.Size = new Size(40, 25);
@@ -543,12 +575,23 @@
             catalàToolStripMenuItem.Text = "Català";
             catalàToolStripMenuItem.Click += catalàToolStripMenuItem_Click;
             // 
+            // labelReunionesTitulo
+            // 
+            labelReunionesTitulo.AutoSize = true;
+            labelReunionesTitulo.Font = new Font("Montserrat SemiBold", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelReunionesTitulo.Location = new Point(248, 38);
+            labelReunionesTitulo.Name = "labelReunionesTitulo";
+            labelReunionesTitulo.Size = new Size(162, 42);
+            labelReunionesTitulo.TabIndex = 20;
+            labelReunionesTitulo.Text = "Reuniones";
+            // 
             // FormReunionesDy1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
             ClientSize = new Size(1264, 681);
+            Controls.Add(labelReunionesTitulo);
             Controls.Add(labelReunionesProximas);
             Controls.Add(panelReunion3);
             Controls.Add(panelReunion2);
@@ -618,5 +661,8 @@
         private ToolStripMenuItem españolToolStripMenuItem;
         private ToolStripMenuItem englishToolStripMenuItem;
         private ToolStripMenuItem catalàToolStripMenuItem;
+        private Label labelMarcarCompletada;
+        private Label labelDesmarcar;
+        private Label labelReunionesTitulo;
     }
 }
