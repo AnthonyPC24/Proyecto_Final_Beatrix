@@ -21,54 +21,79 @@ namespace Beatrix_Formulario
         {
             InitializeComponent();
 
-
         }
 
         private void Inicio_Load(object sender, EventArgs e)
         {
-            // === 1️⃣ 加载任务文件 ===
-            string tareasPath = @"D:\GIT\Proyecto_escritorio_form\JSON\Proyectos.json";
-            LoadJsonToTarea(tareasPath, dgvTarea);
+            string tareasPath = Path.Combine(Application.StartupPath, "JSON", "Proyectos.json");
+            string reunionesPath = Path.Combine(Application.StartupPath, "JSON", "Reuniones.json");
 
-            // === 2️⃣ 加载会议文件 ===
-            string reunionesPath = @"D:\GIT\Proyecto_escritorio_form\JSON\Reuniones.json";
-            string jsonString = ReadJsonString(reunionesPath);
 
-            if (!string.IsNullOrEmpty(jsonString))
+            if (File.Exists(tareasPath))
             {
-                try
-                {
-                    var options = new JsonSerializerOptions
-                    {
-                        PropertyNameCaseInsensitive = true
-                    };
-                    reuniones = JsonSerializer.Deserialize<List<Reunion>>(jsonString, options);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al cargar reuniones: " + ex.Message);
-                }
+                LoadJsonToTarea(tareasPath, dgvTarea);
+            }
+            else
+            {
+                MessageBox.Show($"No se encontró el archivo tareas ：{tareasPath}");
             }
 
-            // === 3️⃣ 默认显示当天的会议 ===
+
+            if (File.Exists(reunionesPath))
+            {
+                string jsonString = ReadJsonString(reunionesPath);
+
+                if (!string.IsNullOrEmpty(jsonString))
+                {
+                    try
+                    {
+                        var options = new JsonSerializerOptions
+                        {
+                            PropertyNameCaseInsensitive = true
+                        };
+                        reuniones = JsonSerializer.Deserialize<List<Reunion>>(jsonString, options);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error al cargar las reuniones: " + ex.Message);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show($"No se encontró el archivo de reuniones.：{reunionesPath}");
+            }
+
             ShowReuniones(DateTime.Today);
         }
+
 
 
         //comboBox de proyecto 
         private void comboBoxProyecto_SelectedIndexChanged(object sender, EventArgs e)
         {
+            string proyectoSeleccionado = comboBoxProyecto.SelectedItem?.ToString();
+            if (string.IsNullOrEmpty(proyectoSeleccionado))
+            {
+                return;
+            }
+
+            string tareasPath = Path.Combine(Application.StartupPath, "JSON", "Proyectos.json");
+
+            if (!File.Exists(tareasPath)) 
+            {
+                MessageBox.Show("No se encontró el archivo tareas.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+
+            //.................
+
+
 
         }
 
-
-        //button de cambiar idioma
-        private void btnIdioma_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        // evento de 
+        // evento de hacer click a calendar
         private void monthCalendar_DateChanged(object sender, DateRangeEventArgs e)
         {
             ShowReuniones(e.Start);
@@ -96,6 +121,14 @@ namespace Beatrix_Formulario
         //cargar los datos de tareas
         private void LoadJsonToTarea(string jsonPath, DataGridView dgv)
         {
+
+            if (dgv == null)
+            {
+                MessageBox.Show("Error: El DataGridView Tarea no está inicializado o es null.",
+                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             string jsonString = ReadJsonString(jsonPath);
             if (string.IsNullOrEmpty(jsonString)) return;
 
@@ -116,95 +149,105 @@ namespace Beatrix_Formulario
 
                 foreach (var tarea in proyecto.Tareas)
                 {
-                    string usuarios = "";
-                    if (tarea.usuariosAsignados != null && tarea.usuariosAsignados.Count > 0)
-                    {
-                        usuarios = string.Join(", ", tarea.usuariosAsignados.Select(u => u.nombreUsuario));
-                    }
+                    string usuarios = (tarea.usuariosAsignados != null && tarea.usuariosAsignados.Count > 0)
+                        ? string.Join(", ", tarea.usuariosAsignados.Select(u => u.nombreUsuario))
+                        : "(Sin usuarios)";
 
-                    dgv.Rows.Add(
-                        tarea.nombreTarea,
-                        tarea.descripcion,
-                        usuarios
-                    );
+                    dgv.Rows.Add(tarea.nombreTarea, tarea.descripcion, usuarios);
                 }
             }
-
-            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
+
+
 
         private void ShowReuniones(DateTime fechaSeleccionada)
         {
-            panelTareaHoy.Controls.Clear();
-
-            // Filtrar reuniones del día seleccionado
-            var reunionesDelDia = reuniones
-                .Where(r => r.fechaHora.Date == fechaSeleccionada.Date)
-                .ToList();
-
-            if (reunionesDelDia.Count == 0)
+            if (reuniones == null || reuniones.Count == 0)
             {
-                panelTareaHoy.Controls.Add(new Label
-                {
-                    Text = "No hay reuniones para este día.",
-                    AutoSize = true,
-                    Font = new System.Drawing.Font("Montserrat", 10, System.Drawing.FontStyle.Regular),
-                    Top = 10,
-                    Left = 10
-                });
+                dgvReuniones.Rows.Clear();
                 return;
             }
 
-            int top = 10;
+            var reunionesDelDia = reuniones
+                .Where(r => r.fechaHora.Date == fechaSeleccionada.Date)
+                .OrderBy(r => r.fechaHora)
+                .ToList();
+
+            dgvReuniones.Rows.Clear();
+
+            if (reunionesDelDia.Count == 0)
+            {
+                return;
+            }
+
             foreach (var r in reunionesDelDia)
             {
-                // Título
-                panelTareaHoy.Controls.Add(new Label
-                {
-                    Text = $" {r.titulo}",
-                    AutoSize = true,
-                    Font = new System.Drawing.Font("Montserrat", 11, System.Drawing.FontStyle.Bold),
-                    Top = top,
-                    Left = 10
-                });
-                top += 25;
-
-                // Fecha y hora
-                panelTareaHoy.Controls.Add(new Label
-                {
-                    Text = $"Fecha: {r.fechaHora:yyyy-MM-dd HH:mm}",
-                    AutoSize = true,
-                    Top = top,
-                    Left = 10
-                });
-                top += 20;
-
-                // Participantes
-                string usuarios = r.usuariosReuniones != null && r.usuariosReuniones.Count > 0
+                string usuarios = (r.usuariosReuniones != null && r.usuariosReuniones.Count > 0)
                     ? string.Join(", ", r.usuariosReuniones)
                     : "(Sin participantes)";
 
-                panelTareaHoy.Controls.Add(new Label
-                {
-                    Text = $"Usuarios Asignados: {usuarios}",
-                    AutoSize = true,
-                    Top = top,
-                    Left = 10
-                });
-                top += 20;
+                dgvReuniones.Rows.Add(
+                    r.titulo,
+                    r.fechaHora.ToString("yyyy-MM-dd HH:mm"),
+                    usuarios,
+                    r.descripcion
+                );
+            }
 
-                // Descripción
-                panelTareaHoy.Controls.Add(new Label
-                {
-                    Text = $"Descripcion: {r.descripcion}",
-                    AutoSize = true,
-                    MaximumSize = new System.Drawing.Size(panelTareaHoy.Width - 30, 0),
-                    Top = top,
-                    Left = 10
-                });
-                top += 40;
+            dgvReuniones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+
+        private void buttonInicio_Click(object sender, EventArgs e)
+        {
+            if (!MostrarFormExist<Inicio>())
+            {
+                Inicio inicioForm = new Inicio();
+                inicioForm.Show();
             }
         }
 
+        private void buttonProyetos_Click(object sender, EventArgs e)
+        {
+            if (!MostrarFormExist<FormProyectosGerard1>())
+            {
+                FormProyectosGerard1 proyectosForm = new FormProyectosGerard1();
+                proyectosForm.Show();
+            }
+        }
+
+        private void btnTareas_Click(object sender, EventArgs e)
+        {
+            if (!MostrarFormExist<FormProyectosGerard2>())
+            { 
+                FormProyectosGerard2 tareasForm = new FormProyectosGerard2();
+                tareasForm.Show(); 
+            }
+           
+        }
+
+        private void btnReuniones_Click(object sender, EventArgs e)
+        {
+            if (!MostrarFormExist<FormReunionesDy1>())
+            {
+                FormReunionesDy1 reunionesForm = new FormReunionesDy1();
+                reunionesForm.Show();
+            }
+            
+            
+        }
+        private bool MostrarFormExist<T>() where T : Form
+        {
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (frm is T)
+                {
+                    frm.BringToFront(); 
+                    frm.WindowState = FormWindowState.Normal;
+                    return true; 
+                }
+            }
+            return false; 
+        }
     }
 }
+

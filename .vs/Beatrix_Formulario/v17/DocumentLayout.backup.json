@@ -1,46 +1,38 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\CEP-TARDA\\Desktop\\Proyecto_escritorio_form\\",
+  "WorkspaceRootPath": "D:\\GIT\\Proyecto_Final_Beatrix\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B77D0EBF-E492-47EF-AF4F-F723E6AE3F1B}|Beatrix_Formulario.csproj|c:\\users\\cep-tarda\\desktop\\proyecto_escritorio_form\\formpantallausuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B77D0EBF-E492-47EF-AF4F-F723E6AE3F1B}|Beatrix_Formulario.csproj|solutionrelative:formpantallausuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{B77D0EBF-E492-47EF-AF4F-F723E6AE3F1B}|Beatrix_Formulario.csproj|d:\\git\\proyecto_final_beatrix\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B77D0EBF-E492-47EF-AF4F-F723E6AE3F1B}|Beatrix_Formulario.csproj|solutionrelative:inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B77D0EBF-E492-47EF-AF4F-F723E6AE3F1B}|Beatrix_Formulario.csproj|c:\\users\\cep-tarda\\desktop\\proyecto_escritorio_form\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B77D0EBF-E492-47EF-AF4F-F723E6AE3F1B}|Beatrix_Formulario.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{B77D0EBF-E492-47EF-AF4F-F723E6AE3F1B}|Beatrix_Formulario.csproj|d:\\git\\proyecto_final_beatrix\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B77D0EBF-E492-47EF-AF4F-F723E6AE3F1B}|Beatrix_Formulario.csproj|solutionrelative:inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B77D0EBF-E492-47EF-AF4F-F723E6AE3F1B}|Beatrix_Formulario.csproj|c:\\users\\cep-tarda\\desktop\\proyecto_escritorio_form\\formproyectosgerard1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B77D0EBF-E492-47EF-AF4F-F723E6AE3F1B}|Beatrix_Formulario.csproj|solutionrelative:formproyectosgerard1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{B77D0EBF-E492-47EF-AF4F-F723E6AE3F1B}|Beatrix_Formulario.csproj|d:\\git\\proyecto_final_beatrix\\inicio.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B77D0EBF-E492-47EF-AF4F-F723E6AE3F1B}|Beatrix_Formulario.csproj|solutionrelative:inicio.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B77D0EBF-E492-47EF-AF4F-F723E6AE3F1B}|Beatrix_Formulario.csproj|c:\\users\\cep-tarda\\desktop\\proyecto_escritorio_form\\formproyectosgerard2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B77D0EBF-E492-47EF-AF4F-F723E6AE3F1B}|Beatrix_Formulario.csproj|solutionrelative:formproyectosgerard2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{B77D0EBF-E492-47EF-AF4F-F723E6AE3F1B}|Beatrix_Formulario.csproj|d:\\git\\proyecto_final_beatrix\\formusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B77D0EBF-E492-47EF-AF4F-F723E6AE3F1B}|Beatrix_Formulario.csproj|solutionrelative:formusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B77D0EBF-E492-47EF-AF4F-F723E6AE3F1B}|Beatrix_Formulario.csproj|C:\\Users\\CEP-TARDA\\Desktop\\Proyecto_escritorio_form\\formreunionesdy1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B77D0EBF-E492-47EF-AF4F-F723E6AE3F1B}|Beatrix_Formulario.csproj|solutionrelative:formreunionesdy1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{B77D0EBF-E492-47EF-AF4F-F723E6AE3F1B}|Beatrix_Formulario.csproj|d:\\git\\proyecto_final_beatrix\\json\\usuarios.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B77D0EBF-E492-47EF-AF4F-F723E6AE3F1B}|Beatrix_Formulario.csproj|solutionrelative:json\\usuarios.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B77D0EBF-E492-47EF-AF4F-F723E6AE3F1B}|Beatrix_Formulario.csproj|C:\\Users\\CEP-TARDA\\Desktop\\Proyecto_escritorio_form\\formreunionesdy2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B77D0EBF-E492-47EF-AF4F-F723E6AE3F1B}|Beatrix_Formulario.csproj|solutionrelative:formreunionesdy2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B77D0EBF-E492-47EF-AF4F-F723E6AE3F1B}|Beatrix_Formulario.csproj|c:\\users\\cep-tarda\\desktop\\proyecto_escritorio_form\\formtareastho1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B77D0EBF-E492-47EF-AF4F-F723E6AE3F1B}|Beatrix_Formulario.csproj|solutionrelative:formtareastho1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B77D0EBF-E492-47EF-AF4F-F723E6AE3F1B}|Beatrix_Formulario.csproj|c:\\users\\cep-tarda\\desktop\\proyecto_escritorio_form\\formtareastho2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B77D0EBF-E492-47EF-AF4F-F723E6AE3F1B}|Beatrix_Formulario.csproj|solutionrelative:formtareastho2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B77D0EBF-E492-47EF-AF4F-F723E6AE3F1B}|Beatrix_Formulario.csproj|c:\\users\\cep-tarda\\desktop\\proyecto_escritorio_form\\formusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{B77D0EBF-E492-47EF-AF4F-F723E6AE3F1B}|Beatrix_Formulario.csproj|d:\\git\\proyecto_final_beatrix\\formusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{B77D0EBF-E492-47EF-AF4F-F723E6AE3F1B}|Beatrix_Formulario.csproj|solutionrelative:formusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B77D0EBF-E492-47EF-AF4F-F723E6AE3F1B}|Beatrix_Formulario.csproj|c:\\users\\cep-tarda\\desktop\\proyecto_escritorio_form\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B77D0EBF-E492-47EF-AF4F-F723E6AE3F1B}|Beatrix_Formulario.csproj|solutionrelative:inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{B77D0EBF-E492-47EF-AF4F-F723E6AE3F1B}|Beatrix_Formulario.csproj|d:\\git\\proyecto_final_beatrix\\formpantallausuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B77D0EBF-E492-47EF-AF4F-F723E6AE3F1B}|Beatrix_Formulario.csproj|solutionrelative:formpantallausuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B77D0EBF-E492-47EF-AF4F-F723E6AE3F1B}|Beatrix_Formulario.csproj|d:\\git\\proyecto_final_beatrix\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B77D0EBF-E492-47EF-AF4F-F723E6AE3F1B}|Beatrix_Formulario.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -58,134 +50,115 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{56df62a4-05a3-4e5b-aa1a-99371ccfb997}"
             },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{a80febb4-e7e0-4147-b476-21aaf2453969}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Form1.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\CEP-TARDA\\Desktop\\Proyecto_escritorio_form\\Form1.cs",
-              "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "C:\\Users\\CEP-TARDA\\Desktop\\Proyecto_escritorio_form\\Form1.cs [Dise\u00F1o]",
-              "RelativeToolTip": "Form1.cs [Dise\u00F1o]",
+              "DocumentIndex": 3,
+              "Title": "FormUsuarios.cs",
+              "DocumentMoniker": "D:\\GIT\\Proyecto_Final_Beatrix\\FormUsuarios.cs",
+              "RelativeDocumentMoniker": "FormUsuarios.cs",
+              "ToolTip": "D:\\GIT\\Proyecto_Final_Beatrix\\FormUsuarios.cs",
+              "RelativeToolTip": "FormUsuarios.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAwwBgAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-10T19:08:22.536Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2025-11-11T19:07:18.768Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "FormPantallaUsuario.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\CEP-TARDA\\Desktop\\Proyecto_escritorio_form\\FormPantallaUsuario.cs",
-              "RelativeDocumentMoniker": "FormPantallaUsuario.cs",
-              "ToolTip": "C:\\Users\\CEP-TARDA\\Desktop\\Proyecto_escritorio_form\\FormPantallaUsuario.cs [Dise\u00F1o]",
-              "RelativeToolTip": "FormPantallaUsuario.cs [Dise\u00F1o]",
+              "Title": "Inicio.cs",
+              "DocumentMoniker": "D:\\GIT\\Proyecto_Final_Beatrix\\Inicio.cs",
+              "RelativeDocumentMoniker": "Inicio.cs",
+              "ToolTip": "D:\\GIT\\Proyecto_Final_Beatrix\\Inicio.cs",
+              "RelativeToolTip": "Inicio.cs",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAAAFkAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-10T19:08:16.673Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "FormProyectosGerard1.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\CEP-TARDA\\Desktop\\Proyecto_escritorio_form\\FormProyectosGerard1.cs",
-              "RelativeDocumentMoniker": "FormProyectosGerard1.cs",
-              "ToolTip": "C:\\Users\\CEP-TARDA\\Desktop\\Proyecto_escritorio_form\\FormProyectosGerard1.cs [Dise\u00F1o]",
-              "RelativeToolTip": "FormProyectosGerard1.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-10T19:08:15.479Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "FormProyectosGerard2.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\CEP-TARDA\\Desktop\\Proyecto_escritorio_form\\FormProyectosGerard2.cs",
-              "RelativeDocumentMoniker": "FormProyectosGerard2.cs",
-              "ToolTip": "C:\\Users\\CEP-TARDA\\Desktop\\Proyecto_escritorio_form\\FormProyectosGerard2.cs [Dise\u00F1o]",
-              "RelativeToolTip": "FormProyectosGerard2.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-10T19:08:13.768Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2025-11-11T18:03:01.734Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "FormTareasTho1.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\CEP-TARDA\\Desktop\\Proyecto_escritorio_form\\FormTareasTho1.cs",
-              "RelativeDocumentMoniker": "FormTareasTho1.cs",
-              "ToolTip": "C:\\Users\\CEP-TARDA\\Desktop\\Proyecto_escritorio_form\\FormTareasTho1.cs [Dise\u00F1o]",
-              "RelativeToolTip": "FormTareasTho1.cs [Dise\u00F1o]",
+              "Title": "FormPantallaUsuario.cs",
+              "DocumentMoniker": "D:\\GIT\\Proyecto_Final_Beatrix\\FormPantallaUsuario.cs",
+              "RelativeDocumentMoniker": "FormPantallaUsuario.cs",
+              "ToolTip": "D:\\GIT\\Proyecto_Final_Beatrix\\FormPantallaUsuario.cs",
+              "RelativeToolTip": "FormPantallaUsuario.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAowAwAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-10T19:08:10.519Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2025-11-11T19:05:07.733Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "FormTareasTho2.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\CEP-TARDA\\Desktop\\Proyecto_escritorio_form\\FormTareasTho2.cs",
-              "RelativeDocumentMoniker": "FormTareasTho2.cs",
-              "ToolTip": "C:\\Users\\CEP-TARDA\\Desktop\\Proyecto_escritorio_form\\FormTareasTho2.cs [Dise\u00F1o]",
-              "RelativeToolTip": "FormTareasTho2.cs [Dise\u00F1o]",
+              "DocumentIndex": 2,
+              "Title": "Inicio.Designer.cs",
+              "DocumentMoniker": "D:\\GIT\\Proyecto_Final_Beatrix\\Inicio.Designer.cs",
+              "RelativeDocumentMoniker": "Inicio.Designer.cs",
+              "ToolTip": "D:\\GIT\\Proyecto_Final_Beatrix\\Inicio.Designer.cs",
+              "RelativeToolTip": "Inicio.Designer.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAuwCAAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-10T19:08:09.512Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2025-11-11T18:02:02.357Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "FormUsuarios.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\CEP-TARDA\\Desktop\\Proyecto_escritorio_form\\FormUsuarios.cs",
-              "RelativeDocumentMoniker": "FormUsuarios.cs",
-              "ToolTip": "C:\\Users\\CEP-TARDA\\Desktop\\Proyecto_escritorio_form\\FormUsuarios.cs [Dise\u00F1o]",
-              "RelativeToolTip": "FormUsuarios.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-10T19:08:08.114Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 1,
               "Title": "Inicio.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\CEP-TARDA\\Desktop\\Proyecto_escritorio_form\\Inicio.cs",
+              "DocumentMoniker": "D:\\GIT\\Proyecto_Final_Beatrix\\Inicio.cs",
               "RelativeDocumentMoniker": "Inicio.cs",
-              "ToolTip": "C:\\Users\\CEP-TARDA\\Desktop\\Proyecto_escritorio_form\\Inicio.cs [Dise\u00F1o]",
+              "ToolTip": "D:\\GIT\\Proyecto_Final_Beatrix\\Inicio.cs [Dise\u00F1o]",
               "RelativeToolTip": "Inicio.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-10T19:07:51.214Z",
+              "WhenOpened": "2025-11-11T18:01:55.312Z",
               "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "FormReunionesDy1.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\CEP-TARDA\\Desktop\\Proyecto_escritorio_form\\FormReunionesDy1.cs",
-              "RelativeDocumentMoniker": "FormReunionesDy1.cs",
-              "ToolTip": "C:\\Users\\CEP-TARDA\\Desktop\\Proyecto_escritorio_form\\FormReunionesDy1.cs [Dise\u00F1o]",
-              "RelativeToolTip": "FormReunionesDy1.cs [Dise\u00F1o]",
+              "Title": "Usuarios.json",
+              "DocumentMoniker": "D:\\GIT\\Proyecto_Final_Beatrix\\JSON\\Usuarios.json",
+              "RelativeDocumentMoniker": "JSON\\Usuarios.json",
+              "ToolTip": "D:\\GIT\\Proyecto_Final_Beatrix\\JSON\\Usuarios.json",
+              "RelativeToolTip": "JSON\\Usuarios.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-11-11T18:01:29.727Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Form1.cs [Dise\u00F1o]",
+              "DocumentMoniker": "D:\\GIT\\Proyecto_Final_Beatrix\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "D:\\GIT\\Proyecto_Final_Beatrix\\Form1.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Form1.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-06T19:21:48.074Z",
+              "WhenOpened": "2025-11-11T17:50:56.355Z",
               "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "FormReunionesDy2.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\CEP-TARDA\\Desktop\\Proyecto_escritorio_form\\FormReunionesDy2.cs",
-              "RelativeDocumentMoniker": "FormReunionesDy2.cs",
-              "ToolTip": "C:\\Users\\CEP-TARDA\\Desktop\\Proyecto_escritorio_form\\FormReunionesDy2.cs [Dise\u00F1o]",
-              "RelativeToolTip": "FormReunionesDy2.cs [Dise\u00F1o]",
+              "Title": "FormUsuarios.cs [Dise\u00F1o]",
+              "DocumentMoniker": "D:\\GIT\\Proyecto_Final_Beatrix\\FormUsuarios.cs",
+              "RelativeDocumentMoniker": "FormUsuarios.cs",
+              "ToolTip": "D:\\GIT\\Proyecto_Final_Beatrix\\FormUsuarios.cs [Dise\u00F1o]",
+              "RelativeToolTip": "FormUsuarios.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-30T18:58:17.563Z",
+              "WhenOpened": "2025-11-10T19:20:42.163Z",
               "EditorCaption": " [Dise\u00F1o]"
             }
           ]
