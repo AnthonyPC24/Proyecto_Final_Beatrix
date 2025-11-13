@@ -216,6 +216,7 @@
             Controls.Add(label1);
             Controls.Add(groupBoxNuevaTarea);
             Name = "FormTareasTho2";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "NuevaTarea";
             groupBoxNuevaTarea.ResumeLayout(false);
             groupBoxNuevaTarea.PerformLayout();
