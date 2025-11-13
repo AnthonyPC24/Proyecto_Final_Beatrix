@@ -107,7 +107,7 @@ namespace Beatrix_Formulario
             if (nombreProyecto == null || nombreTarea == null) return;
 
             Proyectos proyecto = listaProyectos.FirstOrDefault(p => p.NombreProyecto == nombreProyecto);
-            if (proyecto == null)return;
+            if (proyecto == null) return;
 
             Tareas tarea = proyecto.Tareas.FirstOrDefault(t => t.nombreTarea == nombreTarea);
             if (tarea == null) return;
@@ -154,6 +154,76 @@ namespace Beatrix_Formulario
                     comboBoxTareas.Items.Add(tarea.nombreTarea);
                 }
             }
+        }
+
+        private void buttonSubTarea_Click(object sender, EventArgs e)
+        {
+            string nombreProyecto = comboBoxProyectos.SelectedItem?.ToString();
+            string nombreTarea = comboBoxTareas.SelectedItem?.ToString();
+
+            if (string.IsNullOrEmpty(nombreProyecto) || string.IsNullOrEmpty(nombreTarea))
+            {
+                MessageBox.Show("Selecciona un proyecto y una tarea.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            var proyecto = listaProyectos.First(p => p.NombreProyecto == nombreProyecto);
+            var tarea = proyecto.Tareas.First(t => t.nombreTarea == nombreTarea);
+
+            FormSubTareasTho formSubTarea = new FormSubTareasTho(proyecto, tarea)
+            {
+                TareaPadre = tarea
+            };
+
+            if (formSubTarea.ShowDialog() == DialogResult.OK)
+            {
+                comboBoxSubTareas.Items.Add(formSubTarea.NuevaSubTareaCreada.NombreSubTarea);
+                comboBoxSubTareas.SelectedIndex = comboBoxSubTareas.Items.Count - 1;
+            }
+        }
+
+        private void comboBoxSubTareas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string nombreProyecto = comboBoxProyectos.SelectedItem?.ToString();
+            string nombreTarea = comboBoxTareas.SelectedItem?.ToString();
+            string nombreSubTarea = comboBoxSubTareas.SelectedItem?.ToString();
+
+            if (nombreProyecto == null || nombreTarea == null || nombreSubTarea == null) return;
+
+            Proyectos proyecto = listaProyectos.FirstOrDefault(p => p.NombreProyecto == nombreProyecto);
+            if (proyecto == null) return;
+
+            Tareas tarea = proyecto.Tareas.FirstOrDefault(t => t.nombreTarea == nombreTarea);
+            if (tarea == null) return;
+
+            SubTareas subTarea = tarea.SubTareas.FirstOrDefault(st => st.NombreSubTarea == nombreSubTarea);
+            if (subTarea == null) return;
+
+            // Mostrar detalles de la tarea
+            dateTimePickerFechaInicioSubtarea.Value = subTarea.FechaInicioSubtarea;
+            dateTimePickerSubTareaEntrega.Value = subTarea.FechaEntregaSubtarea;
+            richTextBoxDescripcionSubTareas.Text = subTarea.DescripcionSubTarea;
+
+            comboBoxUsuariosSubTarea.Items.Clear();
+
+            foreach (var usuario in subTarea.UsuariosAsignadosSubtarea)
+            {
+                comboBoxUsuariosSubTarea.Items.Add(usuario.nombreUsuario);
+            }
+
+            if (subTarea.UsuariosAsignadosSubtarea.Count > 0)
+            {
+                comboBoxUsuariosSubTarea.SelectedIndex = 0;
+            }
+
+            foreach (var control in groupBoxSubtareaEstados.Controls)
+            {
+                if (control is RadioButton rb)
+                {
+                    rb.Checked = rb.Text == subTarea.EstadoSubTarea;
+                }
+            }
+
         }
     }
 }
