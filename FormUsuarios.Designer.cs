@@ -224,7 +224,7 @@
             lblCrearUsuario.AutoSize = true;
             lblCrearUsuario.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblCrearUsuario.ForeColor = Color.FromArgb(41, 191, 205);
-            lblCrearUsuario.Location = new Point(321, 388);
+            lblCrearUsuario.Location = new Point(321, 378);
             lblCrearUsuario.Name = "lblCrearUsuario";
             lblCrearUsuario.Size = new Size(127, 24);
             lblCrearUsuario.TabIndex = 12;
@@ -236,7 +236,7 @@
             lblTitulo.AutoSize = true;
             lblTitulo.Font = new Font("Montserrat Medium", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitulo.ForeColor = Color.FromArgb(41, 191, 205);
-            lblTitulo.Location = new Point(654, 409);
+            lblTitulo.Location = new Point(654, 393);
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(176, 28);
             lblTitulo.TabIndex = 13;
@@ -256,6 +256,7 @@
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "FormUsuarios";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormUsuarios";
             panelBarraOpciones.ResumeLayout(false);
             panelBarraOpciones.PerformLayout();
