@@ -35,6 +35,17 @@ namespace Beatrix_Formulario
                 MessageBox.Show("Debe seleccionar al menos un 'Usuario'.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            if (dateTimePicker2.Value.Date < dateTimePicker1.Value.Date)
+            {
+                MessageBox.Show(
+                    "La fecha de entrega no puede ser anterior a la fecha de inicio del proyecto.",
+                    "Error de Fechas",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+                return; // Detiene el proceso si hay un error de fecha
+            }
+
 
             // --- 2. CREACIÓN DEL OBJETO PROYECTO
             Proyectos proyectoTemporal = new Proyectos
@@ -50,7 +61,7 @@ namespace Beatrix_Formulario
                 string nombreUsuario = item.ToString();
                 Usuarios usuarioAsignado = new Usuarios
                 {
-                    nombreApellidos = nombreUsuario
+                    nombreUsuario = nombreUsuario
                 };
                 proyectoTemporal.UsuariosAsignados.Add(usuarioAsignado);
             }
