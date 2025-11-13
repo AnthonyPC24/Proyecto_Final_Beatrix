@@ -21,7 +21,7 @@ namespace Beatrix_Formulario
             InitializeComponent();
             CargarReuniones();
         }
-      
+
 
         private void panelBarraOpciones_Paint(object sender, PaintEventArgs e)
         {
@@ -68,31 +68,54 @@ namespace Beatrix_Formulario
                 string rutaProyecto = Directory.GetParent(Application.StartupPath).Parent.Parent.Parent.FullName;
                 string rutaArchivo = Path.Combine(rutaProyecto, "JSON", "Reuniones.json");
 
-                if (File.Exists(rutaArchivo))
-                {
-                    string json = File.ReadAllText(rutaArchivo);
-                    List<Reunion> listaReuniones = JsonSerializer.Deserialize<List<Reunion>>(json);
-
-                    var reunionesFormateadas = listaReuniones.Select(r => new
-                    {
-                        Tarea = r.titulo,
-                        Especificaciones = r.descripcion,
-                        Usuarios = string.Join(", ", r.usuariosReuniones),
-                        Fecha = r.fechaHora.ToString("dd/MM/yyyy HH:mm")
-                    }).ToList();
-
-                    dataGridViewTarea.DataSource = reunionesFormateadas;
-                }
-                else
+                if (!File.Exists(rutaArchivo))
                 {
                     MessageBox.Show("No se encontró el archivo Reuniones.json.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                string json = File.ReadAllText(rutaArchivo);
+                List<Reunion> listaReuniones = JsonSerializer.Deserialize<List<Reunion>>(json);
+
+                dataGridViewTarea.AutoGenerateColumns = false;
+
+                // ✅ BORRAR columnas antes de crear nuevas (EVITA COLUMNAS DUPLICADAS)
+                dataGridViewTarea.Columns.Clear();
+
+                // ✅ Columna del emoji
+                DataGridViewTextBoxColumn columnaEmoji = new DataGridViewTextBoxColumn();
+                columnaEmoji.Name = "Completado";
+                columnaEmoji.HeaderText = "✓";
+                columnaEmoji.Width = 30;
+                columnaEmoji.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dataGridViewTarea.Columns.Add(columnaEmoji);
+
+                // ✅ Demás columnas
+                dataGridViewTarea.Columns.Add("Tarea", "Tarea");
+                dataGridViewTarea.Columns.Add("Especificaciones", "Especificaciones");
+                dataGridViewTarea.Columns.Add("Usuarios", "Usuarios");
+                dataGridViewTarea.Columns.Add("Fecha", "Fecha");
+
+                // ✅ Cargar datos
+                foreach (var r in listaReuniones.OrderBy(x => x.completado))
+                {
+                    dataGridViewTarea.Rows.Add(
+                        r.completado ? "✅" : "",
+                        r.titulo,
+                        r.descripcion,
+                        string.Join(", ", r.usuariosReuniones),
+                        r.fechaHora.ToString("dd/MM/yyyy HH:mm")
+                    );
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al cargar las reuniones: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error al cargar reuniones: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
+
 
         private void CargarReuniones()
         {
@@ -128,8 +151,9 @@ namespace Beatrix_Formulario
 
 
             var proximasTres = reuniones
-             .OrderBy(r => Math.Abs((r.fechaHora - DateTime.Now).TotalMinutes)) // diferencia en minutos
-             .Take(3)
+               .Where(r => r.completado == false) // ⬅ NO mostrar completadas
+                .OrderBy(r => Math.Abs((r.fechaHora - DateTime.Now).TotalMinutes))
+               .Take(3)
              .ToList();
 
 
@@ -190,29 +214,51 @@ namespace Beatrix_Formulario
                 string json = File.ReadAllText(rutaArchivo);
                 List<Reunion> listaReuniones = JsonSerializer.Deserialize<List<Reunion>>(json);
 
-                // 🔹 Filtramos por día (ignorando hora)
+                dataGridViewTarea.AutoGenerateColumns = false;
+                dataGridViewTarea.Rows.Clear(); // Limpiar filas previas
+
+                // Asegurarnos de que las columnas existan
+                if (dataGridViewTarea.Columns.Count == 0)
+                {
+                    DataGridViewTextBoxColumn columnaEmoji = new DataGridViewTextBoxColumn
+                    {
+                        Name = "Completado",
+                        HeaderText = "✓",
+                        Width = 30,
+                        DefaultCellStyle = { Alignment = DataGridViewContentAlignment.MiddleCenter }
+                    };
+                    dataGridViewTarea.Columns.Add(columnaEmoji);
+
+                    dataGridViewTarea.Columns.Add("Tarea", "Tarea");
+                    dataGridViewTarea.Columns.Add("Especificaciones", "Especificaciones");
+                    dataGridViewTarea.Columns.Add("Usuarios", "Usuarios");
+                    dataGridViewTarea.Columns.Add("Fecha", "Fecha");
+                }
+
+                // Filtrar reuniones para el día seleccionado
                 var reunionesFiltradas = listaReuniones
                     .Where(r => r.fechaHora.Date == fecha.Date)
-                    .Select(r => new
-                    {
-                        Tarea = r.titulo,
-                        Especificaciones = r.descripcion,
-                        Usuarios = string.Join(", ", r.usuariosReuniones),
-                        Fecha = r.fechaHora.ToString("dd/MM/yyyy HH:mm")
-                    })
+                    .OrderBy(r => r.completado)
                     .ToList();
 
-                // Mostrar en el DataGridView
-                dataGridViewTarea.DataSource = reunionesFiltradas;
+                foreach (var r in reunionesFiltradas)
+                {
+                    dataGridViewTarea.Rows.Add(
+                        r.completado ? "✅" : "",
+                        r.titulo,
+                        r.descripcion,
+                        string.Join(", ", r.usuariosReuniones),
+                        r.fechaHora.ToString("dd/MM/yyyy HH:mm")
+                    );
+                }
             }
-
-
-
             catch (Exception ex)
             {
                 MessageBox.Show($"Error al filtrar reuniones: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
 
 
         private void labelVerTodasLasReuniones_Click(object sender, EventArgs e)
@@ -269,5 +315,74 @@ namespace Beatrix_Formulario
             CambiarBandera("cat");
         }
 
+        private void labelMarcarCompletada_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewTarea.CurrentRow == null)
+                return;
+
+            string tareaSeleccionada = dataGridViewTarea.CurrentRow.Cells["Tarea"].Value.ToString();
+
+            string rutaProyecto = Directory.GetParent(Application.StartupPath).Parent.Parent.Parent.FullName;
+            string rutaArchivo = Path.Combine(rutaProyecto, "JSON", "Reuniones.json");
+
+            string json = File.ReadAllText(rutaArchivo);
+            List<Reunion> reuniones = JsonSerializer.Deserialize<List<Reunion>>(json);
+
+            // ✅ Marcamos como completada
+            var reunion = reuniones.FirstOrDefault(r => r.titulo == tareaSeleccionada);
+            if (reunion != null)
+                reunion.completado = true;
+
+            // ✅ Guardamos el JSON sobreescribiendo
+            File.WriteAllText(rutaArchivo, JsonSerializer.Serialize(reuniones, new JsonSerializerOptions { WriteIndented = true }));
+
+            // ✅ Recargamos el grid ya ordenado correctamente
+            CargarReunionesDataGrid();
+        }
+
+        private void dataGridViewTarea_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dataGridViewTarea.Columns[e.ColumnIndex].Name == "Completado")
+            {
+                string valor = dataGridViewTarea.Rows[e.RowIndex].Cells["Completado"].Value?.ToString();
+
+                if (valor == "✅") // reunión completada
+                {
+                    dataGridViewTarea.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Gray;
+                    dataGridViewTarea.Rows[e.RowIndex].DefaultCellStyle.Font = new Font(
+                        dataGridViewTarea.Font,
+                        FontStyle.Strikeout     // ← texto tachado
+                    );
+                }
+            }
+        }
+
+        private void labelDesmarcar_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewTarea.CurrentRow == null)
+                return;
+
+            string tareaSeleccionada = dataGridViewTarea.CurrentRow.Cells["Tarea"].Value.ToString();
+
+            string rutaProyecto = Directory.GetParent(Application.StartupPath).Parent.Parent.Parent.FullName;
+            string rutaArchivo = Path.Combine(rutaProyecto, "JSON", "Reuniones.json");
+
+            string json = File.ReadAllText(rutaArchivo);
+            List<Reunion> reuniones = JsonSerializer.Deserialize<List<Reunion>>(json);
+
+            // ✅ Buscar reunión y revertir estado
+            var reunion = reuniones.FirstOrDefault(r => r.titulo == tareaSeleccionada);
+            if (reunion != null)
+                reunion.completado = false;
+
+            // ✅ Guardar JSON
+            File.WriteAllText(rutaArchivo, JsonSerializer.Serialize(reuniones, new JsonSerializerOptions { WriteIndented = true }));
+
+            // ✅ Actualizar vista
+            CargarReunionesDataGrid();
+            CargarReuniones();
+
+            MessageBox.Show("Reunión cancelada.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

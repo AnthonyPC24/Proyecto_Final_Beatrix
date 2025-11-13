@@ -19,8 +19,16 @@ namespace Beatrix_Formulario
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            this.Close();
-            Application.Run(new FormPantallaUsuario());
+            
+         
+            FormPantallaUsuario userForm = new FormPantallaUsuario();
+            userForm.ShowDialog();
+
+        }
+
+        private void lblCrearUsuario_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
