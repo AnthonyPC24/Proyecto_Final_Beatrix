@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\CEP-TARDA\\Desktop\\Proyecto_escritorio_form\\Beatrix_Formulario.csproj": {}
+    "D:\\GIT\\Proyecto_Final_Beatrix\\Beatrix_Formulario.csproj": {}
   },
   "projects": {
-    "C:\\Users\\CEP-TARDA\\Desktop\\Proyecto_escritorio_form\\Beatrix_Formulario.csproj": {
+    "D:\\GIT\\Proyecto_Final_Beatrix\\Beatrix_Formulario.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\CEP-TARDA\\Desktop\\Proyecto_escritorio_form\\Beatrix_Formulario.csproj",
+        "projectUniqueName": "D:\\GIT\\Proyecto_Final_Beatrix\\Beatrix_Formulario.csproj",
         "projectName": "Beatrix_Formulario",
-        "projectPath": "C:\\Users\\CEP-TARDA\\Desktop\\Proyecto_escritorio_form\\Beatrix_Formulario.csproj",
-        "packagesPath": "C:\\Users\\CEP-TARDA\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\CEP-TARDA\\Desktop\\Proyecto_escritorio_form\\obj\\",
+        "projectPath": "D:\\GIT\\Proyecto_Final_Beatrix\\Beatrix_Formulario.csproj",
+        "packagesPath": "C:\\Users\\Qiaoqiao\\.nuget\\packages\\",
+        "outputPath": "D:\\GIT\\Proyecto_Final_Beatrix\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\CEP-TARDA\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Qiaoqiao\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -44,7 +44,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0-windows7.0": {
@@ -68,7 +68,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

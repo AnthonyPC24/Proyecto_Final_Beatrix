@@ -42,6 +42,10 @@
             label3 = new Label();
             label2 = new Label();
             textBoxNombreNuevaSubTarea = new TextBox();
+            comboBoxProyectosSubTareas = new ComboBox();
+            comboBoxTareaSubTareas = new ComboBox();
+            label4 = new Label();
+            label5 = new Label();
             groupBoxNuevaTarea.SuspendLayout();
             SuspendLayout();
             // 
@@ -74,7 +78,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Montserrat ExtraBold", 20.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(264, 30);
+            label1.Location = new Point(264, 11);
             label1.Name = "label1";
             label1.Size = new Size(266, 42);
             label1.TabIndex = 11;
@@ -92,9 +96,9 @@
             groupBoxNuevaTarea.Controls.Add(label3);
             groupBoxNuevaTarea.Controls.Add(label2);
             groupBoxNuevaTarea.Controls.Add(textBoxNombreNuevaSubTarea);
-            groupBoxNuevaTarea.Location = new Point(12, 97);
+            groupBoxNuevaTarea.Location = new Point(12, 120);
             groupBoxNuevaTarea.Name = "groupBoxNuevaTarea";
-            groupBoxNuevaTarea.Size = new Size(776, 314);
+            groupBoxNuevaTarea.Size = new Size(776, 292);
             groupBoxNuevaTarea.TabIndex = 10;
             groupBoxNuevaTarea.TabStop = false;
             // 
@@ -193,16 +197,58 @@
             textBoxNombreNuevaSubTarea.Size = new Size(166, 22);
             textBoxNombreNuevaSubTarea.TabIndex = 0;
             // 
+            // comboBoxProyectosSubTareas
+            // 
+            comboBoxProyectosSubTareas.FormattingEnabled = true;
+            comboBoxProyectosSubTareas.Location = new Point(110, 56);
+            comboBoxProyectosSubTareas.Name = "comboBoxProyectosSubTareas";
+            comboBoxProyectosSubTareas.Size = new Size(167, 23);
+            comboBoxProyectosSubTareas.TabIndex = 14;
+            comboBoxProyectosSubTareas.SelectedIndexChanged += comboBoxProyectosSubTareas_SelectedIndexChanged;
+            // 
+            // comboBoxTareaSubTareas
+            // 
+            comboBoxTareaSubTareas.FormattingEnabled = true;
+            comboBoxTareaSubTareas.Location = new Point(110, 85);
+            comboBoxTareaSubTareas.Name = "comboBoxTareaSubTareas";
+            comboBoxTareaSubTareas.Size = new Size(167, 23);
+            comboBoxTareaSubTareas.TabIndex = 15;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Location = new Point(32, 59);
+            label4.Name = "label4";
+            label4.Size = new Size(64, 18);
+            label4.TabIndex = 16;
+            label4.Text = "Proyecto";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.Location = new Point(32, 88);
+            label5.Name = "label5";
+            label5.Size = new Size(47, 18);
+            label5.TabIndex = 17;
+            label5.Text = "Tareas";
+            // 
             // FormSubTareasTho
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(label5);
+            Controls.Add(label4);
+            Controls.Add(comboBoxTareaSubTareas);
+            Controls.Add(comboBoxProyectosSubTareas);
             Controls.Add(buttonCancelarSubTarea);
             Controls.Add(buttonCrearNuevaSubTarea);
             Controls.Add(label1);
             Controls.Add(groupBoxNuevaTarea);
             Name = "FormSubTareasTho";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "FormSubTareasTho";
             groupBoxNuevaTarea.ResumeLayout(false);
             groupBoxNuevaTarea.PerformLayout();
@@ -226,5 +272,9 @@
         private Label label3;
         private Label label2;
         private TextBox textBoxNombreNuevaSubTarea;
+        private ComboBox comboBoxProyectosSubTareas;
+        private ComboBox comboBoxTareaSubTareas;
+        private Label label4;
+        private Label label5;
     }
 }
