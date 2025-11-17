@@ -28,7 +28,8 @@ namespace Beatrix_Formulario
 
         private void lblCrearUsuario_Click(object sender, EventArgs e)
         {
-            
+            FormPantallaUsuario pantallaUsuario = new FormPantallaUsuario();
+            pantallaUsuario.ShowDialog();
         }
     }
 }
