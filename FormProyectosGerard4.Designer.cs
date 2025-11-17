@@ -1,6 +1,6 @@
 ﻿namespace Beatrix_Formulario
 {
-    partial class FormProyectosGerard2
+    partial class FormProyectosGerard4
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProyectosGerard2));
-            button2 = new Button();
+            label5 = new Label();
             groupBox1 = new GroupBox();
-            label7 = new Label();
+            quitarUsuarios = new Button();
             comboBoxUsuarios = new ComboBox();
             richTextBox1 = new RichTextBox();
             listBoxUsuarios = new ListBox();
@@ -45,25 +44,22 @@
             label1 = new Label();
             button3 = new Button();
             btnCrear = new Button();
-            label5 = new Label();
-            quitarUsuarios = new Button();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
-            // button2
+            // label5
             // 
-            button2.BackgroundImage = (Image)resources.GetObject("button2.BackgroundImage");
-            button2.BackgroundImageLayout = ImageLayout.Zoom;
-            button2.Location = new Point(1181, 24);
-            button2.Name = "button2";
-            button2.Size = new Size(35, 29);
-            button2.TabIndex = 26;
-            button2.UseVisualStyleBackColor = true;
+            label5.AutoSize = true;
+            label5.Font = new Font("Montserrat ExtraBold", 17.9999981F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label5.Location = new Point(291, 32);
+            label5.Name = "label5";
+            label5.Size = new Size(220, 38);
+            label5.TabIndex = 32;
+            label5.Text = "Editar Proyecto";
             // 
             // groupBox1
             // 
             groupBox1.Controls.Add(quitarUsuarios);
-            groupBox1.Controls.Add(label7);
             groupBox1.Controls.Add(comboBoxUsuarios);
             groupBox1.Controls.Add(richTextBox1);
             groupBox1.Controls.Add(listBoxUsuarios);
@@ -75,20 +71,21 @@
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
-            groupBox1.Location = new Point(12, 64);
+            groupBox1.Location = new Point(12, 73);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(776, 304);
-            groupBox1.TabIndex = 27;
+            groupBox1.TabIndex = 31;
             groupBox1.TabStop = false;
             groupBox1.Text = "groupBox1";
             // 
-            // label7
+            // quitarUsuarios
             // 
-            label7.Location = new Point(500, 241);
-            label7.Name = "label7";
-            label7.Size = new Size(229, 60);
-            label7.TabIndex = 18;
-            label7.Text = "* Para crear las tareas haz clic en Crear y dirigete a la ventana de Tareas";
+            quitarUsuarios.Location = new Point(497, 181);
+            quitarUsuarios.Name = "quitarUsuarios";
+            quitarUsuarios.Size = new Size(177, 23);
+            quitarUsuarios.TabIndex = 19;
+            quitarUsuarios.Text = "Quitar Usuario";
+            quitarUsuarios.UseVisualStyleBackColor = true;
             // 
             // comboBoxUsuarios
             // 
@@ -97,7 +94,6 @@
             comboBoxUsuarios.Name = "comboBoxUsuarios";
             comboBoxUsuarios.Size = new Size(177, 23);
             comboBoxUsuarios.TabIndex = 17;
-            comboBoxUsuarios.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // richTextBox1
             // 
@@ -184,44 +180,23 @@
             // 
             // button3
             // 
-            button3.Location = new Point(611, 386);
+            button3.Location = new Point(611, 395);
             button3.Name = "button3";
             button3.Size = new Size(75, 23);
-            button3.TabIndex = 9;
+            button3.TabIndex = 30;
             button3.Text = "Cancelar";
             button3.UseVisualStyleBackColor = true;
             // 
             // btnCrear
             // 
-            btnCrear.Location = new Point(512, 386);
+            btnCrear.Location = new Point(512, 395);
             btnCrear.Name = "btnCrear";
             btnCrear.Size = new Size(75, 23);
-            btnCrear.TabIndex = 8;
-            btnCrear.Text = "Crear";
+            btnCrear.TabIndex = 29;
+            btnCrear.Text = "Aceptar";
             btnCrear.UseVisualStyleBackColor = true;
-            btnCrear.Click += btnCrear_Click_1;
             // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Montserrat ExtraBold", 17.9999981F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label5.Location = new Point(291, 23);
-            label5.Name = "label5";
-            label5.Size = new Size(223, 38);
-            label5.TabIndex = 28;
-            label5.Text = "Nuevo Proyecto";
-            // 
-            // quitarUsuarios
-            // 
-            quitarUsuarios.Location = new Point(497, 181);
-            quitarUsuarios.Name = "quitarUsuarios";
-            quitarUsuarios.Size = new Size(177, 23);
-            quitarUsuarios.TabIndex = 19;
-            quitarUsuarios.Text = "Quitar Usuario";
-            quitarUsuarios.UseVisualStyleBackColor = true;
-            quitarUsuarios.Click += quitarUsuarios_Click;
-            // 
-            // FormProyectosGerard2
+            // FormProyectosGerard4
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -229,12 +204,10 @@
             ClientSize = new Size(800, 450);
             Controls.Add(label5);
             Controls.Add(groupBox1);
-            Controls.Add(button2);
             Controls.Add(button3);
             Controls.Add(btnCrear);
-            Name = "FormProyectosGerard2";
-            Text = "FormProyectosGerard2";
-            Load += FormProyectosGerard2_Load_1;
+            Name = "FormProyectosGerard4";
+            Text = "Form2";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);
@@ -242,23 +215,22 @@
         }
 
         #endregion
-        private Button button2;
-        private GroupBox groupBox1;
-        private Label label2;
-        private Label label1;
-        private Label label4;
-        private TextBox txtNombre;
-        private Label label3;
-        private Button button3;
-        private Button btnCrear;
+
         private Label label5;
-        private Label label6;
+        private GroupBox groupBox1;
+        private Button quitarUsuarios;
+        private ComboBox comboBoxUsuarios;
+        private RichTextBox richTextBox1;
         private ListBox listBoxUsuarios;
         private DateTimePicker dateTimePicker2;
         private DateTimePicker dateTimePicker1;
-        private RichTextBox richTextBox1;
-        private ComboBox comboBoxUsuarios;
-        private Label label7;
-        private Button quitarUsuarios;
+        private Label label6;
+        private Label label4;
+        private TextBox txtNombre;
+        private Label label3;
+        private Label label2;
+        private Label label1;
+        private Button button3;
+        private Button btnCrear;
     }
 }

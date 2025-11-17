@@ -46,6 +46,7 @@
             Column2 = new DataGridViewTextBoxColumn();
             btnEliminar = new Button();
             button4 = new Button();
+            label1 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewTarea).BeginInit();
             SuspendLayout();
@@ -212,7 +213,7 @@
             // 
             // btnEliminar
             // 
-            btnEliminar.BackColor = Color.FromArgb(192, 0, 0);
+            btnEliminar.BackColor = Color.FromArgb(245, 168, 125);
             btnEliminar.Enabled = false;
             btnEliminar.Font = new Font("Montserrat SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEliminar.ForeColor = Color.White;
@@ -239,12 +240,25 @@
             button4.UseVisualStyleBackColor = false;
             button4.Click += button4_Click_1;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Montserrat ExtraBold", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.Turquoise;
+            label1.Location = new Point(957, 12);
+            label1.Name = "label1";
+            label1.Size = new Size(126, 33);
+            label1.TabIndex = 20;
+            label1.Text = "Proyectos";
+            // 
             // FormProyectosGerard1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1264, 681);
+            Controls.Add(label1);
             Controls.Add(button4);
             Controls.Add(btnEliminar);
             Controls.Add(dataGridViewTarea);
@@ -279,5 +293,6 @@
         private Button btnEliminar;
         private Button button4;
         private Label labelBeatrix;
+        private Label label1;
     }
 }

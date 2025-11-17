@@ -2,8 +2,8 @@
 using Beatrix_Formulario.ClasesTareas; // Para tus clases
 using System;
 using System.Collections.Generic; // Para List<T>
-using System.IO;                  // Para leer/escribir archivos
-using System.Text.Json;           // Para procesar JSON
+using System.IO;              // Para leer/escribir archivos
+using System.Text.Json;       // Para procesar JSON
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Linq; // <-- ¡Asegúrate de tener este!
@@ -22,12 +22,21 @@ namespace Beatrix_Formulario
         // --- CÓDIGO DEL BOTÓN "CREAR" (CORREGIDO) ---
         private void btnCrear_Click_1(object sender, EventArgs e)
         {
-            // --- 1. VALIDACIÓN (Sin cambios, tu validación es correcta) ---
+            // --- 1. VALIDACIÓN (Con la descripción añadida) ---
             if (string.IsNullOrWhiteSpace(txtNombre.Text))
             {
                 MessageBox.Show("El campo 'Nombre' es obligatorio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
+            // --- ¡NUEVA VALIDACIÓN! ---
+            // Comprobamos que el RichTextBox de la descripción no esté vacío
+            if (string.IsNullOrWhiteSpace(richTextBox1.Text))
+            {
+                MessageBox.Show("El campo 'Descripción' es obligatorio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            // --- FIN DE LA NUEVA VALIDACIÓN ---
 
             if (listBoxUsuarios.Items.Count == 0)
             {
@@ -46,62 +55,55 @@ namespace Beatrix_Formulario
             }
 
             // --- 2. PROCESAMIENTO DE USUARIOS ---
-            // Primero creamos la lista de objetos 'Usuarios'
-            // (La clase 'Usuarios' que representa a una persona)
             List<Usuarios> listaUsuariosParaTarea = new List<Usuarios>();
             foreach (object item in listBoxUsuarios.Items)
             {
                 string nombreUsuario = item.ToString();
-
-                // Asumimos que tu clase 'Usuarios' tiene una propiedad 'nombreUsuario'
-                // (Si tu clase se llama 'Usuario' (singular), cámbialo aquí)
                 listaUsuariosParaTarea.Add(new Usuarios { nombreUsuario = nombreUsuario });
             }
 
 
             // --- 3. CREACIÓN DE LA "TAREA CONTENEDORA" ---
-            // Creamos una tarea inicial que guardará esta información
+            // (Esta es tu lógica original para guardar fechas y usuarios en la primera tarea)
             Tareas tareaInicial = new Tareas
             {
-                // Puedes poner un nombre por defecto o el nombre del proyecto
                 nombreTarea = "Datos Generales del Proyecto",
                 descripcion = "Tarea inicial creada con el proyecto.",
                 fechaInicio = dateTimePicker1.Value,
                 fechaEntrega = dateTimePicker2.Value,
-                estado = "Pendiente", // O un estado por defecto
-
-                // ¡Aquí asignamos la lista de usuarios!
+                estado = "Pendiente",
                 usuariosAsignados = listaUsuariosParaTarea,
-
-                // Inicializamos la lista de subtareas
                 SubTareas = new List<SubTareas>()
             };
 
 
             // --- 4. CREACIÓN DEL OBJETO PROYECTO ---
-            // Ahora creamos el proyecto principal
             Proyectos proyectoTemporal = new Proyectos
             {
                 NombreProyecto = txtNombre.Text,
 
-                // Añadimos la tarea que acabamos de crear a la lista de Tareas del proyecto
+                // --- ¡CAMBIO IMPORTANTE AQUÍ! ---
+                // Guardamos el texto del RichTextBox en la propiedad
+                // que lee el Formulario 3.
+                DescripcionProyecto = richTextBox1.Text,
+                // --- FIN DEL CAMBIO ---
+
+                // Añadimos la tarea que acabamos de crear
                 Tareas = new List<Tareas> { tareaInicial },
 
-                // Dejamos las propiedades raíz con valores por defecto o vacías,
-                // ya que Form1 y Form3 ya no las leen.
+                // Propiedades raíz que tu lógica no usa (rellenadas por defecto)
                 fechaInicio = new DateTime(1, 1, 1), // 0001-01-01
                 fechaEntrega = new DateTime(1, 1, 1), // 0001-01-01
                 UsuariosAsignados = new List<Usuarios>() // Lista vacía
             };
 
 
-            // --- 5. LÓGICA DE GUARDADO EN JSON (Corregida con Opciones) ---
+            // --- 5. LÓGICA DE GUARDADO EN JSON (Sin cambios) ---
             try
             {
                 string rutaArchivoJson = Path.Combine(Application.StartupPath, "JSON", "Proyectos.JSON");
                 List<Proyectos> listaDeProyectos;
 
-                // Definimos las opciones una vez, con Case Insensitive
                 var options = new JsonSerializerOptions
                 {
                     WriteIndented = true,
@@ -118,7 +120,6 @@ namespace Beatrix_Formulario
                     }
                     else
                     {
-                        // Usamos las 'options' para leer
                         listaDeProyectos = JsonSerializer.Deserialize<List<Proyectos>>(jsonExistente, options);
                     }
                 }
@@ -131,7 +132,6 @@ namespace Beatrix_Formulario
                 listaDeProyectos.Add(proyectoTemporal);
 
                 // C. Serializar y Escribir el archivo de nuevo
-                // Reutilizamos las 'options' para escribir
                 string jsonActualizado = JsonSerializer.Serialize(listaDeProyectos, options);
                 File.WriteAllText(rutaArchivoJson, jsonActualizado);
 
@@ -153,7 +153,7 @@ namespace Beatrix_Formulario
             this.Close();
         }
 
-        // --- CÓDIGO DE CARGA DE FORMULARIO (Corregido con Opciones) ---
+        // --- CÓDIGO DE CARGA DE FORMULARIO (Sin cambios) ---
         private void FormProyectosGerard2_Load_1(object sender, EventArgs e)
         {
             string rutaUsuariosJson = Path.Combine(Application.StartupPath, "JSON", "Usuarios.JSON");
@@ -164,7 +164,6 @@ namespace Beatrix_Formulario
                 {
                     string json = File.ReadAllText(rutaUsuariosJson);
 
-                    // Añadimos opciones aquí también por consistencia
                     var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
                     List<Usuarios> listaTotalUsuarios = JsonSerializer.Deserialize<List<Usuarios>>(json, options);
 
@@ -173,8 +172,6 @@ namespace Beatrix_Formulario
                     comboBoxUsuarios.Items.Clear();
                     foreach (Usuarios user in listaTotalUsuarios)
                     {
-                        // Asumimos que la clase 'Usuarios' tiene un ToString()
-                        // que muestra el nombre de usuario
                         comboBoxUsuarios.Items.Add(user);
                     }
                 }
@@ -194,12 +191,9 @@ namespace Beatrix_Formulario
         {
             if (comboBoxUsuarios.SelectedItem != null)
             {
-                // 'usuario' aquí es un objeto 'Usuarios'
                 Usuarios usuarioSeleccionado = (Usuarios)comboBoxUsuarios.SelectedItem;
 
-                // Usamos el 'ToString()' para añadir al ListBox
-                // (Si tu clase 'Usuarios' no tiene un ToString() sobreescrito
-                // quizás quieras añadir usuarioSeleccionado.nombreUsuario)
+                // Asumo que tu clase Usuarios tiene un .ToString() que devuelve el nombre
                 string nombreUsuario = usuarioSeleccionado.ToString();
 
                 if (!listBoxUsuarios.Items.Contains(nombreUsuario))
@@ -208,6 +202,14 @@ namespace Beatrix_Formulario
                 }
 
                 comboBoxUsuarios.SelectedIndex = -1;
+            }
+        }
+
+        private void quitarUsuarios_Click(object sender, EventArgs e)
+        {
+            if (listBoxUsuarios.SelectedItem != null)
+            {
+                listBoxUsuarios.Items.Remove(listBoxUsuarios.SelectedItem);
             }
         }
     }

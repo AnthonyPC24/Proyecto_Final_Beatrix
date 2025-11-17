@@ -8,14 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Beatrix_Formulario.ClasesTareas;
-using System;
-using System.Collections.Generic;
-using System.IO;                 // <--- Para Path y File
-using System.Linq;                // <--- Para .FirstOrDefault
-using System.Text;                // <--- Para Encoding.UTF8
-using System.Text.Json;           // <--- Para JsonSerializer
-using System.Windows.Forms;
-using Beatrix_Formulario.ClasesTareas; // ¡Importante!
+using System.IO;                // <--- Necesario para Path y File
+using System.Text.Json;         // <--- Necesario para JsonSerializer
 
 namespace Beatrix_Formulario
 {
@@ -23,14 +17,14 @@ namespace Beatrix_Formulario
     {
         private string nombreProyectoBuscado;
 
-        // 1. Constructor (recibe el string)
+        // 1. Constructor
         public FormProyectosGerard3(string nombreProyecto)
         {
             InitializeComponent();
             this.nombreProyectoBuscado = nombreProyecto;
         }
 
-        // 2. Evento Load del formulario (haz doble clic en tu form3 para crearlo)
+        // 2. Evento Load
         private void FormProyectosGerard3_Load_1(object sender, EventArgs e)
         {
             CargarDatosDelProyecto();
@@ -39,6 +33,7 @@ namespace Beatrix_Formulario
         // 3. Método principal de carga
         private void CargarDatosDelProyecto()
         {
+            // Validación inicial
             if (string.IsNullOrEmpty(this.nombreProyectoBuscado))
             {
                 MessageBox.Show("No se especificó ningún proyecto.");
@@ -48,8 +43,9 @@ namespace Beatrix_Formulario
 
             try
             {
-                // --- Carga del JSON (igual que en Form1) ---
+                // --- A. Cargar el JSON ---
                 string rutaArchivoJson = Path.Combine(Application.StartupPath, "JSON", "Proyectos.JSON");
+
                 if (!File.Exists(rutaArchivoJson))
                 {
                     MessageBox.Show("Error: No se encontró el archivo Proyectos.JSON");
@@ -58,10 +54,11 @@ namespace Beatrix_Formulario
 
                 string json = File.ReadAllText(rutaArchivoJson, Encoding.UTF8);
                 var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-                List<Proyectos> listaDeProyectos = JsonSerializer.Deserialize<List<Proyectos>>(json, options);
-                // --- Fin de la carga ---
 
-                // 4. Buscar el proyecto específico
+                // Deserializamos la lista de proyectos
+                List<Proyectos> listaDeProyectos = JsonSerializer.Deserialize<List<Proyectos>>(json, options);
+
+                // --- B. Buscar el proyecto ---
                 Proyectos proyectoActual = listaDeProyectos.FirstOrDefault(p => p.NombreProyecto == this.nombreProyectoBuscado);
 
                 if (proyectoActual == null)
@@ -71,34 +68,40 @@ namespace Beatrix_Formulario
                     return;
                 }
 
-                // 5. Rellenar los controles (¡LA LÓGICA CORREGIDA!)
+                // --- C. Rellenar la interfaz ---
 
-                // Título (Esto es fácil)
+                // 1. Título del Proyecto
                 labelTituloProyecto.Text = proyectoActual.NombreProyecto;
 
-                // Comprobar si hay tareas para procesar
+                // 2. Descripción del Proyecto (En el TextBox 'txtBoxDescr')
+                if (!string.IsNullOrEmpty(proyectoActual.DescripcionProyecto))
+                {
+                    txtBoxDescr.Text = proyectoActual.DescripcionProyecto;
+                }
+                else
+                {
+                    txtBoxDescr.Text = "Este proyecto no tiene una descripción general.";
+                }
+
+                // 3. Cálculos basados en las Tareas (Fechas y Usuarios)
                 if (proyectoActual.Tareas != null && proyectoActual.Tareas.Any())
                 {
-                    // Filtramos tareas nulas por si acaso
+                    // Filtramos tareas que no sean nulas
                     var tareasValidas = proyectoActual.Tareas.Where(t => t != null);
 
-                    // --- Fechas ---
-                    // Asumimos que las clases de Tarea tienen 'FechaInicio' y 'FechaEntrega' (con mayúscula)
-                    // Buscamos la fecha de inicio MÁS TEMPRANA
+                    // -- Fechas (Inicio Mínima y Entrega Máxima) --
                     DateTime fechaInicio = tareasValidas.Min(t => t.fechaInicio);
-                    // Buscamos la fecha de entrega MÁS TARDÍA
                     DateTime fechaEntrega = tareasValidas.Max(t => t.fechaEntrega);
 
                     lblFechaInicio.Text = fechaInicio.ToShortDateString();
                     lblFechaEntrega.Text = fechaEntrega.ToShortDateString();
 
-                    // --- Usuarios ---
-                    // Asumimos que Tarea tiene 'UsuariosAsignados' y la clase de usuario es 'Usuarios' (plural, como antes)
+                    // -- Usuarios Asignados (Unir todos sin repetir) --
                     var todosLosUsuarios = tareasValidas
-                        .SelectMany(t => t.usuariosAsignados ?? new List<Usuarios>())
+                        .SelectMany(t => t.usuariosAsignados ?? new List<Usuarios>()) // Si es null, usa lista vacía
                         .Where(u => u != null)
                         .Select(u => u.nombreUsuario)
-                        .Distinct();
+                        .Distinct(); // Elimina duplicados
 
                     if (todosLosUsuarios.Any())
                     {
@@ -106,55 +109,43 @@ namespace Beatrix_Formulario
                     }
                     else
                     {
-                        txtUsuariosAsignados.Text = "No hay usuarios en las tareas.";
-                    }
-
-                    // --- Descripción ---
-                    // Asumimos que Tarea tiene 'Descripcion'
-                    // Vamos a juntar todas las descripciones de las tareas
-                    var descripciones = tareasValidas
-                        .Select(t => t.descripcion) // Ajusta 'descripcion' a 'Descripcion' si es PascalCase
-                        .Where(d => !string.IsNullOrEmpty(d));
-
-                    if (descripciones.Any())
-                    {
-                        // Environment.NewLine hace un salto de línea real en el TextBox
-                        txtDescripcion.Text = string.Join(Environment.NewLine, descripciones);
-                    }
-                    else
-                    {
-                        txtDescripcion.Text = "No hay descripciones en las tareas.";
+                        txtUsuariosAsignados.Text = "No hay usuarios asignados a las tareas.";
                     }
                 }
                 else
                 {
-                    // Si el proyecto no tiene tareas, mostramos N/A
+                    // Si no hay tareas, mostramos valores por defecto
                     lblFechaInicio.Text = "N/A";
                     lblFechaEntrega.Text = "N/A";
                     txtUsuariosAsignados.Text = "Sin tareas asignadas.";
-                    txtDescripcion.Text = "Sin tareas asignadas.";
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error fatal al cargar los datos del proyecto: {ex.Message}");
+                MessageBox.Show($"Error al cargar los datos: {ex.Message}");
                 this.Close();
             }
         }
 
-        private void lbltituloform_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtUsuariosAsignados_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        // --- Eventos vacíos generados por el diseñador ---
+        private void lbltituloform_Click(object sender, EventArgs e) { }
+        private void txtUsuariosAsignados_TextChanged(object sender, EventArgs e) { }
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void labelDescripcion_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonEditar_Click(object sender, EventArgs e)
+        {
+            // Creas el formulario sin decirle CUAL proyecto editar
+            FormProyectosGerard4 formEditar = new FormProyectosGerard4();
+            formEditar.ShowDialog();
         }
     }
 }

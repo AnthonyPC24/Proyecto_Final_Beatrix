@@ -161,7 +161,7 @@ namespace Beatrix_Formulario
                 {
                     // 7. Seleccionamos la fila correspondiente en la tabla
                     dataGridViewTarea.Rows[index].Selected = true;
-
+                        
                     // 8. Opcional: Hacemos scroll para que la fila se vea
                     dataGridViewTarea.FirstDisplayedScrollingRowIndex = index;
 
