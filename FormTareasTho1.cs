@@ -20,6 +20,66 @@ namespace Beatrix_Formulario
             comboBoxProyectos.Text = "Proyectos";
             comboBoxTareas.Text = "Tareas";
             cargarProyectosDesdeJson();
+
+
+            //Configuracion del DataGridView
+            // Evitar que el usuario redimensione columnas y filas
+            dataGridView1.AllowUserToResizeColumns = false;
+            dataGridView1.AllowUserToResizeRows = false;
+
+            // Evitar agregar o borrar filas manualmente
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+
+            // Ajustar el ancho de las columnas según el tamaño de la columna que definiste
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            // Ajustar altura de filas al contenido
+            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+
+            // Opcional: bloquear el tamaño de filas específico
+            dataGridView1.RowTemplate.Height = 30; // por ejemplo, 30 px
+
+            dataGridView1.Font = new System.Drawing.Font("Montserrat", 10); // Cambiar la fuente y tamaño
+        }
+
+        private void CargarTareasEnDataGridView(string nombreProyecto)
+        {
+            // Limpiamos el DataGridView
+            dataGridView1.Rows.Clear();
+            dataGridView1.Columns.Clear();
+
+            // Creamos las columnas
+            dataGridView1.Columns.Add("nombreTarea", "Nombre de la Tarea");
+            dataGridView1.Columns.Add("descripcion", "Descripción");
+            dataGridView1.Columns.Add("fechaInicio", "Fecha Inicio");
+            dataGridView1.Columns.Add("fechaEntrega", "Fecha Entrega");
+            dataGridView1.Columns.Add("estado", "Estado");
+            dataGridView1.Columns.Add("usuariosAsignados", "Usuarios Asignados");
+
+            // Buscar el proyecto
+            var proyecto = listaProyectos.FirstOrDefault(p => p.NombreProyecto == nombreProyecto);
+            if (proyecto == null || proyecto.Tareas == null) return;
+
+            // Ordenar las tareas (por nombre, puedes cambiarlo si quieres)
+            var tareasOrdenadas = proyecto.Tareas.OrderBy(t => t.nombreTarea).ToList();
+
+            // Agregar filas al DataGridView
+            foreach (var tarea in tareasOrdenadas)
+            {
+                string usuarios = string.Join(", ", tarea.usuariosAsignados.Select(u => u.nombreUsuario));
+                dataGridView1.Rows.Add(
+                    tarea.nombreTarea,
+                    tarea.descripcion,
+                    tarea.fechaInicio.ToString("yyyy-MM-dd"),
+                    tarea.fechaEntrega.ToString("yyyy-MM-dd"),
+                    tarea.estado,
+                    usuarios
+                );
+            }
+
+            // Ajustar tamaño de columnas automáticamente
+            dataGridView1.AutoResizeColumns();
         }
 
         private void cargarProyectosDesdeJson()
@@ -60,17 +120,22 @@ namespace Beatrix_Formulario
 
         private void comboBoxProyectos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            comboBoxTareas.Items.Clear();
-            comboBoxSubTareas.Items.Clear();
-
-            string proyectoSeleccionado = comboBoxProyectos.SelectedItem?.ToString();
-            if (proyectoSeleccionado == null) return;
-
-            Proyectos proyecto = listaProyectos.FirstOrDefault(p => p.NombreProyecto == proyectoSeleccionado);
-            if (proyecto != null)
+            string nombreProyecto = comboBoxProyectos.SelectedItem?.ToString();
+            if (!string.IsNullOrEmpty(nombreProyecto))
             {
-                foreach (var tarea in proyecto.Tareas)
-                    comboBoxTareas.Items.Add(tarea.nombreTarea);
+                // Cargar tareas en el DataGridView
+                CargarTareasEnDataGridView(nombreProyecto);
+
+                // Opcional: actualizar comboBox de tareas también
+                comboBoxTareas.Items.Clear();
+                var proyecto = listaProyectos.FirstOrDefault(p => p.NombreProyecto == nombreProyecto);
+                if (proyecto?.Tareas != null)
+                {
+                    foreach (var t in proyecto.Tareas.OrderBy(t => t.nombreTarea))
+                    {
+                        comboBoxTareas.Items.Add(t.nombreTarea);
+                    }
+                }
             }
         }
 
@@ -172,8 +237,10 @@ namespace Beatrix_Formulario
                 if (proyecto.Tareas == null)
                     proyecto.Tareas = new List<Tareas>();
 
+                // ✅Agregar la tarea creada directamente
                 proyecto.Tareas.Add(nuevaTareaForm.NuevaTareaCreada);
 
+                // Guardar en JSON 
                 string rutaArchivo = Path.Combine(Application.StartupPath, "JSON", "Proyectos.json");
                 string jsonActualizado = JsonSerializer.Serialize(listaProyectos, new JsonSerializerOptions { WriteIndented = true });
                 File.WriteAllText(rutaArchivo, jsonActualizado);
@@ -189,8 +256,19 @@ namespace Beatrix_Formulario
             string nombreProyecto = comboBoxProyectos.SelectedItem?.ToString();
             string nombreTarea = comboBoxTareas.SelectedItem?.ToString();
 
-            if (nombreProyecto == null || nombreTarea == null) return;
+            // Si no hay tarea seleccionada en el comboBox, tomarla de la fila seleccionada del DataGridView
+            if (string.IsNullOrEmpty(nombreTarea) && dataGridView1.CurrentRow != null)
+            {
+                nombreTarea = dataGridView1.CurrentRow.Cells["NombreTarea"].Value.ToString();
+            }
 
+            if (string.IsNullOrEmpty(nombreProyecto) || string.IsNullOrEmpty(nombreTarea))
+            {
+                MessageBox.Show("Seleccione un proyecto y una tarea primero.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Buscar proyecto y tarea
             Proyectos proyecto = listaProyectos.FirstOrDefault(p => p.NombreProyecto == nombreProyecto);
             if (proyecto == null) return;
 
@@ -216,7 +294,7 @@ namespace Beatrix_Formulario
                 string proyectosActualizadosJson = JsonSerializer.Serialize(listaProyectos, new JsonSerializerOptions { WriteIndented = true });
                 File.WriteAllText(rutaArchivoProyecto, proyectosActualizadosJson);
 
-                // --- Recargar comboBoxSubTareas automáticamente ---
+                // Recargar comboBoxSubTareas automáticamente
                 comboBoxSubTareas.Items.Clear();
                 foreach (var sub in tarea.SubTareas)
                 {
@@ -352,5 +430,58 @@ namespace Beatrix_Formulario
                 MessageBox.Show($"Error al actualizar el estado de la tarea: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentRow == null) return;
+
+            // Obtenemos el nombre de la tarea desde la fila seleccionada
+            string nombreTareaSeleccionada = dataGridView1.CurrentRow.Cells["nombreTarea"].Value?.ToString();
+            string nombreProyecto = comboBoxProyectos.SelectedItem?.ToString();
+
+            if (string.IsNullOrEmpty(nombreProyecto) || string.IsNullOrEmpty(nombreTareaSeleccionada)) return;
+
+            // Buscar proyecto y tarea
+            Proyectos proyecto = listaProyectos.FirstOrDefault(p => p.NombreProyecto == nombreProyecto);
+            if (proyecto == null) return;
+
+            Tareas tarea = proyecto.Tareas.FirstOrDefault(t => t.nombreTarea == nombreTareaSeleccionada);
+            if (tarea == null) return;
+
+            // Mostrar detalles de la tarea en los controles
+            textBoxNombreTarea.Text = tarea.nombreTarea;
+            dateTimePickerFechaInicio.Value = tarea.fechaInicio;
+            dateTimePickerFechaEntrega.Value = tarea.fechaEntrega;
+            comboBoxEstadosTarea.Text = tarea.estado;
+
+            // Usuarios asignados
+            comboBoxUsuarios.Items.Clear();
+            foreach (var usuario in tarea.usuariosAsignados)
+                comboBoxUsuarios.Items.Add(usuario.nombreUsuario);
+            if (tarea.usuariosAsignados.Count > 0)
+                comboBoxUsuarios.SelectedIndex = 0;
+
+            richTextBoxDescripcionTare.Text = tarea.descripcion;
+
+            // Subtareas
+            comboBoxSubTareas.Items.Clear();
+            if (tarea.SubTareas != null && tarea.SubTareas.Count > 0)
+            {
+                foreach (var sub in tarea.SubTareas)
+                    comboBoxSubTareas.Items.Add(sub.NombreSubTarea);
+
+                comboBoxSubTareas.SelectedIndex = 0; // opcional
+            }
+            else
+            {
+                comboBoxSubTareas.Text = "";
+            }
+        }
+
+        private void groupBoxSubtareaEstados_Enter(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

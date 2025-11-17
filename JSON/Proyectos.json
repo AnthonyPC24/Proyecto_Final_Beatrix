@@ -7,7 +7,7 @@
         "descripcion": "Crear los mockups y prototipos de alta fidelidad en Figma.",
         "fechaInicio": "2024-11-18T09:00:00Z",
         "fechaEntrega": "2024-12-15T18:00:00Z",
-        "estado": "En Progreso",
+        "estado": "Completada",
         "usuariosAsignados": [
           {
             "nombreApellidos": null,
@@ -208,6 +208,144 @@
                 "rol": null
               }
             ]
+          },
+          {
+            "NombreSubTarea": "nueva sub tarea prueba",
+            "DescripcionSubTarea": "nueva subtarea prueba",
+            "FechaInicioSubtarea": "2025-11-17T20:15:41.877106+01:00",
+            "FechaEntregaSubtarea": "2025-11-19T20:15:41.873",
+            "EstadoSubTarea": "Pendiente",
+            "UsuariosAsignadosSubtarea": [
+              {
+                "nombreApellidos": null,
+                "nombreUsuario": "eruiz",
+                "contrasena": null,
+                "email": null,
+                "telefono": null,
+                "rol": null
+              },
+              {
+                "nombreApellidos": null,
+                "nombreUsuario": "afernandez",
+                "contrasena": null,
+                "email": null,
+                "telefono": null,
+                "rol": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nombreTarea": "nuevo lanzamiento beatrix",
+        "descripcion": "nuevo lanzamiento beatrix para movil ",
+        "fechaInicio": "2025-11-17T19:22:49.5651433+01:00",
+        "fechaEntrega": "2025-11-18T19:22:49.559",
+        "estado": "Pendiente",
+        "usuariosAsignados": [
+          {
+            "nombreApellidos": null,
+            "nombreUsuario": "eruiz",
+            "contrasena": null,
+            "email": null,
+            "telefono": null,
+            "rol": null
+          },
+          {
+            "nombreApellidos": null,
+            "nombreUsuario": "afernandez",
+            "contrasena": null,
+            "email": null,
+            "telefono": null,
+            "rol": null
+          }
+        ],
+        "SubTareas": [
+          {
+            "NombreSubTarea": "nueva sub tarea ",
+            "DescripcionSubTarea": "nueva subtarea ",
+            "FechaInicioSubtarea": "2025-11-17T19:23:22.0273639+01:00",
+            "FechaEntregaSubtarea": "2025-11-19T19:23:22.023",
+            "EstadoSubTarea": "Pendiente",
+            "UsuariosAsignadosSubtarea": [
+              {
+                "nombreApellidos": null,
+                "nombreUsuario": "eruiz",
+                "contrasena": null,
+                "email": null,
+                "telefono": null,
+                "rol": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nombreTarea": "app nueva",
+        "descripcion": "nueva app",
+        "fechaInicio": "2025-11-17T19:27:31.019",
+        "fechaEntrega": "2025-11-19T19:27:31.016",
+        "estado": "Pendiente",
+        "usuariosAsignados": [
+          {
+            "nombreApellidos": null,
+            "nombreUsuario": "eruiz",
+            "contrasena": null,
+            "email": null,
+            "telefono": null,
+            "rol": null
+          }
+        ],
+        "SubTareas": [
+          {
+            "NombreSubTarea": "appi",
+            "DescripcionSubTarea": "api",
+            "FechaInicioSubtarea": "2025-11-17T19:55:53.7598642+01:00",
+            "FechaEntregaSubtarea": "2025-11-18T19:55:53.756",
+            "EstadoSubTarea": "Pendiente",
+            "UsuariosAsignadosSubtarea": [
+              {
+                "nombreApellidos": null,
+                "nombreUsuario": "eruiz",
+                "contrasena": null,
+                "email": null,
+                "telefono": null,
+                "rol": null
+              },
+              {
+                "nombreApellidos": null,
+                "nombreUsuario": "afernandez",
+                "contrasena": null,
+                "email": null,
+                "telefono": null,
+                "rol": null
+              }
+            ]
+          },
+          {
+            "NombreSubTarea": "nuevos datos",
+            "DescripcionSubTarea": "nuevos datos",
+            "FechaInicioSubtarea": "2025-11-17T20:14:40.037109+01:00",
+            "FechaEntregaSubtarea": "2025-11-18T20:14:40.033",
+            "EstadoSubTarea": "Pendiente",
+            "UsuariosAsignadosSubtarea": [
+              {
+                "nombreApellidos": null,
+                "nombreUsuario": "eruiz",
+                "contrasena": null,
+                "email": null,
+                "telefono": null,
+                "rol": null
+              },
+              {
+                "nombreApellidos": null,
+                "nombreUsuario": "afernandez",
+                "contrasena": null,
+                "email": null,
+                "telefono": null,
+                "rol": null
+              }
+            ]
           }
         ]
       }
@@ -242,7 +380,7 @@
         "descripcion": "Definir la red privada, subredes p\u00FAblicas y privadas, y gateways.",
         "fechaInicio": "2024-12-11T09:00:00Z",
         "fechaEntrega": "2024-12-15T18:00:00Z",
-        "estado": "Pendiente",
+        "estado": "Cancelada",
         "usuariosAsignados": [
           {
             "nombreApellidos": null,
