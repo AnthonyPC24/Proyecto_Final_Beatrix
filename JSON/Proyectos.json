@@ -183,7 +183,33 @@
             "rol": null
           }
         ],
-        "SubTareas": []
+        "SubTareas": [
+          {
+            "NombreSubTarea": "lanzamiento final",
+            "DescripcionSubTarea": "Lanzamiento final ",
+            "FechaInicioSubtarea": "2025-11-13T19:35:25.7515704+01:00",
+            "FechaEntregaSubtarea": "2025-11-15T19:35:25.748",
+            "EstadoSubTarea": "Pendiente",
+            "UsuariosAsignadosSubtarea": [
+              {
+                "nombreApellidos": null,
+                "nombreUsuario": "eruiz",
+                "contrasena": null,
+                "email": null,
+                "telefono": null,
+                "rol": null
+              },
+              {
+                "nombreApellidos": null,
+                "nombreUsuario": "afernandez",
+                "contrasena": null,
+                "email": null,
+                "telefono": null,
+                "rol": null
+              }
+            ]
+          }
+        ]
       }
     ],
     "fechaEntrega": "0001-01-01T00:00:00",
@@ -223,6 +249,92 @@
             "nombreUsuario": "csantana",
             "contrasena": null,
             "email": "c.santana@ejemplo.com",
+            "telefono": null,
+            "rol": null
+          }
+        ],
+        "SubTareas": []
+      },
+      {
+        "nombreTarea": "nueva migracion",
+        "descripcion": "nueva migraci\u00F3n de datos",
+        "fechaInicio": "2025-11-13T20:00:35.377",
+        "fechaEntrega": "2025-11-20T20:00:35.373",
+        "estado": "Cancelada",
+        "usuariosAsignados": [
+          {
+            "nombreApellidos": null,
+            "nombreUsuario": "eruiz",
+            "contrasena": null,
+            "email": null,
+            "telefono": null,
+            "rol": null
+          },
+          {
+            "nombreApellidos": null,
+            "nombreUsuario": "afernandez",
+            "contrasena": null,
+            "email": null,
+            "telefono": null,
+            "rol": null
+          },
+          {
+            "nombreApellidos": null,
+            "nombreUsuario": "csantana",
+            "contrasena": null,
+            "email": null,
+            "telefono": null,
+            "rol": null
+          }
+        ],
+        "SubTareas": [
+          {
+            "NombreSubTarea": "cambio en los botones",
+            "DescripcionSubTarea": "cambio de botones para la migracion",
+            "FechaInicioSubtarea": "2025-11-13T20:03:09.746",
+            "FechaEntregaSubtarea": "2025-11-21T20:03:09.743",
+            "EstadoSubTarea": "Pendiente",
+            "UsuariosAsignadosSubtarea": [
+              {
+                "nombreApellidos": null,
+                "nombreUsuario": "eruiz",
+                "contrasena": null,
+                "email": null,
+                "telefono": null,
+                "rol": null
+              },
+              {
+                "nombreApellidos": null,
+                "nombreUsuario": "mgomez",
+                "contrasena": null,
+                "email": null,
+                "telefono": null,
+                "rol": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nombreTarea": "nueva AWS total",
+        "descripcion": "nueva AWS final",
+        "fechaInicio": "2025-11-13T20:15:46.006",
+        "fechaEntrega": "2025-11-20T20:15:46.002",
+        "estado": "Pendiente",
+        "usuariosAsignados": [
+          {
+            "nombreApellidos": null,
+            "nombreUsuario": "mgomez",
+            "contrasena": null,
+            "email": null,
+            "telefono": null,
+            "rol": null
+          },
+          {
+            "nombreApellidos": null,
+            "nombreUsuario": "afernandez",
+            "contrasena": null,
+            "email": null,
             "telefono": null,
             "rol": null
           }
