@@ -29,15 +29,27 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            btnLogin = new Button();
             Logo = new PictureBox();
             txtUsuario = new TextBox();
             txtContrasena = new TextBox();
             labelTitle = new Label();
             bindingSource1 = new BindingSource(components);
-            btnEntrar = new Button();
             ((System.ComponentModel.ISupportInitialize)Logo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
             SuspendLayout();
+            // 
+            // btnLogin
+            // 
+            btnLogin.FlatStyle = FlatStyle.System;
+            btnLogin.Font = new Font("Montserrat", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnLogin.Location = new Point(362, 393);
+            btnLogin.Name = "btnLogin";
+            btnLogin.Size = new Size(190, 40);
+            btnLogin.TabIndex = 0;
+            btnLogin.Text = "Entrar";
+            btnLogin.UseVisualStyleBackColor = true;
+            btnLogin.Click += btnLogin_Click;
             // 
             // Logo
             // 
@@ -80,31 +92,18 @@
             labelTitle.TabIndex = 4;
             labelTitle.Text = "BEATRIX";
             // 
-            // btnEntrar
-            // 
-            btnEntrar.FlatStyle = FlatStyle.System;
-            btnEntrar.Font = new Font("Montserrat", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnEntrar.Location = new Point(394, 385);
-            btnEntrar.Name = "btnEntrar";
-            btnEntrar.Size = new Size(134, 50);
-            btnEntrar.TabIndex = 6;
-            btnEntrar.Text = "Entrar";
-            btnEntrar.UseVisualStyleBackColor = true;
-            btnEntrar.Click += btnEntrar_Click;
-            // 
             // BeatrixForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.background_;
             ClientSize = new Size(947, 531);
-            Controls.Add(btnEntrar);
             Controls.Add(labelTitle);
             Controls.Add(txtContrasena);
             Controls.Add(txtUsuario);
             Controls.Add(Logo);
-            FormBorderStyle = FormBorderStyle.FixedDialog;
-            MaximizeBox = false;
+            Controls.Add(btnLogin);
+            MinimizeBox = false;
             Name = "BeatrixForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Beatrix";
@@ -116,11 +115,12 @@
         }
 
         #endregion
+
+        private Button btnLogin;
         private PictureBox Logo;
         private TextBox txtUsuario;
         private TextBox txtContrasena;
         private Label labelTitle;
         private BindingSource bindingSource1;
-        private Button btnEntrar;
     }
 }
