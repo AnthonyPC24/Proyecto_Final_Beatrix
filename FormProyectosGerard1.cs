@@ -297,11 +297,15 @@ namespace Beatrix_Formulario
                 {
                     formDetalle.ShowDialog();
                 }
+
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error al abrir el detalle del proyecto: {ex.Message}");
             }
+
+            CargarProyectosDesdeJson();
         }
 
         private void btnInicio_Click(object sender, EventArgs e)

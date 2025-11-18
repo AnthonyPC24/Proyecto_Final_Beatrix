@@ -186,6 +186,7 @@
             button3.TabIndex = 30;
             button3.Text = "Cancelar";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // btnCrear
             // 
@@ -195,6 +196,7 @@
             btnCrear.TabIndex = 29;
             btnCrear.Text = "Aceptar";
             btnCrear.UseVisualStyleBackColor = true;
+            btnCrear.Click += btnCrear_Click;
             // 
             // FormProyectosGerard4
             // 
@@ -208,6 +210,7 @@
             Controls.Add(btnCrear);
             Name = "FormProyectosGerard4";
             Text = "Form2";
+            Load += FormProyectosGerard4_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);

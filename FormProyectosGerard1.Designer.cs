@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProyectosGerard1));
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panel1 = new Panel();
@@ -39,7 +38,6 @@
             btnProyectos = new Button();
             btnBuscar = new Button();
             txtBuscarProyecto = new TextBox();
-            button2 = new Button();
             dataGridViewTarea = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
             ColumnUsuario = new DataGridViewTextBoxColumn();
@@ -153,16 +151,6 @@
             txtBuscarProyecto.Size = new Size(185, 23);
             txtBuscarProyecto.TabIndex = 9;
             // 
-            // button2
-            // 
-            button2.BackgroundImage = (Image)resources.GetObject("button2.BackgroundImage");
-            button2.BackgroundImageLayout = ImageLayout.Zoom;
-            button2.Location = new Point(1176, 16);
-            button2.Name = "button2";
-            button2.Size = new Size(35, 29);
-            button2.TabIndex = 15;
-            button2.UseVisualStyleBackColor = true;
-            // 
             // dataGridViewTarea
             // 
             dataGridViewTarea.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -179,14 +167,14 @@
             dataGridViewTarea.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewTarea.Columns.AddRange(new DataGridViewColumn[] { Column1, ColumnUsuario, Column2 });
             dataGridViewTarea.GridColor = SystemColors.Control;
-            dataGridViewTarea.Location = new Point(266, 145);
+            dataGridViewTarea.Location = new Point(266, 183);
             dataGridViewTarea.Margin = new Padding(3, 2, 3, 2);
             dataGridViewTarea.Name = "dataGridViewTarea";
             dataGridViewTarea.ReadOnly = true;
             dataGridViewTarea.RowHeadersWidth = 51;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewTarea.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            dataGridViewTarea.Size = new Size(973, 345);
+            dataGridViewTarea.Size = new Size(973, 435);
             dataGridViewTarea.TabIndex = 18;
             dataGridViewTarea.CellContentClick += dataGridViewTarea_CellContentClick;
             dataGridViewTarea.CellDoubleClick += dataGridViewTarea_CellDoubleClick;
@@ -217,10 +205,10 @@
             btnEliminar.Enabled = false;
             btnEliminar.Font = new Font("Montserrat SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEliminar.ForeColor = Color.White;
-            btnEliminar.Location = new Point(457, 97);
+            btnEliminar.Location = new Point(457, 121);
             btnEliminar.Margin = new Padding(3, 2, 3, 2);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(128, 32);
+            btnEliminar.Size = new Size(185, 42);
             btnEliminar.TabIndex = 6;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = false;
@@ -231,10 +219,10 @@
             button4.BackColor = Color.FromArgb(41, 191, 205);
             button4.Font = new Font("Montserrat SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button4.ForeColor = Color.White;
-            button4.Location = new Point(266, 97);
+            button4.Location = new Point(266, 121);
             button4.Margin = new Padding(3, 2, 3, 2);
             button4.Name = "button4";
-            button4.Size = new Size(172, 32);
+            button4.Size = new Size(185, 42);
             button4.TabIndex = 19;
             button4.Text = "+ Crear Proyecto";
             button4.UseVisualStyleBackColor = false;
@@ -246,7 +234,7 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Montserrat ExtraBold", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Turquoise;
-            label1.Location = new Point(957, 12);
+            label1.Location = new Point(1113, 21);
             label1.Name = "label1";
             label1.Size = new Size(126, 33);
             label1.TabIndex = 20;
@@ -262,7 +250,6 @@
             Controls.Add(button4);
             Controls.Add(btnEliminar);
             Controls.Add(dataGridViewTarea);
-            Controls.Add(button2);
             Controls.Add(txtBuscarProyecto);
             Controls.Add(btnBuscar);
             Controls.Add(panel1);
@@ -285,7 +272,6 @@
         private Button btnProyectos;
         private Button btnBuscar;
         private TextBox txtBuscarProyecto;
-        private Button button2;
         private DataGridView dataGridViewTarea;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn ColumnUsuario;

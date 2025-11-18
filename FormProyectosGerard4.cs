@@ -253,5 +253,97 @@ namespace Beatrix_Formulario
                 listBoxUsuarios.Items.Remove(listBoxUsuarios.SelectedItem);
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnCrear_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtNombre.Text))
+            {
+                MessageBox.Show("El campo 'Nombre' es obligatorio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(richTextBox1.Text))
+            {
+                MessageBox.Show("El campo 'Descripción' es obligatorio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (listBoxUsuarios.Items.Count == 0)
+            {
+                MessageBox.Show("Debe seleccionar al menos un 'Usuario'.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (dateTimePicker2.Value.Date < dateTimePicker1.Value.Date)
+            {
+                MessageBox.Show("La fecha de entrega no puede ser anterior a la fecha de inicio.", "Error de Fechas", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            try
+            {
+                // B. MODIFICAR EL PROYECTO EXISTENTE (Usamos la REFERENCIA cargada 'proyectoAEditar')
+
+                // 1. Actualizamos nombre y descripción
+                proyectoAEditar.NombreProyecto = txtNombre.Text;
+                proyectoAEditar.DescripcionProyecto = richTextBox1.Text;
+
+                // 2. Preparamos la nueva lista de usuarios
+                List<Usuarios> nuevosUsuarios = new List<Usuarios>();
+                foreach (object item in listBoxUsuarios.Items)
+                {
+                    nuevosUsuarios.Add(new Usuarios { nombreUsuario = item.ToString() });
+                }
+
+                // 3. Buscamos/creamos la Tarea Principal (índice 0)
+                if (proyectoAEditar.Tareas == null)
+                    proyectoAEditar.Tareas = new List<Tareas>();
+
+                Tareas tareaPrincipal;
+                if (proyectoAEditar.Tareas.Count > 0)
+                {
+                    // Si ya existen tareas, editamos solo la primera (la contenedora de fechas/usuarios)
+                    tareaPrincipal = proyectoAEditar.Tareas[0];
+                }
+                else
+                {
+                    // Caso de seguridad: Si no hay tareas, creamos la primera
+                    tareaPrincipal = new Tareas
+                    {
+                        nombreTarea = "Datos Generales del Proyecto",
+                        descripcion = "Tarea inicial creada con el proyecto.",
+                        estado = "Pendiente",
+                        SubTareas = new List<SubTareas>()
+                    };
+                    proyectoAEditar.Tareas.Insert(0, tareaPrincipal); // Insertamos en la posición 0
+                }
+
+                // 4. Actualizamos Fechas y Usuarios en esa tarea, PRESERVANDO las demás tareas
+                tareaPrincipal.fechaInicio = dateTimePicker1.Value;
+                tareaPrincipal.fechaEntrega = dateTimePicker2.Value;
+                tareaPrincipal.usuariosAsignados = nuevosUsuarios;
+
+                // C. GUARDAR EN JSON
+                // Como 'proyectoAEditar' es una referencia dentro de 'listaCompletaDeProyectos', 
+                // la lista completa ya está actualizada en memoria. Solo hay que serializarla y guardarla.
+
+                string rutaArchivoJson = Path.Combine(Application.StartupPath, "JSON", "Proyectos.JSON");
+                var options = new JsonSerializerOptions { WriteIndented = true, PropertyNameCaseInsensitive = true };
+
+                string jsonActualizado = JsonSerializer.Serialize(listaCompletaDeProyectos, options);
+                File.WriteAllText(rutaArchivoJson, jsonActualizado);
+
+                // Preparamos el resultado para el formulario padre
+                this.ProyectoEditado = proyectoAEditar;
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al sobrescribir el proyecto: {ex.Message}");
+            }
+        }
     }
 }

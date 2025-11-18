@@ -143,9 +143,27 @@ namespace Beatrix_Formulario
 
         private void buttonEditar_Click(object sender, EventArgs e)
         {
-            // Creas el formulario sin decirle CUAL proyecto editar
-            FormProyectosGerard4 formEditar = new FormProyectosGerard4();
-            formEditar.ShowDialog();
+            // 1. Usamos directamente el nombre del proyecto actual (guardado en la variable global)
+            // No hace falta buscar en ningún ListBox
+            string nombreDelProyecto = this.nombreProyectoBuscado;
+
+            // 2. Abrimos el formulario de edición pasando ese nombre
+            FormProyectosGerard4 formEditar = new FormProyectosGerard4(nombreDelProyecto);
+
+            // 3. Esperamos a que se cierre
+            if (formEditar.ShowDialog() == DialogResult.OK)
+            {
+                // 4. ACTUALIZACIÓN CRÍTICA:
+                // Si editaste el nombre del proyecto, tenemos que actualizar nuestra variable local
+                // para que la función 'CargarDatosDelProyecto' busque el nombre NUEVO, no el viejo.
+                if (formEditar.ProyectoEditado != null)
+                {
+                    this.nombreProyectoBuscado = formEditar.ProyectoEditado.NombreProyecto;
+                }
+
+                // 5. Recargamos los datos en pantalla para ver los cambios
+                CargarDatosDelProyecto();
+            }
         }
     }
 }
