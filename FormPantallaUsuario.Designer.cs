@@ -79,38 +79,38 @@
             btnCrear.BackColor = Color.FromArgb(41, 191, 205);
             btnCrear.FlatStyle = FlatStyle.Popup;
             btnCrear.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnCrear.Location = new Point(333, 455);
+            btnCrear.Location = new Point(333, 444);
             btnCrear.Name = "btnCrear";
             btnCrear.Size = new Size(104, 36);
             btnCrear.TabIndex = 14;
             btnCrear.Text = "Crear";
             btnCrear.UseVisualStyleBackColor = false;
-            btnCrear.Click += btnCrear_Click_1;
+            btnCrear.Click += btnCrear_Click;
             // 
             // txtTele
             // 
-            txtTele.Location = new Point(391, 379);
+            txtTele.Location = new Point(391, 368);
             txtTele.Name = "txtTele";
             txtTele.Size = new Size(193, 27);
             txtTele.TabIndex = 13;
             // 
             // txtCorreo
             // 
-            txtCorreo.Location = new Point(391, 336);
+            txtCorreo.Location = new Point(391, 325);
             txtCorreo.Name = "txtCorreo";
             txtCorreo.Size = new Size(193, 27);
             txtCorreo.TabIndex = 12;
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(391, 292);
+            txtNombre.Location = new Point(391, 281);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(193, 27);
             txtNombre.TabIndex = 11;
             // 
             // txtUser
             // 
-            txtUser.Location = new Point(391, 247);
+            txtUser.Location = new Point(391, 236);
             txtUser.Name = "txtUser";
             txtUser.Size = new Size(193, 27);
             txtUser.TabIndex = 10;
@@ -119,7 +119,7 @@
             // 
             lblTele.AutoSize = true;
             lblTele.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblTele.Location = new Point(207, 381);
+            lblTele.Location = new Point(207, 370);
             lblTele.Name = "lblTele";
             lblTele.Size = new Size(118, 24);
             lblTele.TabIndex = 8;
@@ -129,7 +129,7 @@
             // 
             lblCorreo.AutoSize = true;
             lblCorreo.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblCorreo.Location = new Point(207, 336);
+            lblCorreo.Location = new Point(207, 325);
             lblCorreo.Name = "lblCorreo";
             lblCorreo.Size = new Size(147, 24);
             lblCorreo.TabIndex = 7;
@@ -139,7 +139,7 @@
             // 
             lblUsuario.AutoSize = true;
             lblUsuario.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblUsuario.Location = new Point(207, 247);
+            lblUsuario.Location = new Point(207, 236);
             lblUsuario.Name = "lblUsuario";
             lblUsuario.Size = new Size(154, 24);
             lblUsuario.TabIndex = 6;
@@ -149,7 +149,7 @@
             // 
             lblNombre.AutoSize = true;
             lblNombre.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblNombre.Location = new Point(207, 292);
+            lblNombre.Location = new Point(207, 281);
             lblNombre.Name = "lblNombre";
             lblNombre.Size = new Size(154, 24);
             lblNombre.TabIndex = 5;
@@ -183,7 +183,5 @@
         }
 
         #endregion
-
-
     }
 }

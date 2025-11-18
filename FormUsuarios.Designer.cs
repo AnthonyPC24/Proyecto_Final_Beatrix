@@ -8,7 +8,7 @@
         private Button btnTareas;
         private Button btnProyetos;
         private Button btnInicio;
-        private Panel panel1;
+        private Panel panelUsuario;
         private TextBox txtCorreu;
         private TextBox txtNombre;
         private PictureBox pictureBoxUsuario;
@@ -53,7 +53,7 @@
             btnTareas = new Button();
             btnProyetos = new Button();
             btnInicio = new Button();
-            panel1 = new Panel();
+            panelUsuario = new Panel();
             btnEditar = new Button();
             lblTele = new Label();
             label2 = new Label();
@@ -65,7 +65,7 @@
             lblCrearUsuario = new Label();
             lblTitulo = new Label();
             panelBarraOpciones.SuspendLayout();
-            panel1.SuspendLayout();
+            panelUsuario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxUsuario).BeginInit();
             SuspendLayout();
             // 
@@ -151,21 +151,21 @@
             btnInicio.UseVisualStyleBackColor = false;
             btnInicio.Click += btnInicio_Click;
             // 
-            // panel1
+            // panelUsuario
             // 
-            panel1.BorderStyle = BorderStyle.FixedSingle;
-            panel1.Controls.Add(btnEditar);
-            panel1.Controls.Add(lblTele);
-            panel1.Controls.Add(label2);
-            panel1.Controls.Add(lblNombre);
-            panel1.Controls.Add(txtTele);
-            panel1.Controls.Add(txtCorreu);
-            panel1.Controls.Add(txtNombre);
-            panel1.Controls.Add(pictureBoxUsuario);
-            panel1.Location = new Point(371, 46);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(755, 273);
-            panel1.TabIndex = 4;
+            panelUsuario.BorderStyle = BorderStyle.FixedSingle;
+            panelUsuario.Controls.Add(btnEditar);
+            panelUsuario.Controls.Add(lblTele);
+            panelUsuario.Controls.Add(label2);
+            panelUsuario.Controls.Add(lblNombre);
+            panelUsuario.Controls.Add(txtTele);
+            panelUsuario.Controls.Add(txtCorreu);
+            panelUsuario.Controls.Add(txtNombre);
+            panelUsuario.Controls.Add(pictureBoxUsuario);
+            panelUsuario.Location = new Point(371, 46);
+            panelUsuario.Name = "panelUsuario";
+            panelUsuario.Size = new Size(755, 273);
+            panelUsuario.TabIndex = 4;
             // 
             // btnEditar
             // 
@@ -247,7 +247,7 @@
             lblCrearUsuario.AutoSize = true;
             lblCrearUsuario.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblCrearUsuario.ForeColor = Color.FromArgb(41, 191, 205);
-            lblCrearUsuario.Location = new Point(321, 388);
+            lblCrearUsuario.Location = new Point(319, 378);
             lblCrearUsuario.Name = "lblCrearUsuario";
             lblCrearUsuario.Size = new Size(127, 24);
             lblCrearUsuario.TabIndex = 12;
@@ -259,7 +259,7 @@
             lblTitulo.AutoSize = true;
             lblTitulo.Font = new Font("Montserrat Medium", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitulo.ForeColor = Color.FromArgb(41, 191, 205);
-            lblTitulo.Location = new Point(654, 409);
+            lblTitulo.Location = new Point(654, 397);
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(176, 28);
             lblTitulo.TabIndex = 13;
@@ -273,15 +273,15 @@
             ClientSize = new Size(1262, 673);
             Controls.Add(lblTitulo);
             Controls.Add(lblCrearUsuario);
-            Controls.Add(panel1);
+            Controls.Add(panelUsuario);
             Controls.Add(panelBarraOpciones);
             MinimizeBox = false;
             Name = "FormUsuarios";
             Text = "FormUsuarios";
             panelBarraOpciones.ResumeLayout(false);
             panelBarraOpciones.PerformLayout();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            panelUsuario.ResumeLayout(false);
+            panelUsuario.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxUsuario).EndInit();
             ResumeLayout(false);
             PerformLayout();
