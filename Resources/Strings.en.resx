@@ -162,9 +162,6 @@
   <data name="ReunionesProximas" xml:space="preserve">
     <value>Next mettings</value>
   </data>
-  <data name="ReunionesTitulo" xml:space="preserve">
-    <value>Meetings</value>
-  </data>
   <data name="ReunionPanel1" xml:space="preserve">
     <value>Meeting 1</value>
   </data>
@@ -179,5 +176,8 @@
   </data>
   <data name="VerTodasLasReuniones" xml:space="preserve">
     <value>View all meetings</value>
+  </data>
+  <data name="labelReunionesTitulo.text" xml:space="preserve">
+    <value>Meetings</value>
   </data>
 </root>
