@@ -206,6 +206,15 @@ namespace Beatrix_Formulario
             }
         }
 
+        //foto de usuario
+        private void pbUser_Click(object sender, EventArgs e)
+        {
+            FormUsuarios formUsuarios = new FormUsuarios();
+            formUsuarios.Show();
+            this.Hide();
+            
+        }
+
         private bool MostrarFormExist<T>() where T : Form
         {
             foreach (Form frm in Application.OpenForms)

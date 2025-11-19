@@ -32,6 +32,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridView dgvTarea;
             DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
@@ -44,6 +45,7 @@
             monthCalendar = new MonthCalendar();
             comboBoxProyecto = new ComboBox();
             panelBarraOpciones = new Panel();
+            pbUser = new PictureBox();
             labelBeatrix = new Label();
             btnReuniones = new Button();
             btnTareas = new Button();
@@ -57,6 +59,7 @@
             dgvTarea = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)dgvTarea).BeginInit();
             panelBarraOpciones.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pbUser).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvReuniones).BeginInit();
             SuspendLayout();
             // 
@@ -152,6 +155,7 @@
             // panelBarraOpciones
             // 
             panelBarraOpciones.BackColor = Color.FromArgb(41, 195, 205);
+            panelBarraOpciones.Controls.Add(pbUser);
             panelBarraOpciones.Controls.Add(labelBeatrix);
             panelBarraOpciones.Controls.Add(btnReuniones);
             panelBarraOpciones.Controls.Add(btnTareas);
@@ -163,6 +167,17 @@
             panelBarraOpciones.Name = "panelBarraOpciones";
             panelBarraOpciones.Size = new Size(250, 673);
             panelBarraOpciones.TabIndex = 14;
+            // 
+            // pbUser
+            // 
+            pbUser.Image = Properties.Resources.usuario;
+            pbUser.Location = new Point(31, 95);
+            pbUser.Name = "pbUser";
+            pbUser.Size = new Size(185, 185);
+            pbUser.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbUser.TabIndex = 5;
+            pbUser.TabStop = false;
+            pbUser.Click += pbUser_Click;
             // 
             // labelBeatrix
             // 
@@ -180,7 +195,7 @@
             btnReuniones.BackColor = Color.FromArgb(41, 195, 205);
             btnReuniones.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnReuniones.ForeColor = Color.White;
-            btnReuniones.Location = new Point(14, 567);
+            btnReuniones.Location = new Point(18, 567);
             btnReuniones.Margin = new Padding(3, 4, 3, 4);
             btnReuniones.Name = "btnReuniones";
             btnReuniones.Size = new Size(213, 71);
@@ -194,7 +209,7 @@
             btnTareas.BackColor = Color.FromArgb(41, 195, 205);
             btnTareas.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnTareas.ForeColor = Color.White;
-            btnTareas.Location = new Point(14, 488);
+            btnTareas.Location = new Point(18, 488);
             btnTareas.Margin = new Padding(3, 4, 3, 4);
             btnTareas.Name = "btnTareas";
             btnTareas.Size = new Size(213, 71);
@@ -208,7 +223,7 @@
             btnProyetos.BackColor = Color.FromArgb(41, 195, 205);
             btnProyetos.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnProyetos.ForeColor = Color.White;
-            btnProyetos.Location = new Point(14, 409);
+            btnProyetos.Location = new Point(18, 409);
             btnProyetos.Margin = new Padding(3, 4, 3, 4);
             btnProyetos.Name = "btnProyetos";
             btnProyetos.Size = new Size(213, 71);
@@ -222,7 +237,7 @@
             btnInicio.BackColor = Color.FromArgb(41, 195, 205);
             btnInicio.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnInicio.ForeColor = Color.White;
-            btnInicio.Location = new Point(14, 331);
+            btnInicio.Location = new Point(18, 331);
             btnInicio.Margin = new Padding(3, 4, 3, 4);
             btnInicio.Name = "btnInicio";
             btnInicio.Size = new Size(213, 71);
@@ -312,10 +327,13 @@
             ((System.ComponentModel.ISupportInitialize)dgvTarea).EndInit();
             panelBarraOpciones.ResumeLayout(false);
             panelBarraOpciones.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pbUser).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvReuniones).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
+
+        private PictureBox pbUser;
     }
 }

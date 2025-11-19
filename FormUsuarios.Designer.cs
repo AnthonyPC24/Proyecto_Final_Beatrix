@@ -64,14 +64,17 @@
             pictureBoxUsuario = new PictureBox();
             lblCrearUsuario = new Label();
             lblTitulo = new Label();
+            pbUser = new PictureBox();
             panelBarraOpciones.SuspendLayout();
             panelUsuario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxUsuario).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbUser).BeginInit();
             SuspendLayout();
             // 
             // panelBarraOpciones
             // 
             panelBarraOpciones.BackColor = Color.FromArgb(41, 195, 205);
+            panelBarraOpciones.Controls.Add(pbUser);
             panelBarraOpciones.Controls.Add(labelBeatrix);
             panelBarraOpciones.Controls.Add(btnReuniones);
             panelBarraOpciones.Controls.Add(btnTareas);
@@ -100,7 +103,7 @@
             btnReuniones.BackColor = Color.FromArgb(41, 195, 205);
             btnReuniones.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnReuniones.ForeColor = Color.White;
-            btnReuniones.Location = new Point(14, 567);
+            btnReuniones.Location = new Point(17, 567);
             btnReuniones.Margin = new Padding(3, 4, 3, 4);
             btnReuniones.Name = "btnReuniones";
             btnReuniones.Size = new Size(213, 71);
@@ -114,7 +117,7 @@
             btnTareas.BackColor = Color.FromArgb(41, 195, 205);
             btnTareas.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnTareas.ForeColor = Color.White;
-            btnTareas.Location = new Point(14, 488);
+            btnTareas.Location = new Point(17, 488);
             btnTareas.Margin = new Padding(3, 4, 3, 4);
             btnTareas.Name = "btnTareas";
             btnTareas.Size = new Size(213, 71);
@@ -128,7 +131,7 @@
             btnProyetos.BackColor = Color.FromArgb(41, 195, 205);
             btnProyetos.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnProyetos.ForeColor = Color.White;
-            btnProyetos.Location = new Point(14, 409);
+            btnProyetos.Location = new Point(17, 409);
             btnProyetos.Margin = new Padding(3, 4, 3, 4);
             btnProyetos.Name = "btnProyetos";
             btnProyetos.Size = new Size(213, 71);
@@ -142,7 +145,7 @@
             btnInicio.BackColor = Color.FromArgb(41, 195, 205);
             btnInicio.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnInicio.ForeColor = Color.White;
-            btnInicio.Location = new Point(14, 331);
+            btnInicio.Location = new Point(17, 331);
             btnInicio.Margin = new Padding(3, 4, 3, 4);
             btnInicio.Name = "btnInicio";
             btnInicio.Size = new Size(213, 71);
@@ -265,6 +268,16 @@
             lblTitulo.TabIndex = 13;
             lblTitulo.Text = "Todos los usuarios";
             // 
+            // pbUser
+            // 
+            pbUser.Image = Properties.Resources.usuario;
+            pbUser.Location = new Point(31, 95);
+            pbUser.Name = "pbUser";
+            pbUser.Size = new Size(185, 185);
+            pbUser.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbUser.TabIndex = 6;
+            pbUser.TabStop = false;
+            // 
             // FormUsuarios
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -277,17 +290,20 @@
             Controls.Add(panelBarraOpciones);
             MinimizeBox = false;
             Name = "FormUsuarios";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormUsuarios";
             panelBarraOpciones.ResumeLayout(false);
             panelBarraOpciones.PerformLayout();
             panelUsuario.ResumeLayout(false);
             panelUsuario.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxUsuario).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbUser).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
+        private PictureBox pbUser;
     }
 }
