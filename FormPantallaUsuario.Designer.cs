@@ -174,7 +174,7 @@
             Controls.Add(panelUserInfo);
             MinimizeBox = false;
             Name = "FormPantallaUsuario";
-            StartPosition = FormStartPosition.CenterParent;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormPantallaUsuario";
             panelUserInfo.ResumeLayout(false);
             panelUserInfo.PerformLayout();

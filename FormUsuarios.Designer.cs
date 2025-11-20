@@ -47,7 +47,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panelBarraOpciones = new Panel();
+            btnConfiguracion = new Button();
+            pbUser = new PictureBox();
             labelBeatrix = new Label();
             btnReuniones = new Button();
             btnTareas = new Button();
@@ -64,16 +67,20 @@
             pictureBoxUsuario = new PictureBox();
             lblCrearUsuario = new Label();
             lblTitulo = new Label();
-            pbUser = new PictureBox();
+            dgvUsuarios = new DataGridView();
+            lblNombreUsuario = new Label();
+            txtNombreUsuario = new TextBox();
             panelBarraOpciones.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pbUser).BeginInit();
             panelUsuario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxUsuario).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pbUser).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvUsuarios).BeginInit();
             SuspendLayout();
             // 
             // panelBarraOpciones
             // 
             panelBarraOpciones.BackColor = Color.FromArgb(41, 195, 205);
+            panelBarraOpciones.Controls.Add(btnConfiguracion);
             panelBarraOpciones.Controls.Add(pbUser);
             panelBarraOpciones.Controls.Add(labelBeatrix);
             panelBarraOpciones.Controls.Add(btnReuniones);
@@ -86,6 +93,30 @@
             panelBarraOpciones.Name = "panelBarraOpciones";
             panelBarraOpciones.Size = new Size(250, 673);
             panelBarraOpciones.TabIndex = 3;
+            // 
+            // btnConfiguracion
+            // 
+            btnConfiguracion.BackColor = Color.FromArgb(41, 195, 205);
+            btnConfiguracion.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnConfiguracion.ForeColor = Color.White;
+            btnConfiguracion.Location = new Point(17, 584);
+            btnConfiguracion.Margin = new Padding(3, 4, 3, 4);
+            btnConfiguracion.Name = "btnConfiguracion";
+            btnConfiguracion.Size = new Size(213, 71);
+            btnConfiguracion.TabIndex = 7;
+            btnConfiguracion.Text = "Configuracion";
+            btnConfiguracion.UseVisualStyleBackColor = false;
+            btnConfiguracion.Click += btnConfiguracion_Click;
+            // 
+            // pbUser
+            // 
+            pbUser.Image = Properties.Resources.usuario;
+            pbUser.Location = new Point(50, 95);
+            pbUser.Name = "pbUser";
+            pbUser.Size = new Size(146, 143);
+            pbUser.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbUser.TabIndex = 6;
+            pbUser.TabStop = false;
             // 
             // labelBeatrix
             // 
@@ -103,7 +134,7 @@
             btnReuniones.BackColor = Color.FromArgb(41, 195, 205);
             btnReuniones.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnReuniones.ForeColor = Color.White;
-            btnReuniones.Location = new Point(17, 567);
+            btnReuniones.Location = new Point(17, 505);
             btnReuniones.Margin = new Padding(3, 4, 3, 4);
             btnReuniones.Name = "btnReuniones";
             btnReuniones.Size = new Size(213, 71);
@@ -117,7 +148,7 @@
             btnTareas.BackColor = Color.FromArgb(41, 195, 205);
             btnTareas.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnTareas.ForeColor = Color.White;
-            btnTareas.Location = new Point(17, 488);
+            btnTareas.Location = new Point(17, 426);
             btnTareas.Margin = new Padding(3, 4, 3, 4);
             btnTareas.Name = "btnTareas";
             btnTareas.Size = new Size(213, 71);
@@ -131,7 +162,7 @@
             btnProyetos.BackColor = Color.FromArgb(41, 195, 205);
             btnProyetos.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnProyetos.ForeColor = Color.White;
-            btnProyetos.Location = new Point(17, 409);
+            btnProyetos.Location = new Point(17, 347);
             btnProyetos.Margin = new Padding(3, 4, 3, 4);
             btnProyetos.Name = "btnProyetos";
             btnProyetos.Size = new Size(213, 71);
@@ -145,7 +176,7 @@
             btnInicio.BackColor = Color.FromArgb(41, 195, 205);
             btnInicio.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnInicio.ForeColor = Color.White;
-            btnInicio.Location = new Point(17, 331);
+            btnInicio.Location = new Point(17, 269);
             btnInicio.Margin = new Padding(3, 4, 3, 4);
             btnInicio.Name = "btnInicio";
             btnInicio.Size = new Size(213, 71);
@@ -157,6 +188,8 @@
             // panelUsuario
             // 
             panelUsuario.BorderStyle = BorderStyle.FixedSingle;
+            panelUsuario.Controls.Add(lblNombreUsuario);
+            panelUsuario.Controls.Add(txtNombreUsuario);
             panelUsuario.Controls.Add(btnEditar);
             panelUsuario.Controls.Add(lblTele);
             panelUsuario.Controls.Add(label2);
@@ -165,9 +198,9 @@
             panelUsuario.Controls.Add(txtCorreu);
             panelUsuario.Controls.Add(txtNombre);
             panelUsuario.Controls.Add(pictureBoxUsuario);
-            panelUsuario.Location = new Point(371, 46);
+            panelUsuario.Location = new Point(409, 34);
             panelUsuario.Name = "panelUsuario";
-            panelUsuario.Size = new Size(755, 273);
+            panelUsuario.Size = new Size(687, 306);
             panelUsuario.TabIndex = 4;
             // 
             // btnEditar
@@ -176,7 +209,7 @@
             btnEditar.FlatStyle = FlatStyle.Popup;
             btnEditar.Font = new Font("Montserrat Medium", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEditar.ForeColor = SystemColors.ControlLightLight;
-            btnEditar.Location = new Point(529, 216);
+            btnEditar.Location = new Point(529, 251);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(94, 29);
             btnEditar.TabIndex = 7;
@@ -188,7 +221,7 @@
             // 
             lblTele.AutoSize = true;
             lblTele.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblTele.Location = new Point(282, 167);
+            lblTele.Location = new Point(282, 202);
             lblTele.Name = "lblTele";
             lblTele.Size = new Size(116, 24);
             lblTele.TabIndex = 6;
@@ -198,7 +231,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(282, 116);
+            label2.Location = new Point(282, 151);
             label2.Name = "label2";
             label2.Size = new Size(147, 24);
             label2.TabIndex = 5;
@@ -208,7 +241,7 @@
             // 
             lblNombre.AutoSize = true;
             lblNombre.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblNombre.Location = new Point(282, 67);
+            lblNombre.Location = new Point(282, 102);
             lblNombre.Name = "lblNombre";
             lblNombre.Size = new Size(154, 24);
             lblNombre.TabIndex = 4;
@@ -216,21 +249,21 @@
             // 
             // txtTele
             // 
-            txtTele.Location = new Point(450, 164);
+            txtTele.Location = new Point(450, 199);
             txtTele.Name = "txtTele";
             txtTele.Size = new Size(173, 27);
             txtTele.TabIndex = 3;
             // 
             // txtCorreu
             // 
-            txtCorreu.Location = new Point(450, 113);
+            txtCorreu.Location = new Point(450, 148);
             txtCorreu.Name = "txtCorreu";
             txtCorreu.Size = new Size(173, 27);
             txtCorreu.TabIndex = 2;
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(450, 64);
+            txtNombre.Location = new Point(450, 99);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(173, 27);
             txtNombre.TabIndex = 1;
@@ -250,7 +283,7 @@
             lblCrearUsuario.AutoSize = true;
             lblCrearUsuario.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblCrearUsuario.ForeColor = Color.FromArgb(41, 191, 205);
-            lblCrearUsuario.Location = new Point(319, 378);
+            lblCrearUsuario.Location = new Point(328, 347);
             lblCrearUsuario.Name = "lblCrearUsuario";
             lblCrearUsuario.Size = new Size(127, 24);
             lblCrearUsuario.TabIndex = 12;
@@ -262,21 +295,49 @@
             lblTitulo.AutoSize = true;
             lblTitulo.Font = new Font("Montserrat Medium", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitulo.ForeColor = Color.FromArgb(41, 191, 205);
-            lblTitulo.Location = new Point(654, 397);
+            lblTitulo.Location = new Point(654, 356);
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(176, 28);
             lblTitulo.TabIndex = 13;
             lblTitulo.Text = "Todos los usuarios";
             // 
-            // pbUser
+            // dgvUsuarios
             // 
-            pbUser.Image = Properties.Resources.usuario;
-            pbUser.Location = new Point(31, 95);
-            pbUser.Name = "pbUser";
-            pbUser.Size = new Size(185, 185);
-            pbUser.SizeMode = PictureBoxSizeMode.StretchImage;
-            pbUser.TabIndex = 6;
-            pbUser.TabStop = false;
+            dgvUsuarios.BackgroundColor = Color.FromArgb(41, 195, 205);
+            dgvUsuarios.BorderStyle = BorderStyle.None;
+            dgvUsuarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Montserrat", 7.79999971F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dgvUsuarios.DefaultCellStyle = dataGridViewCellStyle1;
+            dgvUsuarios.EnableHeadersVisualStyles = false;
+            dgvUsuarios.GridColor = SystemColors.ActiveBorder;
+            dgvUsuarios.Location = new Point(409, 401);
+            dgvUsuarios.Name = "dgvUsuarios";
+            dgvUsuarios.RowHeadersWidth = 51;
+            dgvUsuarios.Size = new Size(687, 231);
+            dgvUsuarios.TabIndex = 14;
+            // 
+            // lblNombreUsuario
+            // 
+            lblNombreUsuario.AutoSize = true;
+            lblNombreUsuario.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblNombreUsuario.Location = new Point(282, 54);
+            lblNombreUsuario.Name = "lblNombreUsuario";
+            lblNombreUsuario.Size = new Size(154, 24);
+            lblNombreUsuario.TabIndex = 9;
+            lblNombreUsuario.Text = "Nombre y apellidos";
+            // 
+            // txtNombreUsuario
+            // 
+            txtNombreUsuario.Location = new Point(450, 51);
+            txtNombreUsuario.Name = "txtNombreUsuario";
+            txtNombreUsuario.Size = new Size(173, 27);
+            txtNombreUsuario.TabIndex = 8;
             // 
             // FormUsuarios
             // 
@@ -284,6 +345,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.HighlightText;
             ClientSize = new Size(1262, 673);
+            Controls.Add(dgvUsuarios);
             Controls.Add(lblTitulo);
             Controls.Add(lblCrearUsuario);
             Controls.Add(panelUsuario);
@@ -294,10 +356,11 @@
             Text = "FormUsuarios";
             panelBarraOpciones.ResumeLayout(false);
             panelBarraOpciones.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pbUser).EndInit();
             panelUsuario.ResumeLayout(false);
             panelUsuario.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxUsuario).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pbUser).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvUsuarios).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -305,5 +368,9 @@
         #endregion
 
         private PictureBox pbUser;
+        private Button btnConfiguracion;
+        private DataGridView dgvUsuarios;
+        private Label lblNombreUsuario;
+        private TextBox txtNombreUsuario;
     }
 }

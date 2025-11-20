@@ -25,6 +25,7 @@ namespace Beatrix_Formulario
         {
             string tareasPath = Path.Combine(Application.StartupPath, "JSON", "Proyectos.json");
             string reunionesPath = Path.Combine(Application.StartupPath, "JSON", "Reuniones.json");
+            
 
             if (File.Exists(tareasPath))
             {
@@ -169,6 +170,11 @@ namespace Beatrix_Formulario
             dgvReuniones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
+
+
+
+
+
         private void buttonInicio_Click(object sender, EventArgs e)
         {
             if (!MostrarFormExist<Inicio>())
@@ -212,7 +218,14 @@ namespace Beatrix_Formulario
             FormUsuarios formUsuarios = new FormUsuarios();
             formUsuarios.Show();
             this.Hide();
-            
+
+        }
+
+        private void btnConfiguracion_Click(object sender, EventArgs e)
+        {
+            FormUsuarios configuracion = new FormUsuarios();
+            configuracion.Show();
+            this.Hide();
         }
 
         private bool MostrarFormExist<T>() where T : Form

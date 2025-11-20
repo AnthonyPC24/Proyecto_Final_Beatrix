@@ -30,5 +30,13 @@
     "email": "c.santana@ejemplo.com",
     "telefono": "\u002B13055551234",
     "rol": "Visitante"
+  },
+  {
+    "nombreApellidos": "qiaoqiao wu",
+    "nombreUsuario": "qq",
+    "contrasena": "",
+    "email": "wqee@gmail.com",
+    "telefono": "789456123",
+    "rol": ""
   }
 ]
