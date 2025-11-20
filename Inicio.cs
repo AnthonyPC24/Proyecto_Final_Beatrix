@@ -10,22 +10,19 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
-
 namespace Beatrix_Formulario
 {
     public partial class Inicio : Form
     {
         private List<Reunion> reuniones = new List<Reunion>();
+
         public Inicio()
         {
             InitializeComponent();
-
         }
 
         private void Inicio_Load(object sender, EventArgs e)
         {
-          
             string tareasPath = Path.Combine(Application.StartupPath, "JSON", "Proyectos.json");
             string reunionesPath = Path.Combine(Application.StartupPath, "JSON", "Reuniones.json");
 
@@ -34,8 +31,10 @@ namespace Beatrix_Formulario
                 try
                 {
                     string jsonString = File.ReadAllText(tareasPath);
-                    var proyectos = JsonSerializer.Deserialize<List<Proyectos>>(jsonString,
-                        new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+                    var proyectos = JsonSerializer.Deserialize<List<Proyectos>>(jsonString, new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true
+                    });
 
                     if (proyectos != null && proyectos.Count > 0)
                     {
@@ -43,12 +42,12 @@ namespace Beatrix_Formulario
                         var comboData = proyectos.Select((p, index) => new
                         {
                             Display = $"Proyecto {index + 1}", // Texto que ve el usuario
-                            Proyecto = p                         // Objeto real
+                            Proyecto = p // Objeto real
                         }).ToList();
 
                         comboBoxProyecto.DataSource = comboData;
-                        comboBoxProyecto.DisplayMember = "Display";   // Texto visual
-                        comboBoxProyecto.ValueMember = "Proyecto";   // Objeto real
+                        comboBoxProyecto.DisplayMember = "Display"; // Texto visual
+                        comboBoxProyecto.ValueMember = "Proyecto"; // Objeto real
                     }
                 }
                 catch (Exception ex)
@@ -69,7 +68,10 @@ namespace Beatrix_Formulario
                 {
                     try
                     {
-                        var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                        var options = new JsonSerializerOptions
+                        {
+                            PropertyNameCaseInsensitive = true
+                        };
                         reuniones = JsonSerializer.Deserialize<List<Reunion>>(jsonString, options);
                     }
                     catch (Exception ex)
@@ -83,20 +85,17 @@ namespace Beatrix_Formulario
                 MessageBox.Show($"No se encontró el archivo de reuniones: {reunionesPath}");
             }
 
-            // mostrar los reuniones 
+            // mostrar los reuniones
             MostrarReuniones(DateTime.Today);
         }
 
-
-
-
-        //comboBox de proyecto 
+        //comboBox de proyecto
         private void comboBoxProyecto_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxProyecto.SelectedValue is Proyectos proyectoSeleccionado)
             {
-                // Llenar DataGridView con tareas
                 dgvTarea.Rows.Clear();
+
                 foreach (var tarea in proyectoSeleccionado.Tareas)
                 {
                     string usuarios = (tarea.usuariosAsignados != null && tarea.usuariosAsignados.Count > 0)
@@ -107,8 +106,6 @@ namespace Beatrix_Formulario
                 }
             }
         }
-
-
 
         // evento de hacer click a calendar
         private void monthCalendar_DateChanged(object sender, DateRangeEventArgs e)
@@ -134,8 +131,6 @@ namespace Beatrix_Formulario
                 return null;
             }
         }
-
-
 
         private void MostrarReuniones(DateTime fechaSeleccionada)
         {
@@ -174,8 +169,6 @@ namespace Beatrix_Formulario
             dgvReuniones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
-
-        // evitar abrir la misma form repetidamente..
         private void buttonInicio_Click(object sender, EventArgs e)
         {
             if (!MostrarFormExist<Inicio>())
@@ -197,36 +190,43 @@ namespace Beatrix_Formulario
         private void btnTareas_Click(object sender, EventArgs e)
         {
             if (!MostrarFormExist<FormProyectosGerard2>())
-            { 
+            {
                 FormProyectosGerard2 tareasForm = new FormProyectosGerard2();
-                tareasForm.Show(); 
+                tareasForm.Show();
             }
-           
         }
 
         private void btnReuniones_Click(object sender, EventArgs e)
         {
+
             if (!MostrarFormExist<FormReunionesDy1>())
             {
                 FormReunionesDy1 reunionesForm = new FormReunionesDy1();
                 reunionesForm.Show();
             }
-            
+        }
+
+        //foto de usuario
+        private void pbUser_Click(object sender, EventArgs e)
+        {
+            FormUsuarios formUsuarios = new FormUsuarios();
+            formUsuarios.Show();
+            this.Hide();
             
         }
+
         private bool MostrarFormExist<T>() where T : Form
         {
-            foreach (Form fm in Application.OpenForms)
+            foreach (Form frm in Application.OpenForms)
             {
-                if (fm is T)
-                { 
-                    fm.BringToFront(); 
-                    fm.WindowState = FormWindowState.Normal;
-                    return true; 
+                if (frm is T)
+                {
+                    frm.BringToFront();
+                    frm.WindowState = FormWindowState.Normal;
+                    return true;
                 }
             }
-            return false; 
+            return false;
         }
     }
 }
-

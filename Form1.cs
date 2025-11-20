@@ -1,5 +1,3 @@
-
-
 using Beatrix_Formulario.ClasesTareas;
 using Microsoft.VisualBasic.ApplicationServices;
 using System.Text.Json;
@@ -13,17 +11,21 @@ namespace Beatrix_Formulario
         public BeatrixForm()
         {
             InitializeComponent();
-
+            cargarUsuarios();
         }
 
         private void Beatrix_Load(object sender, EventArgs e)
         {
             txtContrasena.PasswordChar = '*';
-
+ 
         }
 
         private void cargarUsuarios()
         {
+            string user = txtUsuario.Text.Trim();
+
+            string contrasena = txtContrasena.Text;
+
             try
             {
                 string filePath = Path.Combine(Application.StartupPath, "JSON", "Usuarios.json");
@@ -31,20 +33,7 @@ namespace Beatrix_Formulario
                 if (File.Exists(filePath))
                 {
                     string json = File.ReadAllText(filePath);
-
-                    
-                    try
-                    {
-                        usuarios = JsonSerializer.Deserialize<List<Usuarios>>(json);
-                    }
-                    catch
-                    {
-                   
-                        Usuarios usuario = JsonSerializer.Deserialize<Usuarios>(json);
-                        usuarios = new List<Usuarios>();
-                        if (usuario != null)
-                            usuarios.Add(usuario);
-                    }
+                    usuarios = JsonSerializer.Deserialize<List<Usuarios>>(json);
                 }
                 else
                 {
@@ -57,39 +46,30 @@ namespace Beatrix_Formulario
                 MessageBox.Show("Error al leer usuarios: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 usuarios = new List<Usuarios>();
             }
+
         }
 
-
-        private void btnEntrar_Click(object sender, EventArgs e)
+        private void btnLogin_Click(object sender, EventArgs e)
         {
-            cargarUsuarios();
-
             string user = txtUsuario.Text.Trim();
             string password = txtContrasena.Text;
 
-            Usuarios usuarioEncontrado = usuarios.Find(u => u.nombreUsuario.Equals(user, StringComparison.OrdinalIgnoreCase) && u.contrasena == password);
-
+            Usuarios usuarioEncontrado = usuarios
+                .Find(u => u.nombreUsuario == user && u.contrasena == password);
 
             if (usuarioEncontrado != null)
             {
-                // abrir el form Inicio
-                Inicio inicioForm = new Inicio();
-                inicioForm.Show();
+               
+                Inicio inicio = new Inicio();
+                inicio.Show();
 
-                this.Hide();
-
-                // cuando se cierra el form Inicio, se cierra toda la app
-                inicioForm.FormClosed += (s, args) => this.Close();
+                this.Hide();   
             }
-            else 
+            else
             {
-                MessageBox.Show("El nombre de usuario o la contraseña incorrectos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            
+                MessageBox.Show("Usuario o contraseña incorrectos.");
             }
-
-
         }
+
     }
 }
-
