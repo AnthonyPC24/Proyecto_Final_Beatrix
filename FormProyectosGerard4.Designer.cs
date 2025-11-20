@@ -86,6 +86,7 @@
             quitarUsuarios.TabIndex = 19;
             quitarUsuarios.Text = "Quitar Usuario";
             quitarUsuarios.UseVisualStyleBackColor = true;
+            quitarUsuarios.Click += quitarUsuarios_Click_1;
             // 
             // comboBoxUsuarios
             // 
@@ -94,6 +95,7 @@
             comboBoxUsuarios.Name = "comboBoxUsuarios";
             comboBoxUsuarios.Size = new Size(177, 23);
             comboBoxUsuarios.TabIndex = 17;
+            comboBoxUsuarios.SelectedIndexChanged += comboBoxUsuarios_SelectedIndexChanged;
             // 
             // richTextBox1
             // 

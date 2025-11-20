@@ -43,12 +43,24 @@ namespace Beatrix_Formulario
 
             try
             {
-                // --- A. Cargar el JSON ---
-                string rutaArchivoJson = Path.Combine(Application.StartupPath, "JSON", "Proyectos.JSON");
+                // --- A. Cargar el JSON (Ruta Corregida) ---
+                // Subimos 3 niveles desde /bin/Debug/netX.0/ para llegar a la raíz del proyecto
+                string rutaProyecto;
+                try
+                {
+                    rutaProyecto = Directory.GetParent(Application.StartupPath).Parent.Parent.Parent.FullName;
+                }
+                catch
+                {
+                    // Fallback por si acaso
+                    rutaProyecto = Application.StartupPath;
+                }
+
+                string rutaArchivoJson = Path.Combine(rutaProyecto, "JSON", "Proyectos.JSON");
 
                 if (!File.Exists(rutaArchivoJson))
                 {
-                    MessageBox.Show("Error: No se encontró el archivo Proyectos.JSON");
+                    MessageBox.Show($"Error: No se encontró el archivo en: {rutaArchivoJson}");
                     return;
                 }
 
@@ -73,7 +85,7 @@ namespace Beatrix_Formulario
                 // 1. Título del Proyecto
                 labelTituloProyecto.Text = proyectoActual.NombreProyecto;
 
-                // 2. Descripción del Proyecto (En el TextBox 'txtBoxDescr')
+                // 2. Descripción del Proyecto
                 if (!string.IsNullOrEmpty(proyectoActual.DescripcionProyecto))
                 {
                     txtBoxDescr.Text = proyectoActual.DescripcionProyecto;
@@ -83,41 +95,62 @@ namespace Beatrix_Formulario
                     txtBoxDescr.Text = "Este proyecto no tiene una descripción general.";
                 }
 
-                // 3. Cálculos basados en las Tareas (Fechas y Usuarios)
-                if (proyectoActual.Tareas != null && proyectoActual.Tareas.Any())
+                // 3. Fechas (Ahora se leen directo del Proyecto)
+                if (proyectoActual.fechaInicio != DateTime.MinValue)
                 {
-                    // Filtramos tareas que no sean nulas
-                    var tareasValidas = proyectoActual.Tareas.Where(t => t != null);
+                    lblFechaInicio.Text = proyectoActual.fechaInicio.ToShortDateString();
+                }
+                else
+                {
+                    lblFechaInicio.Text = "N/A";
+                }
 
-                    // -- Fechas (Inicio Mínima y Entrega Máxima) --
-                    DateTime fechaInicio = tareasValidas.Min(t => t.fechaInicio);
-                    DateTime fechaEntrega = tareasValidas.Max(t => t.fechaEntrega);
+                if (proyectoActual.fechaEntrega != DateTime.MinValue)
+                {
+                    lblFechaEntrega.Text = proyectoActual.fechaEntrega.ToShortDateString();
+                }
+                else
+                {
+                    lblFechaEntrega.Text = "N/A";
+                }
 
-                    lblFechaInicio.Text = fechaInicio.ToShortDateString();
-                    lblFechaEntrega.Text = fechaEntrega.ToShortDateString();
-
-                    // -- Usuarios Asignados (Unir todos sin repetir) --
-                    var todosLosUsuarios = tareasValidas
-                        .SelectMany(t => t.usuariosAsignados ?? new List<Usuarios>()) // Si es null, usa lista vacía
-                        .Where(u => u != null)
+                // 4. Usuarios Asignados (Ahora se leen directo del Proyecto)
+                if (proyectoActual.UsuariosAsignados != null && proyectoActual.UsuariosAsignados.Any())
+                {
+                    // Seleccionamos solo los nombres y evitamos duplicados
+                    var nombresUsuarios = proyectoActual.UsuariosAsignados
                         .Select(u => u.nombreUsuario)
-                        .Distinct(); // Elimina duplicados
+                        .Where(n => !string.IsNullOrWhiteSpace(n))
+                        .Distinct();
 
-                    if (todosLosUsuarios.Any())
+                    if (nombresUsuarios.Any())
                     {
-                        txtUsuariosAsignados.Text = string.Join(", ", todosLosUsuarios);
+                        txtUsuariosAsignados.Text = string.Join(", ", nombresUsuarios);
                     }
                     else
                     {
-                        txtUsuariosAsignados.Text = "No hay usuarios asignados a las tareas.";
+                        txtUsuariosAsignados.Text = "Sin usuarios asignados.";
                     }
                 }
                 else
                 {
-                    // Si no hay tareas, mostramos valores por defecto
-                    lblFechaInicio.Text = "N/A";
-                    lblFechaEntrega.Text = "N/A";
-                    txtUsuariosAsignados.Text = "Sin tareas asignadas.";
+                    // (Opcional) Fallback para proyectos antiguos: Mirar en las tareas
+                    if (proyectoActual.Tareas != null && proyectoActual.Tareas.Any())
+                    {
+                        var usuariosViejos = proyectoActual.Tareas
+                           .SelectMany(t => t.usuariosAsignados ?? new List<Usuarios>())
+                           .Select(u => u.nombreUsuario)
+                           .Distinct();
+
+                        if (usuariosViejos.Any())
+                            txtUsuariosAsignados.Text = string.Join(", ", usuariosViejos);
+                        else
+                            txtUsuariosAsignados.Text = "Sin usuarios asignados.";
+                    }
+                    else
+                    {
+                        txtUsuariosAsignados.Text = "Sin usuarios asignados.";
+                    }
                 }
             }
             catch (Exception ex)
@@ -143,8 +176,7 @@ namespace Beatrix_Formulario
 
         private void buttonEditar_Click(object sender, EventArgs e)
         {
-            // 1. Usamos directamente el nombre del proyecto actual (guardado en la variable global)
-            // No hace falta buscar en ningún ListBox
+            // 1. Usamos directamente el nombre del proyecto actual
             string nombreDelProyecto = this.nombreProyectoBuscado;
 
             // 2. Abrimos el formulario de edición pasando ese nombre
@@ -153,9 +185,7 @@ namespace Beatrix_Formulario
             // 3. Esperamos a que se cierre
             if (formEditar.ShowDialog() == DialogResult.OK)
             {
-                // 4. ACTUALIZACIÓN CRÍTICA:
-                // Si editaste el nombre del proyecto, tenemos que actualizar nuestra variable local
-                // para que la función 'CargarDatosDelProyecto' busque el nombre NUEVO, no el viejo.
+                // 4. Actualizamos el nombre buscado por si se editó el título del proyecto
                 if (formEditar.ProyectoEditado != null)
                 {
                     this.nombreProyectoBuscado = formEditar.ProyectoEditado.NombreProyecto;

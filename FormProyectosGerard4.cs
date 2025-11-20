@@ -6,56 +6,55 @@ using System.IO;
 using System.Text.Json;
 using System.Windows.Forms;
 using System.Linq;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement; // Lo tenías, lo mantengo
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Beatrix_Formulario
 {
-    // Este es tu formulario de EDICIÓN, renombrado a FormProyectosGerard4
     public partial class FormProyectosGerard4 : Form
     {
-        // Propiedades para saber qué proyecto editar y para pasar el resultado
         private string nombreProyectoOriginal;
         public Proyectos ProyectoEditado { get; private set; }
-        private List<Proyectos> listaCompletaDeProyectos; // Para guardar la lista leída
-        private Proyectos proyectoAEditar;
 
-        // --- 1. CONSTRUCTOR MODIFICADO ---
-        // Recibe el NOMBRE del proyecto que se va a editar
+        // Listas para gestionar los datos
+        private List<Proyectos> listaCompletaDeProyectos;
+        private Proyectos proyectoAEditar;
+        private List<Usuarios> listaTotalUsuariosDisponibles;
+
         public FormProyectosGerard4(string nombreProyectoAEditar)
         {
             InitializeComponent();
             this.nombreProyectoOriginal = nombreProyectoAEditar;
 
-            // Asumimos que tu botón de guardar se sigue llamando 'btnCrear'
-            // Si le cambiaste el nombre, actualiza 'btnCrear' por el nuevo nombre
-            this.btnCrear.Text = "Guardar Cambios";
+            if (this.btnCrear != null) this.btnCrear.Text = "Guardar Cambios";
         }
 
-        // --- 2. CÓDIGO DE CARGA DEL FORMULARIO ---
-        // Revisa que el evento Load de tu formulario esté conectado a esta función
         private void FormProyectosGerard4_Load(object sender, EventArgs e)
         {
-            // Primero, cargamos el ComboBox de usuarios (igual que en Form2)
+            // 1. Cargar Usuarios disponibles
             CargarUsuariosDelJson();
 
             try
             {
-                // Ahora, cargamos la lista de Proyectos
-                string rutaProyectosJson = Path.Combine(Application.StartupPath, "JSON", "Proyectos.JSON");
+                // 2. Calcular ruta del JSON y Cargar Proyectos
+                string rutaProyectoSource = Directory.GetParent(Application.StartupPath).Parent.Parent.Parent.FullName;
+                string rutaProyectosJson = Path.Combine(rutaProyectoSource, "JSON", "Proyectos.JSON");
+
+                // Fallback
                 if (!File.Exists(rutaProyectosJson))
                 {
-                    MessageBox.Show("No se encuentra Proyectos.JSON");
-                    this.Close();
-                    return;
+                    rutaProyectosJson = Path.Combine(Application.StartupPath, "JSON", "Proyectos.JSON");
+                    if (!File.Exists(rutaProyectosJson))
+                    {
+                        MessageBox.Show("No se encuentra el archivo Proyectos.JSON");
+                        this.Close();
+                        return;
+                    }
                 }
 
                 string jsonProyectos = File.ReadAllText(rutaProyectosJson);
                 var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
 
-                // Guardamos la lista completa para usarla al guardar
                 listaCompletaDeProyectos = JsonSerializer.Deserialize<List<Proyectos>>(jsonProyectos, options);
-
-                // Buscamos el proyecto que queremos editar
                 proyectoAEditar = listaCompletaDeProyectos.FirstOrDefault(p => p.NombreProyecto == this.nombreProyectoOriginal);
 
                 if (proyectoAEditar == null)
@@ -69,23 +68,31 @@ namespace Beatrix_Formulario
                 txtNombre.Text = proyectoAEditar.NombreProyecto;
                 richTextBox1.Text = proyectoAEditar.DescripcionProyecto;
 
-                // Tu lógica guarda las fechas y usuarios en la PRIMERA tarea.
-                // Debemos leer de ahí.
-                Tareas tareaContenedora = proyectoAEditar.Tareas.FirstOrDefault();
-                if (tareaContenedora != null)
-                {
-                    dateTimePicker1.Value = tareaContenedora.fechaInicio;
-                    dateTimePicker2.Value = tareaContenedora.fechaEntrega;
+                if (proyectoAEditar.fechaInicio != DateTime.MinValue)
+                    dateTimePicker1.Value = proyectoAEditar.fechaInicio;
 
-                    listBoxUsuarios.Items.Clear();
-                    if (tareaContenedora.usuariosAsignados != null)
+                if (proyectoAEditar.fechaEntrega != DateTime.MinValue)
+                    dateTimePicker2.Value = proyectoAEditar.fechaEntrega;
+
+                // --- RELLENAR LISTA DE USUARIOS ASIGNADOS (Strings) ---
+                listBoxUsuarios.Items.Clear();
+
+                if (proyectoAEditar.UsuariosAsignados != null && proyectoAEditar.UsuariosAsignados.Any())
+                {
+                    foreach (var usuario in proyectoAEditar.UsuariosAsignados)
                     {
-                        foreach (var usuario in tareaContenedora.usuariosAsignados)
-                        {
-                            // Asumimos que tu clase 'Usuarios' tiene 'nombreUsuario'
-                            listBoxUsuarios.Items.Add(usuario.nombreUsuario);
-                        }
+                        listBoxUsuarios.Items.Add(usuario.nombreUsuario);
                     }
+                }
+                // Fallback
+                else if (proyectoAEditar.Tareas != null && proyectoAEditar.Tareas.Any())
+                {
+                    var usuariosViejos = proyectoAEditar.Tareas
+                        .SelectMany(t => t.usuariosAsignados ?? new List<Usuarios>())
+                        .Select(u => u.nombreUsuario)
+                        .Distinct();
+
+                    foreach (var u in usuariosViejos) listBoxUsuarios.Items.Add(u);
                 }
             }
             catch (Exception ex)
@@ -95,163 +102,128 @@ namespace Beatrix_Formulario
             }
         }
 
-        // --- 3. CÓDIGO DEL BOTÓN "GUARDAR CAMBIOS" (modificado de 'btnCrear') ---
-        // Revisa que el clic de tu botón de guardar esté conectado a esta función
+        // --- LOGICA GUARDAR ---
         private void btnCrear_Click_1(object sender, EventArgs e)
         {
-            // --- 1. VALIDACIÓN (Idéntica a la de Form2) ---
             if (string.IsNullOrWhiteSpace(txtNombre.Text))
             {
-                MessageBox.Show("El campo 'Nombre' es obligatorio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El campo 'Nombre' es obligatorio.");
                 return;
             }
             if (string.IsNullOrWhiteSpace(richTextBox1.Text))
             {
-                MessageBox.Show("El campo 'Descripción' es obligatorio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El campo 'Descripción' es obligatorio.");
                 return;
             }
             if (listBoxUsuarios.Items.Count == 0)
             {
-                MessageBox.Show("Debe seleccionar al menos un 'Usuario'.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debe haber al menos un usuario asignado.");
                 return;
             }
             if (dateTimePicker2.Value.Date < dateTimePicker1.Value.Date)
             {
-                MessageBox.Show("La fecha de entrega no puede ser anterior a la fecha de inicio.", "Error de Fechas", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("La fecha de entrega no puede ser anterior a la de inicio.");
                 return;
             }
 
-            // --- 2. PROCESAMIENTO DE USUARIOS (Idéntico a Form2) ---
-            List<Usuarios> listaUsuariosParaTarea = new List<Usuarios>();
-            foreach (object item in listBoxUsuarios.Items)
-            {
-                string nombreUsuario = item.ToString();
-                listaUsuariosParaTarea.Add(new Usuarios { nombreUsuario = nombreUsuario });
-            }
-
-            // --- 3. CREACIÓN DE LA "TAREA CONTENEDORA" (Idéntico a Form2) ---
-            Tareas tareaInicial = new Tareas
-            {
-                nombreTarea = "Datos Generales del Proyecto",
-                descripcion = "Tarea inicial creada con el proyecto.",
-                fechaInicio = dateTimePicker1.Value,
-                fechaEntrega = dateTimePicker2.Value,
-                estado = "Pendiente",
-                usuariosAsignados = listaUsuariosParaTarea,
-                SubTareas = new List<SubTareas>()
-            };
-
-            // --- 4. CREACIÓN DEL OBJETO PROYECTO (Idéntico a Form2) ---
-            // Este es el objeto 'NUEVO' o 'EDITADO'
-            Proyectos proyectoTemporal = new Proyectos
-            {
-                NombreProyecto = txtNombre.Text,
-                DescripcionProyecto = richTextBox1.Text,
-                Tareas = new List<Tareas> { tareaInicial },
-                fechaInicio = new DateTime(1, 1, 1),
-                fechaEntrega = new DateTime(1, 1, 1),
-                UsuariosAsignados = new List<Usuarios>()
-            };
-
-            // --- 5. LÓGICA DE GUARDADO (¡LA PARTE CLAVE!) ---
             try
             {
-                string rutaArchivoJson = Path.Combine(Application.StartupPath, "JSON", "Proyectos.JSON");
-                var options = new JsonSerializerOptions
-                {
-                    WriteIndented = true,
-                    PropertyNameCaseInsensitive = true
-                };
+                // 1. Actualizar datos básicos (EN MEMORIA)
+                proyectoAEditar.NombreProyecto = txtNombre.Text;
+                proyectoAEditar.DescripcionProyecto = richTextBox1.Text;
+                proyectoAEditar.fechaInicio = dateTimePicker1.Value;
+                proyectoAEditar.fechaEntrega = dateTimePicker2.Value;
 
-                // A. Borramos el proyecto ORIGINAL de la lista que cargamos
-                // (Usamos la variable 'proyectoAEditar' que guardamos en el Load)
-                if (proyectoAEditar != null)
+                // 2. RECONSTRUIR LISTA DE USUARIOS
+                // Leemos lo que hay AHORA MISMO en el ListBox (después de que hayas quitado/añadido)
+                List<Usuarios> usuariosFinales = new List<Usuarios>();
+
+                foreach (object item in listBoxUsuarios.Items)
                 {
-                    listaCompletaDeProyectos.Remove(proyectoAEditar);
+                    string nombreEnLista = item.ToString();
+
+                    // Recuperamos el objeto completo de la lista total para no perder datos (email, etc.)
+                    Usuarios usuarioCompleto = listaTotalUsuariosDisponibles?
+                        .FirstOrDefault(u => u.nombreUsuario == nombreEnLista);
+
+                    if (usuarioCompleto != null)
+                    {
+                        usuariosFinales.Add(usuarioCompleto);
+                    }
+                    else
+                    {
+                        // Si es un usuario nuevo o manual
+                        usuariosFinales.Add(new Usuarios { nombreUsuario = nombreEnLista });
+                    }
                 }
 
-                // B. Añadir el proyecto 'NUEVO' (editado) a la lista
-                listaCompletaDeProyectos.Add(proyectoTemporal);
+                // Sobreescribimos la lista de usuarios del proyecto con la NUEVA lista
+                proyectoAEditar.UsuariosAsignados = usuariosFinales;
 
-                // C. Serializar y Escribir la lista COMPLETA de nuevo
+                // 3. GUARDAR EN DISCO
+                // Como 'proyectoAEditar' es una referencia a un objeto dentro de 'listaCompletaDeProyectos',
+                // al modificarlo arriba, la lista completa ya está actualizada. Solo hay que guardar.
+
+                string rutaProyectoSource = Directory.GetParent(Application.StartupPath).Parent.Parent.Parent.FullName;
+                string rutaArchivoJson = Path.Combine(rutaProyectoSource, "JSON", "Proyectos.JSON");
+
+                if (!Directory.Exists(Path.GetDirectoryName(rutaArchivoJson)))
+                    rutaArchivoJson = Path.Combine(Application.StartupPath, "JSON", "Proyectos.JSON");
+
+                var options = new JsonSerializerOptions { WriteIndented = true, PropertyNameCaseInsensitive = true };
                 string jsonActualizado = JsonSerializer.Serialize(listaCompletaDeProyectos, options);
+
                 File.WriteAllText(rutaArchivoJson, jsonActualizado);
 
-                // --- 6. GUARDAR Y CERRAR ---
-                this.ProyectoEditado = proyectoTemporal;
+                // 4. Cerrar
+                this.ProyectoEditado = proyectoAEditar;
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al guardar el proyecto en JSON: {ex.Message}");
+                MessageBox.Show($"Error al guardar cambios: {ex.Message}");
             }
         }
 
-        // --- CÓDIGO DEL BOTÓN "CANCELAR" ---
-        // Revisa que el clic de tu botón de cancelar esté conectado a esta función
+        // --- CARGAR USUARIOS ---
+        private void CargarUsuariosDelJson()
+        {
+            try
+            {
+                string rutaProyecto = Directory.GetParent(Application.StartupPath).Parent.Parent.Parent.FullName;
+                string rutaUsuariosJson = Path.Combine(rutaProyecto, "JSON", "Usuarios.JSON");
+
+                if (!File.Exists(rutaUsuariosJson))
+                    rutaUsuariosJson = Path.Combine(Application.StartupPath, "JSON", "Usuarios.JSON");
+
+                if (File.Exists(rutaUsuariosJson))
+                {
+                    string json = File.ReadAllText(rutaUsuariosJson);
+                    var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                    listaTotalUsuariosDisponibles = JsonSerializer.Deserialize<List<Usuarios>>(json, options);
+
+                    if (listaTotalUsuariosDisponibles != null)
+                    {
+                        comboBoxUsuarios.Items.Clear();
+                        foreach (Usuarios user in listaTotalUsuariosDisponibles)
+                        {
+                            comboBoxUsuarios.Items.Add(user);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar usuarios: {ex.Message}");
+                listaTotalUsuariosDisponibles = new List<Usuarios>();
+            }
+        }
+
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
-        }
-
-        // --- CÓDIGO DE CARGA DE USUARIOS (Separado para limpieza) ---
-        private void CargarUsuariosDelJson()
-        {
-            string rutaUsuariosJson = Path.Combine(Application.StartupPath, "JSON", "Usuarios.JSON");
-            if (File.Exists(rutaUsuariosJson))
-            {
-                try
-                {
-                    string json = File.ReadAllText(rutaUsuariosJson);
-                    var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-                    List<Usuarios> listaTotalUsuarios = JsonSerializer.Deserialize<List<Usuarios>>(json, options);
-
-                    if (listaTotalUsuarios == null) return;
-
-                    comboBoxUsuarios.Items.Clear();
-                    foreach (Usuarios user in listaTotalUsuarios)
-                    {
-                        comboBoxUsuarios.Items.Add(user);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error al cargar los usuarios: {ex.Message}");
-                }
-            }
-            else
-            {
-                MessageBox.Show("No se encontró el archivo 'Usuarios.JSON'.");
-            }
-        }
-
-        // --- CÓDIGO DEL COMBOBOX ---
-        // Revisa que el evento 'SelectedIndexChanged' de tu ComboBox esté conectado aquí
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (comboBoxUsuarios.SelectedItem != null)
-            {
-                Usuarios usuarioSeleccionado = (Usuarios)comboBoxUsuarios.SelectedItem;
-                string nombreUsuario = usuarioSeleccionado.ToString();
-
-                if (!listBoxUsuarios.Items.Contains(nombreUsuario))
-                {
-                    listBoxUsuarios.Items.Add(nombreUsuario);
-                }
-                comboBoxUsuarios.SelectedIndex = -1;
-            }
-        }
-
-        // --- CÓDIGO PARA QUITAR USUARIOS ---
-        // Revisa que el clic de tu botón 'Quitar' esté conectado aquí
-        private void quitarUsuarios_Click(object sender, EventArgs e)
-        {
-            if (listBoxUsuarios.SelectedItem != null)
-            {
-                listBoxUsuarios.Items.Remove(listBoxUsuarios.SelectedItem);
-            }
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -259,90 +231,38 @@ namespace Beatrix_Formulario
             this.Close();
         }
 
-        private void btnCrear_Click(object sender, EventArgs e)
+        // Enlaces duplicados por seguridad del diseñador
+        private void btnCrear_Click(object sender, EventArgs e) { btnCrear_Click_1(sender, e); }
+
+        private void quitarUsuarios_Click_1(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtNombre.Text))
+            // Usamos SelectedIndex, es más seguro
+            if (listBoxUsuarios.SelectedIndex != -1)
             {
-                MessageBox.Show("El campo 'Nombre' es obligatorio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                // Borramos el ítem en la posición seleccionada
+                listBoxUsuarios.Items.RemoveAt(listBoxUsuarios.SelectedIndex);
             }
-            if (string.IsNullOrWhiteSpace(richTextBox1.Text))
+            else
             {
-                MessageBox.Show("El campo 'Descripción' es obligatorio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                MessageBox.Show("Por favor, selecciona un nombre de la lista para quitarlo.");
             }
-            if (listBoxUsuarios.Items.Count == 0)
-            {
-                MessageBox.Show("Debe seleccionar al menos un 'Usuario'.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (dateTimePicker2.Value.Date < dateTimePicker1.Value.Date)
-            {
-                MessageBox.Show("La fecha de entrega no puede ser anterior a la fecha de inicio.", "Error de Fechas", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+        }
 
-            try
+        private void comboBoxUsuarios_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxUsuarios.SelectedItem != null)
             {
-                // B. MODIFICAR EL PROYECTO EXISTENTE (Usamos la REFERENCIA cargada 'proyectoAEditar')
+                Usuarios usuarioSeleccionado = (Usuarios)comboBoxUsuarios.SelectedItem;
 
-                // 1. Actualizamos nombre y descripción
-                proyectoAEditar.NombreProyecto = txtNombre.Text;
-                proyectoAEditar.DescripcionProyecto = richTextBox1.Text;
+                // Usamos explícitamente el nombre, no el ToString()
+                string nombre = usuarioSeleccionado.nombreUsuario;
 
-                // 2. Preparamos la nueva lista de usuarios
-                List<Usuarios> nuevosUsuarios = new List<Usuarios>();
-                foreach (object item in listBoxUsuarios.Items)
+                if (!string.IsNullOrEmpty(nombre) && !listBoxUsuarios.Items.Contains(nombre))
                 {
-                    nuevosUsuarios.Add(new Usuarios { nombreUsuario = item.ToString() });
+                    listBoxUsuarios.Items.Add(nombre);
                 }
 
-                // 3. Buscamos/creamos la Tarea Principal (índice 0)
-                if (proyectoAEditar.Tareas == null)
-                    proyectoAEditar.Tareas = new List<Tareas>();
-
-                Tareas tareaPrincipal;
-                if (proyectoAEditar.Tareas.Count > 0)
-                {
-                    // Si ya existen tareas, editamos solo la primera (la contenedora de fechas/usuarios)
-                    tareaPrincipal = proyectoAEditar.Tareas[0];
-                }
-                else
-                {
-                    // Caso de seguridad: Si no hay tareas, creamos la primera
-                    tareaPrincipal = new Tareas
-                    {
-                        nombreTarea = "Datos Generales del Proyecto",
-                        descripcion = "Tarea inicial creada con el proyecto.",
-                        estado = "Pendiente",
-                        SubTareas = new List<SubTareas>()
-                    };
-                    proyectoAEditar.Tareas.Insert(0, tareaPrincipal); // Insertamos en la posición 0
-                }
-
-                // 4. Actualizamos Fechas y Usuarios en esa tarea, PRESERVANDO las demás tareas
-                tareaPrincipal.fechaInicio = dateTimePicker1.Value;
-                tareaPrincipal.fechaEntrega = dateTimePicker2.Value;
-                tareaPrincipal.usuariosAsignados = nuevosUsuarios;
-
-                // C. GUARDAR EN JSON
-                // Como 'proyectoAEditar' es una referencia dentro de 'listaCompletaDeProyectos', 
-                // la lista completa ya está actualizada en memoria. Solo hay que serializarla y guardarla.
-
-                string rutaArchivoJson = Path.Combine(Application.StartupPath, "JSON", "Proyectos.JSON");
-                var options = new JsonSerializerOptions { WriteIndented = true, PropertyNameCaseInsensitive = true };
-
-                string jsonActualizado = JsonSerializer.Serialize(listaCompletaDeProyectos, options);
-                File.WriteAllText(rutaArchivoJson, jsonActualizado);
-
-                // Preparamos el resultado para el formulario padre
-                this.ProyectoEditado = proyectoAEditar;
-                this.DialogResult = DialogResult.OK;
-                this.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al sobrescribir el proyecto: {ex.Message}");
+                comboBoxUsuarios.SelectedIndex = -1;
             }
         }
     }
