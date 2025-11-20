@@ -384,5 +384,38 @@ namespace Beatrix_Formulario
 
             MessageBox.Show("Reunión cancelada.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void buttonTareas1Tareas_Click(object sender, EventArgs e)
+        {
+            FormTareasTho1 formTareasTho1 = new FormTareasTho1();
+            formTareasTho1.Show();
+            this.Hide();
+        }
+
+        private void buttonInicioForm1Tareas_Click(object sender, EventArgs e)
+        {
+            Inicio formInicio = new Inicio();
+            formInicio.Show();
+            this.Hide();
+        }
+
+        private void buttonProyetos1Tareas_Click(object sender, EventArgs e)
+        {
+            FormProyectosGerard1 formProyectos = new FormProyectosGerard1();
+            formProyectos.Show();
+            this.Hide();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FormUsuarios formUsuarios = new FormUsuarios();
+            formUsuarios.Show();
+            this.Hide();
+        }
+
+        private void FormReunionesDy1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

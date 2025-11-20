@@ -1,5 +1,4 @@
 ﻿using Beatrix_Formulario.ClasesTareas;
-using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,35 +14,67 @@ namespace Beatrix_Formulario
 {
     public partial class FormPantallaUsuario : Form
     {
-        private List<Usuarios> users = new List<Usuarios>();
         public FormPantallaUsuario()
         {
             InitializeComponent();
         }
 
-        private void btnCrear_Click_1(object sender, EventArgs e)
+        private void btnCrear_Click(object sender, EventArgs e)
         {
-            // Los usuarios se añadirán al archivo JSON después de su creación.
 
-            string usersPath = Path.Combine(Application.StartupPath, "JSON", "Usuarios.json");
-
-            string username = txtUser.Text;
-            string nombre = txtNombre.Text;
-            string email = txtCorreo.Text;
-            string tele = txtTele.Text;
-
-            Usuarios newUser = new Usuarios
+            Usuarios nuevoUsuario = new Usuarios
             {
-                nombreUsuario = username,
-                nombreApellidos = nombre,
-                email = email,
-                telefono = tele
-
+                nombreUsuario = txtUser.Text,
+                nombreApellidos = txtNombre.Text,
+                contrasena = "",
+                email = txtCorreo.Text,
+                telefono = txtTele.Text,
+                rol = ""
             };
 
-           //--------------------------------------------------
+            // Regresar al directorio raíz del proyecto
+            string proyectoRaiz = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..");
 
-            MessageBox.Show("Usuario creado correctamente!");
+            string carpeta = Path.Combine(proyectoRaiz, "JSON");
+            if (!Directory.Exists(carpeta))
+                // si no existe, crear un nuevo carpeta 
+                Directory.CreateDirectory(carpeta);
+
+            // empalme la ruta de json 
+            string rutaArchivo = Path.Combine(carpeta, "Usuarios.json");
+
+            AgregarUsuario(nuevoUsuario, rutaArchivo);
+
         }
+
+        public void AgregarUsuario(Usuarios nuevoUsuario, string rutaArchivo)
+        {
+            List<Usuarios> usuarios = new List<Usuarios>();
+
+            if (File.Exists(rutaArchivo))
+            {
+                string json = File.ReadAllText(rutaArchivo);
+                if (!string.IsNullOrWhiteSpace(json))
+                    usuarios = JsonSerializer.Deserialize<List<Usuarios>>(json) ?? new List<Usuarios>();
+            }
+
+            usuarios.Add(nuevoUsuario);
+
+            string jsonActualizado = JsonSerializer.Serialize(usuarios, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText(rutaArchivo, jsonActualizado);
+
+            MessageBox.Show("Usuario agregado correctamente.\nArchivo: " + Path.GetFullPath(rutaArchivo));
+        }
+
+
+
+
+
+
+
+
+
+
+
     }
 }
