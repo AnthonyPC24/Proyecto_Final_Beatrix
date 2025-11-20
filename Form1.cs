@@ -22,9 +22,6 @@ namespace Beatrix_Formulario
 
         private void cargarUsuarios()
         {
-            string user = txtUsuario.Text.Trim();
-
-            string contrasena = txtContrasena.Text;
 
             try
             {

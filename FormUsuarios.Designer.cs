@@ -57,6 +57,8 @@
             btnProyetos = new Button();
             btnInicio = new Button();
             panelUsuario = new Panel();
+            lblNombreUsuario = new Label();
+            txtNombreUsuario = new TextBox();
             btnEditar = new Button();
             lblTele = new Label();
             label2 = new Label();
@@ -68,8 +70,6 @@
             lblCrearUsuario = new Label();
             lblTitulo = new Label();
             dgvUsuarios = new DataGridView();
-            lblNombreUsuario = new Label();
-            txtNombreUsuario = new TextBox();
             panelBarraOpciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbUser).BeginInit();
             panelUsuario.SuspendLayout();
@@ -203,6 +203,23 @@
             panelUsuario.Size = new Size(687, 306);
             panelUsuario.TabIndex = 4;
             // 
+            // lblNombreUsuario
+            // 
+            lblNombreUsuario.AutoSize = true;
+            lblNombreUsuario.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblNombreUsuario.Location = new Point(282, 54);
+            lblNombreUsuario.Name = "lblNombreUsuario";
+            lblNombreUsuario.Size = new Size(154, 24);
+            lblNombreUsuario.TabIndex = 9;
+            lblNombreUsuario.Text = "Nombre y apellidos";
+            // 
+            // txtNombreUsuario
+            // 
+            txtNombreUsuario.Location = new Point(450, 51);
+            txtNombreUsuario.Name = "txtNombreUsuario";
+            txtNombreUsuario.Size = new Size(173, 27);
+            txtNombreUsuario.TabIndex = 8;
+            // 
             // btnEditar
             // 
             btnEditar.BackColor = Color.FromArgb(41, 191, 205);
@@ -322,23 +339,6 @@
             dgvUsuarios.Size = new Size(687, 231);
             dgvUsuarios.TabIndex = 14;
             // 
-            // lblNombreUsuario
-            // 
-            lblNombreUsuario.AutoSize = true;
-            lblNombreUsuario.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblNombreUsuario.Location = new Point(282, 54);
-            lblNombreUsuario.Name = "lblNombreUsuario";
-            lblNombreUsuario.Size = new Size(154, 24);
-            lblNombreUsuario.TabIndex = 9;
-            lblNombreUsuario.Text = "Nombre y apellidos";
-            // 
-            // txtNombreUsuario
-            // 
-            txtNombreUsuario.Location = new Point(450, 51);
-            txtNombreUsuario.Name = "txtNombreUsuario";
-            txtNombreUsuario.Size = new Size(173, 27);
-            txtNombreUsuario.TabIndex = 8;
-            // 
             // FormUsuarios
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -353,7 +353,7 @@
             MinimizeBox = false;
             Name = "FormUsuarios";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "FormUsuarios";
+            Text = "FormConfiguracionUsuarios";
             panelBarraOpciones.ResumeLayout(false);
             panelBarraOpciones.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pbUser).EndInit();

@@ -223,9 +223,13 @@ namespace Beatrix_Formulario
 
         private void btnConfiguracion_Click(object sender, EventArgs e)
         {
-            FormUsuarios configuracion = new FormUsuarios();
-            configuracion.Show();
-            this.Hide();
+            if (!MostrarFormExist<FormUsuarios>())
+            {
+                FormUsuarios configuracion = new FormUsuarios();
+                configuracion.Show();
+                this.Hide();
+            }
+
         }
 
         private bool MostrarFormExist<T>() where T : Form

@@ -62,7 +62,7 @@ namespace Beatrix_Formulario
 
             string jsonActualizado = JsonSerializer.Serialize(usuarios, new JsonSerializerOptions { WriteIndented = true });
             File.WriteAllText(rutaArchivo, jsonActualizado);
-
+            
             MessageBox.Show("Usuario agregado correctamente.\nArchivo: " + Path.GetFullPath(rutaArchivo));
         }
 

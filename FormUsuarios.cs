@@ -43,6 +43,7 @@ namespace Beatrix_Formulario
 
                 bool encontrado = false;
 
+                // encontra el usuario y update los datos
                 for (int i = 0; i < usuarios.Count; i++)
                 {
                     if (usuarios[i].nombreUsuario == nombreUsuario)
@@ -149,7 +150,6 @@ namespace Beatrix_Formulario
 
         private void btnReuniones_Click(object sender, EventArgs e)
         {
-
             if (!MostrarFormExist<FormReunionesDy1>())
             {
                 FormReunionesDy1 reunionesForm = new FormReunionesDy1();
@@ -177,10 +177,12 @@ namespace Beatrix_Formulario
 
         private void btnConfiguracion_Click(object sender, EventArgs e)
         {
-
-            FormUsuarios configuracion = new FormUsuarios();
-            configuracion.Show();
-            this.Hide();
+            if (!MostrarFormExist<FormUsuarios>())
+            {
+                FormUsuarios configuracion = new FormUsuarios();
+                configuracion.Show();
+                this.Hide();
+            }
 
         }
 
