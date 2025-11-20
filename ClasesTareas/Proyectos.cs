@@ -9,6 +9,8 @@ namespace Beatrix_Formulario.ClasesTareas
     public class Proyectos
     {
         public string NombreProyecto { get; set; }
+
+        public string DescripcionProyecto { get; set; }
         public List<Tareas> Tareas { get; set; } = new List<Tareas>();
 
         public DateTime fechaEntrega { get; set; }
