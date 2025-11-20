@@ -10,17 +10,15 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
-
 namespace Beatrix_Formulario
 {
     public partial class Inicio : Form
     {
         private List<Reunion> reuniones = new List<Reunion>();
+
         public Inicio()
         {
             InitializeComponent();
-
         }
 
         private void Inicio_Load(object sender, EventArgs e)
@@ -28,21 +26,44 @@ namespace Beatrix_Formulario
             string tareasPath = Path.Combine(Application.StartupPath, "JSON", "Proyectos.json");
             string reunionesPath = Path.Combine(Application.StartupPath, "JSON", "Reuniones.json");
 
-
             if (File.Exists(tareasPath))
             {
-                LoadJsonToTarea(tareasPath, dgvTarea);
+                try
+                {
+                    string jsonString = File.ReadAllText(tareasPath);
+                    var proyectos = JsonSerializer.Deserialize<List<Proyectos>>(jsonString, new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true
+                    });
+
+                    if (proyectos != null && proyectos.Count > 0)
+                    {
+                        // Crear lista con texto mostrado (Proyecto 1, 2, 3) y objeto real
+                        var comboData = proyectos.Select((p, index) => new
+                        {
+                            Display = $"Proyecto {index + 1}", // Texto que ve el usuario
+                            Proyecto = p // Objeto real
+                        }).ToList();
+
+                        comboBoxProyecto.DataSource = comboData;
+                        comboBoxProyecto.DisplayMember = "Display"; // Texto visual
+                        comboBoxProyecto.ValueMember = "Proyecto"; // Objeto real
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al cargar proyectos: " + ex.Message);
+                }
             }
             else
             {
-                MessageBox.Show($"No se encontró el archivo tareas ：{tareasPath}");
+                MessageBox.Show($"No se encontró el archivo de proyectos: {tareasPath}");
             }
 
-
+            // cargar los reuniones
             if (File.Exists(reunionesPath))
             {
                 string jsonString = ReadJsonString(reunionesPath);
-
                 if (!string.IsNullOrEmpty(jsonString))
                 {
                     try
@@ -61,42 +82,35 @@ namespace Beatrix_Formulario
             }
             else
             {
-                MessageBox.Show($"No se encontró el archivo de reuniones.：{reunionesPath}");
+                MessageBox.Show($"No se encontró el archivo de reuniones: {reunionesPath}");
             }
 
-            ShowReuniones(DateTime.Today);
+            // mostrar los reuniones
+            MostrarReuniones(DateTime.Today);
         }
 
-
-
-        //comboBox de proyecto 
+        //comboBox de proyecto
         private void comboBoxProyecto_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string proyectoSeleccionado = comboBoxProyecto.SelectedItem?.ToString();
-            if (string.IsNullOrEmpty(proyectoSeleccionado))
+            if (comboBoxProyecto.SelectedValue is Proyectos proyectoSeleccionado)
             {
-                return;
+                dgvTarea.Rows.Clear();
+
+                foreach (var tarea in proyectoSeleccionado.Tareas)
+                {
+                    string usuarios = (tarea.usuariosAsignados != null && tarea.usuariosAsignados.Count > 0)
+                        ? string.Join(", ", tarea.usuariosAsignados.Select(u => u.nombreUsuario))
+                        : "(Sin usuarios)";
+
+                    dgvTarea.Rows.Add(tarea.nombreTarea, tarea.descripcion, usuarios);
+                }
             }
-
-            string tareasPath = Path.Combine(Application.StartupPath, "JSON", "Proyectos.json");
-
-            if (!File.Exists(tareasPath)) 
-            {
-                MessageBox.Show("No se encontró el archivo tareas.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-
-            //.................
-
-
-
         }
 
         // evento de hacer click a calendar
         private void monthCalendar_DateChanged(object sender, DateRangeEventArgs e)
         {
-            ShowReuniones(e.Start);
+            MostrarReuniones(e.Start);
         }
 
         private string ReadJsonString(string jsonPath)
@@ -118,49 +132,7 @@ namespace Beatrix_Formulario
             }
         }
 
-        //cargar los datos de tareas
-        private void LoadJsonToTarea(string jsonPath, DataGridView dgv)
-        {
-
-            if (dgv == null)
-            {
-                MessageBox.Show("Error: El DataGridView Tarea no está inicializado o es null.",
-                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            string jsonString = ReadJsonString(jsonPath);
-            if (string.IsNullOrEmpty(jsonString)) return;
-
-            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-            List<Proyectos> proyectos = JsonSerializer.Deserialize<List<Proyectos>>(jsonString, options);
-
-            if (proyectos == null || proyectos.Count == 0)
-            {
-                MessageBox.Show("No se encontraron proyectos en el archivo JSON.");
-                return;
-            }
-
-            dgv.Rows.Clear();
-
-            foreach (var proyecto in proyectos)
-            {
-                if (proyecto.Tareas == null) continue;
-
-                foreach (var tarea in proyecto.Tareas)
-                {
-                    string usuarios = (tarea.usuariosAsignados != null && tarea.usuariosAsignados.Count > 0)
-                        ? string.Join(", ", tarea.usuariosAsignados.Select(u => u.nombreUsuario))
-                        : "(Sin usuarios)";
-
-                    dgv.Rows.Add(tarea.nombreTarea, tarea.descripcion, usuarios);
-                }
-            }
-        }
-
-
-
-        private void ShowReuniones(DateTime fechaSeleccionada)
+        private void MostrarReuniones(DateTime fechaSeleccionada)
         {
             if (reuniones == null || reuniones.Count == 0)
             {
@@ -218,36 +190,43 @@ namespace Beatrix_Formulario
         private void btnTareas_Click(object sender, EventArgs e)
         {
             if (!MostrarFormExist<FormProyectosGerard2>())
-            { 
+            {
                 FormProyectosGerard2 tareasForm = new FormProyectosGerard2();
-                tareasForm.Show(); 
+                tareasForm.Show();
             }
-           
         }
 
         private void btnReuniones_Click(object sender, EventArgs e)
         {
+
             if (!MostrarFormExist<FormReunionesDy1>())
             {
                 FormReunionesDy1 reunionesForm = new FormReunionesDy1();
                 reunionesForm.Show();
             }
-            
+        }
+
+        //foto de usuario
+        private void pbUser_Click(object sender, EventArgs e)
+        {
+            FormUsuarios formUsuarios = new FormUsuarios();
+            formUsuarios.Show();
+            this.Hide();
             
         }
+
         private bool MostrarFormExist<T>() where T : Form
         {
             foreach (Form frm in Application.OpenForms)
             {
                 if (frm is T)
                 {
-                    frm.BringToFront(); 
+                    frm.BringToFront();
                     frm.WindowState = FormWindowState.Normal;
-                    return true; 
+                    return true;
                 }
             }
-            return false; 
+            return false;
         }
     }
 }
-

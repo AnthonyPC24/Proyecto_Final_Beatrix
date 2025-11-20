@@ -51,7 +51,7 @@
             // 
             // buttonCancelarSubTarea
             // 
-            buttonCancelarSubTarea.BackColor = Color.White;
+            buttonCancelarSubTarea.BackColor = Color.FromArgb(245, 168, 125);
             buttonCancelarSubTarea.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold);
             buttonCancelarSubTarea.Location = new Point(632, 417);
             buttonCancelarSubTarea.Name = "buttonCancelarSubTarea";
@@ -63,7 +63,7 @@
             // 
             // buttonCrearNuevaSubTarea
             // 
-            buttonCrearNuevaSubTarea.BackColor = Color.White;
+            buttonCrearNuevaSubTarea.BackColor = Color.FromArgb(41, 195, 205);
             buttonCrearNuevaSubTarea.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold);
             buttonCrearNuevaSubTarea.Location = new Point(713, 417);
             buttonCrearNuevaSubTarea.Name = "buttonCrearNuevaSubTarea";
@@ -77,7 +77,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Montserrat ExtraBold", 20.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.Black;
+            label1.ForeColor = Color.Transparent;
             label1.Location = new Point(264, 11);
             label1.Name = "label1";
             label1.Size = new Size(266, 42);
@@ -238,6 +238,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(127, 191, 159);
             ClientSize = new Size(800, 450);
             Controls.Add(label5);
             Controls.Add(label4);

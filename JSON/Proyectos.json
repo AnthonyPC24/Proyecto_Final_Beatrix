@@ -3,68 +3,6 @@
     "NombreProyecto": "Lanzamiento App Movil",
     "Tareas": [
       {
-        "nombreTarea": "Dise\u00F1o UI/UX (Figma)",
-        "descripcion": "Crear los mockups y prototipos de alta fidelidad en Figma.",
-        "fechaInicio": "2024-11-18T09:00:00Z",
-        "fechaEntrega": "2024-12-15T18:00:00Z",
-        "estado": "En Progreso",
-        "usuariosAsignados": [
-          {
-            "nombreApellidos": null,
-            "nombreUsuario": "afernandez",
-            "contrasena": null,
-            "email": "ana.fernandez@ejemplo.com",
-            "telefono": null,
-            "rol": null
-          }
-        ],
-        "SubTareas": [
-          {
-            "NombreSubTarea": "NuevoDise\u00F1oMovil",
-            "DescripcionSubTarea": "Crear nuevas ventanas",
-            "FechaInicioSubtarea": "2024-11-20T09:00:00Z",
-            "FechaEntregaSubtarea": "2024-12-25T18:00:00Z",
-            "EstadoSubTarea": "En Progreso",
-            "UsuariosAsignadosSubtarea": [
-              {
-                "nombreApellidos": null,
-                "nombreUsuario": "afernandez",
-                "contrasena": null,
-                "email": null,
-                "telefono": null,
-                "rol": null
-              },
-              {
-                "nombreApellidos": null,
-                "nombreUsuario": "mgomez",
-                "contrasena": null,
-                "email": null,
-                "telefono": null,
-                "rol": null
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "nombreTarea": "Desarrollo del Backend (API REST)",
-        "descripcion": "Implementar endpoints para autenticaci\u00F3n, perfiles y gesti\u00F3n de tareas.",
-        "fechaInicio": "2024-12-01T09:00:00Z",
-        "fechaEntrega": "2025-02-15T18:00:00Z",
-        "estado": "Pendiente",
-        "usuariosAsignados": [
-          {
-            "nombreApellidos": null,
-            "nombreUsuario": "mgomez",
-            "contrasena": null,
-            "email": "marcos.g@ejemplo.com",
-            "telefono": null,
-            "rol": null
-          }
-        ],
-        "SubTareas": []
-      },
-      {
         "nombreTarea": "Definir arquitectura de la app",
         "descripcion": "Decidir la estructura de componentes, estado y navegaci\u00F3n.",
         "fechaInicio": "2024-11-15T10:00:00Z",
@@ -134,15 +72,15 @@
         ]
       },
       {
-        "nombreTarea": "nueva app",
-        "descripcion": "neuva app",
-        "fechaInicio": "2025-11-04T19:33:08.777",
-        "fechaEntrega": "2025-11-08T19:33:08.773",
-        "estado": "Pendiente",
+        "nombreTarea": "nuevo lanzamiento beatrix",
+        "descripcion": "nuevo lanzamiento beatrix para movil ",
+        "fechaInicio": "2025-11-17T19:22:49.5651433+01:00",
+        "fechaEntrega": "2025-11-18T19:22:49.559",
+        "estado": "En Pausa",
         "usuariosAsignados": [
           {
             "nombreApellidos": null,
-            "nombreUsuario": "afernandez",
+            "nombreUsuario": "eruiz",
             "contrasena": null,
             "email": null,
             "telefono": null,
@@ -150,21 +88,39 @@
           },
           {
             "nombreApellidos": null,
-            "nombreUsuario": "mgomez",
+            "nombreUsuario": "afernandez",
             "contrasena": null,
             "email": null,
             "telefono": null,
             "rol": null
           }
         ],
-        "SubTareas": []
+        "SubTareas": [
+          {
+            "NombreSubTarea": "nueva sub tarea ",
+            "DescripcionSubTarea": "nueva subtarea ",
+            "FechaInicioSubtarea": "2025-11-17T19:23:22.0273639+01:00",
+            "FechaEntregaSubtarea": "2025-11-19T19:23:22.023",
+            "EstadoSubTarea": "En proceso",
+            "UsuariosAsignadosSubtarea": [
+              {
+                "nombreApellidos": null,
+                "nombreUsuario": "eruiz",
+                "contrasena": null,
+                "email": null,
+                "telefono": null,
+                "rol": null
+              }
+            ]
+          }
+        ]
       },
       {
-        "nombreTarea": "nuevo lanzamiento juego",
-        "descripcion": "nuevo lanzamiento movil",
-        "fechaInicio": "2025-11-13T17:10:48.9668361+01:00",
-        "fechaEntrega": "2025-11-21T17:10:48.958",
-        "estado": "Pendiente",
+        "nombreTarea": "segunda tarea final ",
+        "descripcion": "nueva tarea final para el proyecto",
+        "fechaInicio": "2025-11-18T19:54:37.8139475+01:00",
+        "fechaEntrega": "2025-11-29T19:54:37.81",
+        "estado": "En Progreso",
         "usuariosAsignados": [
           {
             "nombreApellidos": null,
@@ -173,17 +129,79 @@
             "email": null,
             "telefono": null,
             "rol": null
+          }
+        ],
+        "SubTareas": [
+          {
+            "NombreSubTarea": "Subtarea segunda final",
+            "DescripcionSubTarea": "Nueva app seleccionada",
+            "FechaInicioSubtarea": "2025-11-18T19:55:12.558",
+            "FechaEntregaSubtarea": "2025-11-28T19:55:12.554",
+            "EstadoSubTarea": "En espera",
+            "UsuariosAsignadosSubtarea": [
+              {
+                "nombreApellidos": null,
+                "nombreUsuario": "eruiz",
+                "contrasena": null,
+                "email": null,
+                "telefono": null,
+                "rol": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nombreTarea": "Tercera Tarea Movil",
+        "descripcion": "Lanzamiento de tercera Tarea",
+        "fechaInicio": "2025-11-20T16:05:35.0530797+01:00",
+        "fechaEntrega": "2025-11-21T16:05:35.047",
+        "estado": "Pendiente",
+        "usuariosAsignados": [
+          {
+            "nombreApellidos": null,
+            "nombreUsuario": "eruiz",
+            "contrasena": null,
+            "email": null,
+            "telefono": null,
+            "rol": null
           },
           {
             "nombreApellidos": null,
-            "nombreUsuario": "afernandez",
+            "nombreUsuario": "mgomez",
             "contrasena": null,
             "email": null,
             "telefono": null,
             "rol": null
           }
         ],
-        "SubTareas": []
+        "SubTareas": [
+          {
+            "NombreSubTarea": "Nueva Tercera Subtarea",
+            "DescripcionSubTarea": "Nueva Tercera subtarea",
+            "FechaInicioSubtarea": "2025-11-20T16:22:41.122",
+            "FechaEntregaSubtarea": "2025-11-28T16:22:41.119",
+            "EstadoSubTarea": "Revisi\u00F3n",
+            "UsuariosAsignadosSubtarea": [
+              {
+                "nombreApellidos": null,
+                "nombreUsuario": "mgomez",
+                "contrasena": null,
+                "email": null,
+                "telefono": null,
+                "rol": null
+              },
+              {
+                "nombreApellidos": null,
+                "nombreUsuario": "afernandez",
+                "contrasena": null,
+                "email": null,
+                "telefono": null,
+                "rol": null
+              }
+            ]
+          }
+        ]
       }
     ],
     "fechaEntrega": "0001-01-01T00:00:00",
@@ -194,40 +212,176 @@
     "NombreProyecto": "Migraci\u00F3n a la Nube (AWS)",
     "Tareas": [
       {
-        "nombreTarea": "Auditor\u00EDa de infraestructura",
-        "descripcion": "Revisar todos los servicios y bases de datos actuales.",
-        "fechaInicio": "2024-12-02T09:00:00Z",
-        "fechaEntrega": "2024-12-10T18:00:00Z",
+        "nombreTarea": "nueva migracion",
+        "descripcion": "nueva migraci\u00F3n de datos",
+        "fechaInicio": "2025-11-13T20:00:35.377",
+        "fechaEntrega": "2025-11-20T20:00:35.373",
         "estado": "Pendiente",
         "usuariosAsignados": [
           {
             "nombreApellidos": null,
+            "nombreUsuario": "eruiz",
+            "contrasena": null,
+            "email": null,
+            "telefono": null,
+            "rol": null
+          },
+          {
+            "nombreApellidos": null,
+            "nombreUsuario": "afernandez",
+            "contrasena": null,
+            "email": null,
+            "telefono": null,
+            "rol": null
+          },
+          {
+            "nombreApellidos": null,
             "nombreUsuario": "csantana",
             "contrasena": null,
-            "email": "c.santana@ejemplo.com",
+            "email": null,
             "telefono": null,
             "rol": null
           }
         ],
-        "SubTareas": []
+        "SubTareas": [
+          {
+            "NombreSubTarea": "cambio en los botones",
+            "DescripcionSubTarea": "cambio de botones para la migracion",
+            "FechaInicioSubtarea": "2025-11-13T20:03:09.746",
+            "FechaEntregaSubtarea": "2025-11-21T20:03:09.743",
+            "EstadoSubTarea": "Pendiente",
+            "UsuariosAsignadosSubtarea": [
+              {
+                "nombreApellidos": null,
+                "nombreUsuario": "eruiz",
+                "contrasena": null,
+                "email": null,
+                "telefono": null,
+                "rol": null
+              },
+              {
+                "nombreApellidos": null,
+                "nombreUsuario": "mgomez",
+                "contrasena": null,
+                "email": null,
+                "telefono": null,
+                "rol": null
+              }
+            ]
+          }
+        ]
       },
       {
-        "nombreTarea": "Configuraci\u00F3n de VPC",
-        "descripcion": "Definir la red privada, subredes p\u00FAblicas y privadas, y gateways.",
-        "fechaInicio": "2024-12-11T09:00:00Z",
-        "fechaEntrega": "2024-12-15T18:00:00Z",
-        "estado": "Pendiente",
+        "nombreTarea": "nueva AWS total",
+        "descripcion": "nueva AWS final",
+        "fechaInicio": "2025-11-13T20:15:46.006",
+        "fechaEntrega": "2025-11-20T20:15:46.002",
+        "estado": "En Progreso",
         "usuariosAsignados": [
           {
             "nombreApellidos": null,
-            "nombreUsuario": "csantana",
+            "nombreUsuario": "mgomez",
             "contrasena": null,
-            "email": "c.santana@ejemplo.com",
+            "email": null,
+            "telefono": null,
+            "rol": null
+          },
+          {
+            "nombreApellidos": null,
+            "nombreUsuario": "afernandez",
+            "contrasena": null,
+            "email": null,
             "telefono": null,
             "rol": null
           }
         ],
-        "SubTareas": []
+        "SubTareas": [
+          {
+            "NombreSubTarea": "Nueva subTareaAWS",
+            "DescripcionSubTarea": "Nueva subtarea",
+            "FechaInicioSubtarea": "2025-11-20T17:13:31.4666747+01:00",
+            "FechaEntregaSubtarea": "2025-11-21T17:13:31.462",
+            "EstadoSubTarea": "En proceso",
+            "UsuariosAsignadosSubtarea": [
+              {
+                "nombreApellidos": null,
+                "nombreUsuario": "eruiz",
+                "contrasena": null,
+                "email": null,
+                "telefono": null,
+                "rol": null
+              },
+              {
+                "nombreApellidos": null,
+                "nombreUsuario": "afernandez",
+                "contrasena": null,
+                "email": null,
+                "telefono": null,
+                "rol": null
+              },
+              {
+                "nombreApellidos": null,
+                "nombreUsuario": "csantana",
+                "contrasena": null,
+                "email": null,
+                "telefono": null,
+                "rol": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nombreTarea": "Segunda Migracion",
+        "descripcion": "Segunda migracion a la nube",
+        "fechaInicio": "2025-11-20T17:12:20.501077+01:00",
+        "fechaEntrega": "2025-11-21T17:12:20.497",
+        "estado": "En Pausa",
+        "usuariosAsignados": [
+          {
+            "nombreApellidos": null,
+            "nombreUsuario": "mgomez",
+            "contrasena": null,
+            "email": null,
+            "telefono": null,
+            "rol": null
+          },
+          {
+            "nombreApellidos": null,
+            "nombreUsuario": "afernandez",
+            "contrasena": null,
+            "email": null,
+            "telefono": null,
+            "rol": null
+          }
+        ],
+        "SubTareas": [
+          {
+            "NombreSubTarea": "Segunda SubTarea Migracion",
+            "DescripcionSubTarea": "Nueva subtarea",
+            "FechaInicioSubtarea": "2025-11-20T17:14:12.2264298+01:00",
+            "FechaEntregaSubtarea": "2025-11-22T17:14:12.222",
+            "EstadoSubTarea": "En espera",
+            "UsuariosAsignadosSubtarea": [
+              {
+                "nombreApellidos": null,
+                "nombreUsuario": "mgomez",
+                "contrasena": null,
+                "email": null,
+                "telefono": null,
+                "rol": null
+              },
+              {
+                "nombreApellidos": null,
+                "nombreUsuario": "afernandez",
+                "contrasena": null,
+                "email": null,
+                "telefono": null,
+                "rol": null
+              }
+            ]
+          }
+        ]
       }
     ],
     "fechaEntrega": "0001-01-01T00:00:00",

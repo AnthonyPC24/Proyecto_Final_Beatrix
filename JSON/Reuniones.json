@@ -6,7 +6,7 @@
       "Carlos Santana"
     ],
     "descripcion": "Adios",
-    "completado": false
+    "completado": true
   },
   {
     "titulo": "DISTURBING THE PEEEEEEEEEEEACE",
@@ -85,6 +85,17 @@
       "Ana Fernandez"
     ],
     "descripcion": "ladidadadiadiadiadia",
+    "completado": false
+  },
+  {
+    "titulo": "nuew reunion swing",
+    "fechaHora": "2025-11-19T20:59:12.232",
+    "usuariosReuniones": [
+      "Ana Fernandez",
+      "Carlos Santana",
+      "Elena Ruiz"
+    ],
+    "descripcion": "nueva swing",
     "completado": false
   }
 ]
