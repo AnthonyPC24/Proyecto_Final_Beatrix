@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTareasTho1));
             buttonInicioForm1Tareas = new Button();
             buttonProyetos1Tareas = new Button();
             panelBarraOpciones = new Panel();
+            linkLabel1 = new LinkLabel();
             labelBeatrix = new Label();
             buttonReuniones1Tareas = new Button();
             buttonTareas1Tareas = new Button();
@@ -71,21 +73,21 @@
             textBoxNombreTarea = new TextBox();
             labelNombreTarea = new Label();
             label1 = new Label();
-            dataGridView1 = new DataGridView();
+            dataGridViewTareas = new DataGridView();
             buttonEliminarTarea = new Button();
             panelBarraOpciones.SuspendLayout();
             groupBoxTarea.SuspendLayout();
             groupBoxSubtareas.SuspendLayout();
             groupBoxSubtareaEstados.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewTareas).BeginInit();
             SuspendLayout();
             // 
             // buttonInicioForm1Tareas
             // 
             buttonInicioForm1Tareas.BackColor = Color.FromArgb(41, 195, 205);
-            buttonInicioForm1Tareas.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonInicioForm1Tareas.Font = new Font("Montserrat SemiBold", 12F, FontStyle.Bold);
             buttonInicioForm1Tareas.ForeColor = Color.White;
-            buttonInicioForm1Tareas.Location = new Point(12, 248);
+            buttonInicioForm1Tareas.Location = new Point(12, 266);
             buttonInicioForm1Tareas.Name = "buttonInicioForm1Tareas";
             buttonInicioForm1Tareas.Size = new Size(186, 53);
             buttonInicioForm1Tareas.TabIndex = 0;
@@ -96,9 +98,9 @@
             // buttonProyetos1Tareas
             // 
             buttonProyetos1Tareas.BackColor = Color.FromArgb(41, 195, 205);
-            buttonProyetos1Tareas.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonProyetos1Tareas.Font = new Font("Montserrat SemiBold", 12F, FontStyle.Bold);
             buttonProyetos1Tareas.ForeColor = Color.White;
-            buttonProyetos1Tareas.Location = new Point(12, 307);
+            buttonProyetos1Tareas.Location = new Point(12, 323);
             buttonProyetos1Tareas.Name = "buttonProyetos1Tareas";
             buttonProyetos1Tareas.Size = new Size(186, 53);
             buttonProyetos1Tareas.TabIndex = 1;
@@ -109,6 +111,7 @@
             // panelBarraOpciones
             // 
             panelBarraOpciones.BackColor = Color.FromArgb(41, 195, 205);
+            panelBarraOpciones.Controls.Add(linkLabel1);
             panelBarraOpciones.Controls.Add(labelBeatrix);
             panelBarraOpciones.Controls.Add(buttonReuniones1Tareas);
             panelBarraOpciones.Controls.Add(buttonTareas1Tareas);
@@ -119,6 +122,21 @@
             panelBarraOpciones.Name = "panelBarraOpciones";
             panelBarraOpciones.Size = new Size(219, 681);
             panelBarraOpciones.TabIndex = 2;
+            // 
+            // linkLabel1
+            // 
+            linkLabel1.ActiveLinkColor = Color.FromArgb(245, 168, 125);
+            linkLabel1.AutoSize = true;
+            linkLabel1.Font = new Font("Montserrat SemiBold", 12F, FontStyle.Bold);
+            linkLabel1.ForeColor = Color.White;
+            linkLabel1.LinkColor = SystemColors.ControlLightLight;
+            linkLabel1.Location = new Point(41, 566);
+            linkLabel1.Name = "linkLabel1";
+            linkLabel1.Size = new Size(128, 25);
+            linkLabel1.TabIndex = 5;
+            linkLabel1.TabStop = true;
+            linkLabel1.Text = "Configuración";
+            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
             // 
             // labelBeatrix
             // 
@@ -134,9 +152,9 @@
             // buttonReuniones1Tareas
             // 
             buttonReuniones1Tareas.BackColor = Color.FromArgb(41, 195, 205);
-            buttonReuniones1Tareas.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonReuniones1Tareas.Font = new Font("Montserrat SemiBold", 12F, FontStyle.Bold);
             buttonReuniones1Tareas.ForeColor = Color.White;
-            buttonReuniones1Tareas.Location = new Point(12, 425);
+            buttonReuniones1Tareas.Location = new Point(12, 437);
             buttonReuniones1Tareas.Name = "buttonReuniones1Tareas";
             buttonReuniones1Tareas.Size = new Size(186, 53);
             buttonReuniones1Tareas.TabIndex = 3;
@@ -147,9 +165,9 @@
             // buttonTareas1Tareas
             // 
             buttonTareas1Tareas.BackColor = Color.FromArgb(41, 195, 205);
-            buttonTareas1Tareas.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonTareas1Tareas.Font = new Font("Montserrat SemiBold", 12F, FontStyle.Bold);
             buttonTareas1Tareas.ForeColor = Color.White;
-            buttonTareas1Tareas.Location = new Point(12, 366);
+            buttonTareas1Tareas.Location = new Point(12, 380);
             buttonTareas1Tareas.Name = "buttonTareas1Tareas";
             buttonTareas1Tareas.Size = new Size(186, 53);
             buttonTareas1Tareas.TabIndex = 2;
@@ -205,7 +223,7 @@
             buttonNuevaTarea.Font = new Font("Montserrat", 8.999999F);
             buttonNuevaTarea.Location = new Point(688, 54);
             buttonNuevaTarea.Name = "buttonNuevaTarea";
-            buttonNuevaTarea.Size = new Size(89, 23);
+            buttonNuevaTarea.Size = new Size(100, 23);
             buttonNuevaTarea.TabIndex = 7;
             buttonNuevaTarea.Text = "Nueva Tarea";
             buttonNuevaTarea.UseVisualStyleBackColor = false;
@@ -353,6 +371,7 @@
             radioButtonCancelada.TabStop = true;
             radioButtonCancelada.Text = "Cancelada";
             radioButtonCancelada.UseVisualStyleBackColor = true;
+            radioButtonCancelada.CheckedChanged += radioButtonSubtareaEstado_CheckedChanged;
             // 
             // radioButtonCompletada
             // 
@@ -364,6 +383,7 @@
             radioButtonCompletada.TabStop = true;
             radioButtonCompletada.Text = "Completada";
             radioButtonCompletada.UseVisualStyleBackColor = true;
+            radioButtonCompletada.CheckedChanged += radioButtonSubtareaEstado_CheckedChanged;
             // 
             // radioButtonRevision
             // 
@@ -386,6 +406,7 @@
             radioButtonEnEspera.TabStop = true;
             radioButtonEnEspera.Text = "En espera";
             radioButtonEnEspera.UseVisualStyleBackColor = true;
+            radioButtonEnEspera.CheckedChanged += radioButtonSubtareaEstado_CheckedChanged;
             // 
             // radioButtonEnProceso
             // 
@@ -397,6 +418,7 @@
             radioButtonEnProceso.TabStop = true;
             radioButtonEnProceso.Text = "En proceso";
             radioButtonEnProceso.UseVisualStyleBackColor = true;
+            radioButtonEnProceso.CheckedChanged += radioButtonSubtareaEstado_CheckedChanged;
             // 
             // radioButtonPendiente
             // 
@@ -408,6 +430,7 @@
             radioButtonPendiente.TabStop = true;
             radioButtonPendiente.Text = "Pendiente";
             radioButtonPendiente.UseVisualStyleBackColor = true;
+            radioButtonPendiente.CheckedChanged += radioButtonSubtareaEstado_CheckedChanged;
             // 
             // buttonSubTarea
             // 
@@ -415,7 +438,7 @@
             buttonSubTarea.Font = new Font("Montserrat", 8.999999F);
             buttonSubTarea.Location = new Point(232, 19);
             buttonSubTarea.Name = "buttonSubTarea";
-            buttonSubTarea.Size = new Size(89, 23);
+            buttonSubTarea.Size = new Size(110, 23);
             buttonSubTarea.TabIndex = 10;
             buttonSubTarea.Text = "Nueva Tarea";
             buttonSubTarea.UseVisualStyleBackColor = false;
@@ -548,20 +571,20 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Montserrat ExtraBold", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Turquoise;
-            label1.Location = new Point(1166, 0);
+            label1.Location = new Point(1157, 13);
             label1.Name = "label1";
             label1.Size = new Size(86, 33);
             label1.TabIndex = 5;
             label1.Text = "Tareas";
             // 
-            // dataGridView1
+            // dataGridViewTareas
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(240, 100);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(1012, 201);
-            dataGridView1.TabIndex = 9;
-            dataGridView1.SelectionChanged += dataGridView1_SelectionChanged;
+            dataGridViewTareas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewTareas.Location = new Point(240, 100);
+            dataGridViewTareas.Name = "dataGridViewTareas";
+            dataGridViewTareas.Size = new Size(1012, 201);
+            dataGridViewTareas.TabIndex = 9;
+            dataGridViewTareas.CellContentClick += dataGridViewTareas_CellContentClick;
             // 
             // buttonEliminarTarea
             // 
@@ -572,6 +595,7 @@
             buttonEliminarTarea.TabIndex = 10;
             buttonEliminarTarea.Text = "Eliminar";
             buttonEliminarTarea.UseVisualStyleBackColor = true;
+            buttonEliminarTarea.Click += buttonEliminarTarea_Click;
             // 
             // FormTareasTho1
             // 
@@ -580,7 +604,7 @@
             BackColor = Color.White;
             ClientSize = new Size(1264, 681);
             Controls.Add(buttonEliminarTarea);
-            Controls.Add(dataGridView1);
+            Controls.Add(dataGridViewTareas);
             Controls.Add(label1);
             Controls.Add(groupBoxTarea);
             Controls.Add(buttonNuevaTarea);
@@ -589,9 +613,12 @@
             Controls.Add(buttonBuscarNombreProyecto);
             Controls.Add(textBoxBuscarNombreProyecto);
             Controls.Add(panelBarraOpciones);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormTareasTho1";
-            StartPosition = FormStartPosition.CenterParent;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Tareas";
+            FormClosing += FormTareasTho1_FormClosing;
+            Load += FormTareasTho1_Load;
             panelBarraOpciones.ResumeLayout(false);
             panelBarraOpciones.PerformLayout();
             groupBoxTarea.ResumeLayout(false);
@@ -600,7 +627,7 @@
             groupBoxSubtareas.PerformLayout();
             groupBoxSubtareaEstados.ResumeLayout(false);
             groupBoxSubtareaEstados.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewTareas).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -650,7 +677,8 @@
         private ComboBox comboBoxUsuariosSubTarea;
         private RichTextBox richTextBoxDescripcionSubTareas;
         private Label label1;
-        private DataGridView dataGridView1;
+        private DataGridView dataGridViewTareas;
         private Button buttonEliminarTarea;
+        private LinkLabel linkLabel1;
     }
 }

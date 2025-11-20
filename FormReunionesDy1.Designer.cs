@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panelBarraOpciones = new Panel();
-            labelConfiguracion = new Label();
+            linkLabel1 = new LinkLabel();
             labelBeatrix = new Label();
             buttonReuniones1Tareas = new Button();
             buttonTareas1Tareas = new Button();
@@ -86,7 +86,7 @@
             // panelBarraOpciones
             // 
             panelBarraOpciones.BackColor = Color.FromArgb(41, 195, 205);
-            panelBarraOpciones.Controls.Add(labelConfiguracion);
+            panelBarraOpciones.Controls.Add(linkLabel1);
             panelBarraOpciones.Controls.Add(labelBeatrix);
             panelBarraOpciones.Controls.Add(buttonReuniones1Tareas);
             panelBarraOpciones.Controls.Add(buttonTareas1Tareas);
@@ -98,17 +98,20 @@
             panelBarraOpciones.Size = new Size(219, 681);
             panelBarraOpciones.TabIndex = 3;
             // 
-            // labelConfiguracion
+            // linkLabel1
             // 
-            labelConfiguracion.AutoSize = true;
-            labelConfiguracion.Font = new Font("Montserrat", 12F);
-            labelConfiguracion.ForeColor = SystemColors.ControlLightLight;
-            labelConfiguracion.Location = new Point(41, 566);
-            labelConfiguracion.Name = "labelConfiguracion";
-            labelConfiguracion.Size = new Size(124, 25);
-            labelConfiguracion.TabIndex = 5;
-            labelConfiguracion.Text = "Configuración";
-            labelConfiguracion.Visible = false;
+            linkLabel1.ActiveLinkColor = Color.FromArgb(245, 168, 125);
+            linkLabel1.AutoSize = true;
+            linkLabel1.Font = new Font("Montserrat SemiBold", 12F, FontStyle.Bold);
+            linkLabel1.ForeColor = Color.White;
+            linkLabel1.LinkColor = SystemColors.ControlLightLight;
+            linkLabel1.Location = new Point(41, 566);
+            linkLabel1.Name = "linkLabel1";
+            linkLabel1.Size = new Size(128, 25);
+            linkLabel1.TabIndex = 6;
+            linkLabel1.TabStop = true;
+            linkLabel1.Text = "Configuración";
+            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
             // 
             // labelBeatrix
             // 
@@ -117,7 +120,7 @@
             labelBeatrix.ForeColor = Color.Transparent;
             labelBeatrix.Location = new Point(12, 18);
             labelBeatrix.Name = "labelBeatrix";
-            labelBeatrix.Size = new Size(110, 37);
+            labelBeatrix.Size = new Size(112, 38);
             labelBeatrix.TabIndex = 4;
             labelBeatrix.Text = "Beatrix";
             // 
@@ -125,11 +128,11 @@
             // 
             buttonReuniones1Tareas.BackColor = Color.FromArgb(41, 195, 205);
             buttonReuniones1Tareas.Cursor = Cursors.Hand;
-            buttonReuniones1Tareas.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold);
+            buttonReuniones1Tareas.Font = new Font("Montserrat SemiBold", 12F, FontStyle.Bold);
             buttonReuniones1Tareas.ForeColor = Color.White;
-            buttonReuniones1Tareas.Location = new Point(22, 341);
+            buttonReuniones1Tareas.Location = new Point(12, 437);
             buttonReuniones1Tareas.Name = "buttonReuniones1Tareas";
-            buttonReuniones1Tareas.Size = new Size(170, 37);
+            buttonReuniones1Tareas.Size = new Size(186, 53);
             buttonReuniones1Tareas.TabIndex = 3;
             buttonReuniones1Tareas.Text = "Reuniones";
             buttonReuniones1Tareas.UseVisualStyleBackColor = false;
@@ -138,40 +141,43 @@
             // 
             buttonTareas1Tareas.BackColor = Color.FromArgb(41, 195, 205);
             buttonTareas1Tareas.Cursor = Cursors.Hand;
-            buttonTareas1Tareas.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold);
+            buttonTareas1Tareas.Font = new Font("Montserrat SemiBold", 12F, FontStyle.Bold);
             buttonTareas1Tareas.ForeColor = Color.White;
-            buttonTareas1Tareas.Location = new Point(22, 298);
+            buttonTareas1Tareas.Location = new Point(12, 380);
             buttonTareas1Tareas.Name = "buttonTareas1Tareas";
-            buttonTareas1Tareas.Size = new Size(170, 37);
+            buttonTareas1Tareas.Size = new Size(186, 53);
             buttonTareas1Tareas.TabIndex = 2;
             buttonTareas1Tareas.Text = "Tareas";
             buttonTareas1Tareas.UseVisualStyleBackColor = false;
+            buttonTareas1Tareas.Click += buttonTareas1Tareas_Click;
             // 
             // buttonProyetos1Tareas
             // 
             buttonProyetos1Tareas.BackColor = Color.FromArgb(41, 195, 205);
             buttonProyetos1Tareas.Cursor = Cursors.Hand;
-            buttonProyetos1Tareas.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold);
+            buttonProyetos1Tareas.Font = new Font("Montserrat SemiBold", 12F, FontStyle.Bold);
             buttonProyetos1Tareas.ForeColor = Color.White;
-            buttonProyetos1Tareas.Location = new Point(22, 255);
+            buttonProyetos1Tareas.Location = new Point(12, 323);
             buttonProyetos1Tareas.Name = "buttonProyetos1Tareas";
-            buttonProyetos1Tareas.Size = new Size(170, 37);
+            buttonProyetos1Tareas.Size = new Size(186, 53);
             buttonProyetos1Tareas.TabIndex = 1;
             buttonProyetos1Tareas.Text = "Proyectos";
             buttonProyetos1Tareas.UseVisualStyleBackColor = false;
+            buttonProyetos1Tareas.Click += buttonProyetos1Tareas_Click;
             // 
             // buttonInicioForm1Tareas
             // 
             buttonInicioForm1Tareas.BackColor = Color.FromArgb(41, 195, 205);
             buttonInicioForm1Tareas.Cursor = Cursors.Hand;
-            buttonInicioForm1Tareas.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold);
+            buttonInicioForm1Tareas.Font = new Font("Montserrat SemiBold", 12F, FontStyle.Bold);
             buttonInicioForm1Tareas.ForeColor = Color.White;
-            buttonInicioForm1Tareas.Location = new Point(22, 212);
+            buttonInicioForm1Tareas.Location = new Point(12, 266);
             buttonInicioForm1Tareas.Name = "buttonInicioForm1Tareas";
-            buttonInicioForm1Tareas.Size = new Size(170, 37);
+            buttonInicioForm1Tareas.Size = new Size(186, 53);
             buttonInicioForm1Tareas.TabIndex = 0;
             buttonInicioForm1Tareas.Text = "Inicio";
             buttonInicioForm1Tareas.UseVisualStyleBackColor = false;
+            buttonInicioForm1Tareas.Click += buttonInicioForm1Tareas_Click;
             // 
             // monthCalendarReuniones
             // 
@@ -203,7 +209,7 @@
             labelDesmarcar.ForeColor = Color.FromArgb(245, 168, 125);
             labelDesmarcar.Location = new Point(13, 279);
             labelDesmarcar.Name = "labelDesmarcar";
-            labelDesmarcar.Size = new Size(206, 20);
+            labelDesmarcar.Size = new Size(217, 20);
             labelDesmarcar.TabIndex = 19;
             labelDesmarcar.Text = "Desmarcar como completado";
             labelDesmarcar.Click += labelDesmarcar_Click;
@@ -216,7 +222,7 @@
             labelMarcarCompletada.ForeColor = Color.FromArgb(127, 191, 159);
             labelMarcarCompletada.Location = new Point(403, 279);
             labelMarcarCompletada.Name = "labelMarcarCompletada";
-            labelMarcarCompletada.Size = new Size(180, 20);
+            labelMarcarCompletada.Size = new Size(189, 20);
             labelMarcarCompletada.TabIndex = 18;
             labelMarcarCompletada.Text = "Marcar como completado";
             labelMarcarCompletada.Click += labelMarcarCompletada_Click;
@@ -229,7 +235,7 @@
             labelVerTodasLasReuniones.ForeColor = Color.FromArgb(41, 191, 205);
             labelVerTodasLasReuniones.Location = new Point(14, 7);
             labelVerTodasLasReuniones.Name = "labelVerTodasLasReuniones";
-            labelVerTodasLasReuniones.Size = new Size(169, 20);
+            labelVerTodasLasReuniones.Size = new Size(171, 20);
             labelVerTodasLasReuniones.TabIndex = 17;
             labelVerTodasLasReuniones.Text = "Ver todas las reuniones";
             labelVerTodasLasReuniones.Click += labelVerTodasLasReuniones_Click;
@@ -240,7 +246,7 @@
             labelReuniones.Font = new Font("Montserrat", 14.25F);
             labelReuniones.Location = new Point(222, 7);
             labelReuniones.Name = "labelReuniones";
-            labelReuniones.Size = new Size(199, 29);
+            labelReuniones.Size = new Size(198, 30);
             labelReuniones.TabIndex = 17;
             labelReuniones.Text = "Todas las reuniones";
             // 
@@ -249,14 +255,14 @@
             dataGridViewTarea.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewTarea.BackgroundColor = SystemColors.ButtonHighlight;
             dataGridViewTarea.BorderStyle = BorderStyle.Fixed3D;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = SystemColors.Control;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle5.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            dataGridViewTarea.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridViewTarea.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewTarea.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewTarea.GridColor = SystemColors.Control;
             dataGridViewTarea.Location = new Point(14, 38);
@@ -264,8 +270,8 @@
             dataGridViewTarea.Name = "dataGridViewTarea";
             dataGridViewTarea.ReadOnly = true;
             dataGridViewTarea.RowHeadersWidth = 51;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewTarea.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewTarea.RowsDefaultCellStyle = dataGridViewCellStyle2;
             dataGridViewTarea.Size = new Size(570, 214);
             dataGridViewTarea.TabIndex = 11;
             dataGridViewTarea.CellFormatting += dataGridViewTarea_CellFormatting;
@@ -276,7 +282,7 @@
             labelReunionesProximas.Font = new Font("Montserrat", 14.25F);
             labelReunionesProximas.Location = new Point(234, 360);
             labelReunionesProximas.Name = "labelReunionesProximas";
-            labelReunionesProximas.Size = new Size(199, 29);
+            labelReunionesProximas.Size = new Size(201, 30);
             labelReunionesProximas.TabIndex = 0;
             labelReunionesProximas.Text = "Proximas reuniones";
             // 
@@ -284,11 +290,11 @@
             // 
             labelCrearReunion.AutoSize = true;
             labelCrearReunion.Cursor = Cursors.Hand;
-            labelCrearReunion.Font = new Font("Montserrat", 14.25F, FontStyle.Bold);
+            labelCrearReunion.Font = new Font("Montserrat", 12.25F, FontStyle.Bold);
             labelCrearReunion.ForeColor = Color.FromArgb(41, 191, 205);
             labelCrearReunion.Location = new Point(237, 299);
             labelCrearReunion.Name = "labelCrearReunion";
-            labelCrearReunion.Size = new Size(162, 29);
+            labelCrearReunion.Size = new Size(149, 27);
             labelCrearReunion.TabIndex = 7;
             labelCrearReunion.Text = "+ Crear reunión";
             labelCrearReunion.Click += labelCrearReunion_Click;
@@ -325,7 +331,7 @@
             labelInformacion1.Font = new Font("Montserrat", 8.999999F, FontStyle.Bold);
             labelInformacion1.Location = new Point(92, 135);
             labelInformacion1.Name = "labelInformacion1";
-            labelInformacion1.Size = new Size(85, 19);
+            labelInformacion1.Size = new Size(85, 18);
             labelInformacion1.TabIndex = 12;
             labelInformacion1.Text = "Información";
             // 
@@ -336,7 +342,7 @@
             labelNombresReunion1.ForeColor = SystemColors.ControlLightLight;
             labelNombresReunion1.Location = new Point(3, 100);
             labelNombresReunion1.Name = "labelNombresReunion1";
-            labelNombresReunion1.Size = new Size(221, 23);
+            labelNombresReunion1.Size = new Size(225, 24);
             labelNombresReunion1.TabIndex = 11;
             labelNombresReunion1.Text = "Oscar, Andres, Juan, Andrea";
             // 
@@ -347,7 +353,7 @@
             labelHoraReunion1.ForeColor = SystemColors.ButtonHighlight;
             labelHoraReunion1.Location = new Point(51, 213);
             labelHoraReunion1.Name = "labelHoraReunion1";
-            labelHoraReunion1.Size = new Size(66, 29);
+            labelHoraReunion1.Size = new Size(60, 30);
             labelHoraReunion1.TabIndex = 10;
             labelHoraReunion1.Text = "11:30";
             // 
@@ -357,7 +363,7 @@
             labelParticipantes1.Font = new Font("Montserrat", 8.999999F, FontStyle.Bold);
             labelParticipantes1.Location = new Point(92, 81);
             labelParticipantes1.Name = "labelParticipantes1";
-            labelParticipantes1.Size = new Size(90, 19);
+            labelParticipantes1.Size = new Size(91, 18);
             labelParticipantes1.TabIndex = 9;
             labelParticipantes1.Text = "Participantes";
             // 
@@ -404,7 +410,7 @@
             labelInformacion2.Font = new Font("Montserrat", 8.999999F, FontStyle.Bold);
             labelInformacion2.Location = new Point(92, 135);
             labelInformacion2.Name = "labelInformacion2";
-            labelInformacion2.Size = new Size(85, 19);
+            labelInformacion2.Size = new Size(85, 18);
             labelInformacion2.TabIndex = 12;
             labelInformacion2.Text = "Información";
             // 
@@ -415,7 +421,7 @@
             labelNombresReunion2.ForeColor = SystemColors.ControlLightLight;
             labelNombresReunion2.Location = new Point(3, 100);
             labelNombresReunion2.Name = "labelNombresReunion2";
-            labelNombresReunion2.Size = new Size(221, 23);
+            labelNombresReunion2.Size = new Size(225, 24);
             labelNombresReunion2.TabIndex = 11;
             labelNombresReunion2.Text = "Oscar, Andres, Juan, Andrea";
             // 
@@ -426,7 +432,7 @@
             labelHoraReunion2.ForeColor = SystemColors.ButtonHighlight;
             labelHoraReunion2.Location = new Point(54, 213);
             labelHoraReunion2.Name = "labelHoraReunion2";
-            labelHoraReunion2.Size = new Size(66, 29);
+            labelHoraReunion2.Size = new Size(60, 30);
             labelHoraReunion2.TabIndex = 10;
             labelHoraReunion2.Text = "11:30";
             // 
@@ -436,7 +442,7 @@
             labelParticipantes2.Font = new Font("Montserrat", 8.999999F, FontStyle.Bold);
             labelParticipantes2.Location = new Point(92, 81);
             labelParticipantes2.Name = "labelParticipantes2";
-            labelParticipantes2.Size = new Size(90, 19);
+            labelParticipantes2.Size = new Size(91, 18);
             labelParticipantes2.TabIndex = 9;
             labelParticipantes2.Text = "Participantes";
             // 
@@ -483,7 +489,7 @@
             labelInformacion3.Font = new Font("Montserrat", 8.999999F, FontStyle.Bold);
             labelInformacion3.Location = new Point(92, 135);
             labelInformacion3.Name = "labelInformacion3";
-            labelInformacion3.Size = new Size(85, 19);
+            labelInformacion3.Size = new Size(85, 18);
             labelInformacion3.TabIndex = 12;
             labelInformacion3.Text = "Información";
             // 
@@ -494,7 +500,7 @@
             labelNombresReunion3.ForeColor = SystemColors.ControlLightLight;
             labelNombresReunion3.Location = new Point(3, 100);
             labelNombresReunion3.Name = "labelNombresReunion3";
-            labelNombresReunion3.Size = new Size(221, 23);
+            labelNombresReunion3.Size = new Size(225, 24);
             labelNombresReunion3.TabIndex = 11;
             labelNombresReunion3.Text = "Oscar, Andres, Juan, Andrea";
             // 
@@ -505,7 +511,7 @@
             labelHoraReunion3.ForeColor = SystemColors.ButtonHighlight;
             labelHoraReunion3.Location = new Point(92, 213);
             labelHoraReunion3.Name = "labelHoraReunion3";
-            labelHoraReunion3.Size = new Size(66, 29);
+            labelHoraReunion3.Size = new Size(60, 30);
             labelHoraReunion3.TabIndex = 10;
             labelHoraReunion3.Text = "11:30";
             // 
@@ -515,7 +521,7 @@
             labelParticipantes3.Font = new Font("Montserrat", 8.999999F, FontStyle.Bold);
             labelParticipantes3.Location = new Point(92, 81);
             labelParticipantes3.Name = "labelParticipantes3";
-            labelParticipantes3.Size = new Size(90, 19);
+            labelParticipantes3.Size = new Size(91, 18);
             labelParticipantes3.TabIndex = 9;
             labelParticipantes3.Text = "Participantes";
             // 
@@ -578,10 +584,11 @@
             // labelReunionesTitulo
             // 
             labelReunionesTitulo.AutoSize = true;
-            labelReunionesTitulo.Font = new Font("Montserrat SemiBold", 20.25F, FontStyle.Bold);
+            labelReunionesTitulo.Font = new Font("Montserrat ExtraBold", 15.75F, FontStyle.Bold);
+            labelReunionesTitulo.ForeColor = Color.Turquoise;
             labelReunionesTitulo.Location = new Point(248, 38);
             labelReunionesTitulo.Name = "labelReunionesTitulo";
-            labelReunionesTitulo.Size = new Size(162, 42);
+            labelReunionesTitulo.Size = new Size(134, 33);
             labelReunionesTitulo.TabIndex = 20;
             labelReunionesTitulo.Text = "Reuniones";
             // 
@@ -602,7 +609,9 @@
             Controls.Add(monthCalendarReuniones);
             Controls.Add(panelBarraOpciones);
             Name = "FormReunionesDy1";
-            Text = "FormReunionesDy1";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Reuniones";
+            FormClosing += FormReunionesDy1_FormClosing;
             Load += FormReunionesLista_Load;
             panelBarraOpciones.ResumeLayout(false);
             panelBarraOpciones.PerformLayout();
@@ -639,7 +648,6 @@
         private Label labelParticipantes1;
         private Label labelReunionPanel1;
         private DataGridView dataGridViewTarea;
-        private Label labelConfiguracion;
         private Panel panelReunion2;
         private Panel panelReunion3;
         private Label labelInformaciónDeLaReunion3;
@@ -664,5 +672,6 @@
         private Label labelMarcarCompletada;
         private Label labelDesmarcar;
         private Label labelReunionesTitulo;
+        private LinkLabel linkLabel1;
     }
 }
