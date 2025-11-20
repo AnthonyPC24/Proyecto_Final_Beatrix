@@ -75,6 +75,7 @@
             label1 = new Label();
             dataGridViewTareas = new DataGridView();
             buttonEliminarTarea = new Button();
+            buttonIdioma = new Button();
             panelBarraOpciones.SuspendLayout();
             groupBoxTarea.SuspendLayout();
             groupBoxSubtareas.SuspendLayout();
@@ -571,7 +572,7 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Montserrat ExtraBold", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Turquoise;
-            label1.Location = new Point(1157, 13);
+            label1.Location = new Point(1123, 22);
             label1.Name = "label1";
             label1.Size = new Size(86, 33);
             label1.TabIndex = 5;
@@ -597,12 +598,26 @@
             buttonEliminarTarea.UseVisualStyleBackColor = true;
             buttonEliminarTarea.Click += buttonEliminarTarea_Click;
             // 
+            // buttonIdioma
+            // 
+            buttonIdioma.BackgroundImage = Properties.Resources.mini_espana;
+            buttonIdioma.BackgroundImageLayout = ImageLayout.Zoom;
+            buttonIdioma.Cursor = Cursors.Hand;
+            buttonIdioma.FlatAppearance.BorderSize = 0;
+            buttonIdioma.FlatStyle = FlatStyle.Flat;
+            buttonIdioma.Location = new Point(1212, 24);
+            buttonIdioma.Name = "buttonIdioma";
+            buttonIdioma.Size = new Size(40, 25);
+            buttonIdioma.TabIndex = 17;
+            buttonIdioma.UseVisualStyleBackColor = true;
+            // 
             // FormTareasTho1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1264, 681);
+            Controls.Add(buttonIdioma);
             Controls.Add(buttonEliminarTarea);
             Controls.Add(dataGridViewTareas);
             Controls.Add(label1);
@@ -680,5 +695,6 @@
         private DataGridView dataGridViewTareas;
         private Button buttonEliminarTarea;
         private LinkLabel linkLabel1;
+        private Button buttonIdioma;
     }
 }
