@@ -15,7 +15,7 @@
         private Label lblNombre;
         private TextBox txtTele;
         private Label label2;
-        private Button btnEditar;
+        private Button btnActualizar;
         private Label lblTele;
         private Label lblCrearUsuario;
         private Label lblTitulo;
@@ -59,17 +59,19 @@
             panelUsuario = new Panel();
             lblNombreUsuario = new Label();
             txtNombreUsuario = new TextBox();
-            btnEditar = new Button();
+            btnActualizar = new Button();
             lblTele = new Label();
             label2 = new Label();
+            pictureBoxUsuario = new PictureBox();
             lblNombre = new Label();
             txtTele = new TextBox();
             txtCorreu = new TextBox();
             txtNombre = new TextBox();
-            pictureBoxUsuario = new PictureBox();
             lblCrearUsuario = new Label();
             lblTitulo = new Label();
             dgvUsuarios = new DataGridView();
+            lblPassword = new Label();
+            txtPassword = new TextBox();
             panelBarraOpciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbUser).BeginInit();
             panelUsuario.SuspendLayout();
@@ -188,16 +190,18 @@
             // panelUsuario
             // 
             panelUsuario.BorderStyle = BorderStyle.FixedSingle;
+            panelUsuario.Controls.Add(lblPassword);
+            panelUsuario.Controls.Add(txtPassword);
             panelUsuario.Controls.Add(lblNombreUsuario);
             panelUsuario.Controls.Add(txtNombreUsuario);
-            panelUsuario.Controls.Add(btnEditar);
+            panelUsuario.Controls.Add(btnActualizar);
             panelUsuario.Controls.Add(lblTele);
             panelUsuario.Controls.Add(label2);
+            panelUsuario.Controls.Add(pictureBoxUsuario);
             panelUsuario.Controls.Add(lblNombre);
             panelUsuario.Controls.Add(txtTele);
             panelUsuario.Controls.Add(txtCorreu);
             panelUsuario.Controls.Add(txtNombre);
-            panelUsuario.Controls.Add(pictureBoxUsuario);
             panelUsuario.Location = new Point(409, 34);
             panelUsuario.Name = "panelUsuario";
             panelUsuario.Size = new Size(687, 306);
@@ -207,38 +211,38 @@
             // 
             lblNombreUsuario.AutoSize = true;
             lblNombreUsuario.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblNombreUsuario.Location = new Point(282, 54);
+            lblNombreUsuario.Location = new Point(40, 42);
             lblNombreUsuario.Name = "lblNombreUsuario";
-            lblNombreUsuario.Size = new Size(154, 24);
+            lblNombreUsuario.Size = new Size(161, 24);
             lblNombreUsuario.TabIndex = 9;
-            lblNombreUsuario.Text = "Nombre y apellidos";
+            lblNombreUsuario.Text = "Nombre de usuarios";
             // 
             // txtNombreUsuario
             // 
-            txtNombreUsuario.Location = new Point(450, 51);
+            txtNombreUsuario.Location = new Point(208, 39);
             txtNombreUsuario.Name = "txtNombreUsuario";
             txtNombreUsuario.Size = new Size(173, 27);
             txtNombreUsuario.TabIndex = 8;
             // 
-            // btnEditar
+            // btnActualizar
             // 
-            btnEditar.BackColor = Color.FromArgb(41, 191, 205);
-            btnEditar.FlatStyle = FlatStyle.Popup;
-            btnEditar.Font = new Font("Montserrat Medium", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnEditar.ForeColor = SystemColors.ControlLightLight;
-            btnEditar.Location = new Point(529, 251);
-            btnEditar.Name = "btnEditar";
-            btnEditar.Size = new Size(94, 29);
-            btnEditar.TabIndex = 7;
-            btnEditar.Text = "Editar";
-            btnEditar.UseVisualStyleBackColor = false;
-            btnEditar.Click += btnEditar_Click;
+            btnActualizar.BackColor = Color.FromArgb(41, 191, 205);
+            btnActualizar.FlatStyle = FlatStyle.Popup;
+            btnActualizar.Font = new Font("Montserrat Medium", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnActualizar.ForeColor = SystemColors.ControlLightLight;
+            btnActualizar.Location = new Point(511, 233);
+            btnActualizar.Name = "btnActualizar";
+            btnActualizar.Size = new Size(94, 29);
+            btnActualizar.TabIndex = 7;
+            btnActualizar.Text = "Actualizar";
+            btnActualizar.UseVisualStyleBackColor = false;
+            btnActualizar.Click += btnActualizar_Click;
             // 
             // lblTele
             // 
             lblTele.AutoSize = true;
             lblTele.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblTele.Location = new Point(282, 202);
+            lblTele.Location = new Point(40, 190);
             lblTele.Name = "lblTele";
             lblTele.Size = new Size(116, 24);
             lblTele.TabIndex = 6;
@@ -248,17 +252,27 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(282, 151);
+            label2.Location = new Point(40, 139);
             label2.Name = "label2";
             label2.Size = new Size(147, 24);
             label2.TabIndex = 5;
             label2.Text = "Correo Electronico";
             // 
+            // pictureBoxUsuario
+            // 
+            pictureBoxUsuario.Image = Properties.Resources.usuario;
+            pictureBoxUsuario.Location = new Point(492, 42);
+            pictureBoxUsuario.Name = "pictureBoxUsuario";
+            pictureBoxUsuario.Size = new Size(125, 125);
+            pictureBoxUsuario.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxUsuario.TabIndex = 0;
+            pictureBoxUsuario.TabStop = false;
+            // 
             // lblNombre
             // 
             lblNombre.AutoSize = true;
             lblNombre.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblNombre.Location = new Point(282, 102);
+            lblNombre.Location = new Point(40, 90);
             lblNombre.Name = "lblNombre";
             lblNombre.Size = new Size(154, 24);
             lblNombre.TabIndex = 4;
@@ -266,34 +280,24 @@
             // 
             // txtTele
             // 
-            txtTele.Location = new Point(450, 199);
+            txtTele.Location = new Point(208, 187);
             txtTele.Name = "txtTele";
             txtTele.Size = new Size(173, 27);
             txtTele.TabIndex = 3;
             // 
             // txtCorreu
             // 
-            txtCorreu.Location = new Point(450, 148);
+            txtCorreu.Location = new Point(208, 136);
             txtCorreu.Name = "txtCorreu";
             txtCorreu.Size = new Size(173, 27);
             txtCorreu.TabIndex = 2;
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(450, 99);
+            txtNombre.Location = new Point(208, 87);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(173, 27);
             txtNombre.TabIndex = 1;
-            // 
-            // pictureBoxUsuario
-            // 
-            pictureBoxUsuario.Image = Properties.Resources.usuario;
-            pictureBoxUsuario.Location = new Point(90, 62);
-            pictureBoxUsuario.Name = "pictureBoxUsuario";
-            pictureBoxUsuario.Size = new Size(125, 125);
-            pictureBoxUsuario.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBoxUsuario.TabIndex = 0;
-            pictureBoxUsuario.TabStop = false;
             // 
             // lblCrearUsuario
             // 
@@ -339,6 +343,23 @@
             dgvUsuarios.Size = new Size(687, 231);
             dgvUsuarios.TabIndex = 14;
             // 
+            // lblPassword
+            // 
+            lblPassword.AutoSize = true;
+            lblPassword.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblPassword.Location = new Point(40, 238);
+            lblPassword.Name = "lblPassword";
+            lblPassword.Size = new Size(116, 24);
+            lblPassword.TabIndex = 11;
+            lblPassword.Text = "Telefono Movil";
+            // 
+            // txtPassword
+            // 
+            txtPassword.Location = new Point(208, 235);
+            txtPassword.Name = "txtPassword";
+            txtPassword.Size = new Size(173, 27);
+            txtPassword.TabIndex = 10;
+            // 
             // FormUsuarios
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -372,5 +393,7 @@
         private DataGridView dgvUsuarios;
         private Label lblNombreUsuario;
         private TextBox txtNombreUsuario;
+        private Label lblPassword;
+        private TextBox txtPassword;
     }
 }

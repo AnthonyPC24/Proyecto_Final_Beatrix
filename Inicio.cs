@@ -232,14 +232,20 @@ namespace Beatrix_Formulario
 
         }
 
+        // determinar si ya hay abierto un form
         private bool MostrarFormExist<T>() where T : Form
         {
-            foreach (Form frm in Application.OpenForms)
+            foreach (Form form in Application.OpenForms)
             {
-                if (frm is T)
+                if (form is T)
                 {
-                    frm.BringToFront();
-                    frm.WindowState = FormWindowState.Normal;
+                    form.Show();
+                    form.WindowState = FormWindowState.Normal;
+                    form.Activate();
+
+                    form.TopMost = true;
+                    form.TopMost = false;
+
                     return true;
                 }
             }

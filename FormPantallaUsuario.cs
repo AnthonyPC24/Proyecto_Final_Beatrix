@@ -65,16 +65,5 @@ namespace Beatrix_Formulario
             
             MessageBox.Show("Usuario agregado correctamente.\nArchivo: " + Path.GetFullPath(rutaArchivo));
         }
-
-
-
-
-
-
-
-
-
-
-
     }
 }

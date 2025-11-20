@@ -14,72 +14,18 @@ namespace Beatrix_Formulario
 {
     public partial class FormUsuarios : Form
     {
-
         public FormUsuarios()
         {
-            InitializeComponent();        
+            InitializeComponent();
             CargarUsuarios();
         }
-
-        private void btnEditar_Click(object sender, EventArgs e)
-        {
-            string nombreUsuario = txtNombreUsuario.Text.Trim();
-            string nombreApellidos = txtNombre.Text.Trim();
-            string email = txtCorreu.Text.Trim();
-            string tele = txtTele.Text.Trim();
-
-            if (string.IsNullOrEmpty(nombreUsuario))
-            {
-                MessageBox.Show("¡Por favor, ingrese el nombre de usuario!");
-                return;
-            }
-
-            try
-            {
-                string proyectoPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..");
-                string usuariosPath = Path.Combine(proyectoPath, "JSON", "Usuarios.json");
-
-                List<Usuarios> usuarios = JsonSerializer.Deserialize<List<Usuarios>>(File.ReadAllText(usuariosPath));
-
-                bool encontrado = false;
-
-                // encontra el usuario y update los datos
-                for (int i = 0; i < usuarios.Count; i++)
-                {
-                    if (usuarios[i].nombreUsuario == nombreUsuario)
-                    {
-                        usuarios[i].nombreApellidos = nombreApellidos;
-                        usuarios[i].email = email;
-                        usuarios[i].telefono = tele;
-                        encontrado = true;
-                        break;
-                    }
-                }
-
-                if (!encontrado)
-                {
-                    MessageBox.Show("¡No se encontró el usuario!");
-                    return;
-                }
-
-                File.WriteAllText(usuariosPath, JsonSerializer.Serialize(usuarios, new JsonSerializerOptions { WriteIndented = true }));
-                MessageBox.Show("¡Información actualizada correctamente!");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al guardar: " + ex.Message);
-            }
-        }
-
-
 
         private void lblCrearUsuario_Click(object sender, EventArgs e)
         {
             FormPantallaUsuario crearNuevoUsusario = new FormPantallaUsuario();
             crearNuevoUsusario.Show();
-            
-        }
 
+        }
 
         private void CargarUsuarios()
         {
@@ -100,7 +46,7 @@ namespace Beatrix_Formulario
                 dgvUsuarios.Columns.Clear();
                 dgvUsuarios.AutoGenerateColumns = false;
 
-                // los titulos de dgvUsuarios
+                // los headers de dgvUsuarios
                 dgvUsuarios.Columns.Add(new DataGridViewTextBoxColumn
                 {
                     DataPropertyName = "nombreUsuario",
@@ -126,9 +72,10 @@ namespace Beatrix_Formulario
                 dgvUsuarios.ColumnHeadersVisible = true;
                 dgvUsuarios.RowHeadersVisible = false;
 
-                foreach (DataGridViewColumn col in dgvUsuarios.Columns)
+                //configurar todo el contenido a la izquierda y centrardo vertical
+                foreach (DataGridViewColumn column in dgvUsuarios.Columns)
                 {
-                    col.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+                    column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
                 }
 
             }
@@ -181,26 +128,82 @@ namespace Beatrix_Formulario
             {
                 FormUsuarios configuracion = new FormUsuarios();
                 configuracion.Show();
-                this.Hide();
             }
 
         }
 
+        // actualizar los datos de usuario
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            string nombreUsuario = txtNombreUsuario.Text.Trim();
+            string nombreApellidos = txtNombre.Text.Trim();
+            string pwd = txtPassword.Text.Trim();
+            string email = txtCorreu.Text.Trim();
+            string tele = txtTele.Text.Trim();
+
+            if (string.IsNullOrEmpty(nombreUsuario))
+            {
+                MessageBox.Show("¡Por favor, ingrese el nombre de usuario!");
+                return;
+            }
+
+            try
+            {
+                string proyectoPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..");
+                string usuariosPath = Path.Combine(proyectoPath, "JSON", "Usuarios.json");
+
+                List<Usuarios> usuarios = JsonSerializer.Deserialize<List<Usuarios>>(File.ReadAllText(usuariosPath));
+
+                bool encontrado = false;
+
+                // encontra el usuario y update los datos
+                for (int i = 0; i < usuarios.Count; i++)
+                {
+                    // solo si el nombre de usuario coincide, se puede actualizar los datos de abajo.
+                    if (usuarios[i].nombreUsuario == nombreUsuario)
+                    {
+                        usuarios[i].nombreApellidos = nombreApellidos;
+                        usuarios[i].email = email;
+                        usuarios[i].telefono = tele;
+                        usuarios[i].contrasena = pwd;
+                        encontrado = true;
+                        break;
+                    }
+                }
+
+                if (!encontrado)
+                {
+                    MessageBox.Show("¡No se encontró el usuario!");
+                    return;
+                }
+
+                File.WriteAllText(usuariosPath, JsonSerializer.Serialize(usuarios, new JsonSerializerOptions { WriteIndented = true }));
+                MessageBox.Show("¡Información actualizada correctamente!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al guardar: " + ex.Message);
+            }
+        }
+
         private bool MostrarFormExist<T>() where T : Form
         {
-            foreach (Form frm in Application.OpenForms)
+            foreach (Form form in Application.OpenForms)
             {
-                if (frm is T)
+                if (form is T)
                 {
-                    frm.BringToFront();
-                    frm.WindowState = FormWindowState.Normal;
+                    form.Show();
+                    form.WindowState = FormWindowState.Normal;
+                    form.Activate();
+
+                    form.TopMost = true;
+                    form.TopMost = false;
+
                     return true;
                 }
             }
             return false;
         }
 
-
-        
     }
 }
