@@ -5,7 +5,7 @@
     "contrasena": "MiClaveSecreta!2025",
     "email": "elena.ruiz@ejemplo.com",
     "telefono": "\u002B34600123456",
-    "rol": "Administrador"
+    "rol": "Usuario"
   },
   {
     "nombreApellidos": "Marcos Gomez",
@@ -20,7 +20,7 @@
     "nombreUsuario": "afernandez",
     "contrasena": "AnaFer.2024*",
     "email": "ana.fernandez@ejemplo.com",
-    "telefono": "\u002B5491112345678",
+    "telefono": "\u002B5491112345678",zz
     "rol": "Usuario"
   },
   {
@@ -35,16 +35,16 @@
     "nombreApellidos": "qiaoqiao wu",
     "nombreUsuario": "qq",
     "contrasena": "",
-    "email": "shgghk@jhskj",
-    "telefono": "4254252",
-    "rol": ""
+    "email": "qiaoqiao@gmail.com",
+    "telefono": "7894561",
+    "rol": "Administrardor"
   },
   {
-    "nombreApellidos": "anna jahjfk",
-    "nombreUsuario": "annna",
-    "contrasena": "",
-    "email": "anna@gmail.com",
-    "telefono": "7778889566",
-    "rol": ""
+    "nombreApellidos": "admin",
+    "nombreUsuario": "admin",
+    "contrasena": "admin1234",
+    "email": "admin@gmail.com",
+    "telefono": "7894561",
+    "rol": "Administrardor"
   }
 ]

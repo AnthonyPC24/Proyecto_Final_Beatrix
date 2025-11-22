@@ -47,7 +47,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panelBarraOpciones = new Panel();
             btnConfiguracion = new Button();
             pbUser = new PictureBox();
@@ -57,6 +57,8 @@
             btnProyetos = new Button();
             btnInicio = new Button();
             panelUsuario = new Panel();
+            lblPassword = new Label();
+            txtPassword = new TextBox();
             lblNombreUsuario = new Label();
             txtNombreUsuario = new TextBox();
             btnActualizar = new Button();
@@ -70,8 +72,6 @@
             lblCrearUsuario = new Label();
             lblTitulo = new Label();
             dgvUsuarios = new DataGridView();
-            lblPassword = new Label();
-            txtPassword = new TextBox();
             panelBarraOpciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbUser).BeginInit();
             panelUsuario.SuspendLayout();
@@ -195,23 +195,40 @@
             panelUsuario.Controls.Add(lblNombreUsuario);
             panelUsuario.Controls.Add(txtNombreUsuario);
             panelUsuario.Controls.Add(btnActualizar);
+            panelUsuario.Controls.Add(pictureBoxUsuario);
             panelUsuario.Controls.Add(lblTele);
             panelUsuario.Controls.Add(label2);
-            panelUsuario.Controls.Add(pictureBoxUsuario);
             panelUsuario.Controls.Add(lblNombre);
             panelUsuario.Controls.Add(txtTele);
             panelUsuario.Controls.Add(txtCorreu);
             panelUsuario.Controls.Add(txtNombre);
-            panelUsuario.Location = new Point(409, 34);
+            panelUsuario.Location = new Point(314, 34);
             panelUsuario.Name = "panelUsuario";
-            panelUsuario.Size = new Size(687, 306);
+            panelUsuario.Size = new Size(900, 306);
             panelUsuario.TabIndex = 4;
+            // 
+            // lblPassword
+            // 
+            lblPassword.AutoSize = true;
+            lblPassword.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblPassword.Location = new Point(552, 128);
+            lblPassword.Name = "lblPassword";
+            lblPassword.Size = new Size(95, 24);
+            lblPassword.TabIndex = 11;
+            lblPassword.Text = "Contraseña";
+            // 
+            // txtPassword
+            // 
+            txtPassword.Location = new Point(720, 125);
+            txtPassword.Name = "txtPassword";
+            txtPassword.Size = new Size(156, 27);
+            txtPassword.TabIndex = 10;
             // 
             // lblNombreUsuario
             // 
             lblNombreUsuario.AutoSize = true;
             lblNombreUsuario.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblNombreUsuario.Location = new Point(40, 42);
+            lblNombreUsuario.Location = new Point(182, 80);
             lblNombreUsuario.Name = "lblNombreUsuario";
             lblNombreUsuario.Size = new Size(161, 24);
             lblNombreUsuario.TabIndex = 9;
@@ -219,9 +236,9 @@
             // 
             // txtNombreUsuario
             // 
-            txtNombreUsuario.Location = new Point(208, 39);
+            txtNombreUsuario.Location = new Point(350, 77);
             txtNombreUsuario.Name = "txtNombreUsuario";
-            txtNombreUsuario.Size = new Size(173, 27);
+            txtNombreUsuario.Size = new Size(154, 27);
             txtNombreUsuario.TabIndex = 8;
             // 
             // btnActualizar
@@ -230,7 +247,7 @@
             btnActualizar.FlatStyle = FlatStyle.Popup;
             btnActualizar.Font = new Font("Montserrat Medium", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnActualizar.ForeColor = SystemColors.ControlLightLight;
-            btnActualizar.Location = new Point(511, 233);
+            btnActualizar.Location = new Point(782, 220);
             btnActualizar.Name = "btnActualizar";
             btnActualizar.Size = new Size(94, 29);
             btnActualizar.TabIndex = 7;
@@ -242,7 +259,7 @@
             // 
             lblTele.AutoSize = true;
             lblTele.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblTele.Location = new Point(40, 190);
+            lblTele.Location = new Point(552, 80);
             lblTele.Name = "lblTele";
             lblTele.Size = new Size(116, 24);
             lblTele.TabIndex = 6;
@@ -252,7 +269,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(40, 139);
+            label2.Location = new Point(182, 177);
             label2.Name = "label2";
             label2.Size = new Size(147, 24);
             label2.TabIndex = 5;
@@ -261,7 +278,7 @@
             // pictureBoxUsuario
             // 
             pictureBoxUsuario.Image = Properties.Resources.usuario;
-            pictureBoxUsuario.Location = new Point(492, 42);
+            pictureBoxUsuario.Location = new Point(28, 60);
             pictureBoxUsuario.Name = "pictureBoxUsuario";
             pictureBoxUsuario.Size = new Size(125, 125);
             pictureBoxUsuario.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -272,7 +289,7 @@
             // 
             lblNombre.AutoSize = true;
             lblNombre.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblNombre.Location = new Point(40, 90);
+            lblNombre.Location = new Point(182, 128);
             lblNombre.Name = "lblNombre";
             lblNombre.Size = new Size(154, 24);
             lblNombre.TabIndex = 4;
@@ -280,23 +297,23 @@
             // 
             // txtTele
             // 
-            txtTele.Location = new Point(208, 187);
+            txtTele.Location = new Point(720, 77);
             txtTele.Name = "txtTele";
-            txtTele.Size = new Size(173, 27);
+            txtTele.Size = new Size(156, 27);
             txtTele.TabIndex = 3;
             // 
             // txtCorreu
             // 
-            txtCorreu.Location = new Point(208, 136);
+            txtCorreu.Location = new Point(350, 174);
             txtCorreu.Name = "txtCorreu";
-            txtCorreu.Size = new Size(173, 27);
+            txtCorreu.Size = new Size(154, 27);
             txtCorreu.TabIndex = 2;
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(208, 87);
+            txtNombre.Location = new Point(350, 125);
             txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(173, 27);
+            txtNombre.Size = new Size(154, 27);
             txtNombre.TabIndex = 1;
             // 
             // lblCrearUsuario
@@ -327,14 +344,14 @@
             dgvUsuarios.BackgroundColor = Color.FromArgb(41, 195, 205);
             dgvUsuarios.BorderStyle = BorderStyle.None;
             dgvUsuarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Window;
-            dataGridViewCellStyle1.Font = new Font("Montserrat", 7.79999971F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            dgvUsuarios.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Montserrat", 7.79999971F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvUsuarios.DefaultCellStyle = dataGridViewCellStyle2;
             dgvUsuarios.EnableHeadersVisualStyles = false;
             dgvUsuarios.GridColor = SystemColors.ActiveBorder;
             dgvUsuarios.Location = new Point(409, 401);
@@ -342,23 +359,6 @@
             dgvUsuarios.RowHeadersWidth = 51;
             dgvUsuarios.Size = new Size(687, 231);
             dgvUsuarios.TabIndex = 14;
-            // 
-            // lblPassword
-            // 
-            lblPassword.AutoSize = true;
-            lblPassword.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblPassword.Location = new Point(40, 238);
-            lblPassword.Name = "lblPassword";
-            lblPassword.Size = new Size(116, 24);
-            lblPassword.TabIndex = 11;
-            lblPassword.Text = "Telefono Movil";
-            // 
-            // txtPassword
-            // 
-            txtPassword.Location = new Point(208, 235);
-            txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(173, 27);
-            txtPassword.TabIndex = 10;
             // 
             // FormUsuarios
             // 

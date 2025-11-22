@@ -21,6 +21,11 @@ namespace Beatrix_Formulario
 
         private void btnCrear_Click(object sender, EventArgs e)
         {
+            if (comboBoxRol.SelectedItem == null)
+            {
+                MessageBox.Show("Por favor, selecciona un rol antes de continuar.");
+                return;
+            }
 
             Usuarios nuevoUsuario = new Usuarios
             {
@@ -29,7 +34,7 @@ namespace Beatrix_Formulario
                 contrasena = "",
                 email = txtCorreo.Text,
                 telefono = txtTele.Text,
-                rol = ""
+                rol = comboBoxRol.SelectedItem.ToString() 
             };
 
             // Regresar al directorio raíz del proyecto

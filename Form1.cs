@@ -51,22 +51,29 @@ namespace Beatrix_Formulario
             string user = txtUsuario.Text.Trim();
             string password = txtContrasena.Text;
 
-            Usuarios usuarioEncontrado = usuarios
-                .Find(u => u.nombreUsuario == user && u.contrasena == password);
+            Usuarios usuarioLogin = usuarios
+                .Find(u => 
+                u.nombreUsuario == user && 
+                u.contrasena == password 
+                );
 
-            if (usuarioEncontrado != null)
-            {
-               
-                Inicio inicio = new Inicio();
-                inicio.Show();
 
-                this.Hide();   
-            }
-            else
+            if (usuarioLogin == null)
             {
                 MessageBox.Show("Usuario o contraseña incorrectos.");
+                return;
             }
-        }
 
+            if (usuarioLogin.rol != "Administrador" && usuarioLogin.rol != "Editor")
+            {
+                MessageBox.Show("Este usuario no tiene permiso para acceder al sistema.");
+                return;
+            }
+
+            Inicio inicio = new Inicio();
+            inicio.Show();
+
+            this.Hide();
+        }
     }
 }
