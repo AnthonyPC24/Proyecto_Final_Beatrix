@@ -26,9 +26,9 @@
   {
     "nombreApellidos": "Carlos Santana",
     "nombreUsuario": "csantana",
-    "contrasena": "Carlos.Santana#1",
-    "email": "c.santana@ejemplo.com",
-    "telefono": "\u002B13055551234",
+    "contrasena": "calaaaa",
+    "email": "ca@.com",
+    "telefono": "789456",
     "rol": "Visitante"
   },
   {
@@ -37,7 +37,7 @@
     "contrasena": "",
     "email": "qiaoqiao@gmail.com",
     "telefono": "7894561",
-    "rol": "Administrardor"
+    "rol": "Administrador"
   },
   {
     "nombreApellidos": "admin",
@@ -45,6 +45,14 @@
     "contrasena": "admin1234",
     "email": "admin@gmail.com",
     "telefono": "7894561",
-    "rol": "Administrardor"
+    "rol": "Administrador"
+  },
+  {
+    "nombreApellidos": "marcos",
+    "nombreUsuario": "marcos",
+    "contrasena": "",
+    "email": "marcos@marcos.com",
+    "telefono": "789456",
+    "rol": "Administrador"
   }
 ]

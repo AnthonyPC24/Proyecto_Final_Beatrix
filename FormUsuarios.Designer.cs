@@ -47,7 +47,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panelBarraOpciones = new Panel();
             btnConfiguracion = new Button();
             pbUser = new PictureBox();
@@ -62,9 +62,9 @@
             lblNombreUsuario = new Label();
             txtNombreUsuario = new TextBox();
             btnActualizar = new Button();
+            pictureBoxUsuario = new PictureBox();
             lblTele = new Label();
             label2 = new Label();
-            pictureBoxUsuario = new PictureBox();
             lblNombre = new Label();
             txtTele = new TextBox();
             txtCorreu = new TextBox();
@@ -255,6 +255,16 @@
             btnActualizar.UseVisualStyleBackColor = false;
             btnActualizar.Click += btnActualizar_Click;
             // 
+            // pictureBoxUsuario
+            // 
+            pictureBoxUsuario.Image = Properties.Resources.usuario;
+            pictureBoxUsuario.Location = new Point(28, 60);
+            pictureBoxUsuario.Name = "pictureBoxUsuario";
+            pictureBoxUsuario.Size = new Size(125, 125);
+            pictureBoxUsuario.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxUsuario.TabIndex = 0;
+            pictureBoxUsuario.TabStop = false;
+            // 
             // lblTele
             // 
             lblTele.AutoSize = true;
@@ -274,16 +284,6 @@
             label2.Size = new Size(147, 24);
             label2.TabIndex = 5;
             label2.Text = "Correo Electronico";
-            // 
-            // pictureBoxUsuario
-            // 
-            pictureBoxUsuario.Image = Properties.Resources.usuario;
-            pictureBoxUsuario.Location = new Point(28, 60);
-            pictureBoxUsuario.Name = "pictureBoxUsuario";
-            pictureBoxUsuario.Size = new Size(125, 125);
-            pictureBoxUsuario.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBoxUsuario.TabIndex = 0;
-            pictureBoxUsuario.TabStop = false;
             // 
             // lblNombre
             // 
@@ -344,14 +344,14 @@
             dgvUsuarios.BackgroundColor = Color.FromArgb(41, 195, 205);
             dgvUsuarios.BorderStyle = BorderStyle.None;
             dgvUsuarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Montserrat", 7.79999971F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgvUsuarios.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Montserrat", 7.79999971F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dgvUsuarios.DefaultCellStyle = dataGridViewCellStyle1;
             dgvUsuarios.EnableHeadersVisualStyles = false;
             dgvUsuarios.GridColor = SystemColors.ActiveBorder;
             dgvUsuarios.Location = new Point(409, 401);
@@ -359,6 +359,7 @@
             dgvUsuarios.RowHeadersWidth = 51;
             dgvUsuarios.Size = new Size(687, 231);
             dgvUsuarios.TabIndex = 14;
+            dgvUsuarios.SelectionChanged += dgvUsuarios_SelectionChanged;
             // 
             // FormUsuarios
             // 

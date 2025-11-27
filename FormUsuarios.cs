@@ -18,6 +18,8 @@ namespace Beatrix_Formulario
         {
             InitializeComponent();
             CargarUsuarios();
+
+            dgvUsuarios.SelectionChanged += dgvUsuarios_SelectionChanged;
         }
 
         private void lblCrearUsuario_Click(object sender, EventArgs e)
@@ -29,7 +31,9 @@ namespace Beatrix_Formulario
 
         private void CargarUsuarios()
         {
-            string usuariosPath = Path.Combine(Application.StartupPath, "JSON", "Usuarios.json");
+            string proyectoRaiz = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..");
+            string carpetaJSON = Path.Combine(proyectoRaiz, "JSON");
+            string usuariosPath = Path.Combine(carpetaJSON, "Usuarios.json");
 
             if (!File.Exists(usuariosPath))
             {
@@ -46,7 +50,7 @@ namespace Beatrix_Formulario
                 dgvUsuarios.Columns.Clear();
                 dgvUsuarios.AutoGenerateColumns = false;
 
-                // los headers de dgvUsuarios
+                // Configurar columnas de dgvUsuarios
                 dgvUsuarios.Columns.Add(new DataGridViewTextBoxColumn
                 {
                     DataPropertyName = "nombreUsuario",
@@ -68,22 +72,21 @@ namespace Beatrix_Formulario
                 dgvUsuarios.DataSource = usuarios;
 
                 dgvUsuarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
                 dgvUsuarios.ColumnHeadersVisible = true;
                 dgvUsuarios.RowHeadersVisible = false;
 
-                //configurar todo el contenido a la izquierda y centrardo vertical
+                // Configurar contenido a la izquierda y centrado vertical
                 foreach (DataGridViewColumn column in dgvUsuarios.Columns)
                 {
                     column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
                 }
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al cargar usuarios: " + ex.Message);
             }
         }
+
 
 
         private void btnTareas_Click(object sender, EventArgs e)
@@ -149,17 +152,26 @@ namespace Beatrix_Formulario
 
             try
             {
-                string proyectoPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..");
-                string usuariosPath = Path.Combine(proyectoPath, "JSON", "Usuarios.json");
+                string proyectoRaiz = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..");
+                string carpetaJSON = Path.Combine(proyectoRaiz, "JSON");
+                string usuariosPath = Path.Combine(carpetaJSON, "Usuarios.json");
 
-                List<Usuarios> usuarios = JsonSerializer.Deserialize<List<Usuarios>>(File.ReadAllText(usuariosPath));
+                if (!File.Exists(usuariosPath))
+                {
+                    MessageBox.Show($"Archivo de usuarios no encontrado: {usuariosPath}");
+                    return;
+                }
+
+                List<Usuarios> usuarios;
+                using (var sr = new StreamReader(usuariosPath))
+                {
+                    usuarios = JsonSerializer.Deserialize<List<Usuarios>>(sr.ReadToEnd());
+                }
 
                 bool encontrado = false;
 
-                // encontra el usuario y update los datos
                 for (int i = 0; i < usuarios.Count; i++)
                 {
-                    // solo si el nombre de usuario coincide, se puede actualizar los datos de abajo.
                     if (usuarios[i].nombreUsuario == nombreUsuario)
                     {
                         usuarios[i].nombreApellidos = nombreApellidos;
@@ -177,12 +189,46 @@ namespace Beatrix_Formulario
                     return;
                 }
 
-                File.WriteAllText(usuariosPath, JsonSerializer.Serialize(usuarios, new JsonSerializerOptions { WriteIndented = true }));
+                using (var sw = new StreamWriter(usuariosPath, false))
+                {
+                    sw.Write(JsonSerializer.Serialize(usuarios, new JsonSerializerOptions { WriteIndented = true }));
+                }
+
+                // refresh 
+                txtNombre.Text = nombreApellidos;
+                txtCorreu.Text = email;
+                txtTele.Text = tele;
+                txtPassword.Text = pwd;
+
+                if (dgvUsuarios != null)
+                {
+                    dgvUsuarios.DataSource = null;
+                    dgvUsuarios.DataSource = usuarios;
+                }
+
                 MessageBox.Show("¡Información actualizada correctamente!");
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al guardar: " + ex.Message);
+            }
+        }
+
+
+        private void dgvUsuarios_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvUsuarios.CurrentRow == null)
+                return;
+
+            Usuarios usuarioSeleccionado = dgvUsuarios.CurrentRow.DataBoundItem as Usuarios;
+
+            if (usuarioSeleccionado != null)
+            {
+                txtNombreUsuario.Text = usuarioSeleccionado.nombreUsuario;
+                txtNombre.Text = usuarioSeleccionado.nombreApellidos;
+                txtCorreu.Text = usuarioSeleccionado.email;
+                txtTele.Text = usuarioSeleccionado.telefono;
+                txtPassword.Text = usuarioSeleccionado.contrasena;
             }
         }
 
