@@ -32,13 +32,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridView dgvTarea;
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
+   
+            DataGridViewCellStyle dataGridViewCellStyle13 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle14 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle15 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle16 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle17 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle18 = new DataGridViewCellStyle();
             ColumnTarea = new DataGridViewTextBoxColumn();
             ColumnEspecificaciones = new DataGridViewTextBoxColumn();
             ColumnUsuario = new DataGridViewTextBoxColumn();
@@ -56,6 +56,7 @@
             ColumnFecha = new DataGridViewTextBoxColumn();
             ColumnUsuarios = new DataGridViewTextBoxColumn();
             ColumnDescripcion = new DataGridViewTextBoxColumn();
+            btnConfiguracion = new Button();
             dgvTarea = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)dgvTarea).BeginInit();
             panelBarraOpciones.SuspendLayout();
@@ -71,41 +72,41 @@
             dgvTarea.BackgroundColor = Color.White;
             dgvTarea.CellBorderStyle = DataGridViewCellBorderStyle.SunkenHorizontal;
             dgvTarea.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = SystemColors.ControlLightLight;
-            dataGridViewCellStyle7.Font = new Font("Montserrat", 9F);
-            dataGridViewCellStyle7.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
-            dgvTarea.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle13.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.BackColor = SystemColors.ControlLightLight;
+            dataGridViewCellStyle13.Font = new Font("Montserrat", 9F);
+            dataGridViewCellStyle13.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = DataGridViewTriState.True;
+            dgvTarea.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             dgvTarea.ColumnHeadersHeight = 50;
             dgvTarea.Columns.AddRange(new DataGridViewColumn[] { ColumnTarea, ColumnEspecificaciones, ColumnUsuario });
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = SystemColors.Window;
-            dataGridViewCellStyle8.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle8.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
-            dgvTarea.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle14.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = SystemColors.Window;
+            dataGridViewCellStyle14.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle14.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle14.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = DataGridViewTriState.False;
+            dgvTarea.DefaultCellStyle = dataGridViewCellStyle14;
             dgvTarea.GridColor = Color.White;
             dgvTarea.Location = new Point(273, 54);
             dgvTarea.Name = "dgvTarea";
             dgvTarea.ReadOnly = true;
             dgvTarea.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = Color.White;
-            dataGridViewCellStyle9.Font = new Font("Montserrat", 9F);
-            dataGridViewCellStyle9.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
-            dgvTarea.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle15.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = Color.White;
+            dataGridViewCellStyle15.Font = new Font("Montserrat", 9F);
+            dataGridViewCellStyle15.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = DataGridViewTriState.True;
+            dgvTarea.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             dgvTarea.RowHeadersVisible = false;
             dgvTarea.RowHeadersWidth = 51;
-            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvTarea.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle16.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvTarea.RowsDefaultCellStyle = dataGridViewCellStyle16;
             dgvTarea.RowTemplate.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
             dgvTarea.RowTemplate.Height = 50;
             dgvTarea.Size = new Size(965, 281);
@@ -155,6 +156,7 @@
             // panelBarraOpciones
             // 
             panelBarraOpciones.BackColor = Color.FromArgb(41, 195, 205);
+            panelBarraOpciones.Controls.Add(btnConfiguracion);
             panelBarraOpciones.Controls.Add(pbUser);
             panelBarraOpciones.Controls.Add(labelBeatrix);
             panelBarraOpciones.Controls.Add(btnReuniones);
@@ -171,9 +173,9 @@
             // pbUser
             // 
             pbUser.Image = Properties.Resources.usuario;
-            pbUser.Location = new Point(31, 95);
+            pbUser.Location = new Point(50, 95);
             pbUser.Name = "pbUser";
-            pbUser.Size = new Size(185, 185);
+            pbUser.Size = new Size(146, 143);
             pbUser.SizeMode = PictureBoxSizeMode.StretchImage;
             pbUser.TabIndex = 5;
             pbUser.TabStop = false;
@@ -195,7 +197,7 @@
             btnReuniones.BackColor = Color.FromArgb(41, 195, 205);
             btnReuniones.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnReuniones.ForeColor = Color.White;
-            btnReuniones.Location = new Point(18, 567);
+            btnReuniones.Location = new Point(14, 500);
             btnReuniones.Margin = new Padding(3, 4, 3, 4);
             btnReuniones.Name = "btnReuniones";
             btnReuniones.Size = new Size(213, 71);
@@ -209,7 +211,7 @@
             btnTareas.BackColor = Color.FromArgb(41, 195, 205);
             btnTareas.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnTareas.ForeColor = Color.White;
-            btnTareas.Location = new Point(18, 488);
+            btnTareas.Location = new Point(14, 421);
             btnTareas.Margin = new Padding(3, 4, 3, 4);
             btnTareas.Name = "btnTareas";
             btnTareas.Size = new Size(213, 71);
@@ -223,7 +225,7 @@
             btnProyetos.BackColor = Color.FromArgb(41, 195, 205);
             btnProyetos.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnProyetos.ForeColor = Color.White;
-            btnProyetos.Location = new Point(18, 409);
+            btnProyetos.Location = new Point(14, 342);
             btnProyetos.Margin = new Padding(3, 4, 3, 4);
             btnProyetos.Name = "btnProyetos";
             btnProyetos.Size = new Size(213, 71);
@@ -237,7 +239,7 @@
             btnInicio.BackColor = Color.FromArgb(41, 195, 205);
             btnInicio.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnInicio.ForeColor = Color.White;
-            btnInicio.Location = new Point(18, 331);
+            btnInicio.Location = new Point(14, 264);
             btnInicio.Margin = new Padding(3, 4, 3, 4);
             btnInicio.Name = "btnInicio";
             btnInicio.Size = new Size(213, 71);
@@ -255,24 +257,24 @@
             dgvReuniones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvReuniones.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgvReuniones.BackgroundColor = Color.FromArgb(41, 195, 205);
-            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = SystemColors.Control;
-            dataGridViewCellStyle11.Font = new Font("Montserrat Medium", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle11.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.True;
-            dgvReuniones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle17.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = SystemColors.Control;
+            dataGridViewCellStyle17.Font = new Font("Montserrat Medium", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle17.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle17.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = DataGridViewTriState.True;
+            dgvReuniones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
             dgvReuniones.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvReuniones.Columns.AddRange(new DataGridViewColumn[] { ColumnTitulo, ColumnFecha, ColumnUsuarios, ColumnDescripcion });
-            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = SystemColors.Window;
-            dataGridViewCellStyle12.Font = new Font("Montserrat", 9F);
-            dataGridViewCellStyle12.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle12.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = DataGridViewTriState.True;
-            dgvReuniones.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle18.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = SystemColors.Window;
+            dataGridViewCellStyle18.Font = new Font("Montserrat", 9F);
+            dataGridViewCellStyle18.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle18.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = DataGridViewTriState.True;
+            dgvReuniones.DefaultCellStyle = dataGridViewCellStyle18;
             dgvReuniones.Location = new Point(524, 372);
             dgvReuniones.Name = "dgvReuniones";
             dgvReuniones.RowHeadersVisible = false;
@@ -308,6 +310,20 @@
             ColumnDescripcion.Name = "ColumnDescripcion";
             ColumnDescripcion.ReadOnly = true;
             // 
+            // btnConfiguracion
+            // 
+            btnConfiguracion.BackColor = Color.FromArgb(41, 195, 205);
+            btnConfiguracion.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnConfiguracion.ForeColor = Color.White;
+            btnConfiguracion.Location = new Point(14, 579);
+            btnConfiguracion.Margin = new Padding(3, 4, 3, 4);
+            btnConfiguracion.Name = "btnConfiguracion";
+            btnConfiguracion.Size = new Size(213, 71);
+            btnConfiguracion.TabIndex = 8;
+            btnConfiguracion.Text = "Configuracion";
+            btnConfiguracion.UseVisualStyleBackColor = false;
+            btnConfiguracion.Click += btnConfiguracion_Click;
+            // 
             // Inicio
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -335,5 +351,6 @@
         #endregion
 
         private PictureBox pbUser;
+        private Button btnConfiguracion;
     }
 }
