@@ -50,10 +50,11 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Microsoft Sans Serif", 17.9999981F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label5.Location = new Point(333, 43);
+            label5.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Bold | FontStyle.Italic);
+            label5.ForeColor = Color.White;
+            label5.Location = new Point(290, 37);
             label5.Name = "label5";
-            label5.Size = new Size(234, 36);
+            label5.Size = new Size(264, 39);
             label5.TabIndex = 32;
             label5.Text = "Editar Proyecto";
             // 
@@ -75,26 +76,28 @@
             groupBox1.Margin = new Padding(3, 4, 3, 4);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(3, 4, 3, 4);
-            groupBox1.Size = new Size(887, 405);
+            groupBox1.Size = new Size(825, 384);
             groupBox1.TabIndex = 31;
             groupBox1.TabStop = false;
-            groupBox1.Text = "groupBox1";
             // 
             // quitarUsuarios
             // 
-            quitarUsuarios.Location = new Point(568, 241);
+            quitarUsuarios.BackColor = Color.FromArgb(41, 195, 205);
+            quitarUsuarios.Font = new Font("Microsoft Sans Serif", 8.999999F, FontStyle.Bold);
+            quitarUsuarios.ForeColor = Color.White;
+            quitarUsuarios.Location = new Point(592, 241);
             quitarUsuarios.Margin = new Padding(3, 4, 3, 4);
             quitarUsuarios.Name = "quitarUsuarios";
             quitarUsuarios.Size = new Size(202, 31);
             quitarUsuarios.TabIndex = 19;
             quitarUsuarios.Text = "Quitar Usuario";
-            quitarUsuarios.UseVisualStyleBackColor = true;
+            quitarUsuarios.UseVisualStyleBackColor = false;
             quitarUsuarios.Click += quitarUsuarios_Click_1;
             // 
             // comboBoxUsuarios
             // 
             comboBoxUsuarios.FormattingEnabled = true;
-            comboBoxUsuarios.Location = new Point(568, 60);
+            comboBoxUsuarios.Location = new Point(592, 64);
             comboBoxUsuarios.Margin = new Padding(3, 4, 3, 4);
             comboBoxUsuarios.Name = "comboBoxUsuarios";
             comboBoxUsuarios.Size = new Size(202, 28);
@@ -113,7 +116,7 @@
             // listBoxUsuarios
             // 
             listBoxUsuarios.FormattingEnabled = true;
-            listBoxUsuarios.Location = new Point(568, 108);
+            listBoxUsuarios.Location = new Point(592, 100);
             listBoxUsuarios.Margin = new Padding(3, 4, 3, 4);
             listBoxUsuarios.Name = "listBoxUsuarios";
             listBoxUsuarios.Size = new Size(202, 124);
@@ -138,18 +141,22 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(62, 108);
+            label6.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold);
+            label6.ForeColor = Color.White;
+            label6.Location = new Point(22, 108);
             label6.Name = "label6";
-            label6.Size = new Size(108, 20);
+            label6.Size = new Size(137, 20);
             label6.TabIndex = 12;
             label6.Text = "Fecha de Inicio";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(48, 157);
+            label4.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold);
+            label4.ForeColor = Color.White;
+            label4.Location = new Point(22, 154);
             label4.Name = "label4";
-            label4.Size = new Size(123, 20);
+            label4.Size = new Size(155, 20);
             label4.TabIndex = 7;
             label4.Text = "Fechad e entrega";
             // 
@@ -164,50 +171,62 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(62, 232);
+            label3.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(22, 212);
             label3.Name = "label3";
-            label3.Size = new Size(87, 20);
+            label3.Size = new Size(110, 20);
             label3.TabIndex = 2;
             label3.Text = "Descripcion";
             // 
             // label2
             // 
             label2.AutoSize = true;
+            label2.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold);
+            label2.ForeColor = Color.White;
             label2.Location = new Point(502, 64);
             label2.Name = "label2";
-            label2.Size = new Size(65, 20);
+            label2.Size = new Size(84, 20);
             label2.TabIndex = 1;
             label2.Text = "Usuarios";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(102, 64);
+            label1.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(22, 60);
             label1.Name = "label1";
-            label1.Size = new Size(64, 20);
+            label1.Size = new Size(74, 20);
             label1.TabIndex = 0;
             label1.Text = "Nombre";
             // 
             // button3
             // 
-            button3.Location = new Point(698, 527);
+            button3.BackColor = Color.FromArgb(245, 168, 125);
+            button3.Font = new Font("Microsoft Sans Serif", 8.999999F, FontStyle.Bold);
+            button3.ForeColor = Color.White;
+            button3.Location = new Point(594, 489);
             button3.Margin = new Padding(3, 4, 3, 4);
             button3.Name = "button3";
-            button3.Size = new Size(86, 31);
+            button3.Size = new Size(119, 31);
             button3.TabIndex = 30;
             button3.Text = "Cancelar";
-            button3.UseVisualStyleBackColor = true;
+            button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
             // 
             // btnCrear
             // 
-            btnCrear.Location = new Point(585, 527);
+            btnCrear.BackColor = Color.FromArgb(41, 195, 205);
+            btnCrear.Font = new Font("Microsoft Sans Serif", 8.999999F, FontStyle.Bold);
+            btnCrear.ForeColor = Color.White;
+            btnCrear.Location = new Point(719, 489);
             btnCrear.Margin = new Padding(3, 4, 3, 4);
             btnCrear.Name = "btnCrear";
-            btnCrear.Size = new Size(86, 31);
+            btnCrear.Size = new Size(119, 31);
             btnCrear.TabIndex = 29;
             btnCrear.Text = "Aceptar";
-            btnCrear.UseVisualStyleBackColor = true;
+            btnCrear.UseVisualStyleBackColor = false;
             btnCrear.Click += btnCrear_Click;
             // 
             // FormProyectosGerard4
@@ -215,7 +234,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(41, 191, 205);
-            ClientSize = new Size(914, 600);
+            ClientSize = new Size(850, 531);
             Controls.Add(label5);
             Controls.Add(groupBox1);
             Controls.Add(button3);
@@ -223,7 +242,7 @@
             Margin = new Padding(3, 4, 3, 4);
             Name = "FormProyectosGerard4";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form2";
+            Text = "Editar Proyecto";
             Load += FormProyectosGerard4_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();

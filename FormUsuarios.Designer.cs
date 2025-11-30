@@ -123,7 +123,6 @@
             linkLabel1.TabIndex = 10;
             linkLabel1.TabStop = true;
             linkLabel1.Text = "Configuración";
-            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
             // 
             // labelBeatrix
             // 
@@ -393,7 +392,8 @@
             MinimizeBox = false;
             Name = "FormUsuarios";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "FormConfiguracionUsuarios";
+            Text = "Configuración";
+            FormClosing += FormUsuarios_FormClosing;
             panelBarraOpciones.ResumeLayout(false);
             panelBarraOpciones.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)Logo).EndInit();

@@ -220,10 +220,10 @@
             button3.BackColor = Color.FromArgb(245, 168, 125);
             button3.Font = new Font("Microsoft Sans Serif", 8.999999F, FontStyle.Bold);
             button3.ForeColor = Color.White;
-            button3.Location = new Point(723, 498);
+            button3.Location = new Point(658, 498);
             button3.Margin = new Padding(3, 4, 3, 4);
             button3.Name = "button3";
-            button3.Size = new Size(86, 31);
+            button3.Size = new Size(119, 31);
             button3.TabIndex = 9;
             button3.Text = "Cancelar";
             button3.UseVisualStyleBackColor = false;
@@ -233,10 +233,10 @@
             btnCrear.BackColor = Color.FromArgb(41, 195, 205);
             btnCrear.Font = new Font("Microsoft Sans Serif", 8.999999F, FontStyle.Bold);
             btnCrear.ForeColor = Color.White;
-            btnCrear.Location = new Point(815, 498);
+            btnCrear.Location = new Point(782, 498);
             btnCrear.Margin = new Padding(3, 4, 3, 4);
             btnCrear.Name = "btnCrear";
-            btnCrear.Size = new Size(86, 31);
+            btnCrear.Size = new Size(119, 31);
             btnCrear.TabIndex = 8;
             btnCrear.Text = "Crear";
             btnCrear.UseVisualStyleBackColor = false;

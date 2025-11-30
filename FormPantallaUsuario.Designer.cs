@@ -60,6 +60,7 @@
             // 
             // panelUserInfo
             // 
+            panelUserInfo.BackColor = Color.FromArgb(41, 191, 225);
             panelUserInfo.BorderStyle = BorderStyle.FixedSingle;
             panelUserInfo.Controls.Add(comboBoxRol);
             panelUserInfo.Controls.Add(lblRol);
@@ -73,16 +74,17 @@
             panelUserInfo.Controls.Add(lblUsuario);
             panelUserInfo.Controls.Add(lblNombre);
             panelUserInfo.Controls.Add(pictureBoxUser);
+            panelUserInfo.Dock = DockStyle.Fill;
             panelUserInfo.Location = new Point(0, 0);
             panelUserInfo.Name = "panelUserInfo";
-            panelUserInfo.Size = new Size(786, 573);
+            panelUserInfo.Size = new Size(474, 524);
             panelUserInfo.TabIndex = 6;
             // 
             // comboBoxRol
             // 
             comboBoxRol.FormattingEnabled = true;
             comboBoxRol.Items.AddRange(new object[] { "Administrador", "Usuarios", "Visitante" });
-            comboBoxRol.Location = new Point(378, 399);
+            comboBoxRol.Location = new Point(240, 393);
             comboBoxRol.Name = "comboBoxRol";
             comboBoxRol.Size = new Size(181, 28);
             comboBoxRol.TabIndex = 16;
@@ -90,19 +92,20 @@
             // lblRol
             // 
             lblRol.AutoSize = true;
-            lblRol.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblRol.Location = new Point(207, 403);
+            lblRol.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold);
+            lblRol.ForeColor = Color.White;
+            lblRol.Location = new Point(52, 397);
             lblRol.Name = "lblRol";
-            lblRol.Size = new Size(34, 24);
+            lblRol.Size = new Size(37, 20);
             lblRol.TabIndex = 15;
             lblRol.Text = "Rol";
             // 
             // btnCrear
             // 
             btnCrear.BackColor = Color.FromArgb(41, 191, 205);
-            btnCrear.FlatStyle = FlatStyle.Popup;
-            btnCrear.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnCrear.Location = new Point(333, 477);
+            btnCrear.Font = new Font("Microsoft Sans Serif", 8.999999F, FontStyle.Bold);
+            btnCrear.ForeColor = Color.White;
+            btnCrear.Location = new Point(176, 455);
             btnCrear.Name = "btnCrear";
             btnCrear.Size = new Size(104, 36);
             btnCrear.TabIndex = 14;
@@ -112,28 +115,28 @@
             // 
             // txtTele
             // 
-            txtTele.Location = new Point(378, 353);
+            txtTele.Location = new Point(240, 347);
             txtTele.Name = "txtTele";
             txtTele.Size = new Size(181, 27);
             txtTele.TabIndex = 13;
             // 
             // txtCorreo
             // 
-            txtCorreo.Location = new Point(378, 307);
+            txtCorreo.Location = new Point(240, 301);
             txtCorreo.Name = "txtCorreo";
             txtCorreo.Size = new Size(181, 27);
             txtCorreo.TabIndex = 12;
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(378, 260);
+            txtNombre.Location = new Point(240, 254);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(181, 27);
             txtNombre.TabIndex = 11;
             // 
             // txtUser
             // 
-            txtUser.Location = new Point(378, 215);
+            txtUser.Location = new Point(240, 209);
             txtUser.Name = "txtUser";
             txtUser.Size = new Size(181, 27);
             txtUser.TabIndex = 10;
@@ -141,47 +144,51 @@
             // lblTele
             // 
             lblTele.AutoSize = true;
-            lblTele.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblTele.Location = new Point(207, 356);
+            lblTele.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold);
+            lblTele.ForeColor = Color.White;
+            lblTele.Location = new Point(52, 350);
             lblTele.Name = "lblTele";
-            lblTele.Size = new Size(118, 24);
+            lblTele.Size = new Size(131, 20);
             lblTele.TabIndex = 8;
             lblTele.Text = "Telefono movil";
             // 
             // lblCorreo
             // 
             lblCorreo.AutoSize = true;
-            lblCorreo.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblCorreo.Location = new Point(207, 307);
+            lblCorreo.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold);
+            lblCorreo.ForeColor = Color.White;
+            lblCorreo.Location = new Point(52, 301);
             lblCorreo.Name = "lblCorreo";
-            lblCorreo.Size = new Size(147, 24);
+            lblCorreo.Size = new Size(167, 20);
             lblCorreo.TabIndex = 7;
             lblCorreo.Text = "Correo Electronico";
             // 
             // lblUsuario
             // 
             lblUsuario.AutoSize = true;
-            lblUsuario.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblUsuario.Location = new Point(207, 215);
+            lblUsuario.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold);
+            lblUsuario.ForeColor = Color.White;
+            lblUsuario.Location = new Point(52, 209);
             lblUsuario.Name = "lblUsuario";
-            lblUsuario.Size = new Size(154, 24);
+            lblUsuario.Size = new Size(168, 20);
             lblUsuario.TabIndex = 6;
             lblUsuario.Text = "Nombre de usuario";
             // 
             // lblNombre
             // 
             lblNombre.AutoSize = true;
-            lblNombre.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblNombre.Location = new Point(207, 260);
+            lblNombre.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold);
+            lblNombre.ForeColor = Color.White;
+            lblNombre.Location = new Point(52, 254);
             lblNombre.Name = "lblNombre";
-            lblNombre.Size = new Size(154, 24);
+            lblNombre.Size = new Size(170, 20);
             lblNombre.TabIndex = 5;
             lblNombre.Text = "Nombre y apellidos";
             // 
             // pictureBoxUser
             // 
             pictureBoxUser.Image = Properties.Resources.usuario;
-            pictureBoxUser.Location = new Point(296, 30);
+            pictureBoxUser.Location = new Point(176, 21);
             pictureBoxUser.Name = "pictureBoxUser";
             pictureBoxUser.Size = new Size(150, 150);
             pictureBoxUser.SizeMode = PictureBoxSizeMode.Zoom;
@@ -193,12 +200,12 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
-            ClientSize = new Size(782, 565);
+            ClientSize = new Size(474, 524);
             Controls.Add(panelUserInfo);
             MinimizeBox = false;
             Name = "FormPantallaUsuario";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "FormPantallaUsuario";
+            Text = "Nuevo Usuario";
             panelUserInfo.ResumeLayout(false);
             panelUserInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxUser).EndInit();

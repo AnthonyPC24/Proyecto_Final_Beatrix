@@ -43,8 +43,9 @@
             // 
             // labelTituloProyecto
             // 
-            labelTituloProyecto.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelTituloProyecto.Location = new Point(177, 69);
+            labelTituloProyecto.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Bold | FontStyle.Italic);
+            labelTituloProyecto.ForeColor = Color.White;
+            labelTituloProyecto.Location = new Point(12, 31);
             labelTituloProyecto.Name = "labelTituloProyecto";
             labelTituloProyecto.Size = new Size(566, 40);
             labelTituloProyecto.TabIndex = 1;
@@ -55,7 +56,8 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
-            label1.Location = new Point(177, 159);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(12, 121);
             label1.Name = "label1";
             label1.Size = new Size(161, 24);
             label1.TabIndex = 3;
@@ -64,20 +66,20 @@
             // lblFechaInicio
             // 
             lblFechaInicio.AutoSize = true;
-            lblFechaInicio.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
-            lblFechaInicio.Location = new Point(331, 159);
+            lblFechaInicio.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold);
+            lblFechaInicio.Location = new Point(179, 124);
             lblFechaInicio.Name = "lblFechaInicio";
-            lblFechaInicio.Size = new Size(66, 24);
+            lblFechaInicio.Size = new Size(59, 20);
             lblFechaInicio.TabIndex = 4;
             lblFechaInicio.Text = "label2";
             // 
             // lblFechaEntrega
             // 
             lblFechaEntrega.AutoSize = true;
-            lblFechaEntrega.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
-            lblFechaEntrega.Location = new Point(680, 159);
+            lblFechaEntrega.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold);
+            lblFechaEntrega.Location = new Point(496, 125);
             lblFechaEntrega.Name = "lblFechaEntrega";
-            lblFechaEntrega.Size = new Size(66, 24);
+            lblFechaEntrega.Size = new Size(59, 20);
             lblFechaEntrega.TabIndex = 6;
             lblFechaEntrega.Text = "label2";
             // 
@@ -85,7 +87,8 @@
             // 
             labelFechaEntrega.AutoSize = true;
             labelFechaEntrega.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
-            labelFechaEntrega.Location = new Point(505, 159);
+            labelFechaEntrega.ForeColor = Color.White;
+            labelFechaEntrega.Location = new Point(306, 121);
             labelFechaEntrega.Name = "labelFechaEntrega";
             labelFechaEntrega.Size = new Size(184, 24);
             labelFechaEntrega.TabIndex = 5;
@@ -95,7 +98,8 @@
             // 
             labelUsuarios.AutoSize = true;
             labelUsuarios.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
-            labelUsuarios.Location = new Point(177, 241);
+            labelUsuarios.ForeColor = Color.White;
+            labelUsuarios.Location = new Point(12, 170);
             labelUsuarios.Name = "labelUsuarios";
             labelUsuarios.Size = new Size(235, 25);
             labelUsuarios.TabIndex = 7;
@@ -103,7 +107,7 @@
             // 
             // txtUsuariosAsignados
             // 
-            txtUsuariosAsignados.Location = new Point(414, 244);
+            txtUsuariosAsignados.Location = new Point(248, 166);
             txtUsuariosAsignados.Margin = new Padding(3, 4, 3, 4);
             txtUsuariosAsignados.Multiline = true;
             txtUsuariosAsignados.Name = "txtUsuariosAsignados";
@@ -116,7 +120,8 @@
             // 
             labelDescripcion.AutoSize = true;
             labelDescripcion.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
-            labelDescripcion.Location = new Point(177, 311);
+            labelDescripcion.ForeColor = Color.White;
+            labelDescripcion.Location = new Point(13, 223);
             labelDescripcion.Name = "labelDescripcion";
             labelDescripcion.Size = new Size(132, 25);
             labelDescripcion.TabIndex = 9;
@@ -125,18 +130,21 @@
             // 
             // btnCerrar
             // 
-            btnCerrar.Location = new Point(402, 540);
+            btnCerrar.BackColor = Color.FromArgb(245, 168, 125);
+            btnCerrar.Font = new Font("Microsoft Sans Serif", 8.999999F, FontStyle.Bold);
+            btnCerrar.ForeColor = Color.White;
+            btnCerrar.Location = new Point(333, 415);
             btnCerrar.Margin = new Padding(3, 4, 3, 4);
             btnCerrar.Name = "btnCerrar";
-            btnCerrar.Size = new Size(86, 31);
+            btnCerrar.Size = new Size(119, 31);
             btnCerrar.TabIndex = 11;
             btnCerrar.Text = "Cerrar";
-            btnCerrar.UseVisualStyleBackColor = true;
+            btnCerrar.UseVisualStyleBackColor = false;
             btnCerrar.Click += btnCerrar_Click;
             // 
             // txtBoxDescr
             // 
-            txtBoxDescr.Location = new Point(312, 311);
+            txtBoxDescr.Location = new Point(148, 223);
             txtBoxDescr.Margin = new Padding(3, 4, 3, 4);
             txtBoxDescr.Multiline = true;
             txtBoxDescr.Name = "txtBoxDescr";
@@ -146,13 +154,16 @@
             // 
             // buttonEditar
             // 
-            buttonEditar.Location = new Point(522, 540);
+            buttonEditar.BackColor = Color.FromArgb(41, 195, 205);
+            buttonEditar.Font = new Font("Microsoft Sans Serif", 8.999999F, FontStyle.Bold);
+            buttonEditar.ForeColor = Color.White;
+            buttonEditar.Location = new Point(458, 415);
             buttonEditar.Margin = new Padding(3, 4, 3, 4);
             buttonEditar.Name = "buttonEditar";
-            buttonEditar.Size = new Size(86, 31);
+            buttonEditar.Size = new Size(119, 31);
             buttonEditar.TabIndex = 13;
             buttonEditar.Text = "Editar";
-            buttonEditar.UseVisualStyleBackColor = true;
+            buttonEditar.UseVisualStyleBackColor = false;
             buttonEditar.Click += buttonEditar_Click;
             // 
             // FormProyectosGerard3
@@ -160,7 +171,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(41, 191, 205);
-            ClientSize = new Size(914, 600);
+            ClientSize = new Size(603, 461);
             Controls.Add(buttonEditar);
             Controls.Add(txtBoxDescr);
             Controls.Add(btnCerrar);

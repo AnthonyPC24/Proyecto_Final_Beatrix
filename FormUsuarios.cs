@@ -91,42 +91,34 @@ namespace Beatrix_Formulario
 
         private void btnTareas_Click(object sender, EventArgs e)
         {
-            if (!MostrarFormExist<FormTareasTho1>())
-            {
                 FormTareasTho1 tareasForm = new FormTareasTho1();
                 tareasForm.Show();
                 this.Hide();
-            }
+
         }
 
         private void btnReuniones_Click(object sender, EventArgs e)
         {
-            if (!MostrarFormExist<FormReunionesDy1>())
-            {
+
                 FormReunionesDy1 reunionesForm = new FormReunionesDy1();
                 reunionesForm.Show();
                 this.Hide();
-            }
         }
 
         private void btnInicio_Click(object sender, EventArgs e)
         {
-            if (!MostrarFormExist<Inicio>())
-            {
                 Inicio inicioForm = new Inicio();
                 inicioForm.Show();
                 Hide();
-            }
+
         }
 
         private void btnProyetos_Click(object sender, EventArgs e)
         {
-            if (!MostrarFormExist<FormProyectosGerard1>())
-            {
                 FormProyectosGerard1 proyectosForm = new FormProyectosGerard1();
                 proyectosForm.Show();
                 Hide();
-            }
+
         }
 
         // actualizar los datos de usuario
@@ -226,14 +218,9 @@ namespace Beatrix_Formulario
             }
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void FormUsuarios_FormClosing(object sender, FormClosingEventArgs e)
         {
-             if (!MostrarFormExist<FormUsuarios>())
-            {
-                FormUsuarios configuracion = new FormUsuarios();
-                configuracion.Show();
-                this.Hide();
-            }
+            Application.Exit(); 
         }
 
         private bool MostrarFormExist<T>() where T : Form
