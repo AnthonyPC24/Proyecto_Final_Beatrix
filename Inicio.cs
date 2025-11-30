@@ -25,7 +25,7 @@ namespace Beatrix_Formulario
         {
             string tareasPath = Path.Combine(Application.StartupPath, "JSON", "Proyectos.json");
             string reunionesPath = Path.Combine(Application.StartupPath, "JSON", "Reuniones.json");
-            
+
 
             if (File.Exists(tareasPath))
             {
@@ -181,6 +181,7 @@ namespace Beatrix_Formulario
             {
                 Inicio inicioForm = new Inicio();
                 inicioForm.Show();
+                this.Hide();
             }
         }
 
@@ -190,15 +191,17 @@ namespace Beatrix_Formulario
             {
                 FormProyectosGerard1 proyectosForm = new FormProyectosGerard1();
                 proyectosForm.Show();
+                this.Hide();
             }
         }
 
         private void btnTareas_Click(object sender, EventArgs e)
         {
-            if (!MostrarFormExist<FormProyectosGerard2>())
+            if (!MostrarFormExist<FormTareasTho1>())
             {
-                FormProyectosGerard2 tareasForm = new FormProyectosGerard2();
+                FormTareasTho1 tareasForm = new FormTareasTho1();
                 tareasForm.Show();
+                this.Hide();
             }
         }
 
@@ -209,6 +212,7 @@ namespace Beatrix_Formulario
             {
                 FormReunionesDy1 reunionesForm = new FormReunionesDy1();
                 reunionesForm.Show();
+                this.Hide();
             }
         }
 
@@ -221,7 +225,7 @@ namespace Beatrix_Formulario
 
         }
 
-        private void btnConfiguracion_Click(object sender, EventArgs e)
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             if (!MostrarFormExist<FormUsuarios>())
             {
@@ -229,7 +233,11 @@ namespace Beatrix_Formulario
                 configuracion.Show();
                 this.Hide();
             }
+        }
 
+        private void Inicio_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
 
         // determinar si ya hay abierto un form

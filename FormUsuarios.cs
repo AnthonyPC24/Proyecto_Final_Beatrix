@@ -91,10 +91,11 @@ namespace Beatrix_Formulario
 
         private void btnTareas_Click(object sender, EventArgs e)
         {
-            if (!MostrarFormExist<FormProyectosGerard2>())
+            if (!MostrarFormExist<FormTareasTho1>())
             {
-                FormProyectosGerard2 tareasForm = new FormProyectosGerard2();
+                FormTareasTho1 tareasForm = new FormTareasTho1();
                 tareasForm.Show();
+                this.Hide();
             }
         }
 
@@ -104,6 +105,7 @@ namespace Beatrix_Formulario
             {
                 FormReunionesDy1 reunionesForm = new FormReunionesDy1();
                 reunionesForm.Show();
+                this.Hide();
             }
         }
 
@@ -113,6 +115,7 @@ namespace Beatrix_Formulario
             {
                 Inicio inicioForm = new Inicio();
                 inicioForm.Show();
+                Hide();
             }
         }
 
@@ -122,17 +125,8 @@ namespace Beatrix_Formulario
             {
                 FormProyectosGerard1 proyectosForm = new FormProyectosGerard1();
                 proyectosForm.Show();
+                Hide();
             }
-        }
-
-        private void btnConfiguracion_Click(object sender, EventArgs e)
-        {
-            if (!MostrarFormExist<FormUsuarios>())
-            {
-                FormUsuarios configuracion = new FormUsuarios();
-                configuracion.Show();
-            }
-
         }
 
         // actualizar los datos de usuario
@@ -229,6 +223,16 @@ namespace Beatrix_Formulario
                 txtCorreu.Text = usuarioSeleccionado.email;
                 txtTele.Text = usuarioSeleccionado.telefono;
                 txtPassword.Text = usuarioSeleccionado.contrasena;
+            }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+             if (!MostrarFormExist<FormUsuarios>())
+            {
+                FormUsuarios configuracion = new FormUsuarios();
+                configuracion.Show();
+                this.Hide();
             }
         }
 

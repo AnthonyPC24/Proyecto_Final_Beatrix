@@ -43,10 +43,10 @@
             // 
             // labelTituloProyecto
             // 
-            labelTituloProyecto.Font = new Font("Montserrat", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelTituloProyecto.Location = new Point(155, 52);
+            labelTituloProyecto.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelTituloProyecto.Location = new Point(177, 69);
             labelTituloProyecto.Name = "labelTituloProyecto";
-            labelTituloProyecto.Size = new Size(495, 30);
+            labelTituloProyecto.Size = new Size(566, 40);
             labelTituloProyecto.TabIndex = 1;
             labelTituloProyecto.Text = "label1";
             labelTituloProyecto.TextAlign = ContentAlignment.TopCenter;
@@ -54,79 +54,81 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Montserrat Medium", 11.25F, FontStyle.Bold);
-            label1.Location = new Point(155, 119);
+            label1.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
+            label1.Location = new Point(177, 159);
             label1.Name = "label1";
-            label1.Size = new Size(129, 24);
+            label1.Size = new Size(161, 24);
             label1.TabIndex = 3;
             label1.Text = "Fecha de Inicio:";
             // 
             // lblFechaInicio
             // 
             lblFechaInicio.AutoSize = true;
-            lblFechaInicio.Font = new Font("Montserrat Medium", 11.25F, FontStyle.Bold);
-            lblFechaInicio.Location = new Point(290, 119);
+            lblFechaInicio.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
+            lblFechaInicio.Location = new Point(331, 159);
             lblFechaInicio.Name = "lblFechaInicio";
-            lblFechaInicio.Size = new Size(55, 24);
+            lblFechaInicio.Size = new Size(66, 24);
             lblFechaInicio.TabIndex = 4;
             lblFechaInicio.Text = "label2";
             // 
             // lblFechaEntrega
             // 
             lblFechaEntrega.AutoSize = true;
-            lblFechaEntrega.Font = new Font("Montserrat Medium", 11.25F, FontStyle.Bold);
-            lblFechaEntrega.Location = new Point(595, 119);
+            lblFechaEntrega.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
+            lblFechaEntrega.Location = new Point(680, 159);
             lblFechaEntrega.Name = "lblFechaEntrega";
-            lblFechaEntrega.Size = new Size(55, 24);
+            lblFechaEntrega.Size = new Size(66, 24);
             lblFechaEntrega.TabIndex = 6;
             lblFechaEntrega.Text = "label2";
             // 
             // labelFechaEntrega
             // 
             labelFechaEntrega.AutoSize = true;
-            labelFechaEntrega.Font = new Font("Montserrat Medium", 11.25F, FontStyle.Bold);
-            labelFechaEntrega.Location = new Point(442, 119);
+            labelFechaEntrega.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
+            labelFechaEntrega.Location = new Point(505, 159);
             labelFechaEntrega.Name = "labelFechaEntrega";
-            labelFechaEntrega.Size = new Size(147, 24);
+            labelFechaEntrega.Size = new Size(184, 24);
             labelFechaEntrega.TabIndex = 5;
             labelFechaEntrega.Text = "Fecha de Entrega:";
             // 
             // labelUsuarios
             // 
             labelUsuarios.AutoSize = true;
-            labelUsuarios.Font = new Font("Montserrat Medium", 12F, FontStyle.Bold);
-            labelUsuarios.Location = new Point(155, 181);
+            labelUsuarios.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
+            labelUsuarios.Location = new Point(177, 241);
             labelUsuarios.Name = "labelUsuarios";
-            labelUsuarios.Size = new Size(201, 25);
+            labelUsuarios.Size = new Size(235, 25);
             labelUsuarios.TabIndex = 7;
             labelUsuarios.Text = "Usuarios Participantes:";
             // 
             // txtUsuariosAsignados
             // 
-            txtUsuariosAsignados.Location = new Point(362, 183);
+            txtUsuariosAsignados.Location = new Point(414, 244);
+            txtUsuariosAsignados.Margin = new Padding(3, 4, 3, 4);
             txtUsuariosAsignados.Multiline = true;
             txtUsuariosAsignados.Name = "txtUsuariosAsignados";
             txtUsuariosAsignados.ReadOnly = true;
-            txtUsuariosAsignados.Size = new Size(288, 23);
+            txtUsuariosAsignados.Size = new Size(329, 29);
             txtUsuariosAsignados.TabIndex = 8;
             txtUsuariosAsignados.TextChanged += txtUsuariosAsignados_TextChanged;
             // 
             // labelDescripcion
             // 
             labelDescripcion.AutoSize = true;
-            labelDescripcion.Font = new Font("Montserrat Medium", 12F, FontStyle.Bold);
-            labelDescripcion.Location = new Point(155, 233);
+            labelDescripcion.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
+            labelDescripcion.Location = new Point(177, 311);
             labelDescripcion.Name = "labelDescripcion";
-            labelDescripcion.Size = new Size(112, 25);
+            labelDescripcion.Size = new Size(132, 25);
             labelDescripcion.TabIndex = 9;
             labelDescripcion.Text = "Descripcion:";
             labelDescripcion.Click += labelDescripcion_Click;
             // 
             // btnCerrar
             // 
-            btnCerrar.Location = new Point(352, 405);
+            btnCerrar.Location = new Point(402, 540);
+            btnCerrar.Margin = new Padding(3, 4, 3, 4);
             btnCerrar.Name = "btnCerrar";
-            btnCerrar.Size = new Size(75, 23);
+            btnCerrar.Size = new Size(86, 31);
             btnCerrar.TabIndex = 11;
             btnCerrar.Text = "Cerrar";
             btnCerrar.UseVisualStyleBackColor = true;
@@ -134,18 +136,20 @@
             // 
             // txtBoxDescr
             // 
-            txtBoxDescr.Location = new Point(273, 233);
+            txtBoxDescr.Location = new Point(312, 311);
+            txtBoxDescr.Margin = new Padding(3, 4, 3, 4);
             txtBoxDescr.Multiline = true;
             txtBoxDescr.Name = "txtBoxDescr";
             txtBoxDescr.ReadOnly = true;
-            txtBoxDescr.Size = new Size(377, 139);
+            txtBoxDescr.Size = new Size(430, 184);
             txtBoxDescr.TabIndex = 12;
             // 
             // buttonEditar
             // 
-            buttonEditar.Location = new Point(457, 405);
+            buttonEditar.Location = new Point(522, 540);
+            buttonEditar.Margin = new Padding(3, 4, 3, 4);
             buttonEditar.Name = "buttonEditar";
-            buttonEditar.Size = new Size(75, 23);
+            buttonEditar.Size = new Size(86, 31);
             buttonEditar.TabIndex = 13;
             buttonEditar.Text = "Editar";
             buttonEditar.UseVisualStyleBackColor = true;
@@ -153,10 +157,10 @@
             // 
             // FormProyectosGerard3
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(41, 191, 205);
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(914, 600);
             Controls.Add(buttonEditar);
             Controls.Add(txtBoxDescr);
             Controls.Add(btnCerrar);
@@ -168,7 +172,9 @@
             Controls.Add(lblFechaInicio);
             Controls.Add(label1);
             Controls.Add(labelTituloProyecto);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "FormProyectosGerard3";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form2";
             Load += FormProyectosGerard3_Load_1;
             ResumeLayout(false);

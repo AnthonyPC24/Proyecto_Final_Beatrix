@@ -49,8 +49,8 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panelBarraOpciones = new Panel();
-            btnConfiguracion = new Button();
-            pbUser = new PictureBox();
+            Logo = new PictureBox();
+            linkLabel1 = new LinkLabel();
             labelBeatrix = new Label();
             btnReuniones = new Button();
             btnTareas = new Button();
@@ -72,8 +72,9 @@
             lblCrearUsuario = new Label();
             lblTitulo = new Label();
             dgvUsuarios = new DataGridView();
+            label1 = new Label();
             panelBarraOpciones.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pbUser).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Logo).BeginInit();
             panelUsuario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxUsuario).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvUsuarios).BeginInit();
@@ -82,8 +83,8 @@
             // panelBarraOpciones
             // 
             panelBarraOpciones.BackColor = Color.FromArgb(41, 195, 205);
-            panelBarraOpciones.Controls.Add(btnConfiguracion);
-            panelBarraOpciones.Controls.Add(pbUser);
+            panelBarraOpciones.Controls.Add(Logo);
+            panelBarraOpciones.Controls.Add(linkLabel1);
             panelBarraOpciones.Controls.Add(labelBeatrix);
             panelBarraOpciones.Controls.Add(btnReuniones);
             panelBarraOpciones.Controls.Add(btnTareas);
@@ -96,45 +97,49 @@
             panelBarraOpciones.Size = new Size(250, 673);
             panelBarraOpciones.TabIndex = 3;
             // 
-            // btnConfiguracion
+            // Logo
             // 
-            btnConfiguracion.BackColor = Color.FromArgb(41, 195, 205);
-            btnConfiguracion.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnConfiguracion.ForeColor = Color.White;
-            btnConfiguracion.Location = new Point(17, 584);
-            btnConfiguracion.Margin = new Padding(3, 4, 3, 4);
-            btnConfiguracion.Name = "btnConfiguracion";
-            btnConfiguracion.Size = new Size(213, 71);
-            btnConfiguracion.TabIndex = 7;
-            btnConfiguracion.Text = "Configuracion";
-            btnConfiguracion.UseVisualStyleBackColor = false;
-            btnConfiguracion.Click += btnConfiguracion_Click;
+            Logo.Anchor = AnchorStyles.None;
+            Logo.BackColor = Color.Transparent;
+            Logo.BackgroundImageLayout = ImageLayout.Zoom;
+            Logo.Image = Properties.Resources.Logo;
+            Logo.Location = new Point(38, 86);
+            Logo.Name = "Logo";
+            Logo.Size = new Size(165, 160);
+            Logo.SizeMode = PictureBoxSizeMode.Zoom;
+            Logo.TabIndex = 11;
+            Logo.TabStop = false;
             // 
-            // pbUser
+            // linkLabel1
             // 
-            pbUser.Image = Properties.Resources.usuario;
-            pbUser.Location = new Point(50, 95);
-            pbUser.Name = "pbUser";
-            pbUser.Size = new Size(146, 143);
-            pbUser.SizeMode = PictureBoxSizeMode.StretchImage;
-            pbUser.TabIndex = 6;
-            pbUser.TabStop = false;
+            linkLabel1.ActiveLinkColor = Color.FromArgb(245, 168, 125);
+            linkLabel1.AutoSize = true;
+            linkLabel1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
+            linkLabel1.ForeColor = Color.White;
+            linkLabel1.LinkColor = SystemColors.ControlLightLight;
+            linkLabel1.Location = new Point(50, 613);
+            linkLabel1.Name = "linkLabel1";
+            linkLabel1.Size = new Size(146, 25);
+            linkLabel1.TabIndex = 10;
+            linkLabel1.TabStop = true;
+            linkLabel1.Text = "Configuración";
+            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
             // 
             // labelBeatrix
             // 
             labelBeatrix.AutoSize = true;
-            labelBeatrix.Font = new Font("Montserrat Black", 17.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelBeatrix.Font = new Font("Microsoft Sans Serif", 17.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelBeatrix.ForeColor = Color.Transparent;
             labelBeatrix.Location = new Point(14, 24);
             labelBeatrix.Name = "labelBeatrix";
-            labelBeatrix.Size = new Size(139, 47);
+            labelBeatrix.Size = new Size(114, 36);
             labelBeatrix.TabIndex = 4;
             labelBeatrix.Text = "Beatrix";
             // 
             // btnReuniones
             // 
             btnReuniones.BackColor = Color.FromArgb(41, 195, 205);
-            btnReuniones.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnReuniones.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             btnReuniones.ForeColor = Color.White;
             btnReuniones.Location = new Point(17, 505);
             btnReuniones.Margin = new Padding(3, 4, 3, 4);
@@ -148,7 +153,7 @@
             // btnTareas
             // 
             btnTareas.BackColor = Color.FromArgb(41, 195, 205);
-            btnTareas.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnTareas.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             btnTareas.ForeColor = Color.White;
             btnTareas.Location = new Point(17, 426);
             btnTareas.Margin = new Padding(3, 4, 3, 4);
@@ -162,7 +167,7 @@
             // btnProyetos
             // 
             btnProyetos.BackColor = Color.FromArgb(41, 195, 205);
-            btnProyetos.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnProyetos.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             btnProyetos.ForeColor = Color.White;
             btnProyetos.Location = new Point(17, 347);
             btnProyetos.Margin = new Padding(3, 4, 3, 4);
@@ -176,7 +181,7 @@
             // btnInicio
             // 
             btnInicio.BackColor = Color.FromArgb(41, 195, 205);
-            btnInicio.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnInicio.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             btnInicio.ForeColor = Color.White;
             btnInicio.Location = new Point(17, 269);
             btnInicio.Margin = new Padding(3, 4, 3, 4);
@@ -202,7 +207,7 @@
             panelUsuario.Controls.Add(txtTele);
             panelUsuario.Controls.Add(txtCorreu);
             panelUsuario.Controls.Add(txtNombre);
-            panelUsuario.Location = new Point(314, 34);
+            panelUsuario.Location = new Point(314, 71);
             panelUsuario.Name = "panelUsuario";
             panelUsuario.Size = new Size(900, 306);
             panelUsuario.TabIndex = 4;
@@ -210,10 +215,10 @@
             // lblPassword
             // 
             lblPassword.AutoSize = true;
-            lblPassword.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblPassword.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblPassword.Location = new Point(552, 128);
             lblPassword.Name = "lblPassword";
-            lblPassword.Size = new Size(95, 24);
+            lblPassword.Size = new Size(85, 18);
             lblPassword.TabIndex = 11;
             lblPassword.Text = "Contraseña";
             // 
@@ -227,10 +232,10 @@
             // lblNombreUsuario
             // 
             lblNombreUsuario.AutoSize = true;
-            lblNombreUsuario.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblNombreUsuario.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblNombreUsuario.Location = new Point(182, 80);
             lblNombreUsuario.Name = "lblNombreUsuario";
-            lblNombreUsuario.Size = new Size(161, 24);
+            lblNombreUsuario.Size = new Size(143, 18);
             lblNombreUsuario.TabIndex = 9;
             lblNombreUsuario.Text = "Nombre de usuarios";
             // 
@@ -245,7 +250,7 @@
             // 
             btnActualizar.BackColor = Color.FromArgb(41, 191, 205);
             btnActualizar.FlatStyle = FlatStyle.Popup;
-            btnActualizar.Font = new Font("Montserrat Medium", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnActualizar.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnActualizar.ForeColor = SystemColors.ControlLightLight;
             btnActualizar.Location = new Point(782, 220);
             btnActualizar.Name = "btnActualizar";
@@ -268,30 +273,30 @@
             // lblTele
             // 
             lblTele.AutoSize = true;
-            lblTele.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTele.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblTele.Location = new Point(552, 80);
             lblTele.Name = "lblTele";
-            lblTele.Size = new Size(116, 24);
+            lblTele.Size = new Size(105, 18);
             lblTele.TabIndex = 6;
             lblTele.Text = "Telefono Movil";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.Location = new Point(182, 177);
             label2.Name = "label2";
-            label2.Size = new Size(147, 24);
+            label2.Size = new Size(134, 18);
             label2.TabIndex = 5;
             label2.Text = "Correo Electronico";
             // 
             // lblNombre
             // 
             lblNombre.AutoSize = true;
-            lblNombre.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblNombre.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblNombre.Location = new Point(182, 128);
             lblNombre.Name = "lblNombre";
-            lblNombre.Size = new Size(154, 24);
+            lblNombre.Size = new Size(135, 18);
             lblNombre.TabIndex = 4;
             lblNombre.Text = "Nombre y apellidos";
             // 
@@ -319,11 +324,11 @@
             // lblCrearUsuario
             // 
             lblCrearUsuario.AutoSize = true;
-            lblCrearUsuario.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblCrearUsuario.Font = new Font("Microsoft Sans Serif", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblCrearUsuario.ForeColor = Color.FromArgb(41, 191, 205);
-            lblCrearUsuario.Location = new Point(328, 347);
+            lblCrearUsuario.Location = new Point(328, 384);
             lblCrearUsuario.Name = "lblCrearUsuario";
-            lblCrearUsuario.Size = new Size(127, 24);
+            lblCrearUsuario.Size = new Size(129, 18);
             lblCrearUsuario.TabIndex = 12;
             lblCrearUsuario.Text = "+ Crear Usuario";
             lblCrearUsuario.Click += lblCrearUsuario_Click;
@@ -331,11 +336,11 @@
             // lblTitulo
             // 
             lblTitulo.AutoSize = true;
-            lblTitulo.Font = new Font("Montserrat Medium", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitulo.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitulo.ForeColor = Color.FromArgb(41, 191, 205);
-            lblTitulo.Location = new Point(654, 356);
+            lblTitulo.Location = new Point(654, 393);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(176, 28);
+            lblTitulo.Size = new Size(180, 22);
             lblTitulo.TabIndex = 13;
             lblTitulo.Text = "Todos los usuarios";
             // 
@@ -346,7 +351,7 @@
             dgvUsuarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = SystemColors.Window;
-            dataGridViewCellStyle1.Font = new Font("Montserrat", 7.79999971F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 7.79999971F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
@@ -354,12 +359,24 @@
             dgvUsuarios.DefaultCellStyle = dataGridViewCellStyle1;
             dgvUsuarios.EnableHeadersVisualStyles = false;
             dgvUsuarios.GridColor = SystemColors.ActiveBorder;
-            dgvUsuarios.Location = new Point(409, 401);
+            dgvUsuarios.Location = new Point(409, 431);
             dgvUsuarios.Name = "dgvUsuarios";
             dgvUsuarios.RowHeadersWidth = 51;
             dgvUsuarios.Size = new Size(687, 231);
             dgvUsuarios.TabIndex = 14;
             dgvUsuarios.SelectionChanged += dgvUsuarios_SelectionChanged;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.Turquoise;
+            label1.Location = new Point(314, 24);
+            label1.Name = "label1";
+            label1.Size = new Size(130, 31);
+            label1.TabIndex = 15;
+            label1.Text = "Usuarios";
             // 
             // FormUsuarios
             // 
@@ -367,6 +384,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.HighlightText;
             ClientSize = new Size(1262, 673);
+            Controls.Add(label1);
             Controls.Add(dgvUsuarios);
             Controls.Add(lblTitulo);
             Controls.Add(lblCrearUsuario);
@@ -378,7 +396,7 @@
             Text = "FormConfiguracionUsuarios";
             panelBarraOpciones.ResumeLayout(false);
             panelBarraOpciones.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pbUser).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Logo).EndInit();
             panelUsuario.ResumeLayout(false);
             panelUsuario.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxUsuario).EndInit();
@@ -388,13 +406,13 @@
         }
 
         #endregion
-
-        private PictureBox pbUser;
-        private Button btnConfiguracion;
         private DataGridView dgvUsuarios;
         private Label lblNombreUsuario;
         private TextBox txtNombreUsuario;
         private Label lblPassword;
         private TextBox txtPassword;
+        private LinkLabel linkLabel1;
+        private PictureBox Logo;
+        private Label label1;
     }
 }

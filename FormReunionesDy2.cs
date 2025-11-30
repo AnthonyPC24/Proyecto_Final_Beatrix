@@ -41,7 +41,7 @@ namespace Beatrix_Formulario
                 {
                     string json = File.ReadAllText(rutaArchivo);
 
-                    
+
                     List<Usuarios> listaUsuarios = JsonSerializer.Deserialize<List<Usuarios>>(json);
 
                     listaUsuarios = listaUsuarios.OrderBy(u => u.nombreApellidos).ToList();
@@ -68,7 +68,7 @@ namespace Beatrix_Formulario
 
         private void buttonCrear_Click(object sender, EventArgs e)
         {
-            
+
             List<string> participantesSeleccionados = new List<string>();
 
             foreach (var item in checkedListBoxParticipantes.CheckedItems)
@@ -77,7 +77,7 @@ namespace Beatrix_Formulario
                     participantesSeleccionados.Add(usuario.nombreApellidos);
             }
 
-          
+
             Reunion nuevaReunion = new Reunion
             {
                 titulo = textBoxAsunto.Text,
@@ -103,17 +103,17 @@ namespace Beatrix_Formulario
             {
                 List<Reunion> listaReuniones = new List<Reunion>();
 
-                
+
                 if (File.Exists(rutaArchivo))
                 {
                     string jsonExistente = File.ReadAllText(rutaArchivo);
                     listaReuniones = JsonSerializer.Deserialize<List<Reunion>>(jsonExistente);
                 }
 
-               
+
                 listaReuniones.Add(nuevaReunion);
 
-              
+
                 string nuevoJson = JsonSerializer.Serialize(listaReuniones, new JsonSerializerOptions { WriteIndented = true });
                 File.WriteAllText(rutaArchivo, nuevoJson);
 
@@ -131,7 +131,7 @@ namespace Beatrix_Formulario
 
         private void richTextBoxInformacion_TextChanged(object sender, EventArgs e)
         {
-        
+
             if (richTextBoxInformacion.Text.Length > MaxCaracteresDescripcion)
             {
                 richTextBoxInformacion.Text = richTextBoxInformacion.Text.Substring(0, MaxCaracteresDescripcion);
@@ -152,6 +152,7 @@ namespace Beatrix_Formulario
 
             labelContador1.Text = $"{textBoxAsunto.Text.Length}/{MaxCaracteresAsunto}";
         }
+
     }
- }
+}
 
