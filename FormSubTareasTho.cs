@@ -29,10 +29,11 @@ namespace Beatrix_Formulario
         {
             try
             {
-                string rutaArchivo = Path.Combine(Application.StartupPath, "JSON", "Proyectos.json");
-                if (!File.Exists(rutaArchivo)) return;
+                string rutaProyecto = Directory.GetParent(Application.StartupPath).Parent.Parent.Parent.FullName;
+                string rutaArchivoProyecto = Path.Combine(rutaProyecto, "JSON", "Proyectos.json");
+                if (!File.Exists(rutaArchivoProyecto)) return;
 
-                string json = File.ReadAllText(rutaArchivo);
+                string json = File.ReadAllText(rutaArchivoProyecto);
                 var listaProyectos = JsonSerializer.Deserialize<List<Proyectos>>(json);
 
                 comboBoxProyectosSubTareas.Items.Clear();
@@ -54,21 +55,42 @@ namespace Beatrix_Formulario
         {
             try
             {
-                string rutaArchivo = Path.Combine(Application.StartupPath, "JSON", "Usuarios.json");
-                if (!File.Exists(rutaArchivo)) return;
+                // Obtener ruta correcta: subir 3 niveles y entrar en /JSON
+                string rutaProyecto = Directory.GetParent(Application.StartupPath).Parent.Parent.Parent.FullName;
+                string rutaArchivo = Path.Combine(rutaProyecto, "JSON", "Usuarios.json");
+
+                if (!File.Exists(rutaArchivo))
+                {
+                    MessageBox.Show("No se encontró el archivo Usuarios.json en la carpeta JSON.",
+                                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
                 string json = File.ReadAllText(rutaArchivo);
-                var listaUsuarios = JsonSerializer.Deserialize<List<Usuarios>>(json);
+
+                var listaUsuarios = JsonSerializer.Deserialize<List<Usuarios>>(json,
+                    new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true
+                    });
+
+                if (listaUsuarios == null || listaUsuarios.Count == 0)
+                {
+                    MessageBox.Show("No hay usuarios en el archivo JSON.",
+                                    "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
 
                 comboBoxUsuariosAsignarsubTareas.Items.Clear();
-                foreach (var usuario in listaUsuarios ?? new List<Usuarios>())
+                foreach (var usuario in listaUsuarios)
                 {
                     comboBoxUsuariosAsignarsubTareas.Items.Add(usuario.nombreUsuario);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al cargar usuarios: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error al cargar usuarios: {ex.Message}",
+                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
