@@ -32,7 +32,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridView dgvTarea;
             DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
