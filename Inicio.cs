@@ -26,6 +26,7 @@ namespace Beatrix_Formulario
             string tareasPath = Path.Combine(Application.StartupPath, "JSON", "Proyectos.json");
             string reunionesPath = Path.Combine(Application.StartupPath, "JSON", "Reuniones.json");
 
+
             if (File.Exists(tareasPath))
             {
                 try
@@ -169,41 +170,38 @@ namespace Beatrix_Formulario
             dgvReuniones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
+
+
+
+
+
         private void buttonInicio_Click(object sender, EventArgs e)
         {
-            if (!MostrarFormExist<Inicio>())
-            {
+
                 Inicio inicioForm = new Inicio();
                 inicioForm.Show();
-            }
+                this.Hide();
         }
 
         private void buttonProyetos_Click(object sender, EventArgs e)
         {
-            if (!MostrarFormExist<FormProyectosGerard1>())
-            {
                 FormProyectosGerard1 proyectosForm = new FormProyectosGerard1();
                 proyectosForm.Show();
-            }
+                this.Hide();
         }
 
         private void btnTareas_Click(object sender, EventArgs e)
         {
-            if (!MostrarFormExist<FormProyectosGerard2>())
-            {
-                FormProyectosGerard2 tareasForm = new FormProyectosGerard2();
+                FormTareasTho1 tareasForm = new FormTareasTho1();
                 tareasForm.Show();
-            }
+                this.Hide();
         }
 
         private void btnReuniones_Click(object sender, EventArgs e)
         {
-
-            if (!MostrarFormExist<FormReunionesDy1>())
-            {
                 FormReunionesDy1 reunionesForm = new FormReunionesDy1();
                 reunionesForm.Show();
-            }
+                this.Hide();
         }
 
         //foto de usuario
@@ -212,17 +210,35 @@ namespace Beatrix_Formulario
             FormUsuarios formUsuarios = new FormUsuarios();
             formUsuarios.Show();
             this.Hide();
-            
+
         }
 
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+                FormUsuarios configuracion = new FormUsuarios();
+                configuracion.Show();
+                this.Hide();
+        }
+
+        private void Inicio_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        // determinar si ya hay abierto un form
         private bool MostrarFormExist<T>() where T : Form
         {
-            foreach (Form frm in Application.OpenForms)
+            foreach (Form form in Application.OpenForms)
             {
-                if (frm is T)
+                if (form is T)
                 {
-                    frm.BringToFront();
-                    frm.WindowState = FormWindowState.Normal;
+                    form.Show();
+                    form.WindowState = FormWindowState.Normal;
+                    form.Activate();
+
+                    form.TopMost = true;
+                    form.TopMost = false;
+
                     return true;
                 }
             }

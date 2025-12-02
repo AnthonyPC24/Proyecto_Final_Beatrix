@@ -33,33 +33,41 @@ namespace Beatrix_Formulario
         {
             try
             {
-                string rutaArchivoProyecto = Path.Combine(Application.StartupPath, "JSON", "Proyectos.json");
+                // Obtener ruta correcta: 3 niveles arriba + carpeta JSON
+                string rutaProyecto = Directory.GetParent(Application.StartupPath).Parent.Parent.Parent.FullName;
+                string rutaArchivoProyecto = Path.Combine(rutaProyecto, "JSON", "Proyectos.json");
 
                 if (!File.Exists(rutaArchivoProyecto))
                 {
-                    MessageBox.Show("No se encontró el archivo de proyectos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("No se encontró el archivo de proyectos en la carpeta JSON.",
+                                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
                 string jsonProyectos = File.ReadAllText(rutaArchivoProyecto);
-                var listaProyectos = JsonSerializer.Deserialize<List<Proyectos>>(jsonProyectos);
+                var listaProyectos = JsonSerializer.Deserialize<List<Proyectos>>(jsonProyectos,
+                    new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true
+                    });
 
                 if (listaProyectos == null || listaProyectos.Count == 0)
                 {
-                    MessageBox.Show("No hay proyectos en el archivo JSON.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("No hay proyectos en el archivo JSON.",
+                                    "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
 
                 comboBoxProyectoNuevaTarea.Items.Clear();
-                foreach (var proyectos in listaProyectos)
+                foreach (var proyecto in listaProyectos)
                 {
-                    comboBoxProyectoNuevaTarea.Items.Add(proyectos.NombreProyecto);
+                    comboBoxProyectoNuevaTarea.Items.Add(proyecto.NombreProyecto);
                 }
-
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al cargar proyectos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error al cargar proyectos: {ex.Message}",
+                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -67,20 +75,29 @@ namespace Beatrix_Formulario
         {
             try
             {
-                string rutaArchivo = Path.Combine(Application.StartupPath, "JSON", "Usuarios.json");
+                // Obtener ruta correcta: subir 3 niveles y entrar en /JSON
+                string rutaProyecto = Directory.GetParent(Application.StartupPath).Parent.Parent.Parent.FullName;
+                string rutaArchivo = Path.Combine(rutaProyecto, "JSON", "Usuarios.json");
 
                 if (!File.Exists(rutaArchivo))
                 {
-                    MessageBox.Show("No se encontró el archivo de usuarios.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("No se encontró el archivo Usuarios.json en la carpeta JSON.",
+                                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
                 string json = File.ReadAllText(rutaArchivo);
-                var listaUsuarios = JsonSerializer.Deserialize<List<Usuarios>>(json);
+
+                var listaUsuarios = JsonSerializer.Deserialize<List<Usuarios>>(json,
+                    new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true
+                    });
 
                 if (listaUsuarios == null || listaUsuarios.Count == 0)
                 {
-                    MessageBox.Show("No hay usuarios en el archivo JSON.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("No hay usuarios en el archivo JSON.",
+                                    "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
 
@@ -92,7 +109,8 @@ namespace Beatrix_Formulario
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al cargar usuarios: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error al cargar usuarios: {ex.Message}",
+                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

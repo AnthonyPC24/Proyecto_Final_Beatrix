@@ -86,25 +86,30 @@ namespace Beatrix_Formulario
         {
             try
             {
-                string rutaArchivoProyectos = Path.Combine(Application.StartupPath, "JSON", "Proyectos.json");
+                // Obtener ruta correcta del JSON (3 niveles arriba + carpeta JSON)
+                string rutaProyecto = Directory.GetParent(Application.StartupPath).Parent.Parent.Parent.FullName;
+                string rutaArchivoProyectos = Path.Combine(rutaProyecto, "JSON", "Proyectos.json");
 
                 if (!File.Exists(rutaArchivoProyectos))
                 {
-                    MessageBox.Show("No se encontró el archivo de proyectos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("No se encontró el archivo de proyectos en la carpeta JSON.",
+                                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
                 string jsonProyectos = File.ReadAllText(rutaArchivoProyectos);
 
                 // Ignorar mayúsculas/minúsculas en JSON
-                listaProyectos = JsonSerializer.Deserialize<List<Proyectos>>(jsonProyectos, new JsonSerializerOptions
-                {
-                    PropertyNameCaseInsensitive = true
-                });
+                listaProyectos = JsonSerializer.Deserialize<List<Proyectos>>(jsonProyectos,
+                    new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true
+                    });
 
                 if (listaProyectos == null || listaProyectos.Count == 0)
                 {
-                    MessageBox.Show("No hay proyectos en el archivo JSON.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("No hay proyectos en el archivo JSON.",
+                                    "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
 
@@ -114,7 +119,8 @@ namespace Beatrix_Formulario
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al cargar proyectos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error al cargar proyectos: {ex.Message}",
+                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

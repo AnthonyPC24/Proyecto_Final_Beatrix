@@ -41,14 +41,15 @@
             // 
             // btnLogin
             // 
+            btnLogin.BackColor = Color.FromArgb(41, 191, 205);
             btnLogin.FlatStyle = FlatStyle.System;
-            btnLogin.Font = new Font("Montserrat", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnLogin.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnLogin.Location = new Point(362, 393);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(190, 40);
             btnLogin.TabIndex = 0;
             btnLogin.Text = "Entrar";
-            btnLogin.UseVisualStyleBackColor = true;
+            btnLogin.UseVisualStyleBackColor = false;
             btnLogin.Click += btnLogin_Click;
             // 
             // Logo
