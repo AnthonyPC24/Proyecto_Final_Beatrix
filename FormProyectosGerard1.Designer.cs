@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             panel1 = new Panel();
             labelBeatrix = new Label();
             btnReunion = new Button();
@@ -156,14 +156,14 @@
             dataGridViewTarea.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewTarea.BackgroundColor = SystemColors.ButtonHighlight;
             dataGridViewTarea.BorderStyle = BorderStyle.Fixed3D;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridViewTarea.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dataGridViewTarea.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewTarea.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewTarea.Columns.AddRange(new DataGridViewColumn[] { Column1, ColumnUsuario, Column2 });
             dataGridViewTarea.GridColor = SystemColors.Control;
@@ -172,8 +172,8 @@
             dataGridViewTarea.Name = "dataGridViewTarea";
             dataGridViewTarea.ReadOnly = true;
             dataGridViewTarea.RowHeadersWidth = 51;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewTarea.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewTarea.RowsDefaultCellStyle = dataGridViewCellStyle4;
             dataGridViewTarea.Size = new Size(973, 435);
             dataGridViewTarea.TabIndex = 18;
             dataGridViewTarea.CellContentClick += dataGridViewTarea_CellContentClick;
@@ -255,6 +255,7 @@
             Controls.Add(panel1);
             Name = "FormProyectosGerard1";
             Text = "FormProyectosGerard1";
+            WindowState = FormWindowState.Maximized;
             Load += FormProyectosGerard1_Load_1;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
