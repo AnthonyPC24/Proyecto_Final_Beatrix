@@ -7,12 +7,12 @@
     "fechaInicio": "2025-11-20T19:17:24.4081868+01:00",
     "UsuariosAsignados": [
       {
-        "nombreApellidos": null,
-        "nombreUsuario": "afernandez",
-        "contrasena": null,
-        "email": null,
-        "telefono": null,
-        "rol": null
+        "nombreApellidos": "Marcos Gomez",
+        "nombreUsuario": "mgomez",
+        "contrasena": "P@ssw0rd987",
+        "email": "marcos.g@ejemplo.com",
+        "telefono": "\u002B525512345678",
+        "rol": "Editor"
       }
     ]
   },
