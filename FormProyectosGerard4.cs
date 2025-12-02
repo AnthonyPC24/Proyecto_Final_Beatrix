@@ -67,6 +67,7 @@ namespace Beatrix_Formulario
                 // --- RELLENAR CAMPOS ---
                 txtNombre.Text = proyectoAEditar.NombreProyecto;
                 richTextBox1.Text = proyectoAEditar.DescripcionProyecto;
+                textBoxEstado.Text = proyectoAEditar.Estado;
 
                 if (proyectoAEditar.fechaInicio != DateTime.MinValue)
                     dateTimePicker1.Value = proyectoAEditar.fechaInicio;
@@ -133,6 +134,7 @@ namespace Beatrix_Formulario
                 proyectoAEditar.DescripcionProyecto = richTextBox1.Text;
                 proyectoAEditar.fechaInicio = dateTimePicker1.Value;
                 proyectoAEditar.fechaEntrega = dateTimePicker2.Value;
+                proyectoAEditar.Estado = textBoxEstado.Text;
 
                 // 2. RECONSTRUIR LISTA DE USUARIOS
                 // Leemos lo que hay AHORA MISMO en el ListBox (después de que hayas quitado/añadido)
@@ -264,6 +266,11 @@ namespace Beatrix_Formulario
 
                 comboBoxUsuarios.SelectedIndex = -1;
             }
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

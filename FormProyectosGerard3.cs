@@ -85,6 +85,8 @@ namespace Beatrix_Formulario
                 // 1. Título del Proyecto
                 labelTituloProyecto.Text = proyectoActual.NombreProyecto;
 
+                textBoxEstado.Text = proyectoActual.Estado;
+
                 // 2. Descripción del Proyecto
                 if (!string.IsNullOrEmpty(proyectoActual.DescripcionProyecto))
                 {
@@ -113,6 +115,8 @@ namespace Beatrix_Formulario
                 {
                     lblFechaEntrega.Text = "N/A";
                 }
+
+                
 
                 // 4. Usuarios Asignados (Ahora se leen directo del Proyecto)
                 if (proyectoActual.UsuariosAsignados != null && proyectoActual.UsuariosAsignados.Any())

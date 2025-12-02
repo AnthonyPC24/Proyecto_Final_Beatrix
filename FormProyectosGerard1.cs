@@ -256,24 +256,36 @@ namespace Beatrix_Formulario
         {
             Inicio inicio = new Inicio();
             inicio.Show();
-            this.Hide();
+            Hide();
         }
         private void btnReunion_Click_1(object sender, EventArgs e)
         {
             FormReunionesDy1 formReunionesDy1 = new FormReunionesDy1();
             formReunionesDy1.Show();
-            this.Hide();
+            Hide();
         }
         private void btnTareas_Click(object sender, EventArgs e)
         {
             FormTareasTho1 formTareasTho1 = new FormTareasTho1();
-            formTareasTho1.ShowDialog();
-            this.Hide();
+            formTareasTho1.Show();
+            Hide();
         }
         private void pictureBox1_Click(object sender, EventArgs e) { }
         private void pictureBox1_Click_1(object sender, EventArgs e) { }
         private void btnReunion_Click(object sender, EventArgs e) { }
         private void button4_Click(object sender, EventArgs e) { }
         private void dataGridViewTarea_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FormUsuarios formUsuarios = new FormUsuarios();
+            formUsuarios.Show();
+            Hide();
+        }
+
+        private void FormProyectosGerard1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+           Application.Exit();
+        }
     }
 }

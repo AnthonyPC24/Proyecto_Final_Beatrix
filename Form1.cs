@@ -22,17 +22,15 @@ namespace Beatrix_Formulario
 
         private void cargarUsuarios()
         {
-            string user = txtUsuario.Text.Trim();
-
-            string contrasena = txtContrasena.Text;
 
             try
             {
-                string filePath = Path.Combine(Application.StartupPath, "JSON", "Usuarios.json");
+                string rutaProyecto = Directory.GetParent(Application.StartupPath).Parent.Parent.Parent.FullName;
+                string rutaUsuariosJson = Path.Combine(rutaProyecto, "JSON", "Usuarios.JSON");
 
-                if (File.Exists(filePath))
+                if (File.Exists(rutaUsuariosJson))
                 {
-                    string json = File.ReadAllText(filePath);
+                    string json = File.ReadAllText(rutaUsuariosJson);
                     usuarios = JsonSerializer.Deserialize<List<Usuarios>>(json);
                 }
                 else
@@ -54,22 +52,29 @@ namespace Beatrix_Formulario
             string user = txtUsuario.Text.Trim();
             string password = txtContrasena.Text;
 
-            Usuarios usuarioEncontrado = usuarios
-                .Find(u => u.nombreUsuario == user && u.contrasena == password);
+            Usuarios usuarioLogin = usuarios
+                .Find(u => 
+                u.nombreUsuario == user && 
+                u.contrasena == password 
+                );
 
-            if (usuarioEncontrado != null)
-            {
-               
-                Inicio inicio = new Inicio();
-                inicio.Show();
 
-                this.Hide();   
-            }
-            else
+            if (usuarioLogin == null)
             {
                 MessageBox.Show("Usuario o contraseña incorrectos.");
+                return;
             }
-        }
 
+            if (usuarioLogin.rol != "Administrador" && usuarioLogin.rol != "Editor")
+            {
+                MessageBox.Show("Este usuario no tiene permiso para acceder al sistema.");
+                return;
+            }
+
+            Inicio inicio = new Inicio();
+            inicio.Show();
+
+            this.Hide();
+        }
     }
 }

@@ -67,6 +67,8 @@ namespace Beatrix_Formulario
                 NombreProyecto = txtNombre.Text,
                 DescripcionProyecto = richTextBox1.Text,
 
+                Estado = "Activo",
+
                 // CAMBIO IMPORTANTE: Inicializamos la lista de tareas VACÍA.
                 // Ya no se crea la "Tarea Inicial".
                 Tareas = new List<Tareas>(),
@@ -197,5 +199,6 @@ namespace Beatrix_Formulario
                 listBoxUsuarios.Items.Remove(listBoxUsuarios.SelectedItem);
             }
         }
+
     }
 }

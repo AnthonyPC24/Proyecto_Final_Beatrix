@@ -32,6 +32,7 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panelBarraOpciones = new Panel();
+            Logo = new PictureBox();
             linkLabel1 = new LinkLabel();
             labelBeatrix = new Label();
             buttonReuniones1Tareas = new Button();
@@ -75,6 +76,7 @@
             catalàToolStripMenuItem = new ToolStripMenuItem();
             labelReunionesTitulo = new Label();
             panelBarraOpciones.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)Logo).BeginInit();
             panelParaHoy.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewTarea).BeginInit();
             panelReunion1.SuspendLayout();
@@ -86,6 +88,7 @@
             // panelBarraOpciones
             // 
             panelBarraOpciones.BackColor = Color.FromArgb(41, 195, 205);
+            panelBarraOpciones.Controls.Add(Logo);
             panelBarraOpciones.Controls.Add(linkLabel1);
             panelBarraOpciones.Controls.Add(labelBeatrix);
             panelBarraOpciones.Controls.Add(buttonReuniones1Tareas);
@@ -94,20 +97,34 @@
             panelBarraOpciones.Controls.Add(buttonInicioForm1Tareas);
             panelBarraOpciones.Dock = DockStyle.Left;
             panelBarraOpciones.Location = new Point(0, 0);
+            panelBarraOpciones.Margin = new Padding(3, 4, 3, 4);
             panelBarraOpciones.Name = "panelBarraOpciones";
-            panelBarraOpciones.Size = new Size(219, 681);
+            panelBarraOpciones.Size = new Size(250, 908);
             panelBarraOpciones.TabIndex = 3;
+            // 
+            // Logo
+            // 
+            Logo.Anchor = AnchorStyles.None;
+            Logo.BackColor = Color.Transparent;
+            Logo.BackgroundImageLayout = ImageLayout.Zoom;
+            Logo.Image = Properties.Resources.Logo;
+            Logo.Location = new Point(38, 106);
+            Logo.Name = "Logo";
+            Logo.Size = new Size(165, 160);
+            Logo.SizeMode = PictureBoxSizeMode.Zoom;
+            Logo.TabIndex = 7;
+            Logo.TabStop = false;
             // 
             // linkLabel1
             // 
             linkLabel1.ActiveLinkColor = Color.FromArgb(245, 168, 125);
             linkLabel1.AutoSize = true;
-            linkLabel1.Font = new Font("Montserrat SemiBold", 12F, FontStyle.Bold);
+            linkLabel1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             linkLabel1.ForeColor = Color.White;
             linkLabel1.LinkColor = SystemColors.ControlLightLight;
-            linkLabel1.Location = new Point(41, 566);
+            linkLabel1.Location = new Point(47, 755);
             linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(128, 25);
+            linkLabel1.Size = new Size(146, 25);
             linkLabel1.TabIndex = 6;
             linkLabel1.TabStop = true;
             linkLabel1.Text = "Configuración";
@@ -116,11 +133,11 @@
             // labelBeatrix
             // 
             labelBeatrix.AutoSize = true;
-            labelBeatrix.Font = new Font("Montserrat Black", 17.9999981F, FontStyle.Bold);
+            labelBeatrix.Font = new Font("Microsoft Sans Serif", 17.9999981F, FontStyle.Bold);
             labelBeatrix.ForeColor = Color.Transparent;
-            labelBeatrix.Location = new Point(12, 18);
+            labelBeatrix.Location = new Point(14, 24);
             labelBeatrix.Name = "labelBeatrix";
-            labelBeatrix.Size = new Size(112, 38);
+            labelBeatrix.Size = new Size(114, 36);
             labelBeatrix.TabIndex = 4;
             labelBeatrix.Text = "Beatrix";
             // 
@@ -128,11 +145,12 @@
             // 
             buttonReuniones1Tareas.BackColor = Color.FromArgb(41, 195, 205);
             buttonReuniones1Tareas.Cursor = Cursors.Hand;
-            buttonReuniones1Tareas.Font = new Font("Montserrat SemiBold", 12F, FontStyle.Bold);
+            buttonReuniones1Tareas.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             buttonReuniones1Tareas.ForeColor = Color.White;
-            buttonReuniones1Tareas.Location = new Point(12, 437);
+            buttonReuniones1Tareas.Location = new Point(14, 583);
+            buttonReuniones1Tareas.Margin = new Padding(3, 4, 3, 4);
             buttonReuniones1Tareas.Name = "buttonReuniones1Tareas";
-            buttonReuniones1Tareas.Size = new Size(186, 53);
+            buttonReuniones1Tareas.Size = new Size(213, 71);
             buttonReuniones1Tareas.TabIndex = 3;
             buttonReuniones1Tareas.Text = "Reuniones";
             buttonReuniones1Tareas.UseVisualStyleBackColor = false;
@@ -141,11 +159,12 @@
             // 
             buttonTareas1Tareas.BackColor = Color.FromArgb(41, 195, 205);
             buttonTareas1Tareas.Cursor = Cursors.Hand;
-            buttonTareas1Tareas.Font = new Font("Montserrat SemiBold", 12F, FontStyle.Bold);
+            buttonTareas1Tareas.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             buttonTareas1Tareas.ForeColor = Color.White;
-            buttonTareas1Tareas.Location = new Point(12, 380);
+            buttonTareas1Tareas.Location = new Point(14, 507);
+            buttonTareas1Tareas.Margin = new Padding(3, 4, 3, 4);
             buttonTareas1Tareas.Name = "buttonTareas1Tareas";
-            buttonTareas1Tareas.Size = new Size(186, 53);
+            buttonTareas1Tareas.Size = new Size(213, 71);
             buttonTareas1Tareas.TabIndex = 2;
             buttonTareas1Tareas.Text = "Tareas";
             buttonTareas1Tareas.UseVisualStyleBackColor = false;
@@ -155,11 +174,12 @@
             // 
             buttonProyetos1Tareas.BackColor = Color.FromArgb(41, 195, 205);
             buttonProyetos1Tareas.Cursor = Cursors.Hand;
-            buttonProyetos1Tareas.Font = new Font("Montserrat SemiBold", 12F, FontStyle.Bold);
+            buttonProyetos1Tareas.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             buttonProyetos1Tareas.ForeColor = Color.White;
-            buttonProyetos1Tareas.Location = new Point(12, 323);
+            buttonProyetos1Tareas.Location = new Point(14, 431);
+            buttonProyetos1Tareas.Margin = new Padding(3, 4, 3, 4);
             buttonProyetos1Tareas.Name = "buttonProyetos1Tareas";
-            buttonProyetos1Tareas.Size = new Size(186, 53);
+            buttonProyetos1Tareas.Size = new Size(213, 71);
             buttonProyetos1Tareas.TabIndex = 1;
             buttonProyetos1Tareas.Text = "Proyectos";
             buttonProyetos1Tareas.UseVisualStyleBackColor = false;
@@ -169,11 +189,12 @@
             // 
             buttonInicioForm1Tareas.BackColor = Color.FromArgb(41, 195, 205);
             buttonInicioForm1Tareas.Cursor = Cursors.Hand;
-            buttonInicioForm1Tareas.Font = new Font("Montserrat SemiBold", 12F, FontStyle.Bold);
+            buttonInicioForm1Tareas.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             buttonInicioForm1Tareas.ForeColor = Color.White;
-            buttonInicioForm1Tareas.Location = new Point(12, 266);
+            buttonInicioForm1Tareas.Location = new Point(14, 355);
+            buttonInicioForm1Tareas.Margin = new Padding(3, 4, 3, 4);
             buttonInicioForm1Tareas.Name = "buttonInicioForm1Tareas";
-            buttonInicioForm1Tareas.Size = new Size(186, 53);
+            buttonInicioForm1Tareas.Size = new Size(213, 71);
             buttonInicioForm1Tareas.TabIndex = 0;
             buttonInicioForm1Tareas.Text = "Inicio";
             buttonInicioForm1Tareas.UseVisualStyleBackColor = false;
@@ -181,8 +202,9 @@
             // 
             // monthCalendarReuniones
             // 
-            monthCalendarReuniones.Font = new Font("Montserrat", 14.25F);
-            monthCalendarReuniones.Location = new Point(248, 128);
+            monthCalendarReuniones.Font = new Font("Microsoft Sans Serif", 14.25F);
+            monthCalendarReuniones.Location = new Point(283, 171);
+            monthCalendarReuniones.Margin = new Padding(10, 12, 10, 12);
             monthCalendarReuniones.Name = "monthCalendarReuniones";
             monthCalendarReuniones.TabIndex = 4;
             monthCalendarReuniones.DateChanged += monthCalendar1_DateChanged;
@@ -195,9 +217,10 @@
             panelParaHoy.Controls.Add(labelVerTodasLasReuniones);
             panelParaHoy.Controls.Add(labelReuniones);
             panelParaHoy.Controls.Add(dataGridViewTarea);
-            panelParaHoy.Location = new Point(603, 18);
+            panelParaHoy.Location = new Point(689, 24);
+            panelParaHoy.Margin = new Padding(3, 4, 3, 4);
             panelParaHoy.Name = "panelParaHoy";
-            panelParaHoy.Size = new Size(598, 317);
+            panelParaHoy.Size = new Size(683, 422);
             panelParaHoy.TabIndex = 6;
             panelParaHoy.Paint += panelParaHoy_Paint;
             // 
@@ -205,11 +228,11 @@
             // 
             labelDesmarcar.AutoSize = true;
             labelDesmarcar.Cursor = Cursors.Hand;
-            labelDesmarcar.Font = new Font("Montserrat", 9.749999F, FontStyle.Bold);
+            labelDesmarcar.Font = new Font("Microsoft Sans Serif", 9.749999F, FontStyle.Bold);
             labelDesmarcar.ForeColor = Color.FromArgb(245, 168, 125);
-            labelDesmarcar.Location = new Point(13, 279);
+            labelDesmarcar.Location = new Point(15, 372);
             labelDesmarcar.Name = "labelDesmarcar";
-            labelDesmarcar.Size = new Size(217, 20);
+            labelDesmarcar.Size = new Size(255, 20);
             labelDesmarcar.TabIndex = 19;
             labelDesmarcar.Text = "Desmarcar como completado";
             labelDesmarcar.Click += labelDesmarcar_Click;
@@ -218,11 +241,11 @@
             // 
             labelMarcarCompletada.AutoSize = true;
             labelMarcarCompletada.Cursor = Cursors.Hand;
-            labelMarcarCompletada.Font = new Font("Montserrat", 9.749999F, FontStyle.Bold);
+            labelMarcarCompletada.Font = new Font("Microsoft Sans Serif", 9.749999F, FontStyle.Bold);
             labelMarcarCompletada.ForeColor = Color.FromArgb(127, 191, 159);
-            labelMarcarCompletada.Location = new Point(403, 279);
+            labelMarcarCompletada.Location = new Point(454, 372);
             labelMarcarCompletada.Name = "labelMarcarCompletada";
-            labelMarcarCompletada.Size = new Size(189, 20);
+            labelMarcarCompletada.Size = new Size(221, 20);
             labelMarcarCompletada.TabIndex = 18;
             labelMarcarCompletada.Text = "Marcar como completado";
             labelMarcarCompletada.Click += labelMarcarCompletada_Click;
@@ -231,11 +254,11 @@
             // 
             labelVerTodasLasReuniones.AutoSize = true;
             labelVerTodasLasReuniones.Cursor = Cursors.Hand;
-            labelVerTodasLasReuniones.Font = new Font("Montserrat", 9.749999F, FontStyle.Bold);
+            labelVerTodasLasReuniones.Font = new Font("Microsoft Sans Serif", 9.749999F, FontStyle.Bold);
             labelVerTodasLasReuniones.ForeColor = Color.FromArgb(41, 191, 205);
-            labelVerTodasLasReuniones.Location = new Point(14, 7);
+            labelVerTodasLasReuniones.Location = new Point(16, 9);
             labelVerTodasLasReuniones.Name = "labelVerTodasLasReuniones";
-            labelVerTodasLasReuniones.Size = new Size(171, 20);
+            labelVerTodasLasReuniones.Size = new Size(209, 20);
             labelVerTodasLasReuniones.TabIndex = 17;
             labelVerTodasLasReuniones.Text = "Ver todas las reuniones";
             labelVerTodasLasReuniones.Click += labelVerTodasLasReuniones_Click;
@@ -243,10 +266,10 @@
             // labelReuniones
             // 
             labelReuniones.AutoSize = true;
-            labelReuniones.Font = new Font("Montserrat", 14.25F);
-            labelReuniones.Location = new Point(222, 7);
+            labelReuniones.Font = new Font("Microsoft Sans Serif", 14.25F);
+            labelReuniones.Location = new Point(254, 9);
             labelReuniones.Name = "labelReuniones";
-            labelReuniones.Size = new Size(198, 30);
+            labelReuniones.Size = new Size(232, 29);
             labelReuniones.TabIndex = 17;
             labelReuniones.Text = "Todas las reuniones";
             // 
@@ -265,24 +288,23 @@
             dataGridViewTarea.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewTarea.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewTarea.GridColor = SystemColors.Control;
-            dataGridViewTarea.Location = new Point(14, 38);
-            dataGridViewTarea.Margin = new Padding(3, 2, 3, 2);
+            dataGridViewTarea.Location = new Point(16, 51);
             dataGridViewTarea.Name = "dataGridViewTarea";
             dataGridViewTarea.ReadOnly = true;
             dataGridViewTarea.RowHeadersWidth = 51;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewTarea.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            dataGridViewTarea.Size = new Size(570, 214);
+            dataGridViewTarea.Size = new Size(651, 285);
             dataGridViewTarea.TabIndex = 11;
             dataGridViewTarea.CellFormatting += dataGridViewTarea_CellFormatting;
             // 
             // labelReunionesProximas
             // 
             labelReunionesProximas.AutoSize = true;
-            labelReunionesProximas.Font = new Font("Montserrat", 14.25F);
-            labelReunionesProximas.Location = new Point(234, 360);
+            labelReunionesProximas.Font = new Font("Microsoft Sans Serif", 14.25F);
+            labelReunionesProximas.Location = new Point(267, 480);
             labelReunionesProximas.Name = "labelReunionesProximas";
-            labelReunionesProximas.Size = new Size(201, 30);
+            labelReunionesProximas.Size = new Size(226, 29);
             labelReunionesProximas.TabIndex = 0;
             labelReunionesProximas.Text = "Proximas reuniones";
             // 
@@ -290,11 +312,11 @@
             // 
             labelCrearReunion.AutoSize = true;
             labelCrearReunion.Cursor = Cursors.Hand;
-            labelCrearReunion.Font = new Font("Montserrat", 12.25F, FontStyle.Bold);
+            labelCrearReunion.Font = new Font("Microsoft Sans Serif", 12.25F, FontStyle.Bold);
             labelCrearReunion.ForeColor = Color.FromArgb(41, 191, 205);
-            labelCrearReunion.Location = new Point(237, 299);
+            labelCrearReunion.Location = new Point(271, 399);
             labelCrearReunion.Name = "labelCrearReunion";
-            labelCrearReunion.Size = new Size(149, 27);
+            labelCrearReunion.Size = new Size(176, 25);
             labelCrearReunion.TabIndex = 7;
             labelCrearReunion.Text = "+ Crear reunión";
             labelCrearReunion.Click += labelCrearReunion_Click;
@@ -308,73 +330,74 @@
             panelReunion1.Controls.Add(labelHoraReunion1);
             panelReunion1.Controls.Add(labelParticipantes1);
             panelReunion1.Controls.Add(labelReunionPanel1);
-            panelReunion1.Location = new Point(234, 402);
+            panelReunion1.Location = new Point(267, 536);
+            panelReunion1.Margin = new Padding(3, 4, 3, 4);
             panelReunion1.Name = "panelReunion1";
-            panelReunion1.Size = new Size(286, 256);
+            panelReunion1.Size = new Size(327, 341);
             panelReunion1.TabIndex = 9;
             panelReunion1.Visible = false;
             // 
             // labelInformaciónDeLaReunion1
             // 
-            labelInformaciónDeLaReunion1.Font = new Font("Montserrat SemiBold", 11.25F, FontStyle.Bold);
+            labelInformaciónDeLaReunion1.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
             labelInformaciónDeLaReunion1.ForeColor = SystemColors.ControlLightLight;
-            labelInformaciónDeLaReunion1.Location = new Point(3, 154);
-            labelInformaciónDeLaReunion1.MaximumSize = new Size(250, 0);
+            labelInformaciónDeLaReunion1.Location = new Point(3, 205);
+            labelInformaciónDeLaReunion1.MaximumSize = new Size(286, 0);
             labelInformaciónDeLaReunion1.Name = "labelInformaciónDeLaReunion1";
-            labelInformaciónDeLaReunion1.Size = new Size(250, 50);
+            labelInformaciónDeLaReunion1.Size = new Size(286, 0);
             labelInformaciónDeLaReunion1.TabIndex = 13;
             labelInformaciónDeLaReunion1.Text = "Placeholder";
             // 
             // labelInformacion1
             // 
             labelInformacion1.AutoSize = true;
-            labelInformacion1.Font = new Font("Montserrat", 8.999999F, FontStyle.Bold);
-            labelInformacion1.Location = new Point(92, 135);
+            labelInformacion1.Font = new Font("Microsoft Sans Serif", 8.999999F, FontStyle.Bold);
+            labelInformacion1.Location = new Point(105, 180);
             labelInformacion1.Name = "labelInformacion1";
-            labelInformacion1.Size = new Size(85, 18);
+            labelInformacion1.Size = new Size(97, 18);
             labelInformacion1.TabIndex = 12;
             labelInformacion1.Text = "Información";
             // 
             // labelNombresReunion1
             // 
             labelNombresReunion1.AutoSize = true;
-            labelNombresReunion1.Font = new Font("Montserrat SemiBold", 11.25F, FontStyle.Bold);
+            labelNombresReunion1.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
             labelNombresReunion1.ForeColor = SystemColors.ControlLightLight;
-            labelNombresReunion1.Location = new Point(3, 100);
+            labelNombresReunion1.Location = new Point(3, 133);
             labelNombresReunion1.Name = "labelNombresReunion1";
-            labelNombresReunion1.Size = new Size(225, 24);
+            labelNombresReunion1.Size = new Size(281, 24);
             labelNombresReunion1.TabIndex = 11;
             labelNombresReunion1.Text = "Oscar, Andres, Juan, Andrea";
             // 
             // labelHoraReunion1
             // 
             labelHoraReunion1.AutoSize = true;
-            labelHoraReunion1.Font = new Font("Montserrat Black", 14.25F, FontStyle.Bold);
+            labelHoraReunion1.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold);
             labelHoraReunion1.ForeColor = SystemColors.ButtonHighlight;
-            labelHoraReunion1.Location = new Point(51, 213);
+            labelHoraReunion1.Location = new Point(58, 284);
             labelHoraReunion1.Name = "labelHoraReunion1";
-            labelHoraReunion1.Size = new Size(60, 30);
+            labelHoraReunion1.Size = new Size(76, 29);
             labelHoraReunion1.TabIndex = 10;
             labelHoraReunion1.Text = "11:30";
             // 
             // labelParticipantes1
             // 
             labelParticipantes1.AutoSize = true;
-            labelParticipantes1.Font = new Font("Montserrat", 8.999999F, FontStyle.Bold);
-            labelParticipantes1.Location = new Point(92, 81);
+            labelParticipantes1.Font = new Font("Microsoft Sans Serif", 8.999999F, FontStyle.Bold);
+            labelParticipantes1.Location = new Point(105, 108);
             labelParticipantes1.Name = "labelParticipantes1";
-            labelParticipantes1.Size = new Size(91, 18);
+            labelParticipantes1.Size = new Size(106, 18);
             labelParticipantes1.TabIndex = 9;
             labelParticipantes1.Text = "Participantes";
             // 
             // labelReunionPanel1
             // 
-            labelReunionPanel1.Font = new Font("Montserrat Black", 14.25F, FontStyle.Bold);
+            labelReunionPanel1.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold);
             labelReunionPanel1.ForeColor = SystemColors.ButtonHighlight;
-            labelReunionPanel1.Location = new Point(3, 21);
-            labelReunionPanel1.MaximumSize = new Size(250, 0);
+            labelReunionPanel1.Location = new Point(3, 28);
+            labelReunionPanel1.MaximumSize = new Size(286, 0);
             labelReunionPanel1.Name = "labelReunionPanel1";
-            labelReunionPanel1.Size = new Size(250, 40);
+            labelReunionPanel1.Size = new Size(286, 0);
             labelReunionPanel1.TabIndex = 0;
             labelReunionPanel1.Text = "Reunión 1";
             // 
@@ -387,73 +410,74 @@
             panelReunion2.Controls.Add(labelHoraReunion2);
             panelReunion2.Controls.Add(labelParticipantes2);
             panelReunion2.Controls.Add(labelReunionPanel2);
-            panelReunion2.Location = new Point(573, 402);
+            panelReunion2.Location = new Point(655, 536);
+            panelReunion2.Margin = new Padding(3, 4, 3, 4);
             panelReunion2.Name = "panelReunion2";
-            panelReunion2.Size = new Size(286, 256);
+            panelReunion2.Size = new Size(327, 341);
             panelReunion2.TabIndex = 14;
             panelReunion2.Visible = false;
             // 
             // labelInformaciónDeLaReunion2
             // 
-            labelInformaciónDeLaReunion2.Font = new Font("Montserrat SemiBold", 11.25F, FontStyle.Bold);
+            labelInformaciónDeLaReunion2.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
             labelInformaciónDeLaReunion2.ForeColor = SystemColors.ControlLightLight;
-            labelInformaciónDeLaReunion2.Location = new Point(3, 154);
-            labelInformaciónDeLaReunion2.MaximumSize = new Size(250, 0);
+            labelInformaciónDeLaReunion2.Location = new Point(3, 205);
+            labelInformaciónDeLaReunion2.MaximumSize = new Size(286, 0);
             labelInformaciónDeLaReunion2.Name = "labelInformaciónDeLaReunion2";
-            labelInformaciónDeLaReunion2.Size = new Size(250, 50);
+            labelInformaciónDeLaReunion2.Size = new Size(286, 0);
             labelInformaciónDeLaReunion2.TabIndex = 13;
             labelInformaciónDeLaReunion2.Text = "Placeholder";
             // 
             // labelInformacion2
             // 
             labelInformacion2.AutoSize = true;
-            labelInformacion2.Font = new Font("Montserrat", 8.999999F, FontStyle.Bold);
-            labelInformacion2.Location = new Point(92, 135);
+            labelInformacion2.Font = new Font("Microsoft Sans Serif", 8.999999F, FontStyle.Bold);
+            labelInformacion2.Location = new Point(105, 180);
             labelInformacion2.Name = "labelInformacion2";
-            labelInformacion2.Size = new Size(85, 18);
+            labelInformacion2.Size = new Size(97, 18);
             labelInformacion2.TabIndex = 12;
             labelInformacion2.Text = "Información";
             // 
             // labelNombresReunion2
             // 
             labelNombresReunion2.AutoSize = true;
-            labelNombresReunion2.Font = new Font("Montserrat SemiBold", 11.25F, FontStyle.Bold);
+            labelNombresReunion2.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
             labelNombresReunion2.ForeColor = SystemColors.ControlLightLight;
-            labelNombresReunion2.Location = new Point(3, 100);
+            labelNombresReunion2.Location = new Point(3, 133);
             labelNombresReunion2.Name = "labelNombresReunion2";
-            labelNombresReunion2.Size = new Size(225, 24);
+            labelNombresReunion2.Size = new Size(281, 24);
             labelNombresReunion2.TabIndex = 11;
             labelNombresReunion2.Text = "Oscar, Andres, Juan, Andrea";
             // 
             // labelHoraReunion2
             // 
             labelHoraReunion2.AutoSize = true;
-            labelHoraReunion2.Font = new Font("Montserrat Black", 14.25F, FontStyle.Bold);
+            labelHoraReunion2.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold);
             labelHoraReunion2.ForeColor = SystemColors.ButtonHighlight;
-            labelHoraReunion2.Location = new Point(54, 213);
+            labelHoraReunion2.Location = new Point(62, 284);
             labelHoraReunion2.Name = "labelHoraReunion2";
-            labelHoraReunion2.Size = new Size(60, 30);
+            labelHoraReunion2.Size = new Size(76, 29);
             labelHoraReunion2.TabIndex = 10;
             labelHoraReunion2.Text = "11:30";
             // 
             // labelParticipantes2
             // 
             labelParticipantes2.AutoSize = true;
-            labelParticipantes2.Font = new Font("Montserrat", 8.999999F, FontStyle.Bold);
-            labelParticipantes2.Location = new Point(92, 81);
+            labelParticipantes2.Font = new Font("Microsoft Sans Serif", 8.999999F, FontStyle.Bold);
+            labelParticipantes2.Location = new Point(105, 108);
             labelParticipantes2.Name = "labelParticipantes2";
-            labelParticipantes2.Size = new Size(91, 18);
+            labelParticipantes2.Size = new Size(106, 18);
             labelParticipantes2.TabIndex = 9;
             labelParticipantes2.Text = "Participantes";
             // 
             // labelReunionPanel2
             // 
-            labelReunionPanel2.Font = new Font("Montserrat Black", 14.25F, FontStyle.Bold);
+            labelReunionPanel2.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold);
             labelReunionPanel2.ForeColor = SystemColors.ButtonHighlight;
-            labelReunionPanel2.Location = new Point(3, 21);
-            labelReunionPanel2.MaximumSize = new Size(250, 0);
+            labelReunionPanel2.Location = new Point(3, 28);
+            labelReunionPanel2.MaximumSize = new Size(286, 0);
             labelReunionPanel2.Name = "labelReunionPanel2";
-            labelReunionPanel2.Size = new Size(250, 40);
+            labelReunionPanel2.Size = new Size(286, 0);
             labelReunionPanel2.TabIndex = 0;
             labelReunionPanel2.Text = "Reunión 2";
             // 
@@ -466,73 +490,74 @@
             panelReunion3.Controls.Add(labelHoraReunion3);
             panelReunion3.Controls.Add(labelParticipantes3);
             panelReunion3.Controls.Add(labelReunionPanel3);
-            panelReunion3.Location = new Point(915, 402);
+            panelReunion3.Location = new Point(1046, 536);
+            panelReunion3.Margin = new Padding(3, 4, 3, 4);
             panelReunion3.Name = "panelReunion3";
-            panelReunion3.Size = new Size(286, 256);
+            panelReunion3.Size = new Size(327, 341);
             panelReunion3.TabIndex = 14;
             panelReunion3.Visible = false;
             // 
             // labelInformaciónDeLaReunion3
             // 
-            labelInformaciónDeLaReunion3.Font = new Font("Montserrat", 11.25F, FontStyle.Bold);
+            labelInformaciónDeLaReunion3.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
             labelInformaciónDeLaReunion3.ForeColor = SystemColors.ControlLightLight;
-            labelInformaciónDeLaReunion3.Location = new Point(3, 154);
-            labelInformaciónDeLaReunion3.MaximumSize = new Size(250, 0);
+            labelInformaciónDeLaReunion3.Location = new Point(3, 205);
+            labelInformaciónDeLaReunion3.MaximumSize = new Size(286, 0);
             labelInformaciónDeLaReunion3.Name = "labelInformaciónDeLaReunion3";
-            labelInformaciónDeLaReunion3.Size = new Size(250, 50);
+            labelInformaciónDeLaReunion3.Size = new Size(286, 0);
             labelInformaciónDeLaReunion3.TabIndex = 13;
             labelInformaciónDeLaReunion3.Text = "Placeholder";
             // 
             // labelInformacion3
             // 
             labelInformacion3.AutoSize = true;
-            labelInformacion3.Font = new Font("Montserrat", 8.999999F, FontStyle.Bold);
-            labelInformacion3.Location = new Point(92, 135);
+            labelInformacion3.Font = new Font("Microsoft Sans Serif", 8.999999F, FontStyle.Bold);
+            labelInformacion3.Location = new Point(105, 180);
             labelInformacion3.Name = "labelInformacion3";
-            labelInformacion3.Size = new Size(85, 18);
+            labelInformacion3.Size = new Size(97, 18);
             labelInformacion3.TabIndex = 12;
             labelInformacion3.Text = "Información";
             // 
             // labelNombresReunion3
             // 
             labelNombresReunion3.AutoSize = true;
-            labelNombresReunion3.Font = new Font("Montserrat SemiBold", 11.25F, FontStyle.Bold);
+            labelNombresReunion3.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
             labelNombresReunion3.ForeColor = SystemColors.ControlLightLight;
-            labelNombresReunion3.Location = new Point(3, 100);
+            labelNombresReunion3.Location = new Point(3, 133);
             labelNombresReunion3.Name = "labelNombresReunion3";
-            labelNombresReunion3.Size = new Size(225, 24);
+            labelNombresReunion3.Size = new Size(281, 24);
             labelNombresReunion3.TabIndex = 11;
             labelNombresReunion3.Text = "Oscar, Andres, Juan, Andrea";
             // 
             // labelHoraReunion3
             // 
             labelHoraReunion3.AutoSize = true;
-            labelHoraReunion3.Font = new Font("Montserrat Black", 14.25F, FontStyle.Bold);
+            labelHoraReunion3.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold);
             labelHoraReunion3.ForeColor = SystemColors.ButtonHighlight;
-            labelHoraReunion3.Location = new Point(92, 213);
+            labelHoraReunion3.Location = new Point(105, 284);
             labelHoraReunion3.Name = "labelHoraReunion3";
-            labelHoraReunion3.Size = new Size(60, 30);
+            labelHoraReunion3.Size = new Size(76, 29);
             labelHoraReunion3.TabIndex = 10;
             labelHoraReunion3.Text = "11:30";
             // 
             // labelParticipantes3
             // 
             labelParticipantes3.AutoSize = true;
-            labelParticipantes3.Font = new Font("Montserrat", 8.999999F, FontStyle.Bold);
-            labelParticipantes3.Location = new Point(92, 81);
+            labelParticipantes3.Font = new Font("Microsoft Sans Serif", 8.999999F, FontStyle.Bold);
+            labelParticipantes3.Location = new Point(105, 108);
             labelParticipantes3.Name = "labelParticipantes3";
-            labelParticipantes3.Size = new Size(91, 18);
+            labelParticipantes3.Size = new Size(106, 18);
             labelParticipantes3.TabIndex = 9;
             labelParticipantes3.Text = "Participantes";
             // 
             // labelReunionPanel3
             // 
-            labelReunionPanel3.Font = new Font("Montserrat Black", 14.25F, FontStyle.Bold);
+            labelReunionPanel3.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold);
             labelReunionPanel3.ForeColor = SystemColors.ButtonHighlight;
-            labelReunionPanel3.Location = new Point(3, 21);
-            labelReunionPanel3.MaximumSize = new Size(250, 0);
+            labelReunionPanel3.Location = new Point(3, 28);
+            labelReunionPanel3.MaximumSize = new Size(286, 0);
             labelReunionPanel3.Name = "labelReunionPanel3";
-            labelReunionPanel3.Size = new Size(250, 40);
+            labelReunionPanel3.Size = new Size(286, 0);
             labelReunionPanel3.TabIndex = 0;
             labelReunionPanel3.Text = "Reunión 3";
             // 
@@ -544,24 +569,26 @@
             buttonIdioma.Cursor = Cursors.Hand;
             buttonIdioma.FlatAppearance.BorderSize = 0;
             buttonIdioma.FlatStyle = FlatStyle.Flat;
-            buttonIdioma.Location = new Point(1217, 12);
+            buttonIdioma.Location = new Point(1391, 16);
+            buttonIdioma.Margin = new Padding(3, 4, 3, 4);
             buttonIdioma.Name = "buttonIdioma";
-            buttonIdioma.Size = new Size(40, 25);
+            buttonIdioma.Size = new Size(46, 33);
             buttonIdioma.TabIndex = 16;
             buttonIdioma.UseVisualStyleBackColor = true;
             buttonIdioma.Click += buttonIdioma_Click;
             // 
             // contextMenuStripMenuIdiomas
             // 
+            contextMenuStripMenuIdiomas.ImageScalingSize = new Size(20, 20);
             contextMenuStripMenuIdiomas.Items.AddRange(new ToolStripItem[] { españolToolStripMenuItem, englishToolStripMenuItem, catalàToolStripMenuItem });
             contextMenuStripMenuIdiomas.Name = "contextMenuStripMenuIdiomas";
-            contextMenuStripMenuIdiomas.Size = new Size(116, 70);
+            contextMenuStripMenuIdiomas.Size = new Size(135, 82);
             // 
             // españolToolStripMenuItem
             // 
             españolToolStripMenuItem.Image = Properties.Resources.espana;
             españolToolStripMenuItem.Name = "españolToolStripMenuItem";
-            españolToolStripMenuItem.Size = new Size(115, 22);
+            españolToolStripMenuItem.Size = new Size(134, 26);
             españolToolStripMenuItem.Text = "Español";
             españolToolStripMenuItem.Click += españolToolStripMenuItem_Click;
             // 
@@ -569,7 +596,7 @@
             // 
             englishToolStripMenuItem.Image = Properties.Resources.estados_unidos;
             englishToolStripMenuItem.Name = "englishToolStripMenuItem";
-            englishToolStripMenuItem.Size = new Size(115, 22);
+            englishToolStripMenuItem.Size = new Size(134, 26);
             englishToolStripMenuItem.Text = "English";
             englishToolStripMenuItem.Click += englishToolStripMenuItem_Click;
             // 
@@ -577,27 +604,27 @@
             // 
             catalàToolStripMenuItem.Image = Properties.Resources.cataluna;
             catalàToolStripMenuItem.Name = "catalàToolStripMenuItem";
-            catalàToolStripMenuItem.Size = new Size(115, 22);
+            catalàToolStripMenuItem.Size = new Size(134, 26);
             catalàToolStripMenuItem.Text = "Català";
             catalàToolStripMenuItem.Click += catalàToolStripMenuItem_Click;
             // 
             // labelReunionesTitulo
             // 
             labelReunionesTitulo.AutoSize = true;
-            labelReunionesTitulo.Font = new Font("Montserrat ExtraBold", 15.75F, FontStyle.Bold);
+            labelReunionesTitulo.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold);
             labelReunionesTitulo.ForeColor = Color.Turquoise;
-            labelReunionesTitulo.Location = new Point(248, 38);
+            labelReunionesTitulo.Location = new Point(283, 51);
             labelReunionesTitulo.Name = "labelReunionesTitulo";
-            labelReunionesTitulo.Size = new Size(134, 33);
+            labelReunionesTitulo.Size = new Size(153, 31);
             labelReunionesTitulo.TabIndex = 20;
             labelReunionesTitulo.Text = "Reuniones";
             // 
             // FormReunionesDy1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
-            ClientSize = new Size(1264, 681);
+            ClientSize = new Size(1445, 908);
             Controls.Add(labelReunionesTitulo);
             Controls.Add(labelReunionesProximas);
             Controls.Add(panelReunion3);
@@ -608,6 +635,7 @@
             Controls.Add(panelParaHoy);
             Controls.Add(monthCalendarReuniones);
             Controls.Add(panelBarraOpciones);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "FormReunionesDy1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Reuniones";
@@ -615,6 +643,7 @@
             Load += FormReunionesLista_Load;
             panelBarraOpciones.ResumeLayout(false);
             panelBarraOpciones.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)Logo).EndInit();
             panelParaHoy.ResumeLayout(false);
             panelParaHoy.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewTarea).EndInit();
@@ -673,5 +702,6 @@
         private Label labelDesmarcar;
         private Label labelReunionesTitulo;
         private LinkLabel linkLabel1;
+        private PictureBox Logo;
     }
 }

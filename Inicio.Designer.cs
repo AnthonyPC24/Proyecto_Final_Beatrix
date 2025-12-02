@@ -32,7 +32,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridView dgvTarea;
             DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
@@ -45,7 +44,7 @@
             monthCalendar = new MonthCalendar();
             comboBoxProyecto = new ComboBox();
             panelBarraOpciones = new Panel();
-            pbUser = new PictureBox();
+            linkLabel1 = new LinkLabel();
             labelBeatrix = new Label();
             btnReuniones = new Button();
             btnTareas = new Button();
@@ -56,11 +55,12 @@
             ColumnFecha = new DataGridViewTextBoxColumn();
             ColumnUsuarios = new DataGridViewTextBoxColumn();
             ColumnDescripcion = new DataGridViewTextBoxColumn();
+            Logo = new PictureBox();
             dgvTarea = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)dgvTarea).BeginInit();
             panelBarraOpciones.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pbUser).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvReuniones).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Logo).BeginInit();
             SuspendLayout();
             // 
             // dgvTarea
@@ -73,7 +73,7 @@
             dgvTarea.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle7.BackColor = SystemColors.ControlLightLight;
-            dataGridViewCellStyle7.Font = new Font("Montserrat", 9F);
+            dataGridViewCellStyle7.Font = new Font("Microsoft Sans Serif", 9F);
             dataGridViewCellStyle7.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
@@ -83,7 +83,7 @@
             dgvTarea.Columns.AddRange(new DataGridViewColumn[] { ColumnTarea, ColumnEspecificaciones, ColumnUsuario });
             dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = SystemColors.Window;
-            dataGridViewCellStyle8.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle8.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle8.ForeColor = SystemColors.ControlText;
             dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
@@ -96,7 +96,7 @@
             dgvTarea.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle9.BackColor = Color.White;
-            dataGridViewCellStyle9.Font = new Font("Montserrat", 9F);
+            dataGridViewCellStyle9.Font = new Font("Microsoft Sans Serif", 9F);
             dataGridViewCellStyle9.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle9.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
@@ -134,7 +134,7 @@
             // 
             // monthCalendar
             // 
-            monthCalendar.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            monthCalendar.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             monthCalendar.Location = new Point(273, 396);
             monthCalendar.Name = "monthCalendar";
             monthCalendar.TabIndex = 6;
@@ -142,12 +142,12 @@
             // 
             // comboBoxProyecto
             // 
-            comboBoxProyecto.Font = new Font("Montserrat Medium", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            comboBoxProyecto.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             comboBoxProyecto.FormattingEnabled = true;
             comboBoxProyecto.Items.AddRange(new object[] { "Proyecto 1", "Proyecto 2", "Proyecto 3" });
             comboBoxProyecto.Location = new Point(273, 12);
             comboBoxProyecto.Name = "comboBoxProyecto";
-            comboBoxProyecto.Size = new Size(151, 32);
+            comboBoxProyecto.Size = new Size(151, 26);
             comboBoxProyecto.TabIndex = 7;
             comboBoxProyecto.Text = "Proyecto 1";
             comboBoxProyecto.SelectedIndexChanged += comboBoxProyecto_SelectedIndexChanged;
@@ -155,7 +155,8 @@
             // panelBarraOpciones
             // 
             panelBarraOpciones.BackColor = Color.FromArgb(41, 195, 205);
-            panelBarraOpciones.Controls.Add(pbUser);
+            panelBarraOpciones.Controls.Add(Logo);
+            panelBarraOpciones.Controls.Add(linkLabel1);
             panelBarraOpciones.Controls.Add(labelBeatrix);
             panelBarraOpciones.Controls.Add(btnReuniones);
             panelBarraOpciones.Controls.Add(btnTareas);
@@ -168,34 +169,38 @@
             panelBarraOpciones.Size = new Size(250, 673);
             panelBarraOpciones.TabIndex = 14;
             // 
-            // pbUser
+            // linkLabel1
             // 
-            pbUser.Image = Properties.Resources.usuario;
-            pbUser.Location = new Point(31, 95);
-            pbUser.Name = "pbUser";
-            pbUser.Size = new Size(185, 185);
-            pbUser.SizeMode = PictureBoxSizeMode.StretchImage;
-            pbUser.TabIndex = 5;
-            pbUser.TabStop = false;
-            pbUser.Click += pbUser_Click;
+            linkLabel1.ActiveLinkColor = Color.FromArgb(245, 168, 125);
+            linkLabel1.AutoSize = true;
+            linkLabel1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
+            linkLabel1.ForeColor = Color.White;
+            linkLabel1.LinkColor = SystemColors.ControlLightLight;
+            linkLabel1.Location = new Point(50, 613);
+            linkLabel1.Name = "linkLabel1";
+            linkLabel1.Size = new Size(146, 25);
+            linkLabel1.TabIndex = 9;
+            linkLabel1.TabStop = true;
+            linkLabel1.Text = "Configuración";
+            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
             // 
             // labelBeatrix
             // 
             labelBeatrix.AutoSize = true;
-            labelBeatrix.Font = new Font("Montserrat Black", 17.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelBeatrix.Font = new Font("Microsoft Sans Serif", 17.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelBeatrix.ForeColor = Color.Transparent;
             labelBeatrix.Location = new Point(14, 24);
             labelBeatrix.Name = "labelBeatrix";
-            labelBeatrix.Size = new Size(139, 47);
+            labelBeatrix.Size = new Size(114, 36);
             labelBeatrix.TabIndex = 4;
             labelBeatrix.Text = "Beatrix";
             // 
             // btnReuniones
             // 
             btnReuniones.BackColor = Color.FromArgb(41, 195, 205);
-            btnReuniones.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnReuniones.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             btnReuniones.ForeColor = Color.White;
-            btnReuniones.Location = new Point(18, 567);
+            btnReuniones.Location = new Point(14, 500);
             btnReuniones.Margin = new Padding(3, 4, 3, 4);
             btnReuniones.Name = "btnReuniones";
             btnReuniones.Size = new Size(213, 71);
@@ -207,9 +212,9 @@
             // btnTareas
             // 
             btnTareas.BackColor = Color.FromArgb(41, 195, 205);
-            btnTareas.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnTareas.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             btnTareas.ForeColor = Color.White;
-            btnTareas.Location = new Point(18, 488);
+            btnTareas.Location = new Point(14, 421);
             btnTareas.Margin = new Padding(3, 4, 3, 4);
             btnTareas.Name = "btnTareas";
             btnTareas.Size = new Size(213, 71);
@@ -221,9 +226,9 @@
             // btnProyetos
             // 
             btnProyetos.BackColor = Color.FromArgb(41, 195, 205);
-            btnProyetos.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnProyetos.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             btnProyetos.ForeColor = Color.White;
-            btnProyetos.Location = new Point(18, 409);
+            btnProyetos.Location = new Point(14, 342);
             btnProyetos.Margin = new Padding(3, 4, 3, 4);
             btnProyetos.Name = "btnProyetos";
             btnProyetos.Size = new Size(213, 71);
@@ -235,9 +240,9 @@
             // btnInicio
             // 
             btnInicio.BackColor = Color.FromArgb(41, 195, 205);
-            btnInicio.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnInicio.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             btnInicio.ForeColor = Color.White;
-            btnInicio.Location = new Point(18, 331);
+            btnInicio.Location = new Point(14, 264);
             btnInicio.Margin = new Padding(3, 4, 3, 4);
             btnInicio.Name = "btnInicio";
             btnInicio.Size = new Size(213, 71);
@@ -257,7 +262,7 @@
             dgvReuniones.BackgroundColor = Color.FromArgb(41, 195, 205);
             dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle11.BackColor = SystemColors.Control;
-            dataGridViewCellStyle11.Font = new Font("Montserrat Medium", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle11.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle11.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle11.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle11.SelectionForeColor = SystemColors.HighlightText;
@@ -267,7 +272,7 @@
             dgvReuniones.Columns.AddRange(new DataGridViewColumn[] { ColumnTitulo, ColumnFecha, ColumnUsuarios, ColumnDescripcion });
             dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle12.BackColor = SystemColors.Window;
-            dataGridViewCellStyle12.Font = new Font("Montserrat", 9F);
+            dataGridViewCellStyle12.Font = new Font("Microsoft Sans Serif", 9F);
             dataGridViewCellStyle12.ForeColor = SystemColors.ControlText;
             dataGridViewCellStyle12.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle12.SelectionForeColor = SystemColors.HighlightText;
@@ -308,6 +313,19 @@
             ColumnDescripcion.Name = "ColumnDescripcion";
             ColumnDescripcion.ReadOnly = true;
             // 
+            // Logo
+            // 
+            Logo.Anchor = AnchorStyles.None;
+            Logo.BackColor = Color.Transparent;
+            Logo.BackgroundImageLayout = ImageLayout.Zoom;
+            Logo.Image = Properties.Resources.Logo;
+            Logo.Location = new Point(41, 78);
+            Logo.Name = "Logo";
+            Logo.Size = new Size(165, 160);
+            Logo.SizeMode = PictureBoxSizeMode.Zoom;
+            Logo.TabIndex = 10;
+            Logo.TabStop = false;
+            // 
             // Inicio
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -323,17 +341,18 @@
             Name = "Inicio";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Inicio";
+            FormClosing += Inicio_FormClosing;
             Load += Inicio_Load;
             ((System.ComponentModel.ISupportInitialize)dgvTarea).EndInit();
             panelBarraOpciones.ResumeLayout(false);
             panelBarraOpciones.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pbUser).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvReuniones).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Logo).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
-
-        private PictureBox pbUser;
+        private LinkLabel linkLabel1;
+        private PictureBox Logo;
     }
 }
