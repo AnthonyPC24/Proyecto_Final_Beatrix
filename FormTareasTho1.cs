@@ -589,8 +589,9 @@ namespace Beatrix_Formulario
             comboBoxEstadosTarea.Items.AddRange(new string[]
             {
             "Pendiente",
-            "En Progreso",
-            "En Pausa",
+            "En Proceso",
+            "En Espera",
+            "Revisión",
             "Completada",
             "Cancelada"
             });
