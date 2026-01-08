@@ -54,10 +54,9 @@
             // 
             button2.BackgroundImage = (Image)resources.GetObject("button2.BackgroundImage");
             button2.BackgroundImageLayout = ImageLayout.Zoom;
-            button2.Location = new Point(1350, 32);
-            button2.Margin = new Padding(3, 4, 3, 4);
+            button2.Location = new Point(1181, 24);
             button2.Name = "button2";
-            button2.Size = new Size(40, 39);
+            button2.Size = new Size(35, 29);
             button2.TabIndex = 26;
             button2.UseVisualStyleBackColor = true;
             // 
@@ -76,11 +75,9 @@
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
-            groupBox1.Location = new Point(14, 85);
-            groupBox1.Margin = new Padding(3, 4, 3, 4);
+            groupBox1.Location = new Point(12, 64);
             groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(3, 4, 3, 4);
-            groupBox1.Size = new Size(887, 405);
+            groupBox1.Size = new Size(776, 304);
             groupBox1.TabIndex = 27;
             groupBox1.TabStop = false;
             // 
@@ -89,10 +86,9 @@
             quitarUsuarios.BackColor = Color.FromArgb(41, 195, 205);
             quitarUsuarios.Font = new Font("Microsoft Sans Serif", 8.999999F, FontStyle.Bold);
             quitarUsuarios.ForeColor = Color.White;
-            quitarUsuarios.Location = new Point(598, 241);
-            quitarUsuarios.Margin = new Padding(3, 4, 3, 4);
+            quitarUsuarios.Location = new Point(523, 181);
             quitarUsuarios.Name = "quitarUsuarios";
-            quitarUsuarios.Size = new Size(202, 31);
+            quitarUsuarios.Size = new Size(177, 23);
             quitarUsuarios.TabIndex = 19;
             quitarUsuarios.Text = "Quitar Usuario";
             quitarUsuarios.UseVisualStyleBackColor = false;
@@ -102,54 +98,50 @@
             // 
             label7.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold);
             label7.ForeColor = Color.White;
-            label7.Location = new Point(598, 296);
+            label7.Location = new Point(523, 222);
             label7.Name = "label7";
-            label7.Size = new Size(262, 80);
+            label7.Size = new Size(229, 60);
             label7.TabIndex = 18;
             label7.Text = "* Para crear las tareas haz clic en Crear y dirigete a la ventana de Tareas";
             // 
             // comboBoxUsuarios
             // 
             comboBoxUsuarios.FormattingEnabled = true;
-            comboBoxUsuarios.Location = new Point(598, 60);
-            comboBoxUsuarios.Margin = new Padding(3, 4, 3, 4);
+            comboBoxUsuarios.Location = new Point(523, 45);
             comboBoxUsuarios.Name = "comboBoxUsuarios";
-            comboBoxUsuarios.Size = new Size(202, 28);
+            comboBoxUsuarios.Size = new Size(177, 23);
             comboBoxUsuarios.TabIndex = 17;
             comboBoxUsuarios.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // richTextBox1
             // 
-            richTextBox1.Location = new Point(186, 215);
-            richTextBox1.Margin = new Padding(3, 4, 3, 4);
+            richTextBox1.Location = new Point(163, 161);
             richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(289, 144);
+            richTextBox1.Size = new Size(253, 109);
             richTextBox1.TabIndex = 16;
             richTextBox1.Text = "";
             // 
             // listBoxUsuarios
             // 
             listBoxUsuarios.FormattingEnabled = true;
-            listBoxUsuarios.Location = new Point(598, 108);
-            listBoxUsuarios.Margin = new Padding(3, 4, 3, 4);
+            listBoxUsuarios.ItemHeight = 15;
+            listBoxUsuarios.Location = new Point(523, 81);
             listBoxUsuarios.Name = "listBoxUsuarios";
-            listBoxUsuarios.Size = new Size(202, 124);
+            listBoxUsuarios.Size = new Size(177, 94);
             listBoxUsuarios.TabIndex = 15;
             // 
             // dateTimePicker2
             // 
-            dateTimePicker2.Location = new Point(186, 149);
-            dateTimePicker2.Margin = new Padding(3, 4, 3, 4);
+            dateTimePicker2.Location = new Point(163, 112);
             dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(289, 27);
+            dateTimePicker2.Size = new Size(253, 23);
             dateTimePicker2.TabIndex = 14;
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Location = new Point(186, 108);
-            dateTimePicker1.Margin = new Padding(3, 4, 3, 4);
+            dateTimePicker1.Location = new Point(163, 81);
             dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(289, 27);
+            dateTimePicker1.Size = new Size(253, 23);
             dateTimePicker1.TabIndex = 13;
             // 
             // label6
@@ -157,9 +149,9 @@
             label6.AutoSize = true;
             label6.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold);
             label6.ForeColor = Color.White;
-            label6.Location = new Point(21, 108);
+            label6.Location = new Point(18, 81);
             label6.Name = "label6";
-            label6.Size = new Size(137, 20);
+            label6.Size = new Size(118, 17);
             label6.TabIndex = 12;
             label6.Text = "Fecha de Inicio";
             // 
@@ -168,18 +160,17 @@
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold);
             label4.ForeColor = Color.White;
-            label4.Location = new Point(21, 156);
+            label4.Location = new Point(18, 117);
             label4.Name = "label4";
-            label4.Size = new Size(155, 20);
+            label4.Size = new Size(136, 17);
             label4.TabIndex = 7;
             label4.Text = "Fechad e entrega";
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(186, 60);
-            txtNombre.Margin = new Padding(3, 4, 3, 4);
+            txtNombre.Location = new Point(163, 45);
             txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(285, 27);
+            txtNombre.Size = new Size(250, 23);
             txtNombre.TabIndex = 3;
             // 
             // label3
@@ -187,9 +178,9 @@
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(21, 218);
+            label3.Location = new Point(18, 164);
             label3.Name = "label3";
-            label3.Size = new Size(110, 20);
+            label3.Size = new Size(93, 17);
             label3.TabIndex = 2;
             label3.Text = "Descripcion";
             // 
@@ -198,9 +189,9 @@
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(502, 64);
+            label2.Location = new Point(439, 48);
             label2.Name = "label2";
-            label2.Size = new Size(84, 20);
+            label2.Size = new Size(72, 17);
             label2.TabIndex = 1;
             label2.Text = "Usuarios";
             // 
@@ -209,9 +200,9 @@
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(21, 60);
+            label1.Location = new Point(18, 45);
             label1.Name = "label1";
-            label1.Size = new Size(74, 20);
+            label1.Size = new Size(64, 17);
             label1.TabIndex = 0;
             label1.Text = "Nombre";
             // 
@@ -220,10 +211,9 @@
             button3.BackColor = Color.FromArgb(245, 168, 125);
             button3.Font = new Font("Microsoft Sans Serif", 8.999999F, FontStyle.Bold);
             button3.ForeColor = Color.White;
-            button3.Location = new Point(658, 498);
-            button3.Margin = new Padding(3, 4, 3, 4);
+            button3.Location = new Point(576, 374);
             button3.Name = "button3";
-            button3.Size = new Size(119, 31);
+            button3.Size = new Size(104, 23);
             button3.TabIndex = 9;
             button3.Text = "Cancelar";
             button3.UseVisualStyleBackColor = false;
@@ -233,10 +223,9 @@
             btnCrear.BackColor = Color.FromArgb(41, 195, 205);
             btnCrear.Font = new Font("Microsoft Sans Serif", 8.999999F, FontStyle.Bold);
             btnCrear.ForeColor = Color.White;
-            btnCrear.Location = new Point(782, 498);
-            btnCrear.Margin = new Padding(3, 4, 3, 4);
+            btnCrear.Location = new Point(684, 374);
             btnCrear.Name = "btnCrear";
-            btnCrear.Size = new Size(119, 31);
+            btnCrear.Size = new Size(104, 23);
             btnCrear.TabIndex = 8;
             btnCrear.Text = "Crear";
             btnCrear.UseVisualStyleBackColor = false;
@@ -247,24 +236,24 @@
             label5.AutoSize = true;
             label5.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Bold | FontStyle.Italic);
             label5.ForeColor = Color.White;
-            label5.Location = new Point(333, 31);
+            label5.Location = new Point(291, 23);
             label5.Name = "label5";
-            label5.Size = new Size(273, 39);
+            label5.Size = new Size(222, 31);
             label5.TabIndex = 28;
             label5.Text = "Nuevo Proyecto";
             // 
             // FormProyectosGerard2
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(41, 191, 205);
-            ClientSize = new Size(914, 538);
+            ClientSize = new Size(800, 404);
             Controls.Add(label5);
             Controls.Add(groupBox1);
             Controls.Add(button2);
             Controls.Add(button3);
             Controls.Add(btnCrear);
-            Margin = new Padding(3, 4, 3, 4);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormProyectosGerard2";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Nuevo Proyecto";

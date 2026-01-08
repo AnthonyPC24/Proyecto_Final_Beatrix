@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTareasTho2));
             groupBoxNuevaTarea = new GroupBox();
             buttonQuitarUsuario = new Button();
             listBoxUsuarios = new ListBox();
@@ -58,11 +59,9 @@
             groupBoxNuevaTarea.Controls.Add(label3);
             groupBoxNuevaTarea.Controls.Add(label2);
             groupBoxNuevaTarea.Controls.Add(textBoxNombreNuevaTarea);
-            groupBoxNuevaTarea.Location = new Point(14, 127);
-            groupBoxNuevaTarea.Margin = new Padding(3, 4, 3, 4);
+            groupBoxNuevaTarea.Location = new Point(12, 95);
             groupBoxNuevaTarea.Name = "groupBoxNuevaTarea";
-            groupBoxNuevaTarea.Padding = new Padding(3, 4, 3, 4);
-            groupBoxNuevaTarea.Size = new Size(887, 396);
+            groupBoxNuevaTarea.Size = new Size(776, 297);
             groupBoxNuevaTarea.TabIndex = 4;
             groupBoxNuevaTarea.TabStop = false;
             // 
@@ -71,10 +70,9 @@
             buttonQuitarUsuario.BackColor = Color.FromArgb(41, 195, 205);
             buttonQuitarUsuario.Font = new Font("Microsoft Sans Serif", 8.999999F, FontStyle.Bold);
             buttonQuitarUsuario.ForeColor = Color.White;
-            buttonQuitarUsuario.Location = new Point(151, 333);
-            buttonQuitarUsuario.Margin = new Padding(3, 4, 3, 4);
+            buttonQuitarUsuario.Location = new Point(132, 250);
             buttonQuitarUsuario.Name = "buttonQuitarUsuario";
-            buttonQuitarUsuario.Size = new Size(152, 31);
+            buttonQuitarUsuario.Size = new Size(133, 23);
             buttonQuitarUsuario.TabIndex = 9;
             buttonQuitarUsuario.Text = "Quitar usuario";
             buttonQuitarUsuario.UseVisualStyleBackColor = false;
@@ -83,10 +81,10 @@
             // listBoxUsuarios
             // 
             listBoxUsuarios.FormattingEnabled = true;
-            listBoxUsuarios.Location = new Point(23, 140);
-            listBoxUsuarios.Margin = new Padding(3, 4, 3, 4);
+            listBoxUsuarios.ItemHeight = 15;
+            listBoxUsuarios.Location = new Point(20, 105);
             listBoxUsuarios.Name = "listBoxUsuarios";
-            listBoxUsuarios.Size = new Size(279, 184);
+            listBoxUsuarios.Size = new Size(245, 139);
             listBoxUsuarios.TabIndex = 10;
             // 
             // labelDescripcionNuevaTarea
@@ -94,19 +92,18 @@
             labelDescripcionNuevaTarea.AutoSize = true;
             labelDescripcionNuevaTarea.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold);
             labelDescripcionNuevaTarea.ForeColor = Color.White;
-            labelDescripcionNuevaTarea.Location = new Point(353, 112);
+            labelDescripcionNuevaTarea.Location = new Point(309, 84);
             labelDescripcionNuevaTarea.Name = "labelDescripcionNuevaTarea";
-            labelDescripcionNuevaTarea.Size = new Size(110, 20);
+            labelDescripcionNuevaTarea.Size = new Size(93, 17);
             labelDescripcionNuevaTarea.TabIndex = 9;
             labelDescripcionNuevaTarea.Text = "Descripción";
             // 
             // richTextBoxDescripcion
             // 
             richTextBoxDescripcion.Font = new Font("Microsoft Sans Serif", 8.999999F, FontStyle.Bold);
-            richTextBoxDescripcion.Location = new Point(353, 140);
-            richTextBoxDescripcion.Margin = new Padding(3, 4, 3, 4);
+            richTextBoxDescripcion.Location = new Point(309, 105);
             richTextBoxDescripcion.Name = "richTextBoxDescripcion";
-            richTextBoxDescripcion.Size = new Size(507, 224);
+            richTextBoxDescripcion.Size = new Size(444, 169);
             richTextBoxDescripcion.TabIndex = 8;
             richTextBoxDescripcion.Text = "";
             // 
@@ -114,29 +111,26 @@
             // 
             comboBoxUsuariosAsignarTareas.Font = new Font("Microsoft Sans Serif", 8.999999F, FontStyle.Bold);
             comboBoxUsuariosAsignarTareas.FormattingEnabled = true;
-            comboBoxUsuariosAsignarTareas.Location = new Point(23, 73);
-            comboBoxUsuariosAsignarTareas.Margin = new Padding(3, 4, 3, 4);
+            comboBoxUsuariosAsignarTareas.Location = new Point(20, 55);
             comboBoxUsuariosAsignarTareas.Name = "comboBoxUsuariosAsignarTareas";
-            comboBoxUsuariosAsignarTareas.Size = new Size(279, 26);
+            comboBoxUsuariosAsignarTareas.Size = new Size(245, 23);
             comboBoxUsuariosAsignarTareas.TabIndex = 7;
             comboBoxUsuariosAsignarTareas.SelectedIndexChanged += comboBoxUsuariosAsignarTareas_SelectedIndexChanged;
             // 
             // dateTimePickerFechaTareaFin
             // 
             dateTimePickerFechaTareaFin.Font = new Font("Microsoft Sans Serif", 8.999999F, FontStyle.Bold);
-            dateTimePickerFechaTareaFin.Location = new Point(622, 72);
-            dateTimePickerFechaTareaFin.Margin = new Padding(3, 4, 3, 4);
+            dateTimePickerFechaTareaFin.Location = new Point(544, 54);
             dateTimePickerFechaTareaFin.Name = "dateTimePickerFechaTareaFin";
-            dateTimePickerFechaTareaFin.Size = new Size(238, 24);
+            dateTimePickerFechaTareaFin.Size = new Size(209, 21);
             dateTimePickerFechaTareaFin.TabIndex = 4;
             // 
             // dateTimePickerFechaTareaInicio
             // 
             dateTimePickerFechaTareaInicio.Font = new Font("Microsoft Sans Serif", 8.999999F, FontStyle.Bold);
-            dateTimePickerFechaTareaInicio.Location = new Point(353, 72);
-            dateTimePickerFechaTareaInicio.Margin = new Padding(3, 4, 3, 4);
+            dateTimePickerFechaTareaInicio.Location = new Point(309, 54);
             dateTimePickerFechaTareaInicio.Name = "dateTimePickerFechaTareaInicio";
-            dateTimePickerFechaTareaInicio.Size = new Size(238, 24);
+            dateTimePickerFechaTareaInicio.Size = new Size(209, 21);
             dateTimePickerFechaTareaInicio.TabIndex = 3;
             // 
             // label3
@@ -144,9 +138,9 @@
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(622, 35);
+            label3.Location = new Point(544, 26);
             label3.Name = "label3";
-            label3.Size = new Size(173, 20);
+            label3.Size = new Size(150, 17);
             label3.TabIndex = 2;
             label3.Text = "Fecha de finalizado";
             // 
@@ -155,20 +149,19 @@
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(353, 35);
+            label2.Location = new Point(309, 26);
             label2.Name = "label2";
-            label2.Size = new Size(137, 20);
+            label2.Size = new Size(118, 17);
             label2.TabIndex = 1;
             label2.Text = "Fecha de inicio";
             // 
             // textBoxNombreNuevaTarea
             // 
             textBoxNombreNuevaTarea.Font = new Font("Microsoft Sans Serif", 8.999999F, FontStyle.Bold);
-            textBoxNombreNuevaTarea.Location = new Point(23, 29);
-            textBoxNombreNuevaTarea.Margin = new Padding(3, 4, 3, 4);
+            textBoxNombreNuevaTarea.Location = new Point(20, 22);
             textBoxNombreNuevaTarea.Name = "textBoxNombreNuevaTarea";
             textBoxNombreNuevaTarea.PlaceholderText = "Nombre de la tarea";
-            textBoxNombreNuevaTarea.Size = new Size(189, 24);
+            textBoxNombreNuevaTarea.Size = new Size(166, 21);
             textBoxNombreNuevaTarea.TabIndex = 0;
             // 
             // label1
@@ -176,9 +169,9 @@
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Transparent;
-            label1.Location = new Point(336, 12);
+            label1.Location = new Point(294, 9);
             label1.Name = "label1";
-            label1.Size = new Size(225, 39);
+            label1.Size = new Size(182, 31);
             label1.TabIndex = 6;
             label1.Text = "Nueva Tarea";
             // 
@@ -186,10 +179,9 @@
             // 
             comboBoxProyectoNuevaTarea.Font = new Font("Microsoft Sans Serif", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             comboBoxProyectoNuevaTarea.FormattingEnabled = true;
-            comboBoxProyectoNuevaTarea.Location = new Point(14, 84);
-            comboBoxProyectoNuevaTarea.Margin = new Padding(3, 4, 3, 4);
+            comboBoxProyectoNuevaTarea.Location = new Point(12, 63);
             comboBoxProyectoNuevaTarea.Name = "comboBoxProyectoNuevaTarea";
-            comboBoxProyectoNuevaTarea.Size = new Size(212, 26);
+            comboBoxProyectoNuevaTarea.Size = new Size(186, 23);
             comboBoxProyectoNuevaTarea.TabIndex = 1;
             comboBoxProyectoNuevaTarea.SelectedIndexChanged += comboBoxProyectoNuevaTarea_SelectedIndexChanged;
             // 
@@ -198,10 +190,9 @@
             buttonCrearNuevaTarea.BackColor = Color.FromArgb(41, 195, 205);
             buttonCrearNuevaTarea.Font = new Font("Microsoft Sans Serif", 8.999999F, FontStyle.Bold);
             buttonCrearNuevaTarea.ForeColor = Color.White;
-            buttonCrearNuevaTarea.Location = new Point(783, 534);
-            buttonCrearNuevaTarea.Margin = new Padding(3, 4, 3, 4);
+            buttonCrearNuevaTarea.Location = new Point(685, 400);
             buttonCrearNuevaTarea.Name = "buttonCrearNuevaTarea";
-            buttonCrearNuevaTarea.Size = new Size(119, 31);
+            buttonCrearNuevaTarea.Size = new Size(104, 23);
             buttonCrearNuevaTarea.TabIndex = 7;
             buttonCrearNuevaTarea.Text = "Crear";
             buttonCrearNuevaTarea.UseVisualStyleBackColor = false;
@@ -212,10 +203,9 @@
             buttonCancelarTarea.BackColor = Color.FromArgb(245, 168, 125);
             buttonCancelarTarea.Font = new Font("Microsoft Sans Serif", 8.999999F, FontStyle.Bold);
             buttonCancelarTarea.ForeColor = Color.White;
-            buttonCancelarTarea.Location = new Point(661, 534);
-            buttonCancelarTarea.Margin = new Padding(3, 4, 3, 4);
+            buttonCancelarTarea.Location = new Point(578, 400);
             buttonCancelarTarea.Name = "buttonCancelarTarea";
-            buttonCancelarTarea.Size = new Size(119, 31);
+            buttonCancelarTarea.Size = new Size(104, 23);
             buttonCancelarTarea.TabIndex = 8;
             buttonCancelarTarea.Text = "Cancelar";
             buttonCancelarTarea.UseVisualStyleBackColor = false;
@@ -223,16 +213,16 @@
             // 
             // FormTareasTho2
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(41, 191, 225);
-            ClientSize = new Size(914, 572);
+            ClientSize = new Size(800, 429);
             Controls.Add(buttonCancelarTarea);
             Controls.Add(buttonCrearNuevaTarea);
             Controls.Add(comboBoxProyectoNuevaTarea);
             Controls.Add(label1);
             Controls.Add(groupBoxNuevaTarea);
-            Margin = new Padding(3, 4, 3, 4);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormTareasTho2";
             StartPosition = FormStartPosition.CenterParent;
             Text = "NuevaTarea";

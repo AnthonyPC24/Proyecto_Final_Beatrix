@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormReunionesDy2));
             labelNuevaReunion = new Label();
             textBoxAsunto = new TextBox();
             labelAsunto = new Label();
@@ -50,18 +51,17 @@
             labelNuevaReunion.AutoSize = true;
             labelNuevaReunion.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Bold | FontStyle.Italic);
             labelNuevaReunion.ForeColor = Color.White;
-            labelNuevaReunion.Location = new Point(160, 21);
+            labelNuevaReunion.Location = new Point(140, 16);
             labelNuevaReunion.Name = "labelNuevaReunion";
-            labelNuevaReunion.Size = new Size(266, 39);
+            labelNuevaReunion.Size = new Size(214, 31);
             labelNuevaReunion.TabIndex = 9;
             labelNuevaReunion.Text = "Nueva Reunión";
             // 
             // textBoxAsunto
             // 
-            textBoxAsunto.Location = new Point(48, 124);
-            textBoxAsunto.Margin = new Padding(3, 4, 3, 4);
+            textBoxAsunto.Location = new Point(42, 93);
             textBoxAsunto.Name = "textBoxAsunto";
-            textBoxAsunto.Size = new Size(483, 27);
+            textBoxAsunto.Size = new Size(423, 23);
             textBoxAsunto.TabIndex = 10;
             textBoxAsunto.TextChanged += textBoxAsunto_TextChanged;
             // 
@@ -70,9 +70,9 @@
             labelAsunto.AutoSize = true;
             labelAsunto.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelAsunto.ForeColor = Color.White;
-            labelAsunto.Location = new Point(48, 91);
+            labelAsunto.Location = new Point(42, 68);
             labelAsunto.Name = "labelAsunto";
-            labelAsunto.Size = new Size(86, 29);
+            labelAsunto.Size = new Size(69, 24);
             labelAsunto.TabIndex = 11;
             labelAsunto.Text = "Asunto";
             // 
@@ -81,9 +81,9 @@
             labelFechaHora.AutoSize = true;
             labelFechaHora.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelFechaHora.ForeColor = Color.White;
-            labelFechaHora.Location = new Point(48, 167);
+            labelFechaHora.Location = new Point(42, 125);
             labelFechaHora.Name = "labelFechaHora";
-            labelFechaHora.Size = new Size(155, 29);
+            labelFechaHora.Size = new Size(124, 24);
             labelFechaHora.TabIndex = 12;
             labelFechaHora.Text = "Fecha y Hora";
             // 
@@ -91,10 +91,9 @@
             // 
             dateTimePickerFechaHoraNuevaReunion.CustomFormat = "dd/MM/yyyy HH:mm";
             dateTimePickerFechaHoraNuevaReunion.Format = DateTimePickerFormat.Custom;
-            dateTimePickerFechaHoraNuevaReunion.Location = new Point(48, 200);
-            dateTimePickerFechaHoraNuevaReunion.Margin = new Padding(3, 4, 3, 4);
+            dateTimePickerFechaHoraNuevaReunion.Location = new Point(42, 150);
             dateTimePickerFechaHoraNuevaReunion.Name = "dateTimePickerFechaHoraNuevaReunion";
-            dateTimePickerFechaHoraNuevaReunion.Size = new Size(250, 27);
+            dateTimePickerFechaHoraNuevaReunion.Size = new Size(219, 23);
             dateTimePickerFechaHoraNuevaReunion.TabIndex = 13;
             // 
             // labelParticipantes
@@ -102,9 +101,9 @@
             labelParticipantes.AutoSize = true;
             labelParticipantes.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelParticipantes.ForeColor = Color.White;
-            labelParticipantes.Location = new Point(48, 243);
+            labelParticipantes.Location = new Point(42, 182);
             labelParticipantes.Name = "labelParticipantes";
-            labelParticipantes.Size = new Size(152, 29);
+            labelParticipantes.Size = new Size(116, 24);
             labelParticipantes.TabIndex = 14;
             labelParticipantes.Text = "Participantes";
             // 
@@ -127,9 +126,8 @@
             panelParaHoy.Controls.Add(labelNuevaReunion);
             panelParaHoy.Dock = DockStyle.Fill;
             panelParaHoy.Location = new Point(0, 0);
-            panelParaHoy.Margin = new Padding(3, 4, 3, 4);
             panelParaHoy.Name = "panelParaHoy";
-            panelParaHoy.Size = new Size(604, 561);
+            panelParaHoy.Size = new Size(528, 421);
             panelParaHoy.TabIndex = 7;
             // 
             // labelContador1
@@ -137,9 +135,9 @@
             labelContador1.AutoSize = true;
             labelContador1.Font = new Font("Microsoft Sans Serif", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelContador1.ForeColor = Color.White;
-            labelContador1.Location = new Point(537, 128);
+            labelContador1.Location = new Point(470, 96);
             labelContador1.Name = "labelContador1";
-            labelContador1.Size = new Size(40, 18);
+            labelContador1.Size = new Size(35, 15);
             labelContador1.TabIndex = 22;
             labelContador1.Text = "0/30";
             // 
@@ -148,9 +146,9 @@
             labelContador2.AutoSize = true;
             labelContador2.Font = new Font("Microsoft Sans Serif", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelContador2.ForeColor = Color.White;
-            labelContador2.Location = new Point(529, 471);
+            labelContador2.Location = new Point(463, 353);
             labelContador2.Name = "labelContador2";
-            labelContador2.Size = new Size(40, 18);
+            labelContador2.Size = new Size(35, 15);
             labelContador2.TabIndex = 21;
             labelContador2.Text = "0/60";
             // 
@@ -158,10 +156,9 @@
             // 
             checkedListBoxParticipantes.FormattingEnabled = true;
             checkedListBoxParticipantes.HorizontalScrollbar = true;
-            checkedListBoxParticipantes.Location = new Point(48, 276);
-            checkedListBoxParticipantes.Margin = new Padding(3, 4, 3, 4);
+            checkedListBoxParticipantes.Location = new Point(42, 207);
             checkedListBoxParticipantes.Name = "checkedListBoxParticipantes";
-            checkedListBoxParticipantes.Size = new Size(474, 114);
+            checkedListBoxParticipantes.Size = new Size(415, 76);
             checkedListBoxParticipantes.TabIndex = 20;
             // 
             // buttonCancelar
@@ -170,10 +167,9 @@
             buttonCancelar.Cursor = Cursors.Hand;
             buttonCancelar.Font = new Font("Microsoft Sans Serif", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonCancelar.ForeColor = Color.White;
-            buttonCancelar.Location = new Point(269, 504);
-            buttonCancelar.Margin = new Padding(3, 4, 3, 4);
+            buttonCancelar.Location = new Point(235, 378);
             buttonCancelar.Name = "buttonCancelar";
-            buttonCancelar.Size = new Size(119, 31);
+            buttonCancelar.Size = new Size(104, 23);
             buttonCancelar.TabIndex = 19;
             buttonCancelar.Text = "Cancelar";
             buttonCancelar.UseVisualStyleBackColor = false;
@@ -185,10 +181,9 @@
             buttonCrear.Cursor = Cursors.Hand;
             buttonCrear.Font = new Font("Microsoft Sans Serif", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonCrear.ForeColor = Color.White;
-            buttonCrear.Location = new Point(394, 504);
-            buttonCrear.Margin = new Padding(3, 4, 3, 4);
+            buttonCrear.Location = new Point(345, 378);
             buttonCrear.Name = "buttonCrear";
-            buttonCrear.Size = new Size(128, 31);
+            buttonCrear.Size = new Size(112, 23);
             buttonCrear.TabIndex = 18;
             buttonCrear.Text = "Crear";
             buttonCrear.UseVisualStyleBackColor = false;
@@ -199,30 +194,29 @@
             labelInformacion.AutoSize = true;
             labelInformacion.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelInformacion.ForeColor = Color.White;
-            labelInformacion.Location = new Point(48, 407);
+            labelInformacion.Location = new Point(42, 305);
             labelInformacion.Name = "labelInformacion";
-            labelInformacion.Size = new Size(138, 29);
+            labelInformacion.Size = new Size(108, 24);
             labelInformacion.TabIndex = 17;
             labelInformacion.Text = "Información";
             // 
             // richTextBoxInformacion
             // 
-            richTextBoxInformacion.Location = new Point(48, 440);
-            richTextBoxInformacion.Margin = new Padding(3, 4, 3, 4);
+            richTextBoxInformacion.Location = new Point(42, 330);
             richTextBoxInformacion.Name = "richTextBoxInformacion";
-            richTextBoxInformacion.Size = new Size(474, 56);
+            richTextBoxInformacion.Size = new Size(415, 43);
             richTextBoxInformacion.TabIndex = 16;
             richTextBoxInformacion.Text = "";
             richTextBoxInformacion.TextChanged += richTextBoxInformacion_TextChanged;
             // 
             // FormReunionesDy2
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
-            ClientSize = new Size(604, 561);
+            ClientSize = new Size(528, 421);
             Controls.Add(panelParaHoy);
-            Margin = new Padding(3, 4, 3, 4);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormReunionesDy2";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Nueva Reunión";
